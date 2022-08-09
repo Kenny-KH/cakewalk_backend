@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>로그인</title>
+</head>
+<body>
+
+    <!-- 중앙부 -->
+    <div class="outer_box">    
+    <!-- LOGIN 글자 -->
+    <div class="login_sign">LOGIN</div>
+        <div class="inner_box">
+            <div class="login_box">
+                <a href="#" class="user_login">사용자 로그인</a>
+                <a href="#" class="business_login">사업자 로그인</a>
+            </div>
+            <!-- 버튼 django로 기능 넣을 것 -->
+            <div class="login_notice">SNS로 간편하게 로그인하기</div>
+            <div class="login-box">
+                <a href="#"><img src="./banner/naver banner.png" class="naver_login"></a>
+                <a href="#"><img src="./banner/kakao_banner.png" class="kakao_login"></a>
+                <a><img class="google_login" src="./banner/google banner.png"></a>
+            </div>
+            <div class="without_login_box">
+                <div class="without_login">회원가입이 필요 없으신가요?</div>
+                <a href="#" class="without_login_start_btn">바로시작하기<i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/bab0b57cd2.js" crossorigin="anonymous"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v14.0" nonce="8fQPy67z"></script>
+</html>

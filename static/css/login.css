@@ -1,0 +1,117 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+    background-color: #f9f9f9;
+    width: auto;
+    justify-content: space-evenly;
+}
+
+.login_sign {
+    text-align: center;
+    font-size: 30px;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.outer_box {
+    margin-top: 5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_box {
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    width: 400px;
+    height: 550px;
+}
+
+.login_box {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem
+}
+
+.login_notice {
+    margin-top: 2rem;
+    font-size: small;
+    color: rgba(0,0,0,0.6);
+    margin-bottom: 1rem;
+}
+
+.naver_login {
+    width: 60%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.google_login {
+    width: 62%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.kakao_login {
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.login_box {
+    display: flex;
+}
+
+
+.without_login_box {
+    display: flex;
+}
+
+.without_login {
+    margin-left: auto;
+    font-size: small;
+    color: rgba(0,0,0,0.6);
+}
+
+.without_login_start_btn {
+    margin-right: auto;
+    margin-left: 0.2rem;
+    text-decoration-line: none;
+    font-size: small;
+    color: rgba(0,0,0,0.6);
+}
+
+.user_login, .without_login_start_btn, .business_login, .kakao_login {
+    text-decoration: none;
+    color: inherit;
+}
+.naver_login, .facebook_login, .google_login {
+    text-decoration: none;
+}
+
+.fa-solid {
+    font-weight: 100;
+}
+

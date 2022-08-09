@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/business-login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>로그인</title>
+</head>
+<body>
+
+    <!-- 중앙부 -->
+    <div class="outer_box">    
+    <!-- LOGIN 글자 -->
+    <div class="login_sign">LOGIN</div>
+        <div class="inner_box">
+            <div class="selection_box">
+                <a href="#" class="user_login">사용자 로그인</a>
+                <a href="#" class="business_login">사업자 로그인</a>
+            </div>
+            <div class="login_box">
+                <input class="business_number" placeholder="사업자 등록번호를 입력하세요" />
+                <input class="business_password" placeholder="비밀번호를 입력하세요" />
+                <div class="sub_bar">
+                    <div class="login_checkBox">
+                        <input type="checkbox" id="login_status" name="로그인 상태 유지" value="login">
+                        <label for="login">로그인 상태 유지</label>
+                    </div>
+                    <a href="#" class="find_account">아이디/비밀번호 찾기</a>
+                </div>
+                <button class="login_btn">로그인</button>
+                <button class="business_signup_btn">사업자 회원가입</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/bab0b57cd2.js" crossorigin="anonymous"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v14.0" nonce="8fQPy67z"></script>
+</html>
