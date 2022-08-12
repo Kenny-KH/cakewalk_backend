@@ -1,17 +1,35 @@
 {% load static%}
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
-
+    <link rel="stylesheet" href="{% static 'css/css_reset.css' %}" />
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
     <nav class="headernav">
-        <img class="logo" src="{% static 'img/logo.png' %}"></img>
+        <img class="logo" src="{% static 'img/logo.png' %}" onclick="location.href='{% url 'home' %}'"></img>
         <div class="navbar">
             <div class="nav_item">MAKE</div>
             <div class="nav_item">CAKE</div>
+
+            {% if user.is_authenticated %}
             <div class="nav_item">마이페이지</div>
-            <div class="nav_item">LOGOUT</div>
-            <div class="nav_item"><img src="{% static 'img/nav_start.png' %}""></div>
+            <div class="nav_item" onclick="location.href='{% url 'logout' %}'">LOGOUT</div>
+            <div class="nav_item"><img src="{% static 'img/nav_star.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_heart.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_bell.png' %}"></div>
+            {% else %}
+            <div class="nav_item" onclick="location.href='{% url 'login' %}'">로그인</div>
+            {% endif %}
         </div>
     </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

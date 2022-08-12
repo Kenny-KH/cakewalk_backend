@@ -1,50 +1,80 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS -->
-    <link href="{% static 'css/business-signup.css' %}" rel="stylesheet" type="text/css">
+    <link
+      href="{% static 'css/business-signup.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
     <title>사업자 회원가입</title>
-</head>
-<body>
+  </head>
+  <body>
+    <form action="{% url 'business-signup' %}" method="post">
+        {% csrf_token %}
     <!-- 중앙 흰색 박스 -->
     <div class="outer-box">
-        <div class="title">사업자 회원가입</div>
-        <div class="business-number-input-box">
-            <input class="business-number-input" placeholder="사업자등록번호를 입력하세요">
-            <button class="business-number-input-btn">등록확인</button>
+      <div class="title">사업자 회원가입</div>
+      <div class="business-number-input-box">
+        <input
+          class="business-number-input"
+          name="business_num"
+          placeholder="사업자등록번호를 입력하세요"
+        />
+        <!-- <button class="business-number-input-btn">등록확인</button> -->
+      </div>
+      <input
+        class="input-password"
+        name="password"
+        placeholder="비밀번호를 입력하세요 (영문+숫자, 8~20자)"
+      />
+      <!-- 비밀번호 이중 보안 -->
+      <input
+        class="input-password-check"
+        name="password2"
+        placeholder="비밀번호를 다시 입력하세요"
+      />
+      <input
+        class="input-email"
+        name="email"
+        placeholder="이메일을 입력하세요"
+      />
+      <input class="input-name" name="name" placeholder="이름" />
+      <div class="input-phoneNum-box">
+        <input class="input-phoneNum" name="tel" placeholder="전화번호" />
+        <!-- <button class="phoneNum-verify">인증</button> -->
+      </div>
+      <div class="checkBoxes">
+        <div>
+          <input type="checkbox" id="agree-all" name="agree-all" />
+          <label for="agree-all">전체 약관에 동의합니다</label>
         </div>
-        <input class="input-password" placeholder="비밀번호를 입력하세요 (영문+숫자, 8~20자)">
-        <!-- 비밀번호 이중 보안 -->
-        <input class="input-password-check" placeholder="비밀번호를 다시 입력하세요">
-        <input class="input-email" placeholder="이메일을 입력하세요">
-        <input class="input-name" placeholder="이름">
-        <div class="input-phoneNum-box">
-            <input class="input-phoneNum" placeholder="전화번호">
-            <button class="phoneNum-verify">인증</button>
+        <div>
+          <input type="checkbox" id="must-agree" name="msut-agree" />
+          <label class="must-agree" for="must-agree"
+            >필수항목에 동의합니다</label
+          >
+          <!-- <a href="#" >사업자 사이트 이용약관</a> -->
         </div>
-        <div class="checkBoxes">
-            <div>
-                <input type="checkbox" id="agree-all" name="agree-all">
-                <label for="agree-all">전체 약관에 동의합니다</label>
-            </div>
-            <div>
-                <input type="checkbox" id="must-agree" name="msut-agree">
-                <label class="must-agree" for="must-agree">필수항목에 동의합니다</label>
-                <!-- <a href="#" >사업자 사이트 이용약관</a> -->
-            </div>
-            <div>
-                <input type="checkbox" id="ad-agree" name="ad-agree">
-                <label class="ad-agree" for="ad-agree">광고성 정보 수신 동의(선택)</label>
-            </div>
+        <div>
+          <input type="checkbox" id="ad-agree" name="ad-agree" />
+          <label class="ad-agree" for="ad-agree"
+            >광고성 정보 수신 동의(선택)</label
+          >
         </div>
-        <button class="signup-btn">회원가입 완료</button>
+      </div>
+      <button class="signup-btn" type="submit">회원가입 완료</button>
     </div>
-</body>
+  </body>
+</form>
 </html>
