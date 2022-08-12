@@ -22,9 +22,11 @@
                 <a href="#" class="user_login">사용자 로그인</a>
                 <a href="#" class="business_login">사업자 로그인</a>
             </div>
+            <form action="{%url 'business-login' %}" method="post">
+                {% csrf_token %}
             <div class="login_box">
-                <input class="business_number" placeholder="사업자 등록번호를 입력하세요" />
-                <input class="business_password" placeholder="비밀번호를 입력하세요" />
+                <input class="business_number" name="email" placeholder="이메일을 입력하세요" />
+                <input type="password" class="business_password" name="password" placeholder="비밀번호를 입력하세요" />
                 <div class="sub_bar">
                     <div class="login_checkBox">
                         <input type="checkbox" id="login_status" name="로그인 상태 유지" value="login">
@@ -32,8 +34,9 @@
                     </div>
                     <a href="#" class="find_account">아이디/비밀번호 찾기</a>
                 </div>
-                <button class="login_btn">로그인</button>
-                <button class="business_signup_btn">사업자 회원가입</button>
+                <button class="login_btn" type="submit">로그인</button>
+                <button class="business_signup_btn" onclick="location.href='{% url 'business-signup' }'">사업자 회원가입</button>
+            </form>
             </div>
         </div>
     </div>

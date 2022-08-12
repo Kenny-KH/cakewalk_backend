@@ -1,0 +1,60 @@
+nav {
+  padding: 41px 41.3px 0px 41.3px;
+  width: 269px;
+  height: 100%;
+  background-color: rgba(248, 187, 208, 0.42);
+}
+
+.profile-img {
+  display: block;
+  margin: 0 auto;
+  width: 90px;
+  height: 90px;
+}
+
+.shop-name {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+.shop-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 168px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.shop-info span {
+  width: 135px;
+  color: #8a8a8a;
+}
+
+span .fa-solid,
+span .fa-brands {
+  color: #8a8a8a;
+  margin-right: 8px;
+}
+
+.nav-wrap {
+  padding: 0;
+  list-style: none;
+  margin-top: 36px;
+}
+
+.nav-li {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.nav-li:nth-child(1) {
+  background-color: #e6ccd5;
+}

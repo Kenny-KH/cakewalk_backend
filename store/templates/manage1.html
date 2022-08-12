@@ -19,36 +19,11 @@
     ></script>
     <script src="{% static 'js/manager1.js' %}" defer></script>
   </head>
-  {% include "base.html" %} {% block content %} {% endblock %}
+
   <body>
+    {% include "base.html" %} {% block content %} {% endblock %}
     <main>
-      <nav>
-        <img
-          class="profile-img"
-          src="./src/img/shop_main.png"
-          alt="human_profile"
-        />
-        <span class="shop-name">ㅇㅇ가게</span>
-        <div class="shop-info">
-          <span class="shop-address"
-            ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-          >
-          <span><i class="fa-brands fa-instagram"></i>@abcd</span>
-          <span><i class="fa-solid fa-phone"></i>010-0000-0000</span>
-          <span class="shop-time"
-            ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-          >
-        </div>
-        <ul class="nav-wrap">
-          <li class="nav-li">주문 관리</li>
-          <li class="nav-li">가게 관리</li>
-          <li class="nav-li">도안 관리</li>
-          <li class="nav-li">리뷰 관리</li>
-          <li class="nav-li">1:1 문의 관리</li>
-          <li class="nav-li">가게정보 설정</li>
-          <li class="nav-li">MY TALK</li>
-        </ul>
-      </nav>
+      {% include "store_base.html" %} {% block profile %} {% endblock %}
       <section>
         <div class="container">
           <h1 class="title">주문 관리</h1>

@@ -4,6 +4,16 @@ from .models import Store
 from django.utils import timezone
 # Create your views here.
 
-def managePage(request):
-    return render(request,'manage_page.html')
+def manage1(request):
+    return render(request,'manage1.html')
+
+def manage2(request):
+    return render(request,'manage2.html')
+
+def manage6(request):
+    return render(request,'manage6.html')
+
+def detail(request):
+    return render(request,'store_info.html')
+
 

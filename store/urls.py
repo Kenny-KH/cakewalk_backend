@@ -7,5 +7,8 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('manage', views.managePage, name="storeManagePage"),
+    path('manage', views.manage1, name="storeManage1"),
+    path('manage2', views.manage2, name="storeManage2"),
+    path('manage6', views.manage6, name="storeManage6"),
+    path('detail', views.detail, name="storeDetail"),
 ] 
