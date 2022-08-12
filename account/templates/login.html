@@ -28,10 +28,8 @@
         <div class="login_sign">LOGIN</div>
         <div class="inner_box">
           <div class="login_box">
-            <a href="#" class="user_login">사용자 로그인</a>
-            <a href="{% url 'businessLogin' %}" class="business_login"
-              >사업자 로그인</a
-            >
+            <a href="{% url 'login' %}" class="user_login">사용자 로그인</a>
+            <a href="{% url 'businessLogin' %}" class="business_login">사업자 로그인</a>
           </div>
           <!-- 버튼 django로 기능 넣을 것 -->
           <div class="login_notice">SNS로 간편하게 로그인하기</div>
@@ -41,11 +39,13 @@
                 src="{% static 'img/naver banner.png' %}"
                 class="naver_login"
             /></a>
-            <a href="#"
-              ><img
+            <a href="{% url 'kakaoLogin' %}">
+              <img
                 src="{% static 'img/kakao_banner.png' %}"
                 class="kakao_login"
-            /></a>
+              />
+            </a>
+
             <a href="#"
               ><img
                 class="google_login"
