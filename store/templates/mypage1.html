@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link link rel="stylesheet" type="text/css" href="./src/css/mypage1.css" />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/d35df90ac6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/js/mypage1.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="logoImg" src="./src/img/logo.png" />
+      <ul class="header-ul">
+        <li class="header-li">MAKE</li>
+        <li class="header-li">CAKE</li>
+        <li class="header-li">MYPAGE</li>
+        <li class="header-li">LOGOUT</li>
+      </ul>
+    </header>
+    <main>
+      <nav>
+        <img class="profile-img" src="./src/img/human.png" alt="human_profile" />
+        <span class="use-name">ㅇㅇ 님</span>
+        <hr class="use-name-under" />
+        <span class="my-walk">MY WALK</span>
+        <ul class="nav-wrap">
+          <li class="nav-li">도안</li>
+          <li class="nav-li">작성 후기</li>
+          <li class="nav-li">1:1 문의</li>
+          <li class="nav-li">회원정보 수정</li>
+          <li class="nav-li">MY TALK</li>
+        </ul>
+      </nav>
+      <section>
+        <div class="container">
+          <div class="setting-header">
+            <h1 class="title">최근에 본 케이크</h1>
+            <div class="show-btns">
+              <div class="btn-wrap">
+                <button class="show-btn" id="point">P</button>
+                <span>포인트></span>
+                <span class="point-score">100</span>
+              </div>
+              <div class="btn-wrap">
+                <button class="show-btn" id="coupon">C</button>
+                <span>쿠폰></span>
+                <span class="coupon-score">2</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="main-under" />
+          <div class="cakes-wrap">
+            <div class="cakes">
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake1.png"
+                  alt="cake1photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake2.png"
+                  alt="cake2photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake3.png"
+                  alt="cake3photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake4.png"
+                  alt="cake4photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake1.png"
+                  alt="cake5photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake2.png"
+                  alt="cake6photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <div class="class=" cake-photo></div>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake3.png"
+                  alt="cake7photo"
+                />
+              </div>
+              <div class="cake-wrap">
+                <span class="cake-shop">likelion bakery 도안</span>
+                <img
+                  class="cake-photo"
+                  src="./src/img/cake4.png"
+                  alt="cake8photo"
+                />
+              </div>
+            </div>
+            <button class="left-btn">
+              <i class="fa-solid fa-caret-left fa-3x"></i>
+            </button>
+            <button class="right-btn">
+              <i class="fa-solid fa-caret-right fa-3x"></i>
+            </button>
+          </div>
+          <hr class="main-under" />
+
+          <div class="info-wrap">
+            <div class="info-like-wrap">
+              <div class="info-title-wrap">
+                <h2 class="info-title">좋아요 한 케이크</h2>
+                <button class="add-btn" id="like">
+                  <i class="fa-solid fa-plus fa-2x"></i>
+                </button>
+              </div>
+              <div class="info-img-wrap">
+                <img class="info-img" src="./src/img/cake1.png" alt="cake1" />
+                <img class="info-img" src="./src/img/cake2.png" alt="cake2" />
+                <img class="info-img" src="./src/img/cake3.png" alt="cake3" />
+                <img class="info-img" src="./src/img/cake4.png" alt="cake4" />
+              </div>
+            </div>
+            <div class="info-like-wrap">
+              <div class="info-title-wrap">
+                <h2 class="info-title">즐겨찾기 가게</h2>
+                <button class="add-btn" id="bookmark">
+                  <i class="fa-solid fa-plus fa-2x"></i>
+                </button>
+              </div>
+              <div class="info-img-wrap">
+                <img class="info-img" src="./src/img/cake1.png" alt="cake1" />
+                <img class="info-img" src="./src/img/cake2.png" alt="cake2" />
+                <img class="info-img" src="./src/img/cake3.png" alt="cake3" />
+                <img class="info-img" src="./src/img/cake4.png" alt="cake4" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

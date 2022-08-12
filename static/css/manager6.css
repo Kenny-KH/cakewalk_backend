@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 4.063rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3.125rem;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
+}
+
+.headerBottom {
+  border-bottom: 1px solid #e5e8eb;
+}
+
+.logoImg {
+  width: 100px;
+  height: 60px;
+}
+
+.header-ul {
+  display: flex;
+  margin: 0;
+  list-style: none;
+}
+
+.header-li {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+}
+
+nav {
+  float: left;
+  position: absolute;
+  padding: 47px 41.3px 0px 41.3px;
+  width: 269px;
+  height: 100%;
+  background-color: rgba(248, 187, 208, 0.42);
+}
+
+.profile-img {
+  display: block;
+  margin: 0 auto;
+  width: 90px;
+  height: 90px;
+}
+
+.shop-name {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 30px;
+}
+
+.shop-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 168px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.shop-info span {
+  width: 135px;
+  color: #8A8A8A;
+}
+
+span .fa-solid, span .fa-brands {
+  color: #8A8A8A;
+  margin-right: 8px;
+}
+
+.nav-wrap {
+  padding: 0;
+  list-style: none;
+  margin-top: 36px;
+}
+
+.nav-li {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.nav-li:nth-child(6) {
+  background-color: #E6CCD5;
+}
+
+main {
+  padding-top: 65px;
+  overflow: hidden;
+  position: relative;
+}
+
+section {
+  margin-left: 269px;
+  padding-bottom: 66px;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* 메인 */
+.title {
+  font-size: 32px;
+  margin-top: 108px;
+  margin-bottom: 0;
+}
+
+.time-wrap {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  color: #767676;
+  margin-top: 34px;
+  margin-bottom: 17px;
+}
+
+.time {
+  padding: 0 11px;
+  border-right: 1.5px solid #767676;
+  cursor: pointer;
+}
+
+.time:nth-child(4) {
+  font-weight: bold;
+  color: black;
+  border-right: none;
+}
+
+.talk-wrap-text {
+  text-align: center;
+  padding: 13px 0;
+  border-top: 1px solid #515151;
+  border-bottom: 1px solid #515151;
+}
+
+.talks {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 51px;
+  padding-bottom: 42px;
+  border-bottom: 1px solid #D9D9D9;
+  margin-bottom: 51px;
+}
+
+.talk {
+  display: flex;
+  width: 900px;
+  height: 87px;
+  margin-bottom: 23px;
+  background-color: #FEF4F7;
+  border-radius: 15px;
+}
+
+.talk:nth-child(4) {
+  margin-bottom: 0px;
+}
+
+.img-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.talk img {
+  width: 71px;
+  height: 71px;
+  margin-left: 20px;
+}
+
+.human-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+  font-size: 15px;
+  margin-right: 36px;
+}
+
+.cake-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 13px;
+  color: #808080;
+}
+
+.cake-info-wrap {
+  border-left: 1px solid #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  padding-left: 13px;
+}
+
+.pages {
+  text-align: center;
+}
+
+.page-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

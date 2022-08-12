@@ -17,4 +17,3 @@ class Store(models.Model):
     address = models.TextField()
     registeration = models.ImageField()
     report = models.ImageField()
-    

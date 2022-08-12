@@ -1,0 +1,138 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.inner_box {
+    margin-top: 5rem;
+    text-align: center;
+    background-color: white;
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile_name {
+    width: 14rem;
+}
+
+.profile_name_box {
+    width: 18rem;
+    height: 2.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.6rem;
+    text-align: start;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+input:focus {
+    outline:inherit
+}
+
+input {
+    border: 0 solid black;
+}
+
+/* 중복확인 버튼 */
+.profile_name_check_btn {
+    margin-left: 2px;
+    margin-top: 1px;
+    background-color: #ffe5e5;
+    width: 4rem;
+    height: 1.8rem;
+    border: 0 solid black;
+    cursor: pointer;
+    display: table-cell;
+    position: relative;
+    top: 4px;
+}
+
+.profile_name, .profile_name_check_btn, .profile_number, .profile_number, .profile_address, .profile_address_search_btn {
+    font-size: small;
+}
+
+.profile_settings {
+    font-size: 25px;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 프사 */
+.profile_photo_img{
+    width: 8rem;
+    height: 8rem;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 50%;
+}
+
+/* 프사 변경 버튼 */
+.profile_photo_change_btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    position: relative;
+    top: -28px;
+    right: -95px;
+    cursor: pointer;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.profile_number {
+    width: 18rem;
+    height: 2.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.6rem;
+}
+
+.profile_address_box {
+    width: 18rem;
+    height: 2.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;justify-content: space-between;
+}
+
+.profile_address_search_btn {
+    margin-left: 4px;
+    margin-top: 1px;
+    width: 4rem;
+    height: 1.9rem;
+    justify-content: center;
+    text-align: center;
+    border: 0 solid black;
+    cursor: pointer;
+}
+
+/* 설정완료 */
+.profile_settings_btn {
+    width: 6rem;
+    height: 2.3rem;
+    border: 0 solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 4rem;
+    background-color: #fdfdfd;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}

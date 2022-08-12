@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+
+section {
+    /* margin-left: 269px;
+    padding-bottom: 66px; */
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.title {
+    margin-bottom: 46px;
+    margin-top: 108px;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.options-wrap {
+    padding-left: 47px;
+}
+
+.option-title {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.options {
+    width: 860px;
+    height: 618px;
+    margin-top: 18px;
+    margin-bottom: 42px;
+    border-top: 1px solid #767676;
+    border-bottom: 1px solid #767676;
+}
+
+.option-wrap {
+    display: flex;
+}
+
+.option-wrap:nth-child(1) {
+    height: 112px;
+    border-bottom: 1px solid rgb(118, 118, 118, 0.3);
+}
+
+.option-name {
+    width: 214px;
+    padding-top: 28px;
+    padding-left: 19px;
+}
+
+.notice {
+    resize: none;
+    width: 631px;
+    height: 94px;
+    padding: 3px 13px;
+    background: #F4F4F4;
+    border-radius: 10px;
+    border: none;
+}
+
+.option-detail-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.cake-detail-wrap:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-cake-wrap {
+    display: flex;
+    align-items: center;
+    height: 278px;
+    border-bottom: 1px solid rgb(118, 118, 118, 0.3);
+}
+
+.update-cake {
+    width: 260px;
+    height: 260px;
+    background-color: tomato;
+    margin-right: 11px;
+}
+
+.update-cake-info {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+}
+
+.cake-name-input {
+    width: 100%;
+    height: 33px;
+    background: #F4F4F4;
+    border-radius: 5px;
+    border: none;
+}
+
+.update-cake-price {
+    display: flex;
+    width: 100%;
+    height: 81px;
+    margin: 9px 0;
+    border: 1px solid black;
+}
+
+.update-cake-price span {
+    /* float: left; */
+    margin: 5px 8px;
+}
+
+.input-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 296px;
+    /* float: right; */
+}
+
+label {
+    width: 32px;
+}
+
+.size {
+    margin-left: 0;
+    margin-right: 6px;
+}
+
+.size:nth-child(even) {
+    margin-left: 7px;
+}
+
+.price-input {
+    width: 93px;
+    height: 30px;
+    background: #F4F4F4;
+    border: none;
+}
+
+.cake-notice {
+    width: 100%;
+    height: 128px;
+    background: #F4F4F4;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+
+.cake-list {
+    width: 645px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin-top: 9px;
+    margin-bottom: 0;
+}
+
+.cake-photo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #767676;
+    margin-right: 9px;
+    margin-bottom: 9px;
+}
+
+.cake-photo:nth-child(6n) {
+    margin-right: 0px;
+}
+
+.cake-photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.add-btn {
+    width: 100px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+.fa-plus {
+    color: #7B7B7B;
+}
+
+.update-btn {
+    display: block;
+    margin: 0 auto;
+    width: 103px;
+    height: 30px;
+    background-color: #FFFFFF;
+    padding: 4px 20px;
+    border: 1px solid #000000;
+}
