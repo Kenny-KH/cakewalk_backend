@@ -41,7 +41,7 @@ def businessSignup(request):
             # user 객체를 생성
             user = User.objects.create_superuser(business_num, name, tel, email, password = request.POST['password'])
             auth.login(request, user)
-            return redirect('/')
+            return redirect('/business-signup-detail')
         else:
             messages.warning(request, "권한이 없습니다.")
     return render(request, 'business-signup.html')
