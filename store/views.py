@@ -22,3 +22,5 @@ def detail(request):
     return render(request,'store_info.html')
 
 
+def watchStore(request):
+    return render(request, 'watch_store.html')

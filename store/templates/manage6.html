@@ -1,5 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-<title>Document</title>
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<title>채팅창</title>
 <link
   link
   rel="stylesheet"
@@ -55,7 +57,7 @@
             </div>
             <div class="talk">
               <div class="img-wrap">
-                <img src="./src/img/shop_main.png" alt="profile" />
+                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
               </div>
               <div class="human-info">
                 <span class="name">양희주</span>
@@ -75,7 +77,7 @@
             </div>
             <div class="talk">
               <div class="img-wrap">
-                <img src="./src/img/shop_main.png" alt="profile" />
+                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
               </div>
               <div class="human-info">
                 <span class="name">양희주</span>
@@ -95,7 +97,7 @@
             </div>
             <div class="talk">
               <div class="img-wrap">
-                <img src="./src/img/shop_main.png" alt="profile" />
+                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
               </div>
               <div class="human-info">
                 <span class="name">양희주</span>
@@ -122,6 +124,4 @@
         </div>
       </div>
     </section>
-  </main>
-</div>
 {% endblock %}

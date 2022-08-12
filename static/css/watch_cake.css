@@ -1,23 +1,31 @@
 .b_watch {
+  margin-top: 3rem;
+  color: black;
   height: 4rem;
   display: flex;
   justify-content: center;
 }
 
 .b_watch_item {
+  color: black;
   padding: 1rem;
-  border-bottom: 2px solid #ccc;
-  color: #ccc;
+  border: 0px solid black;
+  background-color: white;
+  border-bottom: 2px solid #dbdbdb;
+  cursor: pointer;
 }
 .b_watch_item_active {
   color: black;
   border-bottom: 2px solid black;
+  cursor: pointer;
 }
 
 .hash {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .hash1 {
@@ -29,7 +37,7 @@
 
 .sorting {
   display: flex;
-  margin-left: 65%;
+  margin-left: 75%;
   flex-direction: row;
   justify-content: flex-end;
 }
@@ -66,7 +74,7 @@
   margin: 0 5px 26px 5px;
 }
 
-img {
+.cake_img {
   width: 450px;
   height: 450px;
 }
