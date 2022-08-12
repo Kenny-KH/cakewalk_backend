@@ -1,0 +1,403 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  position: relative;
+  margin: 0;
+}
+
+.color {
+  background-color: rgba(217, 217, 217, 0.5);
+}
+
+.all {
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  margin: 0 auto;
+  margin-top: 13px;
+  margin-left: 29px;
+}
+
+.storenotice {
+  font-size: 18px;
+  margin: 15px;
+}
+
+.storetext {
+  font-size: 15px;
+}
+
+#map {
+  width: 415px;
+  height: 383px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.store {
+  display: flex;
+  flex-direction: row;
+  width: 415px;
+  height: 73px;
+  border-radius: 5px;
+  background-color: #ffe5e5;
+  margin: 0 25px;
+  /* margin-top: 105px; */
+}
+
+.scroll {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  height: 112px; /* 스크롤바의 길이 */
+  background: #d9d9d9; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transfer; /*스크롤바 뒷 배경 색상*/
+}
+
+.mystore {
+  margin-bottom: 10px;
+}
+
+.storebox {
+  border: 1px solid;
+  border-radius: 10px;
+  width: 399px;
+  height: 93px;
+  border-color: #dbdbdb;
+  margin-top: 0px;
+}
+.cakelogo {
+  width: 77px;
+  border-radius: 100%;
+  margin-right: 25px;
+  margin-left: 33px;
+}
+
+.storewrap {
+  display: flex;
+  flex-direction: row;
+  height: 93px;
+  align-items: center;
+}
+
+.storetextwrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.storeclose {
+  margin: 20px 30px;
+}
+
+.storename {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.storeinfo {
+  font-size: 12px;
+}
+
+.store-info-line {
+  /* width: 270px; */
+  display: flex;
+  justify-content: space-between;
+  /* margin-left: 9px; */
+}
+
+/* .store-info-second-line {
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
+} */
+
+.store-info-insta {
+  width: 125px;
+  margin-left: 22px;
+}
+
+.store-info-time {
+  width: 125px;
+  margin-left: 8px;
+}
+
+i {
+  color: #8A8A8A;
+}
+
+.optionWrap {
+  display: flex;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.optionWrap:nth-child(1) {
+  flex-direction: column;
+}
+
+.option {
+  width: 480px;
+}
+
+.optionTitleWrap {
+  display: flex;
+}
+
+
+.optionNumber {
+  font-size: 60px;
+  color: #767676;
+  margin-right: 9px;
+}
+
+.optionTextWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.optionText {
+  font-size: 20px;
+}
+
+.optionSubText {
+  font-size: 15px;
+  color: #515151;
+  margin: 0;
+}
+
+.optionContents {
+  width: 433px;
+  margin-left: 29px;
+  margin-top: 8px;
+}
+
+.fileLabel {
+  width: 108px;
+  height: 32px;
+  background-color: #ffe5e5;
+  cursor: pointer;
+  padding: 4px 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.fileInput {
+  visibility: hidden;
+  width: 0px;
+}
+
+.fileName {
+  display: inline-block;
+  width: 315px;
+  height: 32px;
+  padding: 0 10px;
+  color: #999999;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+}
+
+.requireTextarea {
+  width: 100%;
+  height: 98px;
+  resize: none;
+  margin-top: 10px;
+  background-color: #efeded;
+  border: none;
+  padding-top: 9px;
+  padding-left: 16px;
+}
+
+.requireTextarea:focus {
+  outline: none;
+}
+
+.attachedImgDiv {
+  width: 100%;
+  height: 267px;
+  margin-top: 11px;
+  background-color: #efeded;
+}
+
+.detailOptionWrap {
+  width: 417px;
+  height: 346px;
+  border: 1px solid #dbdbdb;
+  box-sizing: border-box;
+}
+
+.detailOption {
+  padding: 32px 45px 0 44px;
+}
+
+.detailOptionText {
+  display: block;
+}
+
+.size {
+  display: flex;
+}
+
+.text {
+  display: inline-block;
+  width: 110px;
+}
+
+.radioBtnForm {
+  display: inline;
+}
+
+.radioBtn {
+  margin-left: 0
+}
+
+.detailOptionSubText {
+  font-size: 13px;
+  text-align: right;
+}
+
+.taste {
+  display: flex;
+  margin-top: 16px;
+}
+
+select {
+  width: 212px;
+}
+
+.adtnlOptionWrap {
+  display: flex;
+  margin-top: 17px;
+}
+
+.adtnlOptionWrap span {
+  padding-left: 7px;
+}
+
+.checkBtnForm {
+  /* margin-left: 34px; */
+}
+
+.checkLabel {
+  display: block;
+}
+
+.countInput {
+  width: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.countInput:focus {
+  outline: none;
+}
+
+.detailOptionText {
+}
+
+.detailOptionSubText {
+  font-size: 13px;
+  text-align: right;
+}
+
+.request {
+  display: block;
+  margin: 0 auto;
+  margin-top: 52px;
+  width: 394px;
+  height: 98px;
+  background-color: #EFEDED;
+  font-size: 18px;
+  padding-top: 7px;
+  padding-left: 23px;
+  border: none;
+  resize: none;
+}
+
+.request::placeholder {
+  color: black;
+  font-size: 18px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.orderBtn {
+  width: 417px;
+  height: 56px;
+  background-color: #ffe5e5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 19px;
+  box-sizing: border-box;
+  margin-top: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-wrap {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  padding: 57px 60px;
+  width: 584px;
+  height: 499px;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 10;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.modal-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.modal-text {
+  margin-top: 76px;
+  font-size: 25px;
+}
+
+.confirm-btn {
+  width: 100px;
+  height: 56px;
+  border: none;
+  background-color: #FFE5E5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 23px;
+  cursor: pointer;
+}
