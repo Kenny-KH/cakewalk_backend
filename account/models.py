@@ -15,6 +15,7 @@ class BsSignupDetail(models.Model):
     registeration = models.ImageField()
     report = models.ImageField()
     
+    
 from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
 from django.db import models
 

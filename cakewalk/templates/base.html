@@ -14,8 +14,8 @@
     <nav class="headernav">
         <img class="logo" src="{% static 'img/logo.png' %}" onclick="location.href='{% url 'home' %}'"></img>
         <div class="navbar">
-            <div class="nav_item">MAKE</div>
-            <div class="nav_item">CAKE</div>
+            <div class="nav_item" onclick="location.href='{% url 'make' %}'">MAKE</div>
+            <div class="nav_item" onclick="location.href='{% url 'watch_cake' %}'">CAKE</div>
 
             {% if user.is_authenticated %}
             <div class="nav_item">마이페이지</div>

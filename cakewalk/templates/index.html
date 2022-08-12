@@ -45,8 +45,12 @@
     <div class="circle pink"></div>
   </div>
   <div class="middle-btn-wrap">
-    <button class="make-btn-first">처음부터 만들기</button>
-    <button class="make-btn">도안보고 만들기</button>
+    <button class="make-btn-first" onclick="location.href='{% url 'make' %}'">
+      처음부터 만들기
+    </button>
+    <button class="make-btn" onclick="location.href='{% url 'watch_cake' %}'">
+      도안보고 만들기
+    </button>
   </div>
   <div class="circle-wrap">
     <div class="circle yellow"></div>
