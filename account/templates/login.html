@@ -1,11 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/business-login.css">
+    <link rel="stylesheet" href="./src/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -18,22 +17,20 @@
     <!-- LOGIN 글자 -->
     <div class="login_sign">LOGIN</div>
         <div class="inner_box">
-            <div class="selection_box">
+            <div class="login_box">
                 <a href="#" class="user_login">사용자 로그인</a>
                 <a href="#" class="business_login">사업자 로그인</a>
             </div>
-            <div class="login_box">
-                <input class="business_number" placeholder="사업자 등록번호를 입력하세요" />
-                <input class="business_password" placeholder="비밀번호를 입력하세요" />
-                <div class="sub_bar">
-                    <div class="login_checkBox">
-                        <input type="checkbox" id="login_status" name="로그인 상태 유지" value="login">
-                        <label for="login">로그인 상태 유지</label>
-                    </div>
-                    <a href="#" class="find_account">아이디/비밀번호 찾기</a>
-                </div>
-                <button class="login_btn">로그인</button>
-                <button class="business_signup_btn">사업자 회원가입</button>
+            <!-- 버튼 django로 기능 넣을 것 -->
+            <div class="login_notice">SNS로 간편하게 로그인하기</div>
+            <div class="login-box">
+                <a href="#"><img src="./src/img/naver banner.png" class="naver_login"></a>
+                <a href="#"><img src="./src/img/kakao_banner.png" class="kakao_login"></a>
+                <a><img class="google_login" src="./src/img/google banner.png"></a>
+            </div>
+            <div class="without_login_box">
+                <div class="without_login">회원가입이 필요 없으신가요?</div>
+                <a href="#" class="without_login_start_btn">바로시작하기<i class="fa-solid fa-chevron-right"></i></a>
             </div>
         </div>
     </div>
