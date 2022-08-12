@@ -32,12 +32,15 @@ def manageStore(request):
         messages.add_message(request, messages.SUCCESS,'성공적으로 수정 완료 되었습니다!')
     
         return redirect('/store/manage_store')
-    return render(request,'manage_store.html')
+    return render(request,'manage_store.html', {'notice' : store.notice})
 
 def manage6(request):
     return render(request,'manage6.html')
 
-def detail(request):
-    return render(request,'store_info.html')
+def detail(request, store_id):
+    store = get_object_or_404(BsSignupDetail, pk=store_id)
+    cakes = StoreCake.objects.filter(store=store.author)
+    
+    return render(request,'store_info.html', {'store' : store, 'cakes' : cakes})
 
 

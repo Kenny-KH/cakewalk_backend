@@ -18,7 +18,14 @@
             <div class="nav_item" onclick="location.href='{% url 'watch_cake' %}'">CAKE</div>
 
             {% if user.is_authenticated %}
-            <div class="nav_item">마이페이지</div>
+            {% if user.is_business == 1 %}
+            <div class="nav_item" onclick="location.href='{% url 'manage' %}'">마이페이지</div>
+
+            {% else %}
+            <div class="nav_item" onclick="location.href='{% url 'user_mypage' %}'">마이페이지</div>
+            
+            {% endif %}
+            
             <div class="nav_item" onclick="location.href='{% url 'logout' %}'">LOGOUT</div>
             <div class="nav_item"><img src="{% static 'img/nav_star.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_heart.png' %}"></div>

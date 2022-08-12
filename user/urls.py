@@ -6,5 +6,5 @@ from store import views
 from . import views
 
 urlpatterns = [
-    path('mypage', views.myPage, name="userMyPage"),
+    path('mypage', views.myPage, name="user_mypage"),
 ] 
