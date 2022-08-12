@@ -1,331 +1,308 @@
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/css_reset.css' %}" />
+<link rel="stylesheet" href="{% static 'css/store_info.css' %}" />
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>가게정보</title>
+<!--Font Awesome-->
+<script
+  src="https://kit.fontawesome.com/d35df90ac6.js"
+  crossorigin="anonymous"
+></script>
 
-    <link rel="stylesheet" href="{% static 'css/css_reset.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/store_info.css' %}" />
+<script src="{% static 'js/store_info.js' %}"></script>
+{% endblock %} {% block content %}
+<header>
+  <div class="header-contents-container">
+    <div class="store-name-box">
+      <i class="fa-solid fa-chevron-left fa-store-icon-size"></i>
+      <span class="store-name">멋사가게</span>
+    </div>
+    <div class="store-info-grid-box">
+      <div class="store-info-small-box">
+        <i class="fa-solid fa-location-arrow gray fa-icon-margin"></i>
+        <span class="store-addtional-info gray">진주시 가좌동</span>
+      </div>
 
-    <!--Font Awesome-->
-    <script
-      src="https://kit.fontawesome.com/d35df90ac6.js"
-      crossorigin="anonymous"
-    ></script>
+      <div class="store-info-small-box">
+        <i class="fa-brands fa-instagram gray fa-icon-margin"></i>
+        <span class="store-addtional-info gray">@abcdefu</span>
+      </div>
 
-    <script src="{% static 'js/store_info.js' %}"></script>
-  </head>
-  <body>
-    <header>
-      <div class="header-contents-container">
-        <div class="store-name-box">
-          <i class="fa-solid fa-chevron-left fa-store-icon-size"></i>
-          <span class="store-name">멋사가게</span>
+      <div class="store-info-small-box">
+        <i class="fa-solid fa-phone gray fa-icon-margin"></i>
+        <span class="store-addtional-info gray">010-0000-0000</span>
+      </div>
+
+      <div class="store-info-small-box">
+        <i class="fa-solid fa-clock gray fa-icon-margin"></i>
+        <span class="store-addtional-info gray">10:00 ~ 19:00</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="body">
+  <section>
+    <article>
+      <!-- 서브 이미지 1-->
+      <div class="cake-sub-image-container cake-item-first">
+        <img
+          src="https://s3.ap-northeast-2.amazonaws.com/om-public-static/media/images/products/2018/12/ganashu01_2.jpg"
+          class="cake-sub-image"
+          id="cake1"
+          onclick="cakeOnClick(this.id)"
+        />
+
+        <div class="heart-box">
+          <i class="fa-solid fa-heart" style="color: red"></i>
+          <span class="like-count">100+</span>
         </div>
-        <div class="store-info-grid-box">
-          <div class="store-info-small-box">
-            <i class="fa-solid fa-location-arrow gray fa-icon-margin"></i>
-            <span class="store-addtional-info gray">진주시 가좌동</span>
-          </div>
+      </div>
 
-          <div class="store-info-small-box">
-            <i class="fa-brands fa-instagram gray fa-icon-margin"></i>
-            <span class="store-addtional-info gray">@abcdefu</span>
-          </div>
+      <!-- 서브 이미지 2-->
+      <div class="cake-sub-image-container cake-item-second">
+        <img
+          src="https://blog.kakaocdn.net/dn/EDoJg/btqMN3p5nFA/aAs9MRAMwYRtprhz4cWYNk/img.png"
+          class="cake-sub-image"
+          id="cake2"
+          onclick="cakeOnClick(this.id)"
+        />
 
-          <div class="store-info-small-box">
-            <i class="fa-solid fa-phone gray fa-icon-margin"></i>
-            <span class="store-addtional-info gray">010-0000-0000</span>
-          </div>
+        <div class="heart-box">
+          <i class="fa-solid fa-heart" style="color: red"></i>
+          <span class="like-count">100+</span>
+        </div>
+      </div>
 
-          <div class="store-info-small-box">
-            <i class="fa-solid fa-clock gray fa-icon-margin"></i>
-            <span class="store-addtional-info gray">10:00 ~ 19:00</span>
+      <!-- 서브 이미지 3-->
+      <div class="cake-sub-image-container cake-item-third">
+        <img
+          src="https://mblogthumb-phinf.pstatic.net/MjAyMTA2MTZfMjc2/MDAxNjIzODIwNTY0NzM4.wuhRG6wNtjk_Nz6wV9v_oJBLvskAtRj-IdPmr_KfIQsg.IiP-c5VuMHDlxj6nXkAGJmoQhtNUECyS2_4OE7yT-bYg.JPEG.ksk04140414/SE-29833AE6-A3F7-4BB8-8580-5BB05159FBE3.jpg?type=w800"
+          class="cake-sub-image"
+          id="cake3"
+          onclick="cakeOnClick(this.id)"
+        />
+
+        <div class="heart-box">
+          <i class="fa-solid fa-heart" style="color: red"></i>
+          <span class="like-count">100+</span>
+        </div>
+      </div>
+
+      <div class="cake-addition-view cake-item-last">더보기</div>
+    </article>
+
+    <!-- 메인 이미지 -->
+    <div class="cake-main-image-section">
+      <img
+        src="https://image.idus.com/image/files/cb6da947f9dd4ba4ad7ac0c04d4db93c.jpg"
+        class="cake-main-image"
+        id="mainCake"
+        onclick="cakeOnClick(this.id)"
+      />
+    </div>
+  </section>
+
+  <aside>
+    <div class="notice-box-container">
+      <h2>가게 공지사항</h2>
+      <div class="notice-box">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores
+        labore, voluptas corrupti aliquam ex deleniti? Architecto earum autem
+        nesciunt alias, laudantium quis quasi corporis aliquam incidunt tempore
+        ea temporibus nostrum?
+      </div>
+    </div>
+
+    <div class="review-box-container">
+      <div class="review-box-header">
+        <h2>최근 리뷰들</h2>
+        <button class="review-more-btn" onclick="openModal();">더보기</button>
+      </div>
+      <div class="review-box">
+        <div class="review-box-filter-container">
+          <span class="review-filter-span">별점순</span>
+          <i class="fa-solid fa-caret-down sad"></i>
+        </div>
+        <div class="review-wrapper">
+          <!-- 리뷰 -->
+          <div class="review">
+            <div class="review-header">
+              <div class="review-header-left-container">
+                <i class="fa-solid fa-star" style="color: red"></i>
+                <span class="review-rating-span">5.0</span>
+                <span class="review-author-span">연빈</span>
+              </div>
+
+              <span class="review-date-span">2022/07/20</span>
+            </div>
+            <div class="review-body-span">
+              남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+            </div>
+          </div>
+          <!-- 리뷰 여기까지 -->
+
+          <!-- 리뷰 -->
+          <div class="review">
+            <div class="review-header">
+              <div class="review-header-left-container">
+                <i class="fa-solid fa-star" style="color: red"></i>
+                <span class="review-rating-span">5.0</span>
+                <span class="review-author-span">연빈</span>
+              </div>
+
+              <span class="review-date-span">2022/07/20</span>
+            </div>
+            <div class="review-body-span">
+              남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+            </div>
+          </div>
+          <!-- 리뷰 여기까지 -->
+
+          <!-- 리뷰 -->
+          <div class="review">
+            <div class="review-header">
+              <div class="review-header-left-container">
+                <i class="fa-solid fa-star" style="color: red"></i>
+                <span class="review-rating-span">5.0</span>
+                <span class="review-author-span">연빈</span>
+              </div>
+
+              <span class="review-date-span">2022/07/20</span>
+            </div>
+            <div class="review-body-span">
+              남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+            </div>
+          </div>
+          <!-- 리뷰 여기까지 -->
+
+          <!-- 리뷰 -->
+          <div class="review">
+            <div class="review-header">
+              <div class="review-header-left-container">
+                <i class="fa-solid fa-star" style="color: red"></i>
+                <span class="review-rating-span">5.0</span>
+                <span class="review-author-span">연빈</span>
+              </div>
+
+              <span class="review-date-span">2022/07/20</span>
+            </div>
+            <div class="review-body-span">
+              남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+            </div>
+          </div>
+          <!-- 리뷰 여기까지 -->
+
+          <!-- 리뷰 -->
+          <div class="review">
+            <div class="review-header">
+              <div class="review-header-left-container">
+                <i class="fa-solid fa-star" style="color: red"></i>
+                <span class="review-rating-span">5.0</span>
+                <span class="review-author-span">연빈</span>
+              </div>
+
+              <span class="review-date-span">2022/07/20</span>
+            </div>
+            <div class="review-body-span">
+              남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+            </div>
+          </div>
+          <!-- 리뷰 여기까지 -->
+        </div>
+      </div>
+      <!-- 모달 생성-->
+      <div class="modal hidden">
+        <!-- 모달 뒤 까만 배경 -->
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <i
+              class="fa-solid fa-xmark fa-2x"
+              onclick="closeModal()"
+              style="cursor: pointer"
+            ></i>
+          </div>
+          <div class="modal-review-container">
+            <h3 class="modal-review-title">가게 리뷰</h3>
+            <div class="modal-review-image-container">
+              <div class="modal-review-user-image">
+                <!-- 여기는 리뷰의 이미지를 넣으면 된다.-->
+                <img
+                  src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
+                  class="modal-review-image"
+                />
+
+                <img
+                  src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
+                  class="modal-review-image"
+                />
+
+                <img
+                  src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
+                  class="modal-review-image"
+                />
+
+                <img
+                  src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
+                  class="modal-review-image"
+                />
+
+                <img
+                  src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
+                  class="modal-review-image"
+                />
+
+                <img
+                  src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
+                  class="modal-review-image"
+                />
+              </div>
+
+              <!-- 리뷰 추가버튼 -->
+              <button class="modal-review-add-button">
+                <i class="fa-solid fa-plus fa-2x" style="color: #767676"></i>
+              </button>
+            </div>
+
+            <!-- 리뷰 -->
+            <div class="review">
+              <div class="review-header">
+                <div class="review-header-left-container">
+                  <i class="fa-solid fa-star" style="color: red"></i>
+                  <span class="review-rating-span">5.0</span>
+                  <span class="review-author-span">연빈</span>
+                </div>
+
+                <span class="review-date-span">2022/07/20</span>
+              </div>
+              <div class="review-body-span">
+                남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+              </div>
+            </div>
+            <hr />
+            <!-- 리뷰 여기까지 -->
+
+            <!-- 리뷰 -->
+            <div class="review">
+              <div class="review-header">
+                <div class="review-header-left-container">
+                  <i class="fa-solid fa-star" style="color: red"></i>
+                  <span class="review-rating-span">5.0</span>
+                  <span class="review-author-span">연빈</span>
+                </div>
+
+                <span class="review-date-span">2022/07/20</span>
+              </div>
+              <div class="review-body-span">
+                남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무 좋았어요!!!
+              </div>
+            </div>
+            <hr />
+            <!-- 리뷰 여기까지 -->
           </div>
         </div>
       </div>
-    </header>
-
-    <div class="body">
-      <section>
-        <article>
-          <!-- 서브 이미지 1-->
-          <div class="cake-sub-image-container cake-item-first">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/om-public-static/media/images/products/2018/12/ganashu01_2.jpg"
-              class="cake-sub-image"
-              id="cake1"
-              onclick="cakeOnClick(this.id)"
-            />
-
-            <div class="heart-box">
-              <i class="fa-solid fa-heart" style="color: red"></i>
-              <span class="like-count">100+</span>
-            </div>
-          </div>
-
-          <!-- 서브 이미지 2-->
-          <div class="cake-sub-image-container cake-item-second">
-            <img
-              src="https://blog.kakaocdn.net/dn/EDoJg/btqMN3p5nFA/aAs9MRAMwYRtprhz4cWYNk/img.png"
-              class="cake-sub-image"
-              id="cake2"
-              onclick="cakeOnClick(this.id)"
-            />
-
-            <div class="heart-box">
-              <i class="fa-solid fa-heart" style="color: red"></i>
-              <span class="like-count">100+</span>
-            </div>
-          </div>
-
-          <!-- 서브 이미지 3-->
-          <div class="cake-sub-image-container cake-item-third">
-            <img
-              src="https://mblogthumb-phinf.pstatic.net/MjAyMTA2MTZfMjc2/MDAxNjIzODIwNTY0NzM4.wuhRG6wNtjk_Nz6wV9v_oJBLvskAtRj-IdPmr_KfIQsg.IiP-c5VuMHDlxj6nXkAGJmoQhtNUECyS2_4OE7yT-bYg.JPEG.ksk04140414/SE-29833AE6-A3F7-4BB8-8580-5BB05159FBE3.jpg?type=w800"
-              class="cake-sub-image"
-              id="cake3"
-              onclick="cakeOnClick(this.id)"
-            />
-
-            <div class="heart-box">
-              <i class="fa-solid fa-heart" style="color: red"></i>
-              <span class="like-count">100+</span>
-            </div>
-          </div>
-
-          <div class="cake-addition-view cake-item-last">더보기</div>
-        </article>
-
-        <!-- 메인 이미지 -->
-        <div class="cake-main-image-section">
-          <img
-            src="https://image.idus.com/image/files/cb6da947f9dd4ba4ad7ac0c04d4db93c.jpg"
-            class="cake-main-image"
-            id="mainCake"
-            onclick="cakeOnClick(this.id)"
-          />
-        </div>
-      </section>
-
-      <aside>
-        <div class="notice-box-container">
-          <h2>가게 공지사항</h2>
-          <div class="notice-box">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores
-            labore, voluptas corrupti aliquam ex deleniti? Architecto earum
-            autem nesciunt alias, laudantium quis quasi corporis aliquam
-            incidunt tempore ea temporibus nostrum?
-          </div>
-        </div>
-
-        <div class="review-box-container">
-          <div class="review-box-header">
-            <h2>최근 리뷰들</h2>
-            <button class="review-more-btn" onclick="openModal();">
-              더보기
-            </button>
-          </div>
-          <div class="review-box">
-            <div class="review-box-filter-container">
-              <span class="review-filter-span">별점순</span>
-              <i class="fa-solid fa-caret-down sad"></i>
-            </div>
-            <div class="review-wrapper">
-              <!-- 리뷰 -->
-              <div class="review">
-                <div class="review-header">
-                  <div class="review-header-left-container">
-                    <i class="fa-solid fa-star" style="color: red"></i>
-                    <span class="review-rating-span">5.0</span>
-                    <span class="review-author-span">연빈</span>
-                  </div>
-
-                  <span class="review-date-span">2022/07/20</span>
-                </div>
-                <div class="review-body-span">
-                  남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                  좋았어요!!!
-                </div>
-              </div>
-              <!-- 리뷰 여기까지 -->
-
-              <!-- 리뷰 -->
-              <div class="review">
-                <div class="review-header">
-                  <div class="review-header-left-container">
-                    <i class="fa-solid fa-star" style="color: red"></i>
-                    <span class="review-rating-span">5.0</span>
-                    <span class="review-author-span">연빈</span>
-                  </div>
-
-                  <span class="review-date-span">2022/07/20</span>
-                </div>
-                <div class="review-body-span">
-                  남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                  좋았어요!!!
-                </div>
-              </div>
-              <!-- 리뷰 여기까지 -->
-
-              <!-- 리뷰 -->
-              <div class="review">
-                <div class="review-header">
-                  <div class="review-header-left-container">
-                    <i class="fa-solid fa-star" style="color: red"></i>
-                    <span class="review-rating-span">5.0</span>
-                    <span class="review-author-span">연빈</span>
-                  </div>
-
-                  <span class="review-date-span">2022/07/20</span>
-                </div>
-                <div class="review-body-span">
-                  남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                  좋았어요!!!
-                </div>
-              </div>
-              <!-- 리뷰 여기까지 -->
-
-              <!-- 리뷰 -->
-              <div class="review">
-                <div class="review-header">
-                  <div class="review-header-left-container">
-                    <i class="fa-solid fa-star" style="color: red"></i>
-                    <span class="review-rating-span">5.0</span>
-                    <span class="review-author-span">연빈</span>
-                  </div>
-
-                  <span class="review-date-span">2022/07/20</span>
-                </div>
-                <div class="review-body-span">
-                  남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                  좋았어요!!!
-                </div>
-              </div>
-              <!-- 리뷰 여기까지 -->
-
-              <!-- 리뷰 -->
-              <div class="review">
-                <div class="review-header">
-                  <div class="review-header-left-container">
-                    <i class="fa-solid fa-star" style="color: red"></i>
-                    <span class="review-rating-span">5.0</span>
-                    <span class="review-author-span">연빈</span>
-                  </div>
-
-                  <span class="review-date-span">2022/07/20</span>
-                </div>
-                <div class="review-body-span">
-                  남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                  좋았어요!!!
-                </div>
-              </div>
-              <!-- 리뷰 여기까지 -->
-            </div>
-          </div>
-          <!-- 모달 생성-->
-          <div class="modal hidden">
-            <!-- 모달 뒤 까만 배경 -->
-            <div class="modal-overlay" onclick="closeModal()"></div>
-            <div class="modal-content">
-              <div class="modal-header">
-                <i
-                  class="fa-solid fa-xmark fa-2x"
-                  onclick="closeModal()"
-                  style="cursor: pointer"
-                ></i>
-              </div>
-              <div class="modal-review-container">
-                <h3 class="modal-review-title">가게 리뷰</h3>
-                <div class="modal-review-image-container">
-                  <div class="modal-review-user-image">
-                    <!-- 여기는 리뷰의 이미지를 넣으면 된다.-->
-                    <img
-                      src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
-                      class="modal-review-image"
-                    />
-
-                    <img
-                      src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
-                      class="modal-review-image"
-                    />
-
-                    <img
-                      src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
-                      class="modal-review-image"
-                    />
-
-                    <img
-                      src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
-                      class="modal-review-image"
-                    />
-
-                    <img
-                      src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
-                      class="modal-review-image"
-                    />
-
-                    <img
-                      src="http://www.cakenalda.co.kr/shopimages/cakenalda/0640120000252.jpg?1627723275"
-                      class="modal-review-image"
-                    />
-                  </div>
-
-                  <!-- 리뷰 추가버튼 -->
-                  <button class="modal-review-add-button">
-                    <i
-                      class="fa-solid fa-plus fa-2x"
-                      style="color: #767676"
-                    ></i>
-                  </button>
-                </div>
-
-                <!-- 리뷰 -->
-                <div class="review">
-                  <div class="review-header">
-                    <div class="review-header-left-container">
-                      <i class="fa-solid fa-star" style="color: red"></i>
-                      <span class="review-rating-span">5.0</span>
-                      <span class="review-author-span">연빈</span>
-                    </div>
-
-                    <span class="review-date-span">2022/07/20</span>
-                  </div>
-                  <div class="review-body-span">
-                    남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                    좋았어요!!!
-                  </div>
-                </div>
-                <hr />
-                <!-- 리뷰 여기까지 -->
-
-                <!-- 리뷰 -->
-                <div class="review">
-                  <div class="review-header">
-                    <div class="review-header-left-container">
-                      <i class="fa-solid fa-star" style="color: red"></i>
-                      <span class="review-rating-span">5.0</span>
-                      <span class="review-author-span">연빈</span>
-                    </div>
-
-                    <span class="review-date-span">2022/07/20</span>
-                  </div>
-                  <div class="review-body-span">
-                    남친이랑 300일 기념으로 레터링 케잌을 시켰는데 너무
-                    좋았어요!!!
-                  </div>
-                </div>
-                <hr />
-                <!-- 리뷰 여기까지 -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
     </div>
-  </body>
-</html>
+  </aside>
+</div>
+{% endblock %}
