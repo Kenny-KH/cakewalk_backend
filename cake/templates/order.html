@@ -1,11 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link link rel="stylesheet" type="text/css" href="./src/css/order.css" />
+    <title>주문 하기</title>
+
+    <!-- CSS stylesheet -->
+    <link link rel="stylesheet" type="text/css" href="{% static 'css/order.css' %}" >
+    
     <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7639c8295bc60ba86f2301c8d9948047"
@@ -20,7 +24,8 @@
       src="https://kit.fontawesome.com/d35df90ac6.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./src/js/order.js" defer></script>
+
+    <script src="{% static 'js/order.js' %}" defer></script>
   </head>
   <body>
     <section class="optionWrap">

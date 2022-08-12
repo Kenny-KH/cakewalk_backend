@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link link rel="stylesheet" type="text/css" href="./src/css/manager6.css" />
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/manager6.css' %}"
+    />
     <!--Font Awesome-->
     <script
       src="https://kit.fontawesome.com/d35df90ac6.js"
@@ -16,7 +22,7 @@
 
   <body>
     <header class="header">
-      <img class="logoImg" src="./src/img/logo.png" />
+      <img class="logoImg" src="{% static 'img/logo.png' %}" />
       <ul class="header-ul">
         <li class="header-li">MAKE</li>
         <li class="header-li">CAKE</li>
@@ -28,7 +34,7 @@
       <nav>
         <img
           class="profile-img"
-          src="./src/img/shop_main.png"
+          src="{% static 'img/shop_main.png' %}"
           alt="human_profile"
         />
         <span class="shop-name">ㅇㅇ가게</span>
@@ -66,7 +72,7 @@
             <div class="talks">
               <div class="talk">
                 <div class="img-wrap">
-                  <img src="./src/img/shop_main.png" alt="profile" />
+                  <img src="{% static 'img/shop_main.png' %}" alt="profile" />
                 </div>
                 <div class="human-info">
                   <span class="name">양희주</span>
