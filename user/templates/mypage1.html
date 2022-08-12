@@ -1,10 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% block head %}
     <title>Document</title>
     <link
       link
@@ -19,7 +15,8 @@
     ></script>
     <script src="{% static 'js/mypage1.js' %}" defer></script>
   </head>
-  <body>
+  {% endblock %}
+  {% block content %}
     <header class="header">
       <img class="logoImg" src="./src/img/logo.png" />
       <ul class="header-ul">
@@ -176,5 +173,4 @@
         </div>
       </section>
     </main>
-  </body>
-</html>
+{% endblock %}

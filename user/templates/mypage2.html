@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
     <title>Document</title>
     <link link rel="stylesheet" type="text/css" href="./src/css/mypage2.css" />
     <!--Font Awesome-->
@@ -13,7 +10,9 @@
     ></script>
     <script src="./src/js/mypage2.js" defer></script>
   </head>
-  <body>
+{% endblock %}
+
+{% block content %}
     <header class="header">
       <img class="logoImg" src="./src/img/logo.png" />
       <ul class="header-ul">
@@ -170,5 +169,4 @@
         </div>
       </section>
     </main>
-  </body>
-</html>
+{% endblock %}
