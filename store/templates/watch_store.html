@@ -1,10 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="kor">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% block head %}
     <title>가게보기</title>
 
     <link
@@ -12,8 +8,8 @@
       type="text/css"
       href="{% static 'css/watch_store.css' %}"
     />
-  </head>
-  <body>
+  {% endblock %}
+  {% block content %}
     <div class="b_watch">
       <div class="b_watch_item b_watch_c b_watch_item_active">케이크보기</div>
       <div class="b_watch_item b_watch_s">
@@ -122,5 +118,4 @@
         <button class="page_button">3</button>
       </div>
     </div>
-  </body>
-</html>
+{% endblock %}

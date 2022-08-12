@@ -1,17 +1,15 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block head %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <!-- CSS -->
     <link href="{% static 'css/business-signup-detail.css' %}" rel="stylesheet" type="text/css">
     <title>사업자 회원가입 - 세부</title>
-</head>
+{% endblock %}
+{% block content %}
+
 <form action="{% url 'business-signup-detail' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 <body>
@@ -48,6 +46,10 @@
                 <input name="phoneNum" class="input" placeholder=" 전화번호를 숫자로만 입력하세요">
             </div>
             <div class="text-input-box">
+                <div class="text">인스타그램</div>
+                <input name="insta" class="input" placeholder=" 인스타그램 주소를 입력하세요(선택)">
+            </div>
+            <div class="text-input-box">
                 <div class="text">소재지</div>
                 <input name="address" class="input-small" placeholder=" 주소를 입력하세요">
                 <button class="btn-find">검색</button>
@@ -66,5 +68,4 @@
         </div>
     </div>
     </form>
-</body>
-</html>
+{% endblock %}

@@ -1,11 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+{% block head %}
     <title>케이크 디자인</title>
     
     <link rel="stylesheet" href="./src/css/init.css">
@@ -18,20 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
     
     <script src="{% static 'js/make.js' %}" defer></script>
-</head>
-<body>
-    <nav>
-        <img class="logo" src="./src/img/logo.png"></img>
-        <div class="navbar">
-            <div class="nav_item">MAKE</div>
-            <div class="nav_item">CAKE</div>
-            <div class="nav_item">마이페이지</div>
-            <div class="nav_item">LOGOUT</div>
-            <div class="nav_item"><img src="./src/img/nav_star.png"></div>
-            <div class="nav_item"><img src="./src/img/nav_heart.png"></div>
-            <div class="nav_item"><img src="./src/img/nav_bell.png"></div>
-        </div>
-    </nav>
+{% endblock %}
+{% block content %}
     <main>
         <div class="side_window">
             <div class="toolbar">
@@ -214,5 +197,4 @@
             </div>
         </div>
     </main>
-</body>
-</html>
+{% endblock %}

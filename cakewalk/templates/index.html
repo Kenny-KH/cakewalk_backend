@@ -45,8 +45,12 @@
     <div class="circle pink"></div>
   </div>
   <div class="middle-btn-wrap">
-    <button class="make-btn-first">처음부터 만들기</button>
-    <button class="make-btn">도안보고 만들기</button>
+    <button class="make-btn-first" onclick="location.href='{% url 'make' %}'">
+      처음부터 만들기
+    </button>
+    <button class="make-btn" onclick="location.href='{% url 'watch_cake' %}'">
+      도안보고 만들기
+    </button>
   </div>
   <div class="circle-wrap">
     <div class="circle yellow"></div>
@@ -71,62 +75,11 @@
 
   <div class="cakes-container">
     <ul class="cakes-wrap">
+      {% for cake in cakes %}
       <li data-shop="cake1 shop" data-design="cake1 design">
-        <img
-          class="cake-img"
-          src="{% static 'img/mypage2_cake1.png' %}"
-          alt="cake1"
-        />
+        <img class="cake-img" src="{{cake.image.url}}" alt="cake1" />
       </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake2.png' %}"
-          alt="cake2"
-        />
-      </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake3.png' %}"
-          alt="cake3"
-        />
-      </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake4.png' %}"
-          alt="cake4"
-        />
-      </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake1.png' %}"
-          alt="cake5"
-        />
-      </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake2.png' %}"
-          alt="cake6"
-        />
-      </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake3.png' %}"
-          alt="cake7"
-        />
-      </li>
-      <li>
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake4.png' %}"
-          alt="cake8"
-        />
-      </li>
+      {% endfor %}
     </ul>
     <div class="cake-info">
       <button class="info-btn"><a>가게 보러 가기</a></button>
@@ -145,148 +98,16 @@
   <h2 class="show-shop-title">지금 뜨는 가게들</h2>
   <div class="cakes-container">
     <ul class="cakes-wrap">
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/mypage2_cake1.png' %}"
-          alt="cake1"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake2.png' %}"
-          alt="cake2"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake3.png' %}"
-          alt="cake3"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake4.png' %}"
-          alt="cake4"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake1.png' %}"
-          alt="cake5"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake2.png' %}"
-          alt="cake6"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
-      <li class="cake-wrap">
-        <img
-          class="cake-img"
-          src="{% static 'img/main_cake1.png' %}"
-          alt="cake7"
-        />
-        <span class="shop-name">멋사가게</span>
-        <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
-        >
-        <span class="shop-time"
-          ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
-        >
-        <div class="star-wrap">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-          ><i class="fa-solid fa-star"></i>
-        </div>
-      </li>
+      {% for store in stores %}
       <li class="cake-wrap">
         <img
           class="cake-img"
           src="{% static 'img/main_cake3.png' %}"
           alt="cake8"
         />
-        <span class="shop-name">멋사가게</span>
+        <span class="shop-name">{{store.bsName}}</span>
         <span class="shop-address"
-          ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
+          ><i class="fa-solid fa-location-arrow"></i>{{store.address}}</span
         >
         <span class="shop-time"
           ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
@@ -296,12 +117,19 @@
           ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
           ><i class="fa-solid fa-star"></i>
         </div>
+        <div class="cake-info">
+          <button
+            class="info-btn"
+            onclick="location.href='{% url 'storeDetail' store.id %}'"
+          >
+            <a>가게 보러 가기</a>
+          </button>
+          <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+        </div>
       </li>
+
+      {% endfor %}
     </ul>
-    <div class="cake-info">
-      <button class="info-btn"><a>가게 보러 가기</a></button>
-      <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
-    </div>
     <button class="arrow-btn shop" id="left">
       <i class="fa-solid fa-angle-left"></i>
     </button>

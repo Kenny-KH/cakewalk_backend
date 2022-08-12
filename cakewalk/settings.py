@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-4)w@*375&0*l#m4i&!b*$c__%jx#^kv_obb&xkevo*6slnr^6-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['port-0-cakewalk-backend-1i9hi4d24l6qowkrv.gksl1.cloudtype.app', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://port-0-cakewalk-backend-1i9hi4d24l6qowkrv.gksl1.cloudtype.app', 'http://127.0.0.1']
 
 # Application definition
 

@@ -1,10 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% block head %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,21 +8,21 @@
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link
-      rel="stylesheet"
-      href="{% static 'css/login.css' %}"
-      type="text/css"
-    />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"/>
+    <script
+    src="https://kit.fontawesome.com/bab0b57cd2.js"
+    crossorigin="anonymous"></script>
     <title>로그인</title>
-  </head>
-  <body>
+    {% endblock %} {% block content %}
+    <body>
     <form action="#" method="POST">
-      {% csrf_token %}
-      <!-- 중앙부 -->
-      <div class="outer_box">
+        {% csrf_token %}
+    <!-- 중앙부 -->
+        <div class="outer_box">
         <!-- LOGIN 글자 -->
         <div class="login_sign">LOGIN</div>
         <div class="inner_box">
+
           <div class="login_box">
             <a href="{% url 'login' %}" class="user_login">사용자 로그인</a>
             <a href="{% url 'businessLogin' %}" class="business_login">사업자 로그인</a>
@@ -34,6 +30,7 @@
           <!-- 버튼 django로 기능 넣을 것 -->
           <div class="login_notice">SNS로 간편하게 로그인하기</div>
           <div class="login-box">
+
             <a href="#"
               ><img
                 src="{% static 'img/naver banner.png' %}"
@@ -62,10 +59,4 @@
       </div>
     </form>
   </body>
-  <!-- fontawesome -->
-  <script
-    src="https://kit.fontawesome.com/bab0b57cd2.js"
-    crossorigin="anonymous"
-  ></script>
-  <div id="fb-root"></div>
-</html>
+{% endblock %}
