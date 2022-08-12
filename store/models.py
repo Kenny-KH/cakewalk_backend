@@ -1,19 +1,17 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from datetime import datetime
-
-from django.forms import CharField
+from account.models import User
 
 
 # Create your models here.
-class Store(models.Model):
-    tax = models.CharField(max_length=30)
-    businessNum = models.IntegerField()
-    type = models.CharField(max_length=50)
-    bsName = models.CharField(max_length=100)
-    repName = models.CharField(max_length=12)
-    birth = models.IntegerField()
-    phoneNum = models.IntegerField()
-    address = models.TextField()
-    registeration = models.ImageField()
-    report = models.ImageField()
+    
+    
+class StoreCake(models.Model):
+    store = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=150)
+    price_mini = models.IntegerField(blank=True, null=True)
+    price_1 = models.IntegerField(blank=True, null=True)
+    price_2 = models.IntegerField(blank=True, null=True)
+    price_3 = models.IntegerField(blank=True, null=True)
+    image = models.ImageField(upload_to = 'store/cake')

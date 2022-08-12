@@ -26,8 +26,12 @@
     >
   </div>
   <ul class="nav-wrap">
-    <li class="nav-li">주문 관리</li>
-    <li class="nav-li">가게 관리</li>
+    <li class="nav-li" onclick="location.href='{% url 'manage' %}'">
+      주문 관리
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'manage_store' %}'">
+      가게 관리
+    </li>
     <li class="nav-li">도안 관리</li>
     <li class="nav-li">리뷰 관리</li>
     <li class="nav-li">1:1 문의 관리</li>
