@@ -1,17 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet"  href="{% static 'css/login.css' %}" type="text/css">
     <title>로그인</title>
 </head>
 <body>
-
+    <form action="#" method="POST">
+        {% csrf_token %}
     <!-- 중앙부 -->
     <div class="outer_box">    
     <!-- LOGIN 글자 -->
@@ -24,9 +27,9 @@
             <!-- 버튼 django로 기능 넣을 것 -->
             <div class="login_notice">SNS로 간편하게 로그인하기</div>
             <div class="login-box">
-                <a href="#"><img src="./src/img/naver banner.png" class="naver_login"></a>
-                <a href="#"><img src="./src/img/kakao_banner.png" class="kakao_login"></a>
-                <a><img class="google_login" src="./src/img/google banner.png"></a>
+                <a href="#"><img src="{% static 'img/naver banner.png' %}" class="naver_login"></a>
+                <a href="#"><img src="{% static 'img/kakao_banner.png' %}" class="kakao_login"></a>
+                <a href="#"><img class="google_login" src="{% 'img/google banner.png' %}"></a>
             </div>
             <div class="without_login_box">
                 <div class="without_login">회원가입이 필요 없으신가요?</div>
@@ -34,8 +37,9 @@
             </div>
         </div>
     </div>
+    </form>
 </body>
+<!-- fontawesome -->
 <script src="https://kit.fontawesome.com/bab0b57cd2.js" crossorigin="anonymous"></script>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v14.0" nonce="8fQPy67z"></script>
 </html>
