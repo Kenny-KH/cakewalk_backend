@@ -6,9 +6,9 @@ from django.forms import CharField
 
 
 # Create your models here.
-class Account(models.Model):
+class BsSignupDetail(models.Model):
     tax = models.CharField(max_length=30)
-    businessNum = models.IntegerField()
+    bsNum = models.IntegerField()
     type = models.CharField(max_length=50)
     bsName = models.CharField(max_length=100)
     repName = models.CharField(max_length=12)
