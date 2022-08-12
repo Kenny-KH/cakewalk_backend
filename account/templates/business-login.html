@@ -16,8 +16,8 @@
     <div class="login_sign">LOGIN</div>
         <div class="inner_box">
             <div class="selection_box">
-                <a href="#" class="user_login">사용자 로그인</a>
-                <a href="#" class="business_login">사업자 로그인</a>
+                <a href="{% url 'login' %}" class="user_login">사용자 로그인</a>
+                <a href="{% url 'businessLogin' %}" class="business_login">사업자 로그인</a>
             </div>
             <form action="{%url 'businessLogin' %}" method="post">
                 {% csrf_token %}

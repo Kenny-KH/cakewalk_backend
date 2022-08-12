@@ -11,22 +11,24 @@
 {% endblock %} {% block content %}
 <body>
     <!-- 중앙 흰색바탕 블록 -->
-    <div class="inner_box">
+    <form class="inner_box" action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
         <div class="profile_settings">프로필 설정</div>
         <div class="profile">
             <div class="profile_photo_img"></div>
             <div class="profile_photo_change_btn"><i class="fa-regular fa-images"></i></div>
         </div>
         <div class="profile_name_box">
-            <input type="text" class="profile_name" placeholder="사용할 닉네임을 입력하세요"/>
+            <input name="name" type="text" class="profile_name" placeholder="사용할 닉네임을 입력하세요"/>
             <button class="profile_name_check_btn" type="button" >중복확인</button>
         </div>
-        <input class="profile_number" placeholder="전화번호를 입력하세요" />
+        <input name="tel" class="profile_number" placeholder="전화번호를 입력하세요" />
         <div class="profile_address_box">
-            <input class="profile_address" placeholder="주소를 입력하세요" />
+            <input name="address" class="profile_address" placeholder="주소를 입력하세요" />
             <button class="profile_address_search_btn" type="button">찾기</button>
         </div>
-        <button class="profile_settings_btn">설정 완료</button>
+        <input style="display: none;" name="email" type="text" value="{{kakao_email}}">
+        <input type="submit" class="profile_settings_btn" value="설정 완료"></input>
     </div>
 </body>
 {% endblock %}
