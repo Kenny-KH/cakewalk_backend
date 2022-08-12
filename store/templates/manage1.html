@@ -1,29 +1,23 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/manager1.css' %}"
-    />
-    <!--Font Awesome-->
-    <script
-      src="https://kit.fontawesome.com/d35df90ac6.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="{% static 'js/manager1.js' %}" defer></script>
-  </head>
+{% extends 'base.html' %} {% load static %}{% block head %}
 
-  <body>
-    {% include "base.html" %} {% block content %} {% endblock %}
+<title>Document</title>
+<link
+  link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/manager1.css' %}"
+/>
+<!--Font Awesome-->
+<script
+  src="https://kit.fontawesome.com/d35df90ac6.js"
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/manager1.js' %}" defer></script>
+{% endblock %} {% block content %}
+<div class="main_wrapper" style="display: flex">
+  {% include "store_base.html" %} {% block profile %} {% endblock %}
+  <div class="main_wrapper" style="display: flex">
     <main>
-      {% include "store_base.html" %} {% block profile %} {% endblock %}
       <section>
         <div class="container">
           <h1 class="title">주문 관리</h1>
@@ -69,5 +63,6 @@
         </div>
       </section>
     </main>
-  </body>
-</html>
+    {% endblock %}
+  </div>
+</div>
