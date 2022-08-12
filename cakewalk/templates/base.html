@@ -17,12 +17,15 @@
             <div class="nav_item">MAKE</div>
             <div class="nav_item">CAKE</div>
 
-            {% if user.isauthen}
+            {% if user.is_authenticated %}
             <div class="nav_item">마이페이지</div>
-            <div class="nav_item">LOGOUT</div>
+            <div class="nav_item" onclick="location.href='{% url 'logout' %}'">LOGOUT</div>
             <div class="nav_item"><img src="{% static 'img/nav_star.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_heart.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_bell.png' %}"></div>
+            {% else %}
+            <div class="nav_item" onclick="location.href='{% url 'login' %}'">로그인</div>
+            {% endif %}
         </div>
     </nav>
 

@@ -10,4 +10,5 @@ urlpatterns = [
     path('business-login/', views.businessLogin, name='business-login'),
     path('business-signup/', views.businessSignup, name='business-signup'),
     path('business-signup-deatil/', views.businessSignupDetail, name='business-signup-detail'),
+    path('logout', views.logout, name='logout')
 ]

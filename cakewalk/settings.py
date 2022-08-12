@@ -135,3 +135,5 @@ import os
 #image File Root
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #사용자가 업로드한 파일 관리
+
+AUTH_USER_MODEL = 'account.User' 
