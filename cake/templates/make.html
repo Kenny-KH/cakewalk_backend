@@ -1,12 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>케이크 디자인</title>
+    
     <link rel="stylesheet" href="./src/css/init.css">
-    <link rel="stylesheet" href="./src/css/make.css">
+    <link rel="stylesheet" href="{% static 'css/make.css' %}">
 
     <!-- font Awesome CND -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
@@ -14,7 +17,7 @@
     <!-- fabric js CND -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
     
-    <script src="./src/js/make.js" defer></script>
+    <script src="{% static 'js/make.js' %}" defer></script>
 </head>
 <body>
     <nav>
@@ -32,13 +35,13 @@
     <main>
         <div class="side_window">
             <div class="toolbar">
-                <div class="toolbar_item back"><img src="./src/img/tool_back.png"></div>
-                <div class="toolbar_item forward"><img src="./src/img/tool_forward.png"></div>
-                <div class="toolbar_item memo"><img src="./src/img/tool_memo.png"></div>
-                <div class="toolbar_item numbering"><img src="./src/img/tool_number.png"></div>
-                <div class="toolbar_item share"><img src="./src/img/tool_share.png"></div>
-                <div class="toolbar_item temp_save"><img src="./src/img/tool_temp_save.png"></div>
-                <div class="toolbar_item download"><img src="./src/img/tool_download.png"></div>
+                <div class="toolbar_item back"><img src="{% static 'img/make/tool_back.png' %}" ></div>
+                <div class="toolbar_item forward"><img src="{% static 'img/make/tool_forward.png' %}" ></div>
+                <div class="toolbar_item memo"><img src="{% static 'img/make/tool_memo.png' %}"></div>
+                <div class="toolbar_item numbering"><img src="{% static 'img/make/tool_number.png' %}"></div>
+                <div class="toolbar_item share"><img src="{% static 'img/make/tool_share.png' %}"></div>
+                <div class="toolbar_item temp_save"><img src="{% static 'img/make/tool_temp_save.png' %}"></div>
+                <div class="toolbar_item download"><img src="{% static 'img/make/tool_download.png' %}"></div>
             </div>
             <div class="main_toolbar">
                 <div class="order">
@@ -55,7 +58,7 @@
                 </div>
                 <div class="step_box step1 active_step_box" data-step="1">
                     <div class="caution">
-                        <div class="caution_img"><img src="./src/img/caution.png"></div>
+                        <div class="caution_img"><img src="{% static 'img/make/caution.png' %}"></div>
                         <div class="caution_text"> 사이즈는 가게마다 다를 수 있습니다</div>
                     </div>
                     <div class="select_size">
@@ -74,27 +77,27 @@
                         </div>
                         <div class="shape">
                             <div class="shape_item" data-shape="circle">
-                                <img class="shape_item_inner" src="./src/img/shape_circle.png"> 
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_circle.png' %}"> 
                             </div>
                             <div class="shape_item" data-shape="rectangle">
-                                <img class="shape_item_inner" src="./src/img/shape_Rectangle.png">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_Rectangle.png' %}">
                             </div>    
                             <div class="shape_item" data-shape="triangle">
-                                <img class="shape_item_inner" src="./src/img/shape_triangle.png">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_triangle.png' %}">
                             </div>    
                             <div class="shape_item" data-shape="star">
-                                <img class="shape_item_inner" src="./src/img/shape_star.png">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_star.png' %}">
                             </div>    
                             <div class="shape_item" data-shape="heart">
-                                <img class="shape_item_inner" src="./src/img/shape_heart.png">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_heart.png' %}">
                             </div>    
                             <div class="shape_item" data-shape="dubble">
-                                <img class="shape_item_inner" src="./src/img/shape_dubble.png">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_dubble.png' %}">
                             </div>        
                         </div>
                         <div class="picture unactive">
                             <div class="caution" style="margin-top: 1rem;">
-                                <div class="caution_img"><img src="./src/img/caution.png"></div>
+                                <div class="caution_img"><img src="{% static 'img/make/caution.png' %}"></div>
                                 <div class="caution_text"> 가져온 사진의 사이즈는 워크보드에서 마우스로 직접 크기와 위치를 조절 할 수 있습니다</div>
                             </div>
                             <input class="real_upload" type="file" accept="image/*" required multiple style="display: none;">

@@ -1,0 +1,474 @@
+.unactive{
+    display: none !important;
+}
+body{
+    overflow-x: hidden;
+    background-color: #f5f5f5f5;
+}
+nav{
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0,0.3);
+    width: 100vw;
+    height: 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    background-color: white;
+}
+.logo{
+    position: relative;
+    left: 30px;
+    height: 40px;
+}
+.navbar{
+    min-width: 40vw;
+    
+    margin-right: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+.navbar div{
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------*/
+main{
+    width: 100vw;
+    display: flex;
+}
+.side_window{
+    position: relative;
+    height: calc(100vh -60px);
+    width: 20vw;
+    min-width: 180px;
+}
+
+/*--------------------- toolbar ----------------------*/
+.toolbar{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-around;
+
+    background-color: #E8E8E8;
+}
+.toolbar_item{
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+/*----------------------- main_toolbar --------------------*/
+.main_toolbar{
+    background-color: #E8E8E8;
+    height: calc(100vh - 110px);
+    width:  100%;
+}
+.order_num{
+    display: flex;
+}
+.order_num_item{
+    width: 20%;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: rgba(255, 255,255,0.3);
+    font-weight: 900;
+    font-size: 18px;
+
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+    cursor: pointer;
+}
+.order_num .order_num_item_active{
+    color: white;
+}
+.order_num_item:nth-child(1){
+    background: #F8BBD0;
+}
+.order_num_item:nth-child(2){
+    background: #F06292;
+}
+.order_num_item:nth-child(3){
+    background: #EC407A;
+}
+.order_num_item:nth-child(4){
+    background: #D81B60;
+}
+.order_num_item:nth-child(5){
+    background: #C2185B;
+}
+.order_title{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F8BBD0;
+    color:white;
+    font-size: 18px;
+    font-weight: 900;
+
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0,0.3);
+}
+/*---------------------- STEP1 ----------------*/
+.step_box{
+    position: relative;
+
+    height: calc(100vh - 240px);
+
+    background-color: white;
+
+    padding: 20px;
+}
+.caution{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    
+    background-color: #FFFEED;
+    
+}
+.caution_img{
+    margin-right: 0.5rem;
+}
+.caution_text{
+    font-size: 0.7rem;
+    line-height: 14px;
+    font-weight: 900;
+}
+.select_size{
+    margin-top: 1.5rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+}
+.select_size_title{
+    font-weight: 900;
+    font-size: 1rem;
+
+    white-space: nowrap;
+}
+.select_shape{
+    margin-top: 2rem;
+}
+.size_items{
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.size_item{
+    margin-right: 1rem;
+    
+    white-space: nowrap;
+}
+.shape_switch{
+    position: relative;
+
+    margin: 0 auto;
+
+    width: 80%;
+    height: 2rem;
+
+    border: 2px solid black;
+    border-radius: 2rem;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shape_switch_item{
+    position: relative;
+
+    width: 50%;
+
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+
+    font-size: 1rem;
+
+    white-space: nowrap;
+}
+.shape_switch_item_active{
+    color: black;
+    font-weight: 900;
+}
+.select_box{
+    position: absolute;
+    top: 0; left: 0; 
+
+    width: 52%;
+    height: 100%;
+    
+    background-color: #F8BBD0;
+    opacity: 40%;
+
+    border-radius: 2rem;
+
+    -webkit-transition: all ease 1s;
+    transition: all ease 1s 0s;
+}
+.shape{
+    margin-top: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.shape_item{
+    position: relative;
+
+    width: 100%;
+    padding-bottom: 100%;
+
+    border-radius: 5px;
+    background-color: #cacaca;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+.shape_item_active{
+    background-color: #F8BBD0;
+}
+.shape_item_inner{
+    position: absolute;
+    top: 50%; left: 50%;
+
+    transform: translate(-50%, -50%) scale(0.8);
+}
+.upload, .fill_upload{
+    width: 100%;
+    height: 5rem;
+
+    margin-top: 1rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+
+    background-color: #ccc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.8rem;
+    font-weight: 900;
+    color:rgba(0, 0, 0, 0.5);
+}
+.order_btn{
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+    height: 3rem;
+    
+    border-radius: 10px;
+
+    color: white;
+    font-size: 18px;
+
+    background-color: #F8BBD0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+/*--------------------- work board -----------------*/
+.work_board_wrapper{
+    width: 80vw;
+    height: calc(100vh - 60px);
+
+    padding: 1.5rem;
+    box-sizing: border-box;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 7fr 2fr;
+    grid-template-rows: 15fr 1fr 10fr;
+    grid-template-areas: 
+        "main_board memo"
+        "main_board switch"
+        "main_board side_board"
+    ;
+}
+.active_board{
+    grid-area: main_board;
+}
+.unactive_board{
+    grid-area: side_board;
+}
+.work_board{
+    padding: 1rem;
+    box-sizing: border-box;
+    
+    position: relative;
+    
+    background-color: white;
+
+    overflow: hidden;
+}
+#c{
+    position: absolute;
+    top: 0; left: 0;
+}
+.memo_board{
+    position: relative;
+
+    padding: 1rem 0.5rem;
+    box-sizing: border-box;
+    
+    grid-area: memo;
+    background-color: white;
+
+    overflow-y: scroll;
+}
+.memo_item{
+    text-decoration: underline;
+    text-underline-position: under;
+    
+    margin-bottom: 1rem;
+
+    cursor: pointer;
+}
+.memo_item li{
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+.memo_size{
+    margin-bottom: 1rem;
+
+    font-weight: 900;
+}
+.memo_input{
+    width: 100%;
+    padding: 0.3rem;
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+
+    word-break: break-all;
+}
+.memo_input:focus{
+    border: none;
+}
+.memo_input:focus::-webkit-input-placeholder {
+    color:transparent; 
+}
+.board_switch_btn{
+    grid-area: switch;
+
+    width: fit-content;
+}
+.board_switch_btn_text {
+    font-size: 1.5rem;
+    color:black;
+
+    cursor: pointer;
+}
+.board_switch_btn_text:hover{
+    opacity: 50%;
+}
+.second_work_board{
+    padding: 1rem;
+    box-sizing: border-box;
+    
+    position: relative;
+    
+    background-color: white;
+
+    overflow: hidden;
+}
+#c2{
+    position: absolute;
+    top: 0; left: 0;
+}
+
+/*-------------------------- STEP2 ------------------------*/
+.fill{
+    display: flex;
+    align-items: center;
+}
+.fill_select{
+    position: relative;
+
+    width: 15rem;
+
+    padding: 0.2rem 0.5rem;
+
+    border: 1px solid black;
+    border-radius: 0.3rem;
+
+    overflow: hidden;
+}
+.fill_select:focus{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.fill_select_item{
+    padding: 0.5rem 0.8rem;
+    padding-right: 2rem;
+
+    color:black;
+    cursor: pointer;
+}
+.fill_title_text{
+    font-weight: 900;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+.fill_single_color_item{
+    margin-top: 1rem;
+    
+    display: flex;
+    align-items: center;
+}
+.color_selector{
+    margin-left: 1rem;
+}
+
+/*-------------------------- 그라데이션 색채우기 ------------------------*/
+.gradient_select_canvas{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-evenly;
+}
+
+.set_start_point, .set_end_point{
+    margin-top: 1rem;
+    font-weight: 900;
+}
+.gradient_set_item{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
