@@ -1,5 +1,6 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
+from .models import BsSignupDetail
 from django.utils import timezone
 from .models import User
 from django.contrib import auth
@@ -50,4 +51,20 @@ def logout(request):
     return redirect('/')
 
 def businessSignupDetail(request):
-    return render(request, 'business-signup-detail.html')
+    if request.method == 'POST':
+        bs = BsSignupDetail()
+        bs.tax = request.POST['tax']
+        bs.bsNum = request.POST['bsNum']
+        bs.type = request.POST['type']
+        bs.bsName = request.POST['bsName']
+        bs.repName = request.POST['repName']
+        bs.birth = request.POST['birth']
+        bs.phoneNum = request.POST['phoneNum']
+        bs.address = request.POST['address']
+        bs.registeration = request.FILES['registeration']
+        bs.report = request.FILES['report']
+        bs.save()
+        print("성공")
+        return redirect('/')
+    else:
+        return render(request, 'bs-signup-detail.html')
