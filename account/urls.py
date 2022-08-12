@@ -5,8 +5,8 @@ from django.urls import path
 
 urlpatterns = [
     path('login/', views.login, name='login'),
-    path('login/kakao/', views.KakaoLoginView.as_view(), name='kakaoLogin'),
-    path('login/kakao/callback/', views.KakaoCallbackView.as_view()),
+    path('login/kakao/', views.kakaoLogin, name='kakaoLogin'),
+    path('login/kakao/callback/', views.kakaocallback),
 
     path('signup/', views.signup, name='signup'),
     path('business-login/', views.businessLogin, name='businessLogin'),
