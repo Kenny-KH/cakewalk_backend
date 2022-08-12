@@ -14,15 +14,9 @@
       type="text/css"
     />
     <title>사업자 회원가입</title>
-<<<<<<< Updated upstream
-  </head>
-  <body>
-    <form action="{% url 'business-signup' %}" method="post">
-=======
 {% endblock %}
 {% block content %}
     <form action="{% url 'businessSignup' %}" method="post">
->>>>>>> Stashed changes
         {% csrf_token %}
     <!-- 중앙 흰색 박스 -->
     <div class="outer-box">
