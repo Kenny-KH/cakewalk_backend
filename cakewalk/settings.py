@@ -140,6 +140,6 @@ AUTH_USER_MODEL = 'account.User'
 
 KAKAO_CONFIG ={
     "KAKAO_REST_API_KEY":'b0ed2f28699406d89d7290e89c5ae081',
-    "KAKAO_REDIRECT_URI":'http://localhost:8000/account/signup/',
+    "KAKAO_REDIRECT_URI":'http://localhost:8000/account/login/kakao/callback/',
     "KAKAO_CLIENT_SECRET_KEY":"vXFeq1ibnjclm4UsBG0cGdPpioFk23on",
 }

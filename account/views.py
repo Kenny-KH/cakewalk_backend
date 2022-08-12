@@ -1,8 +1,6 @@
-
-from email.policy import HTTP
+from tabnanny import check
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import BsSignupDetail
-from django.utils import timezone
+from .models import BsSignupDetail, User
 from .models import User
 from django.contrib import auth
 from django.contrib import messages
@@ -16,8 +14,16 @@ def login(request):
     return render(request, 'login.html')
 
 def signup(request):
+    print("d여기서 문제인가?")
+    if request.method == 'POST':
+        name = request.POST['name']
+        tel = request.POST['tel']
+        email = request.POST['email']
+        address = request.POST['address']
+        user = User.objects.create_user(email, name, tel, address, None, None, None)
 
-    return render(request, 'signup.html')
+        auth.login(request, user)
+        return redirect('/')
 
 def businessLogin(request):
     if request.method == 'POST':
@@ -86,13 +92,12 @@ def kakaoLogin(request):
     uri = f"{kakao_login_uri}?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
     
     res = redirect(uri)
+    print("여기에요 살려주시라요")
     return res
 
 def kakaocallback(request):
-    data = request.query_params
-
     # access_token 발급 요청
-    code = data.get('code')
+    code = request.GET["code"]
     if not code:
         return HttpResponse("없엉")
 
@@ -134,5 +139,13 @@ def kakaocallback(request):
 
     user_email = kakao_account.get('email')
 
-    # 회원가입 및 로그인
-    return render(request, 'signup.html', {'user_id':user_info_json_id})
+    #is_business가 no임을 체크해야해
+    try:
+        checked_user = User.objects.get(email=user_email)
+        print(checked_user)
+    except:
+        print("여기가 진행 된거지??")
+        return render(request, 'signup.html', {'kakao_email':user_email})
+    else:
+        auth.login(request, checked_user)
+        return redirect('/')
