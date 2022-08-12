@@ -1,0 +1,387 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.gray {
+  color: #8a8a8a;
+}
+.notosanskr * {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.nanumgothic * {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+header {
+  height: 8.875rem;
+  background-color: #fff6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5.375rem;
+}
+
+.header-contents-container {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.store-info-small-box {
+  width: 12.875rem;
+  font-size: 1.063rem;
+}
+
+.fa-store-icon-size {
+  font-size: 2.7rem;
+  margin-right: 12px;
+}
+.fa-icon-margin {
+  margin-right: 6px;
+}
+
+.store-name {
+  font-family: nanumgothic;
+  font-size: 3rem;
+}
+.store-info-grid-box {
+  width: 18.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cake-main-image-section {
+  width: 27.5rem;
+  height: 26.5rem;
+  overflow: hidden;
+}
+
+.cake-main-image {
+  width: 25.5rem;
+  height: 25.5rem;
+  border-radius: 50%;
+  margin-left: 1.375rem;
+  margin-bottom: 13px;
+}
+
+.cake-sub-image {
+  width: 10.375rem;
+  height: 10.375rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.heart-box {
+  width: 4.1rem;
+  height: 2.2rem;
+  background-color: #ffffff;
+  padding: 0 0.5rem 0 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom: 1.875rem;
+  right: 20px;
+}
+
+.like-count {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+}
+
+.cake-addition-view {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.125rem;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 7.25rem;
+  height: 7.25rem;
+  border-radius: 50%;
+  background-color: rgba(227, 225, 225, 0.44);
+  box-shadow: -3px -4px 4px 0px rgba(154, 154, 154, 0.25);
+}
+
+section {
+  display: flex;
+  margin-left: 13rem;
+  align-items: center;
+}
+
+.cake-item-first {
+  position: relative;
+  top: 10px;
+  left: 100px;
+}
+
+.cake-item-second {
+  position: relative;
+  right: 10px;
+}
+
+.cake-item-third {
+  position: relative;
+  left: 10px;
+}
+
+.cake-item-last {
+  position: relative;
+  left: 140px;
+  bottom: 50px;
+}
+
+h2 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 13.37px;
+}
+
+.notice-box {
+  width: 22.375rem;
+  height: 8.75rem;
+  overflow-y: scroll;
+  background-color: rgba(255, 230, 97, 0.2);
+  padding: 10px 12px 10px 12px;
+  margin-bottom: 1.875rem;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.notice-box::-webkit-scrollbar {
+  display: none;
+}
+
+.review-more-btn {
+  width: 3.25rem;
+  height: 1.575rem;
+  background-color: white;
+  border: 1px solid #2d2d2d;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.review {
+  margin-bottom: 10px;
+}
+
+.review-wrapper {
+  overflow-y: scroll;
+  padding-right: 14px;
+}
+
+.review-wrapper::-webkit-scrollbar {
+  width: 6px;  /* 스크롤바의 너비 */
+}
+
+.review-wrapper::-webkit-scrollbar-thumb {
+  height: 12px; /* 스크롤바의 길이 */
+  background: #D9D9D9; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.review-wrapper::-webkit-scrollbar-track {
+  background: transparent;  /*스크롤바 뒷 배경 색상*/
+}
+
+.review-box-header {
+  width: 23.625rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-box {
+  width: 22.375rem;
+  height: 20.063rem;
+  border: 1px solid black;
+  padding: 10px 12px 10px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-box-filter-container {
+  width: 3.75rem;
+  padding: 3px 0 3px 0;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.review-rating-span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.review-author-span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.review-date-span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: lighter;
+  font-size: 0.9rem;
+}
+
+.review-header-left-container {
+  width: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.review-body-span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: lighter;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.main-bottom-image-button {
+  display: flex;
+  justify-content: center;
+}
+
+.main-bottom-image-button .image-button {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #767676;
+  margin-right: 7px;
+}
+
+.main-bottom-image-button .image-selected {
+  background-color: #f8bbd0;
+}
+
+.review-filter-span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.75rem;
+  margin-right: 4px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.modal-content {
+  background-color: white;
+  position: relative;
+  border-radius: 10px;
+  width: 70%;
+  height: 60%;
+  overflow-y: scroll;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;  /* 스크롤바의 너비 */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  height: 12px; /* 스크롤바의 길이 */
+  background: #D9D9D9;; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent /*스크롤바 뒷 배경 색상*/
+}
+
+.modal-header {
+  width: 95%;
+  margin-top: 1.563rem;
+  text-align: right;
+}
+
+/* 모달창 닫기 */
+.hidden {
+  display: none;
+}
+
+.modal-content .modal-review-title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.125rem;
+}
+
+.modal-content .modal-review-container {
+  width: 90%;
+  height: 100%;
+  padding: 0px 0px 10px 2.375rem;
+}
+
+.modal-content .modal-review-image-container {
+  display: flex;
+  margin-bottom: 1.3rem;
+}
+
+.modal-content .modal-review-user-image {
+  max-width: 80%;
+  display: flex;
+  overflow-x: scroll;
+  margin-right: 1.5rem;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.modal-content .modal-review-user-image::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.modal-content .modal-review-image {
+  width: 7.813rem;
+  height: 7.813rem;
+  margin-right: 12px;
+}
+
+.modal-review-add-button {
+  width: 7.813rem;
+  height: 7.813rem;
+  background-color: rgba(217, 217, 217, 0.5);
+  border: none;
+}
+
+hr {
+  display: block;
+  margin: 1.25rem 0 1.25rem 0;
+  background-color: red;
+  border: 0;
+  border-top: 1px solid #c6c6c6;
+}

@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결제하기</title>
+    <link rel="stylesheet" type="text/css" href="./src/css/payment.css" />
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <div class="pay">결제하기</div>
+      <div class="order">주문</div>
+      <div class="infor">
+        <div class="item">상품정보</div>
+        <div class="cake">
+          <img class="img" src="./src/img/image 35.png" alt="cake" />
+        </div>
+        <div class="name">
+          look at cake store <br />
+          -입대 실화야? 케이크 <br />
+          <span class="milk">우유시트+녹차생크림</span>
+        </div>
+        <div class="amount">수량 : 1</div>
+      </div>
+
+      <div class="order_price">
+        <div class="smalldiv">주문금액</div>
+        <div>40000원</div>
+      </div>
+
+      <div class="size">
+        <div class="smalldiv">사이즈</div>
+        <div>기본 1호</div>
+      </div>
+
+      <div class="option">
+        <div class="smalldiv">추가옵션</div>
+        <div>하트형(+2500원)</div>
+      </div>
+
+      <div class="icebag">
+        <div class="smalldiv">보냉백</div>
+        <div>없음</div>
+      </div>
+
+      <div class="total_amount">최종 결제 금액</div>
+
+      <div class="dis_coupon">
+        <div class="smalldiv">쿠폰 할인</div>
+        <div>-0원</div>
+
+        <button class="choice_cou">쿠폰 선택</button>
+      </div>
+
+      <div class="dis_coupon">
+        <div class="smalldiv">포인트 할인</div>
+        <div>-0원</div>
+
+        <button class="choice_cou">포인트 사용</button>
+      </div>
+
+      <div class="pay_info1">
+        <div class="pay_info">결제정보</div>
+
+        <div class="pay_intro">
+          <div class="pay_intro1">결제안내</div>
+          <div class="buttons_ways">
+            <button class="ways">신용카드</button>
+            <button class="ways">토스페이</button>
+            <button class="ways">계좌이체(에스크)</button>
+            <button class="ways">가상계좌(무통장 입금)</button>
+            <button class="ways">카카오페이</button>
+            <button class="ways">네이버페이</button>
+          </div>
+        </div>
+
+        <div class="agree">
+          <div class="order_agree">주문자 동의</div>
+          <div class="terms">
+            회원 본인은 구매 조건, 주문 내용 확인 및 결제에 동의합니다. <br />
+            개인정보 수집 및 이용 동의 <span class="spec">(자세히)</span> <br />
+            개인정보 제 3자 제공 동의 <span class="spec">(자세히)</span> <br />
+            전자결제대행 이용 동의 <span class="spec">(자세히)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="paying">
+        <button class="paying1">결제하기</button>
+      </div>
+
+      <div class="caution">
+        <div class="caution1">
+          현재 정보가 저장되지 않을 수 있습니다.
+          <button class="back"><< 돌아가기</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

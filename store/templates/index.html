@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}" />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/d35df90ac6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/js/index.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="logoImg" src="./src/img/logo.png" />
+      <ul class="header-ul">
+        <li class="header-li">MAKE</li>
+        <li class="header-li">CAKE</li>
+        <li class="header-li">LOGIN</li>
+      </ul>
+    </header>
+
+    <div class="top-container">
+      <div class="top-wrap">
+        <div class="title-wrap">
+          <span class="sub-title">it's a piece of cake!</span>
+          <h1 class="title">
+            레터링 <span style="color: white">케이크</span><br />여기서 만들어봐
+          </h1>
+        </div>
+        <div class="top-cake-wrap">
+          <div class="top-img-wrap">
+            <div class="top-cake-info">
+              <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+              <button class="info-btn"><a>가게 보러 가기</a></button>
+            </div>
+            <img class="top-cake" src="./src/img/cake2.png" alt="cake" />
+          </div>
+          <div class="top-shop-wrap">
+            <span class="top-address">경남 진주시 경상대로 501</span>
+            <span class="top-cake-name"><멋사 레터링 케익></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="middle-container">
+      <div class="circle-wrap">
+        <div class="circle pink"></div>
+        <div class="circle pink"></div>
+        <div class="circle pink"></div>
+        <div class="circle pink"></div>
+      </div>
+      <div class="middle-btn-wrap">
+        <button class="make-btn-first">처음부터 만들기</button>
+        <button class="make-btn">도안보고 만들기</button>  
+      </div>
+      <div class="circle-wrap">
+        <div class="circle yellow"></div>
+        <div class="circle yellow"></div>
+        <div class="circle yellow"></div>
+        <div class="circle yellow"></div>
+      </div>
+    </div>
+
+    <div class="show-wrap" id="cake">
+      <h2 class="show-cake-title">글자와 그림만 정해주세요</h2>
+      <span class="show-cake-sub-title"
+        >저장된 도안으로 쉽게 케이크를 만들어 드려요</span
+      >
+      <ul class="tag-wrap">
+        <li class="tag"><button class="tag-btn">#어버이날</button></li>
+        <li class="tag"><button class="tag-btn">#축!전역</button></li>
+        <li class="tag"><button class="tag-btn">#커플기념일</button></li>
+        <li class="tag"><button class="tag-btn">#생일</button></li>
+        <li class="tag"><button class="tag-btn">#크리스마스</button></li>
+      </ul>
+
+    <div class="cakes-container">
+      <ul class="cakes-wrap">
+          <li data-shop="cake1 shop" data-design="cake1 design">
+            <img class="cake-img" src="./src/img/mypage2_cake1.png" alt="cake1" />
+          </li>
+          <li><img class="cake-img" src="./src/img/main_cake2.png" alt="cake2" /></li>
+          <li><img class="cake-img" src="./src/img/main_cake3.png" alt="cake3" /></li>
+          <li><img class="cake-img" src="./src/img/main_cake4.png" alt="cake4" /></li>
+          <li>
+            <img class="cake-img" src="./src/img/main_cake1.png" alt="cake5" />
+          </li>
+          <li><img class="cake-img" src="./src/img/main_cake2.png" alt="cake6" /></li>
+          <li><img class="cake-img" src="./src/img/main_cake3.png" alt="cake7" /></li>
+          <li><img class="cake-img" src="./src/img/main_cake4.png" alt="cake8" /></li>
+        </ul>
+        <div class="cake-info">
+          <button class="info-btn"><a>가게 보러 가기</a></button>
+          <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+        </div>
+        <button class="arrow-btn" id="left">
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+        <button class="arrow-btn" id="right">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="show-wrap" id="shop">
+      <h2 class="show-shop-title">지금 뜨는 가게들</h2>
+    <div class="cakes-container">
+      <ul class="cakes-wrap">
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/mypage2_cake1.png" alt="cake1" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake2.png" alt="cake2" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake3.png" alt="cake3" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake4.png" alt="cake4" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake1.png" alt="cake5" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake2.png" alt="cake6" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake3.png" alt="cake7" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+          <li class="cake-wrap">
+            <img class="cake-img" src="./src/img/main_cake4.png" alt="cake8" />
+            <span class="shop-name">멋사가게</span>
+            <span class="shop-address"><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span>
+            <span class="shop-time"><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span>
+            <div class="star-wrap">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </li>
+        </ul>
+        <div class="cake-info">
+          <button class="info-btn"><a>가게 보러 가기</a></button>
+          <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+        </div>
+        <button class="arrow-btn shop" id="left">
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+        <button class="arrow-btn shop" id="right">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <p>copyright © 2022 all rights reserved</p>
+      <p>contact</p>
+    </footer>
+  </body>
+</html>
