@@ -61,6 +61,7 @@ def businessSignupDetail(request):
         bs.bsName = request.POST['bsName']
         bs.repName = request.POST['repName']
         bs.birth = request.POST['birth']
+        bs.insta = request.POST['insta']
         bs.phoneNum = request.POST['phoneNum']
         bs.address = request.POST['address']
         bs.registeration = request.FILES['registeration']
