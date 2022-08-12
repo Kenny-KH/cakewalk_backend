@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="kor">
   <head>
@@ -6,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가게보기</title>
 
-    <link rel="stylesheet" type="text/css" href="./src/css/watch_store.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/watch_store.css' %}"
+    />
   </head>
   <body>
     <div class="b_watch">
@@ -33,7 +38,7 @@
     <div class="pink_background">
       <div class="store_box">
         <div class="store_logo">
-          <img src="./src/img/image 49.png" alt="logo" />
+          <img src="{% static 'img/image 49.png' %}" alt="logo" />
         </div>
 
         <div class="main_content">
@@ -45,20 +50,39 @@
           <div class="contents_div">
             <div class="store_detail">
               <div class="address1">
-                <img class="address" src="./src/img/Vector.png" alt="address" /> 진주시 가좌동
+                <img
+                  class="address"
+                  src="{% static 'img/Vector.png' %}"
+                  }
+                  alt="address"
+                />
+                진주시 가좌동
               </div>
 
               <div class="IG1">
-                <img class="IG" src="./src/img/Vector (1).png" alt="IG" /> @abcdef
+                <img
+                  class="IG"
+                  src="{% static 'img/Vector (1).png' %}"
+                  alt="IG"
+                />
+                @abcdef
               </div>
 
               <div class="phone1">
-                <img class="phone" src="./src/img/Vector (2).png" alt="phone" />
+                <img
+                  class="phone"
+                  src="{% static 'img/Vector (2).png' %} "
+                  alt="phone"
+                />
                 010-0000-0000
               </div>
 
               <div class="time1">
-                <img class="time" src="./src/img/Vector (3).png" alt="time" />
+                <img
+                  class="time"
+                  src="{% static 'img/Vector (3).png' %}"
+                  alt="time"
+                />
                 10:00~19:00
               </div>
             </div>
@@ -72,9 +96,21 @@
             </div>
 
             <div class="circles">
-              <img class="cake_circle" src="./src/img/Ellipse 51.png" alt="cake" />
-              <img class="cake_circle" src="./src/img/Ellipse 51.png" alt="cake" />
-              <img class="cake_circle" src="./src/img/Ellipse 51.png" alt="cake" />
+              <img
+                class="cake_circle"
+                src="{% static 'img/Ellipse 51.png' %}"
+                alt="cake"
+              />
+              <img
+                class="cake_circle"
+                src="{% static 'img/Ellipse 51.png' %}"
+                alt="cake"
+              />
+              <img
+                class="cake_circle"
+                src="{% static 'img/Ellipse 51.png' %}"
+                alt="cake"
+              />
             </div>
           </div>
         </div>
