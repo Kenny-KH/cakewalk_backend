@@ -7,6 +7,7 @@ from django.forms import CharField
 
 # Create your models here.
 class BsSignupDetail(models.Model):
+    author = models.ForeignKey("User", related_name="user", on_delete=models.CASCADE)
     tax = models.CharField(max_length=30)
     bsNum = models.IntegerField()
     type = models.CharField(max_length=50)

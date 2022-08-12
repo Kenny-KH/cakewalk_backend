@@ -41,7 +41,7 @@ def businessSignup(request):
             # user 객체를 생성
             user = User.objects.create_superuser(business_num, name, tel, email, password = request.POST['password'])
             auth.login(request, user)
-            return redirect('/business-signup-detail')
+            return redirect('/account/business-signup-detail/')
         else:
             messages.warning(request, "권한이 없습니다.")
     return render(request, 'business-signup.html')
@@ -53,6 +53,7 @@ def logout(request):
 def businessSignupDetail(request):
     if request.method == 'POST':
         bs = BsSignupDetail()
+        bs.author = request.user
         bs.tax = request.POST['tax']
         bs.bsNum = request.POST['bsNum']
         bs.type = request.POST['type']
@@ -67,4 +68,4 @@ def businessSignupDetail(request):
         print("성공")
         return redirect('/')
     else:
-        return render(request, 'bs-signup-detail.html')
+        return render(request, 'business-signup-detail.html')
