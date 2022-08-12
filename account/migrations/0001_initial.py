@@ -1,5 +1,8 @@
 
+
+from django.conf import settings
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -11,6 +14,27 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='User',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('password', models.CharField(max_length=128, verbose_name='password')),
+                ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
+                ('business_num', models.IntegerField(null=True, unique=True)),
+                ('name', models.CharField(max_length=10)),
+                ('nickname', models.CharField(max_length=10, null=True, unique=True)),
+                ('email', models.EmailField(max_length=255, unique=True)),
+                ('tel', models.CharField(max_length=40)),
+                ('address', models.CharField(max_length=300, null=True)),
+                ('is_business', models.BooleanField(default=False)),
+                ('is_active', models.BooleanField(default=True)),
+                ('created_on', models.DateTimeField(auto_now_add=True)),
+                ('updated_on', models.DateTimeField(auto_now=True)),
+            ],
+            options={
+                'db_table': 'user',
+            },
+        ),
+        migrations.CreateModel(
             name='BsSignupDetail',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -20,10 +44,11 @@ class Migration(migrations.Migration):
                 ('bsName', models.CharField(max_length=100)),
                 ('repName', models.CharField(max_length=12)),
                 ('birth', models.IntegerField()),
-                ('phoneNum', models.IntegerField(max_length=20)),
+                ('phoneNum', models.IntegerField()),
                 ('address', models.TextField()),
                 ('registeration', models.ImageField(upload_to='')),
                 ('report', models.ImageField(upload_to='')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user', to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

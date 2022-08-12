@@ -19,7 +19,7 @@
                 <a href="#" class="user_login">사용자 로그인</a>
                 <a href="#" class="business_login">사업자 로그인</a>
             </div>
-            <form action="{%url 'business-login' %}" method="post">
+            <form action="{%url 'businessLogin' %}" method="post">
                 {% csrf_token %}
             <div class="login_box">
                 <input class="business_number" name="email" placeholder="이메일을 입력하세요" />
@@ -32,7 +32,7 @@
                     <a href="#" class="find_account">아이디/비밀번호 찾기</a>
                 </div>
                 <button class="login_btn" type="submit">로그인</button>
-                <button class="business_signup_btn" onclick="location.href='{% url 'business-signup' }'">사업자 회원가입</button>
+                <button type="button" class="business_signup_btn" onclick="location.href='{% url 'businessSignup' %}'">사업자 회원가입</button>
             </form>
             </div>
         </div>

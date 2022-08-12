@@ -1,12 +1,9 @@
-# Create your models here.
-from django.core.validators import RegexValidator
 from django.db import models
-from datetime import datetime
-from django.forms import CharField
 
 
 # Create your models here.
 class BsSignupDetail(models.Model):
+    author = models.ForeignKey("User", related_name="user", on_delete=models.CASCADE)
     tax = models.CharField(max_length=30)
     bsNum = models.IntegerField()
     type = models.CharField(max_length=50)
@@ -17,6 +14,7 @@ class BsSignupDetail(models.Model):
     address = models.TextField()
     registeration = models.ImageField()
     report = models.ImageField()
+    
     
 from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
 from django.db import models
