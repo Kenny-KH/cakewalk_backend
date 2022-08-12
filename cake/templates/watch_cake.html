@@ -1,4 +1,5 @@
-<!DOCTYPE html> <!--!+tap-->
+{% load static %}
+<!DOCTYPE html>
 <html lang="kor">
   <head>
     <meta charset="UTF-8" />
@@ -7,8 +8,8 @@
 
     <title>케이크보기</title>
 
-    <link rel="stylesheet" type="text/css" href="./src/css/watch_cake.css" />
-    <script src="./src/js/watch_cake.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/watch_cake.css' %}" />
+    <script src="{% static 'js/watch_cake.js' %}" defer></script>
 
   </head>
   <body class="body">
@@ -38,38 +39,38 @@
     </select>
 
     <br />
-
-
     <div class="pink_background">
       <div class="pics_cakes">
         <div class="cp">
-          <img class ="img2" src="./src/img/Rectangle 220.png" alt="cake"  />
-
+          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake1.png' %}" alt="cake"/>
         </div>
+        
         <div class="cp">
-          <img class="img2" src="./src/img/Rectangle 219.png" alt="cake" />
+          <img class="img2" src="{% static 'img/watchcake/cakeview_cake2.png' %}" alt="cake" />
         </div>
+        
         <div class="cp"> 
-          <img class="img2" src="./src/img/image 51.png" alt="cake" />
+          <img class="img2" src="{% static 'img/watchcake/cakeview_cake3.png' %}" alt="cake" />
+        </div>
+
+        <div class="cp">
+          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake4.png' %}" alt="cake"/>
+        </div>
+
+        <div class="cp">
+          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake5.png' %}" alt="cake"  />
 
         </div>
         <div class="cp">
-          <img class ="img2" src="./src/img/image 56.png" alt="cake"  />
-        </div>
-        <div class="cp">
-          <img class ="img2" src="./src/img/Rectangle 221.png" alt="cake"  />
+          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake1.png' %}" alt="cake"  />
 
         </div>
         <div class="cp">
-          <img class ="img2" src="./src/img/Rectangle 222.png" alt="cake"  />
+          <img class="img2" src="{% static 'img/watchcake/cakeview_cake3.png' %}" alt="cake" />
 
         </div>
         <div class="cp">
-          <img class="img2" src="./src/img/image 57.png" alt="cake" />
-
-        </div>
-        <div class="cp">
-          <img class="img2" src="./src/img/image 58.png" alt="cake" />
+          <img class="img2" src="{% static 'img/watchcake/cakeview_cake6.png' %}" alt="cake" />
 
         </div>
         <div class="cp">케이크사진넣기</div>
@@ -84,19 +85,17 @@
 
       <div class="modal">
         <div class="modal_body">
-          
-          
-            <button class="previous">
-          <img class="previous2" src="./src/img/Vector 8.png" alt="arrow" />
-              
-              </button> 
+          <button class="previous">
+            <img class="previous2" src="{% static 'img/watchcake/arrow_left.png' %}" alt="arrow" />    
+          </button> 
             
-            <button class="next"> 
-          <img class="next2" src="./src/img/Vector 9.png" alt="arrow" />
-            </button>  
+          <button class="next"> 
+            <img class="next2" src="{% static 'img/watchcake/arrow_right.png' %}" alt="arrow" />
+          </button>  
+          
           <img
             class="modal-img"
-            src="./src/img/Rectangle 219.png"
+            src="{% static 'img/watchcake/cakeview_cake3.png' %}"
             alt="cake"
            />
            <br/>

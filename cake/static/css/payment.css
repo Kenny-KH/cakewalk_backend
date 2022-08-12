@@ -1,0 +1,248 @@
+.body {
+  display: flex;
+  justify-content: center;
+}
+
+.pay {
+  margin: 2rem;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40.86px;
+}
+
+.order {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 0 0 1rem 0;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.infor {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/**.item{
+    
+}*/
+
+.name {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.milk {
+  color: rgba(0, 0, 0, 0.53);
+}
+
+.amount {
+  padding: 2rem 0;
+}
+
+.smalldiv {
+  padding-right: 9rem;
+}
+
+.order_price {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  display: flex;
+}
+
+.size {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  display: flex;
+}
+
+.option {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  display: flex;
+}
+
+.icebag {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  display: flex;
+}
+
+.total_amount {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 0 0 1rem 0;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  margin-top: 40px;
+  color: #000000;
+}
+
+.dis_coupon {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 0 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.choice_cou {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  width: 102px;
+  height: 30px;
+  background: #ffe5e5;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+}
+
+.pay_info {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 0 0 1rem 0;
+  margin-top: 40px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.pay_intro {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.pay_intro1 {
+  padding: 0 2rem 0 0;
+}
+
+.buttons_ways {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 555px;
+  height: 96px;
+}
+
+.ways {
+  border: 1px solid #000000;
+  background: rgba(241, 241, 241, 0.6);
+  box-sizing: border-box;
+  width: 171px;
+  height: 40px;
+}
+
+.agree {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  width: 860px;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.order_agree {
+  padding: 2rem;
+}
+
+/*.terms{
+    
+    
+    
+}*/
+
+.spec {
+  text-decoration: underline;
+}
+
+.paying {
+  display: flex;
+  justify-content: center;
+}
+
+.paying1 {
+  width: 200px;
+  height: 56px;
+  background: #ffdbe4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 49.5px 0 0 0;
+  border: #ffdbe4;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 31px;
+  text-align: center;
+  color: #000000;
+}
+
+.caution {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 105px;
+  margin-bottom: 40px;
+}
+
+.caution1 {
+  margin-top: 1rem;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.53);
+}
+
+.back {
+  box-sizing: border-box;
+  width: 103px;
+  height: 34px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  margin-left: 1rem;
+}

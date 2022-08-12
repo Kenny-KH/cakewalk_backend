@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="kor">
   <head>
@@ -5,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>결제하기</title>
-    <link rel="stylesheet" type="text/css" href="./src/css/payment.css" />
+    
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/payment.css' %}" />
   </head>
   <body class="body">
     <div class="wrapper">
@@ -14,7 +17,7 @@
       <div class="infor">
         <div class="item">상품정보</div>
         <div class="cake">
-          <img class="img" src="./src/img/image 35.png" alt="cake" />
+          <img class="img" src="{% static 'img/payment/payment_ex.png' %}" alt="cake" />
         </div>
         <div class="name">
           look at cake store <br />

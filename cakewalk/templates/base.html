@@ -16,9 +16,11 @@
         <div class="navbar">
             <div class="nav_item">MAKE</div>
             <div class="nav_item">CAKE</div>
+
+            {% if user.isauthen}
             <div class="nav_item">마이페이지</div>
             <div class="nav_item">LOGOUT</div>
-            <div class="nav_item"><img src="{% static 'img/nav_star.png' %}""></div>
+            <div class="nav_item"><img src="{% static 'img/nav_star.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_heart.png' %}"></div>
             <div class="nav_item"><img src="{% static 'img/nav_bell.png' %}"></div>
         </div>
