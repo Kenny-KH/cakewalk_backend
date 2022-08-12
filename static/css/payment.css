@@ -1,8 +1,3 @@
-.body {
-  display: flex;
-  justify-content: center;
-}
-
 .pay {
   margin: 2rem;
   font-size: 30px;
@@ -11,7 +6,6 @@
 }
 
 .order {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
   width: 860px;
   padding: 0 0 1rem 0;
   font-family: "Noto Sans";
@@ -24,15 +18,12 @@
 
 .infor {
   border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  border-top: 1px solid rgba(0, 0, 0, 0.37);
   width: 860px;
   padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
 }
-
-/**.item{
-    
-}*/
 
 .name {
   font-family: "Noto Sans";
