@@ -1,16 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% extends 'base.html' %}
+{% load static %} 
+{% block head %}
     <link href="{% static 'css/signup.css' %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bab0b57cd2.js" crossorigin="anonymous"></script>
     <title>회원가입</title>
-</head>
+{% endblock %} {% block content %}
 <body>
     <!-- 중앙 흰색바탕 블록 -->
     <form class="inner_box" action="{% url 'signup' %}" method="POST">
@@ -33,5 +31,4 @@
         <input type="submit" class="profile_settings_btn" value="설정 완료"></input>
     </div>
 </body>
-<script src="https://kit.fontawesome.com/bab0b57cd2.js" crossorigin="anonymous"></script>
-</html>
+{% endblock %}

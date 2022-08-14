@@ -11,9 +11,11 @@ class BsSignupDetail(models.Model):
     repName = models.CharField(max_length=12)
     birth = models.IntegerField()
     phoneNum = models.IntegerField()
+    insta = models.CharField(max_length=100)
     address = models.TextField()
     registeration = models.ImageField()
     report = models.ImageField()
+    notice = models.TextField(blank=True, null=True)
     
 from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
 from django.db import models
