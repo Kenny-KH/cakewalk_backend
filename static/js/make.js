@@ -394,6 +394,16 @@ order_num_items.forEach(element => {
         order_title.innerText = cur_order.title;
         order_title.style.backgroundColor = cur_order.color;
 
+        // STEP3일때 펜슬 드로윙 활성화
+        if(element.dataset.order == 3){
+            canvas.isDrawingMode = true;
+            canvas2.isDrawingMode = true;    
+        }
+        else{
+            canvas.isDrawingMode = false;
+            canvas2.isDrawingMode = false;        
+        }
+
         step_boxes.forEach(ele => {
             if(ele.dataset.step == cur_order.order){
                 active_step_box.classList.toggle('unactive', true);
@@ -576,26 +586,41 @@ function setFillGradient(){
 const fillRealUpload = document.querySelector('.fill_real_upload');
 const fillUpload = document.querySelector('.fill_upload');
 let fill_pic_url;
-let pattern_img;
 let patternSourceCanvas 
+
+let fill_img_info ={
+    'size' : 300,
+    'posX' : canvas_width * mag /4 -150,
+    'posY' : canvas_width * mag /4 -150,
+    'angle' : 0
+}
 
 fillUpload.addEventListener('click', ()=> fillRealUpload.click());
 fillRealUpload.addEventListener('change', ()=>{
     let selected_pic = fillRealUpload.files[0];
-    
-    fill_pic_url = URL.createObjectURL(selected_pic);
-    setFillImage();
+    if(selected_pic){
+        fill_pic_url = URL.createObjectURL(selected_pic);
+        setFillImage();
+    }
 });
 
 function setFillImage(){
     if(cakesheet && sidesheet && fill_pic_url){
         fabric.Image.fromURL(fill_pic_url, function(img){
-            img.scaleToWidth(300);
+            img.scaleToWidth(fill_img_info['size']);
             patternSourceCanvas = new fabric.StaticCanvas();
             
-            pattern_img = img;
-            patternSourceCanvas.centerObject(img);
+            patternSourceCanvas.setDimensions({
+                width: img.getScaledWidth(),
+                height: img.getScaledHeight(),
+            });
+
             patternSourceCanvas.add(img);
+            console.log(img);
+            img.set('centeredRotation', True);
+            img.set('angle', fill_img_info['angle']);
+
+
             patternSourceCanvas.renderAll();
             
             cake_color = new fabric.Pattern({
@@ -603,7 +628,12 @@ function setFillImage(){
                 repeat: 'no-repeat'
             }) 
 
+            cake_color.offsetX = fill_img_info['posX'];
+            cake_color.offsetY = fill_img_info['posY'];
+
+
             cakesheet.set('fill', cake_color);
+
             canvas.requestRenderAll();
         });
     }
@@ -611,30 +641,46 @@ function setFillImage(){
 
 const fillImgScale = document.getElementById('fill_img_scale') 
 
-fillImgScale.addEventListener('change', (e)=>{
-    
-    pattern_img.scaleToWidth(parseInt(fillImgScale.value* 6, 10));
-
-    patternSourceCanvas.setDimensions({
-        width: pattern_img.width,
-        height: pattern_img.height,
-    });
-
-    canvas.requestRenderAll();
-});
+fillImgScale.oninput = function(){
+    fill_img_info['size'] = parseInt(fillImgScale.value* 6, 10);
+    setFillImage();
+};
 
 document.getElementById('fill_img_offsetX').oninput = function () {
-    cake_color.offsetX = parseInt(this.value*5, 10);
-    canvas.requestRenderAll();
+    //canvas_width * mag /4 -150 = 50
+    let posX = (canvas_width * mag /4 -150) + (this.value -50)*6; 
+    fill_img_info['posX'] = posX;
+    setFillImage();
 };
 
 document.getElementById('fill_img_offsetY').oninput = function () {
-    cake_color.offsetY = parseInt(this.value*5, 10);
-    canvas.requestRenderAll();
+    let posY = (canvas_height * mag /4 -150) + (this.value -50)*6;
+    fill_img_info['posY'] = posY;
+    setFillImage();
 };
 
 document.getElementById('fill_img_angle').oninput = function(){
-    img.set('angle', this.value*5);
-    patternSourceCanvas.renderAll();
-    canvas.requestRenderAll();
+    fill_img_info['angle'] = this.value * (360 / 100)
+    setFillImage();
 };
+
+/*--------------------------------- STEP3 레터링 --------------------------------- */
+document.querySelector('step3').addEventListener('click',()=>{
+    console.log('실행되는 거지?');
+    fabric.Object.prototype.objectCaching = true;
+
+    canvas.on('before:path:created', function(opt) {
+        let path = opt.path;
+        let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
+        path.segmentsInfo = pathInfo;
+        let pathLength = pathInfo[pathInfo.length - 1].length;
+        let text = 'This is a demo of text on a path. This text should be small enough to fit in what you drawn.';
+        let fontSize = 2.5 * pathLength / text.length;
+        text = new fabric.Text(text, { fontSize: fontSize, path: path, top: path.top, left: path.left });
+        canvas.add(text);
+    });
+
+    canvas.on('path:created', function(opt) {
+        canvas.remove(opt.path);
+    });
+});
