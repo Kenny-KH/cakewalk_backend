@@ -1,4 +1,3 @@
-from tabnanny import check
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import BsSignupDetail, User
 from .models import User
@@ -14,7 +13,7 @@ def login(request):
     return render(request, 'login.html')
 
 def signup(request):
-    print("d여기서 문제인가?")
+    
     if request.method == 'POST':
         name = request.POST['name']
         tel = request.POST['tel']

@@ -24,7 +24,7 @@
     <div class="top-cake-wrap">
       <div class="top-img-wrap">
         <div class="top-cake-info">
-          <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+          <button class="info-btn"><a >도안 디자인 하러 가기</a></button>
           <button class="info-btn"><a>가게 보러 가기</a></button>
         </div>
         <img class="top-cake" src="{% static 'img/cake2.png' %}" alt="cake" />
@@ -45,7 +45,7 @@
     <div class="circle pink"></div>
   </div>
   <div class="middle-btn-wrap">
-    <button class="make-btn-first">처음부터 만들기</button>
+    <a href="{% url 'make' %}"><button class="make-btn-first">처음부터 만들기</button></a>
     <button class="make-btn">도안보고 만들기</button>
   </div>
   <div class="circle-wrap">

@@ -590,7 +590,7 @@ fillRealUpload.addEventListener('change', ()=>{
 function setFillImage(){
     if(cakesheet && sidesheet && fill_pic_url){
         fabric.Image.fromURL(fill_pic_url, function(img){
-            img.scaleToWidth(100);
+            img.scaleToWidth(300);
             patternSourceCanvas = new fabric.StaticCanvas();
             
             pattern_img = img;
@@ -610,13 +610,16 @@ function setFillImage(){
 }
 
 const fillImgScale = document.getElementById('fill_img_scale') 
+
 fillImgScale.addEventListener('change', (e)=>{
-    pattern_img.scale(fillImgScale.value /10);
+    
+    pattern_img.scaleToWidth(parseInt(fillImgScale.value* 6, 10));
+
     patternSourceCanvas.setDimensions({
         width: pattern_img.width,
         height: pattern_img.height,
     });
-    console.log(pattern_img.width);
+
     canvas.requestRenderAll();
 });
 
