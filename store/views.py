@@ -43,4 +43,5 @@ def detail(request, store_id):
     
     return render(request,'store_info.html', {'store' : store, 'cakes' : cakes})
 
-
+def inquire(request):
+    return render(request,'inquire.html')

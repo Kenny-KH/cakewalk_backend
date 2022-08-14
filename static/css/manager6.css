@@ -41,14 +41,14 @@ header {
   margin-left: 60px;
 }
 
-nav {
+/* nav {
   float: left;
   position: absolute;
   padding: 47px 41.3px 0px 41.3px;
   width: 269px;
   height: 100%;
   background-color: rgba(248, 187, 208, 0.42);
-}
+} */
 
 .profile-img {
   display: block;
@@ -101,12 +101,6 @@ span .fa-solid, span .fa-brands {
 
 .nav-li:nth-child(6) {
   background-color: #E6CCD5;
-}
-
-main {
-  padding-top: 65px;
-  overflow: hidden;
-  position: relative;
 }
 
 section {
