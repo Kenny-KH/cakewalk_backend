@@ -64,6 +64,7 @@ function drawShape(){
                 strokeWidth : 3,
                 fill: cake_color,
             });
+            circle.set('selectable', false);
             canvas.add(circle);
             canvas.centerObject(circle);
             cakesheet = circle;
@@ -76,7 +77,7 @@ function drawShape(){
                 strokeWidth : 3,
                 fill: cake_color,
             });
-            //rect.set('selectable', false);
+            rect.set('selectable', false);
             canvas.add(rect);
             canvas.centerObject(rect);
             cakesheet = rect;
@@ -89,7 +90,7 @@ function drawShape(){
                 strokeWidth : 3,
                 fill: cake_color,
             });
-            //tri.set('selectable', false);
+            tri.set('selectable', false);
             canvas.add(tri);
             canvas.centerObject(tri);
             cakesheet = tri;
@@ -104,7 +105,7 @@ function drawShape(){
                 stroke: 'black',
                 strokeWidth : 6/7,
             })
-            //star.set('selectable', false);
+            star.set('selectable', false);
             canvas.add(star);
             canvas.centerObject(star);
             cakesheet = star;
@@ -125,7 +126,7 @@ function drawShape(){
                 stroke: 'black',
                 strokeWidth : 3,
             });
-            //heart.set('selectable', false);
+            heart.set('selectable', false);
             canvas.add(heart);
             canvas.centerObject(heart);
             cakesheet = heart;
@@ -144,6 +145,8 @@ function drawShape(){
                 fill: 'white'
             }); 
 
+            first_circle.set('selectable', false);
+            second_circle.set('selectable', false);
             canvas.centerObject(first_circle);
             canvas.centerObject(second_circle);
             
@@ -394,16 +397,7 @@ order_num_items.forEach(element => {
         order_title.innerText = cur_order.title;
         order_title.style.backgroundColor = cur_order.color;
 
-        // STEP3일때 펜슬 드로윙 활성화
-        if(element.dataset.order == 3){
-            canvas.isDrawingMode = true;
-            canvas2.isDrawingMode = true;    
-        }
-        else{
-            canvas.isDrawingMode = false;
-            canvas2.isDrawingMode = false;        
-        }
-
+        // Step 별 sidebar 활성화
         step_boxes.forEach(ele => {
             if(ele.dataset.step == cur_order.order){
                 active_step_box.classList.toggle('unactive', true);
@@ -413,7 +407,7 @@ order_num_items.forEach(element => {
                 ele.classList.toggle('active_step_box', true);
                 active_step_box = ele;
             }
-        });
+        });       
     });
 });
 
@@ -595,6 +589,7 @@ let fill_img_info ={
     'angle' : 0
 }
 
+//사진 가져오기 클릭 이벤트
 fillUpload.addEventListener('click', ()=> fillRealUpload.click());
 fillRealUpload.addEventListener('change', ()=>{
     let selected_pic = fillRealUpload.files[0];
@@ -604,6 +599,7 @@ fillRealUpload.addEventListener('change', ()=>{
     }
 });
 
+//이미지 채우기 함수
 function setFillImage(){
     if(cakesheet && sidesheet && fill_pic_url){
         fabric.Image.fromURL(fill_pic_url, function(img){
@@ -616,11 +612,8 @@ function setFillImage(){
             });
 
             patternSourceCanvas.add(img);
-            console.log(img);
-            img.set('centeredRotation', True);
+
             img.set('angle', fill_img_info['angle']);
-
-
             patternSourceCanvas.renderAll();
             
             cake_color = new fabric.Pattern({
@@ -639,7 +632,7 @@ function setFillImage(){
     }
 }
 
-const fillImgScale = document.getElementById('fill_img_scale') 
+const fillImgScale = document.getElementById('fill_img_scale');
 
 fillImgScale.oninput = function(){
     fill_img_info['size'] = parseInt(fillImgScale.value* 6, 10);
@@ -665,22 +658,154 @@ document.getElementById('fill_img_angle').oninput = function(){
 };
 
 /*--------------------------------- STEP3 레터링 --------------------------------- */
-document.querySelector('step3').addEventListener('click',()=>{
-    console.log('실행되는 거지?');
+// 폰트 사이즈 입력 받기
+let text_fontsize = 18;
+const font_size_control = document.querySelector('.font_size');
+font_size_control.addEventListener('change', ()=>{
+    text_fontsize = font_size_control.value;
+});
+
+/*
+//글꼴 설정
+let cur_font_familly;
+const fonts = ["Jua", "Nanum Gothic Regular", "Nanum Gothic Bold", "NanumPen", "Sunflower"]
+const font_selector = document.getElementById('font_familly_selector');
+fonts.forEach(function(font){
+    let option = document.createElement('option');
+    option.innerHTML = font;
+    option.value = font;
+    font_selector.appendChild(option);
+});
+
+fonts.unshift("times New Roman");
+
+font_selector.onchange = function(){
+    cur_font_familly = this.value
+
+    if (this.value !== 'Times New Roman'){
+        loadAndUse(this.value);
+    }else{
+        canvas.getActiveObject().set("fontFamily", this.value);
+        canvas.requestRenderAll();
+    }
+};
+
+function loadAndUse(font){
+    let myfont = new FontFaceObserver(font);
+    myfont.load().then(function(){
+        canvas.getActiveObject().set("fontFamily", font);
+        canvas.requestRenderAll();
+    }).catch(function(e){
+        alert('font loading failed' + font);
+    });
+}
+*/
+
+// 텍스트 값 입력 받기
+const text_content_item = document.querySelector('.text_content_item');
+let cur_text = text_content_item.value;
+
+text_content_item.addEventListener('input', ()=>{
+    if(text_content_item.value){
+        cur_text = text_content_item.value;
+    }
+    else{
+        cur_text = '';
+    }
+
+    step3();
+});
+
+//텍스트 입력 방식 버튼 이벤트
+const texttypes = document.querySelectorAll('.text_type_item');
+let cur_active_text_type;
+texttypes.forEach(element => {
+    //초기 active text type 값 설정
+    if (element.classList.contains('text_type_item_active')){
+        cur_active_text_type = element; 
+    }
+
+    //버튼 클릭 때 마다 cur_active_text_type바꿔주기
+    element.addEventListener('click', ()=>{
+        cur_active_text_type.classList.toggle('text_type_item_active', false);
+        element.classList.toggle('text_type_item_active', true);
+        cur_active_text_type = element;
+
+        step3();
+    });
+});
+
+function step3(){
+    fabric.Object.prototype.objectCaching = false;
+    canvas.isDrawingMode = false;
+
+    switch (cur_active_text_type.dataset.type) {
+        case 'mouse':
+            textMouse();
+            break;
+        case 'box':
+            textBox();
+            break;
+        case 'curve':
+            textCurve();
+            break;
+    }
+}
+
+function textCurve(){
     fabric.Object.prototype.objectCaching = true;
+    canvas.isDrawingMode = true;
 
     canvas.on('before:path:created', function(opt) {
         let path = opt.path;
         let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
         path.segmentsInfo = pathInfo;
         let pathLength = pathInfo[pathInfo.length - 1].length;
-        let text = 'This is a demo of text on a path. This text should be small enough to fit in what you drawn.';
-        let fontSize = 2.5 * pathLength / text.length;
-        text = new fabric.Text(text, { fontSize: fontSize, path: path, top: path.top, left: path.left });
+        let fontSize = (text_fontsize/18) * pathLength / cur_text.length;
+        
+        text = new fabric.Text(cur_text, { fontSize: fontSize, path: path, top: path.top, left: path.left });
         canvas.add(text);
     });
 
-    canvas.on('path:created', function(opt) {
+    canvas.on('path:created', function(opt){
         canvas.remove(opt.path);
     });
+}
+
+function textBox(){
+    console.log(cur_text);
+    let textbox = new fabric.Textbox( cur_text, {
+        top : 100,
+        left : 100,
+        width : 150,
+        fontSize: text_fontsize
+    });
+
+    canvas.add(textbox).setActiveObject(textbox);
+    canvas.requestRenderAll();
+}
+
+function textMouse(){
+    fabric.Object.prototype.objectCaching = false;
+    canvas.isDrawingMode = false;
+}
+
+/*--------------------------------- STEP4 데코레이션 --------------------------------- */
+
+/*--------------------------------- STEP5 판꾸미기 --------------------------------- */
+const create_support_btn = document.querySelector('.create_support');
+
+create_support_btn.addEventListener('click', ()=>{
+    let support = new fabric.Rect({
+        width: canvas_width * mag/2 + 80,
+        height : canvas_width * mag/2 + 80,
+        fill: '#ccc',
+        stroke : 'black',
+        strokeWidth: 3,
+    });
+    
+    support.set('selectable', false);
+    canvas.centerObject(support)
+    canvas.add(support);
+    canvas.requestRenderAll();
 });

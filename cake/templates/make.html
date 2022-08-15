@@ -3,7 +3,13 @@
 {% block head %}
     <title>케이크 디자인</title>
     
+    <!-- CSS 초기화 코드 -->
     <link rel="stylesheet" href="./src/css/init.css">
+    
+    <!-- font 모음 CSS -->
+    <link rel="stylesheet" href="{% static 'css/make_font.css' %}">
+
+    <!-- 기본 stylesheet -->
     <link rel="stylesheet" href="{% static 'css/make.css' %}">
 
     <!-- font Awesome CND -->
@@ -12,6 +18,9 @@
     <!-- fabric js CND -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
     
+    <!-- font face observer CND-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.js"></script>
+
     <script src="{% static 'js/make.js' %}" defer></script>
 {% endblock %}
 {% block content %}
@@ -165,13 +174,58 @@
                     </div>
                 </div>
                 <div class="step_box step3 unactive" data-step="3">
-
+                    <div class="step3_item text_type">
+                        <div class="text_type_item text_type_item_active text_mouse" data-type="mouse">
+                            <i class="fa-solid fa-arrow-pointer"></i>
+                        </div>
+                        <div class="text_type_item box_text" data-type="box">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <div class="text_type_item curve_text" data-type="curve">
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </div>
+                    <div class="step3_item text_size">
+                        글자 크기
+                        <input type="number" class="font_size" value=18 >
+                    </div>
+                    <div class="step3_item text_familly">
+                        글꼴
+                        <select id="font_familly_selector" style="width: 80%;"></select>
+                    </div>
+                    <div class="step3_item text_content">
+                        텍스트 입력
+                        <textarea class="text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
+                    </div>
                 </div>
                 <div class="step_box step4 unactive" data-step="4">
 
                 </div>
                 <div class="step_box step5 unactive" data-step="5">
-
+                    <div class="create_support">판 생성하기</div>
+                    <div class="step5_item text_type">
+                        <div class="text_type_item text_type_item_active text_mouse" data-type="mouse">
+                            <i class="fa-solid fa-arrow-pointer"></i>
+                        </div>
+                        <div class="text_type_item box_text" data-type="box">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <div class="text_type_item curve_text" data-type="curve">
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </div>
+                    <div class="step5_item text_size">
+                        글자 크기
+                        <input type="number" class="font_size" value=18 >
+                    </div>
+                    <div class="step5_item text_familly">
+                        글꼴
+                        <select id="font_familly_selector" style="width: 80%;"></select>
+                    </div>
+                    <div class="step5_item text_content">
+                        텍스트 입력
+                        <textarea class="text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
+                    </div>
                 </div>
             </div>
         </div>
