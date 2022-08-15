@@ -24,7 +24,7 @@
     <script src="{% static 'js/order.js' %}" defer></script>
   {% endblock %}
   {% block content %}
-  <body>
+  <body class="body">
     <!-- 단계 버튼 -->
     <div class="step">
         <button class="step-btn">1</button>
@@ -349,7 +349,7 @@
                   <span class="text"
                     ><span style="color: red">*</span>케이크 맛</span
                   >
-                  <select>
+                  <select class="taste-select">
                     <option>케이크 맛을 선택하세요</option>
                     <option>맛1</option>
                     <option>맛2</option>

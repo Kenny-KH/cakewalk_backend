@@ -1,3 +1,5 @@
+
+
 .side {
   position: fixed;
   padding: 101px 41.3px 0px 41.3px;
@@ -20,10 +22,10 @@
   text-align: center;
   display: block;
   margin-top: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.shop-info {
+.shop-infos {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,15 +36,20 @@
   padding: 10px 0;
 }
 
-.shop-info span {
+.shop-info {
   width: 135px;
+  margin-bottom: 3px;
   color: #8a8a8a;
 }
 
-span .fa-solid,
-span .fa-brands {
+.shop-info .fa-solid,
+.shop-info .fa-brands {
   color: #8a8a8a;
   margin-right: 8px;
+}
+
+.shop-time {
+  margin-bottom: 0;
 }
 
 .nav-wrap {

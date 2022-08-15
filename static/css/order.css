@@ -6,7 +6,7 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
-body {
+.body {
   position: relative;
   margin: 0;
 }
@@ -358,7 +358,7 @@ i {
   margin-top: 16px;
 }
 
-select {
+.taste-select {
   width: 212px;
 }
 
@@ -367,7 +367,7 @@ select {
   margin-top: 17px;
 }
 
-.adtnlOptionWrap span {
+.adtnlOptionWrap .text {
   padding-left: 7px;
 }
 
@@ -416,7 +416,7 @@ select {
   font-size: 18px;
 }
 
-textarea:focus {
+.requireTextarea:focus, .request:focus {
   outline: none;
 }
 

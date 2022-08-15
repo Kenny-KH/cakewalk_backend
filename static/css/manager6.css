@@ -1,5 +1,8 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 * {
   box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 html,
@@ -8,102 +11,9 @@ body {
   height: 100%;
 }
 
-header {
-  width: 100%;
-  height: 4.063rem;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 3.125rem;
-  position: fixed;
-  background-color: white;
-  z-index: 1;
-}
+/*  */
 
-.headerBottom {
-  border-bottom: 1px solid #e5e8eb;
-}
-
-.logoImg {
-  width: 100px;
-  height: 60px;
-}
-
-.header-ul {
-  display: flex;
-  margin: 0;
-  list-style: none;
-}
-
-.header-li {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  margin-left: 60px;
-}
-
-/* nav {
-  float: left;
-  position: absolute;
-  padding: 47px 41.3px 0px 41.3px;
-  width: 269px;
-  height: 100%;
-  background-color: rgba(248, 187, 208, 0.42);
-} */
-
-.profile-img {
-  display: block;
-  margin: 0 auto;
-  width: 90px;
-  height: 90px;
-}
-
-.shop-name {
-  font-size: 20px;
-  text-align: center;
-  display: block;
-  margin-top: 4px;
-  margin-bottom: 30px;
-}
-
-.shop-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 168px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  margin: 0 auto;
-  padding: 10px 0;
-}
-
-.shop-info span {
-  width: 135px;
-  color: #8A8A8A;
-}
-
-span .fa-solid, span .fa-brands {
-  color: #8A8A8A;
-  margin-right: 8px;
-}
-
-.nav-wrap {
-  padding: 0;
-  list-style: none;
-  margin-top: 36px;
-}
-
-.nav-li {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 8px;
-}
-
-.nav-li:nth-child(6) {
-  background-color: #E6CCD5;
-}
-
-section {
+.section {
   margin-left: 269px;
   padding-bottom: 66px;
 }
@@ -160,6 +70,7 @@ section {
 }
 
 .talk {
+  position: relative;
   display: flex;
   width: 900px;
   height: 87px;
@@ -177,19 +88,24 @@ section {
   align-items: center;
 }
 
-.talk img {
-  width: 71px;
+.talk-profile {
+  /* width: 71px; */
   height: 71px;
   margin-left: 20px;
 }
 
 .human-info {
+  width: 520px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 30px;
   font-size: 15px;
-  margin-right: 36px;
+  padding-right: 36px;
+}
+
+.name {
+  margin-bottom: 5px;
 }
 
 .cake-info-container {
@@ -207,8 +123,24 @@ section {
   padding-left: 13px;
 }
 
+.cake-info {
+  margin-bottom: 4px;
+}
+
 .pages {
   text-align: center;
+}
+
+.count {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: #FFC7A7;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transform: translate(-50%, -20%)
 }
 
 .page-btn {
