@@ -19,72 +19,74 @@
   {% block content %}
   <section class="section">
     <h1 class="title">문의하기</h1>
-    <div class="detail-wrap">
-        <div class="row">
-            <span class="detail-title">문의유형</span>
-            <select name="type" id="inquire">
-                <option value="design">디자인 문의</option>
-                <option value="price">가격 문의</option>
-                <option value="option">옵션 문의</option>
-                <option value="pickup">픽업 문의</option>
-                <option value="other">기타 문의</option>
-            </select>
-        </div>
-        <div class="row">
-            <span class="detail-title">아이디</span>
-            <span>asdf@naver.com</span>
-        </div>
-        <div class="row">
-            <span class="detail-title">이메일</span>
-            <div class="email-wrap">
-                <span class="email">asdf@naver.com</span>
-                <button class="email-btn">이메일 변경</button>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="detail-wrap">
+            <div class="row">
+                <span class="detail-title">문의유형</span>
+                <select name="type" id="inquire">
+                    <option value="design">디자인 문의</option>
+                    <option value="price">가격 문의</option>
+                    <option value="option">옵션 문의</option>
+                    <option value="pickup">픽업 문의</option>
+                    <option value="other">기타 문의</option>
+                </select>
+            </div>
+            <div class="row">
+                <span class="detail-title">아이디</span>
+                <span>asdf@naver.com</span>
+            </div>
+            <div class="row">
+                <span class="detail-title">이메일</span>
+                <div class="email-wrap">
+                    <span class="email">asdf@naver.com</span>
+                    <button class="email-btn">이메일 변경</button>
+                </div>
+            </div>
+            <div class="row">
+                <span class="detail-title">공개여부</span>
+                <ul class="open-check-wrap">
+                    <li class="check-wrap">
+                        <input class="radio-btn" id="open" type="radio" name="open">
+                        <label class="radio-text" for="open">공개</label>
+                    </li>
+                    <li class="check-wrap">
+                        <input class="radio-btn" id="closed" type="radio" name="open">
+                        <label class="radio-text" for="closed">비공개</label>
+                    </li>
+                    <li class="password-wrap">
+                        <label class="password-text">비밀번호</label>
+                        <input type="text" class="password-input">
+                    </li>
+                    <!-- 공개 클릭하면 비밀번호 input에 focus -->
+                </ul>
+            </div>
+            <div class="inquire-row">
+                <div class="title-wrap">
+                    <span class="detail-title">제목</span>
+                    <form class="input-form">
+                        <input class="title-input" type="text" name="inquireTitle" placeholder="제목을 입력하세요">
+                    </form>
+                </div>
+                <div class="content-wrap">
+                    <span class="detail-title">문의내용</span>
+                    <form class="textarea-form">
+                        <textarea class="content" name="inquireContent" type="text" placeholder="내용을 입력하세요"></textarea>
+                    </form>
+                </div>
+            </div>
+            <div class="row photo-add-wrap">
+                <span class="detail-title">사진 첨부<br>(선택사항)</span>
+                <div class="information">
+                    <div class="plus-btn-wrap" action="#" method="post" enctype="multipart/form-data">
+                        <label class="plus-btn" for="add">
+                            <i id ="plus-icon" class="fa-solid fa-plus fa-2x"></i>
+                        </label>
+                        <input type="file" id="add" />
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <span class="detail-title">공개여부</span>
-            <ul class="open-check-wrap">
-                <li class="check-wrap">
-                    <input class="radio-btn" id="open" type="radio" name="open">
-                    <label class="radio-text" for="open">공개</label>
-                </li>
-                <li class="check-wrap">
-                    <input class="radio-btn" id="closed" type="radio" name="open">
-                    <label class="radio-text" for="closed">비공개</label>
-                </li>
-                <li class="password-wrap">
-                    <label class="password-text">비밀번호</label>
-                    <input type="text" class="password-input">
-                </li>
-                <!-- 공개 클릭하면 비밀번호 input에 focus -->
-            </ul>
-        </div>
-        <div class="inquire-row">
-            <div class="title-wrap">
-                <span class="detail-title">제목</span>
-                <form class="input-form">
-                    <input class="title-input" type="text" name="inquireTitle" placeholder="제목을 입력하세요">
-                </form>
-            </div>
-            <div class="content-wrap">
-                <span class="detail-title">문의내용</span>
-                <form class="textarea-form">
-                    <textarea class="content" name="inquireContent" type="text" placeholder="내용을 입력하세요"></textarea>
-                </form>
-            </div>
-        </div>
-        <div class="row photo-add-wrap">
-            <span class="detail-title">사진 첨부<br>(선택사항)</span>
-            <div class="information">
-                <form class="fileForm" action="#" method="post" enctype="multipart/form-data">
-                    <label class="plus-btn" for="add">
-                        <i id ="plus-icon" class="fa-solid fa-plus fa-2x"></i>
-                    </label>
-                    <input type="file" id="add" />
-                </form>
-            </div>
-        </div>
-    </div>
+    </form>
     <button class="submit-btn">문의 등록</button>
   </section>
 {% endblock %}
