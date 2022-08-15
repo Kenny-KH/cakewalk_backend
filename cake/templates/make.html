@@ -187,7 +187,11 @@
                     </div>
                     <div class="step3_item text_size">
                         글자 크기
-                        <input type="number" class="font_size" value=18 >
+                        <input type="number" class="font_size_control" value=18 >
+                    </div>
+                    <div class="step3_item text_color">
+                        글자 색
+                        <input type="color" class="font_color_control" value='black'>
                     </div>
                     <div class="step3_item text_familly">
                         글꼴
@@ -197,34 +201,37 @@
                         텍스트 입력
                         <textarea class="text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
                     </div>
+
+                    <div class="step3_item create_text_btn unactive">텍스트 생성하기</div>
+
                 </div>
                 <div class="step_box step4 unactive" data-step="4">
 
                 </div>
                 <div class="step_box step5 unactive" data-step="5">
                     <div class="create_support">판 생성하기</div>
-                    <div class="step5_item text_type">
-                        <div class="text_type_item text_type_item_active text_mouse" data-type="mouse">
+                    <div class="step5_item board_text_type">
+                        <div class="board_text_type_item board_text_type_item_active board_text_mouse" data-type="mouse">
                             <i class="fa-solid fa-arrow-pointer"></i>
                         </div>
-                        <div class="text_type_item box_text" data-type="box">
+                        <div class="board_text_type_item board_box_text" data-type="box">
                             <i class="fa-solid fa-font"></i>
                         </div>
-                        <div class="text_type_item curve_text" data-type="curve">
+                        <div class="board_text_type_item board_curve_text" data-type="curve">
                             <i class="fa-solid fa-pen"></i>
                         </div>
                     </div>
-                    <div class="step5_item text_size">
+                    <div class="step5_item board_text_size">
                         글자 크기
-                        <input type="number" class="font_size" value=18 >
+                        <input type="number" class="board_font_size" value=18 >
                     </div>
-                    <div class="step5_item text_familly">
+                    <div class="step5_item board_text_familly">
                         글꼴
-                        <select id="font_familly_selector" style="width: 80%;"></select>
+                        <select id="board_font_familly_selector" style="width: 80%;"></select>
                     </div>
-                    <div class="step5_item text_content">
+                    <div class="step5_item board_text_content">
                         텍스트 입력
-                        <textarea class="text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
+                        <textarea class="board_text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
                     </div>
                 </div>
             </div>
