@@ -9,7 +9,7 @@ html, body {
     margin: 0;
 }
 
-.side {
+/* .side {
     position: fixed;
     top: 0;
     z-index: -5;
@@ -51,7 +51,7 @@ html, body {
 
 .nav-li {
     margin-bottom: 20px;
-}
+} */
 
 .container-wrap {
     margin-left: 269px;

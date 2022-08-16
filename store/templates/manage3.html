@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}   
+    <title>마이페이지3</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/manage3.css' %}"
+    />
+    <script
+      src="https://kit.fontawesome.com/d35df90ac6.js"
+      crossorigin="anonymous"
+    ></script>
+    </head>
+
+    <script src="{% static 'js/manage3.js' %}" defer></script>
+    {% endblock %} {% block content %}
+    <div class="main_wrapper" style="display: flex"></div>
+    {% include "store_base.html" %}
+    <div>{% block profile %} {% endblock %}</div>
+    <main class="total-wrap">
+        <section class="total">
+          <div class="container">
+            <h1 class="title">케이크 도안 관리</h1>
+            <div class="designs">
+                <div class="design-wrap">
+                    <span class="cake-text">기념일 케이크</span>
+                    <img class="design-img" src="{% static 'img/cake-design1.png' %}" alt="cakeDesign1">
+                </div>
+                <div class="design-wrap">
+                    <span class="cake-text">기념일 케이크</span>
+                    <img class="design-img" src="{% static 'img/cake-design2.png' %}" alt="cakeDesign2">
+                </div>
+                <div class="design-wrap">
+                    <span class="cake-text">기념일 케이크</span>
+                    <img class="design-img" src="{% static 'img/cake-design3.png' %}" alt="cakeDesign3">
+                </div>
+            </div>
+            <div class="pages">
+                <button class="page-btn">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+              </div>
+          </div>
+        </section>
+      </main>  
+{% endblock %}

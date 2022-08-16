@@ -36,7 +36,7 @@
     <!-- 분홍 바탕 설명 부분 -->
     <div class="explain-wrap">
       <!-- 주문1 시작 -->
-      <section class="optionWrap shop-select">
+      <section class="optionWrap one-select">
         <div class="optionTitleWrap">
           <span class="optionNumber">1</span>
           <div class="optionTextWrap">
@@ -274,6 +274,69 @@
       </section>
       <!-- 주문1 끝 -->
   
+      <!-- 주문2 시작 -->
+      <section class="optionWrap one-select">
+        <div class="optionTitleWrap">
+          <span class="optionNumber">2</span>
+          <div class="optionTextWrap">
+            <span class="optionText">날짜 선택하기</span>
+            <p class="optionSubText">케이크를 주문할 날짜를 선택해주세요.</p>
+          </div>
+        </div>
+        <div class="all">
+          <!--달력-->
+          <div id="calendar">
+            <div class="month-wrap">
+                <button class="arrow-btn" id="left">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <span class="month"> </span>
+                <button class="arrow-btn" id="right">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+                    <!--div class="days">
+                    <div class="day">일</div>
+                    <div class="day">월</div>
+                    <div class="day">화</div>
+                    <div class="day">수</div>
+                    <div class="day">목</div>
+                    <div class="day">금</div>
+                    <div class="day">토</div>
+                    </div class="days"-->
+            <div class="dates"></div>
+            
+        </div>
+  
+  
+          <!--픽업 시간 선택-->
+          <div class="pickup">
+            <div class = "choice_pickup"><i class="fa-solid fa-check"></i>픽업 시간 선택</div>
+                <div class = "times_div">
+                  <button class="time_btn">12:00</button>
+                  <button class="time_btn">12:30</button>
+                  <button class="time_btn">13:00</button>
+                  <button class="time_btn">13:30</button>
+                  <button class="time_btn">14:00</button>
+                  <button class="time_btn">14:30</button>
+                  <button class="time_btn pink_btn">15:00</button>      
+                  <button class="time_btn">15:30</button>
+                  <button class="time_btn">16:00</button>
+                  <button class="time_btn">16:30</button>
+                  <button class="time_btn">17:00</button>
+                  <button class="time_btn">17:30</button>
+  
+                  <div class ="last_btns_div">
+                    <button class="time_btn">18:00</button>
+                    <button class="time_btn">18:30</button>
+                    <button class="time_btn">19:00</button>
+                  </div>
+                </div>
+  
+          </div>
+        </div>
+      </section>
+      <!-- 주문2 끝 -->
       <!-- 주문 하단 부분 -->
       <section class="optionWrap order-bottom">
         <!-- 주문3 시작 -->
@@ -389,7 +452,7 @@
         <p class="modal-text">고객님의 주문이 성공적으로 접수되었습니다!<br><br>
           주문접수는 주문완료가 아니므로<br>사장님의 접수 메세지를 기다려 주세요.
         </p>
-        <button class="confirm-btn"><a class="chatting" href="채팅창">확인</a></button>
+        <button class="confirm-btn" onclick="location.href='{% url 'user_chatting' %}'"><a class="chatting">확인</a></button>
       </div>
     </div>
 {% endblock %}

@@ -9,8 +9,10 @@
       href="{% static 'css/mypage6.css' %}"
     />
   </head>
-  {% endblock %}
-  {% block content %}
+  {% endblock %} {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "mypage_base.html" %}
+  <div>{% block profile %} {% endblock %}</div>
   <body>
     <div class="title">회원정보 수정</div>
     <div class="text">나의 회원정보를 수정할 수 있습니다.</div>

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>사용자 채팅창</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/user_chatting.css' %}"
+    />
+    <script src="{% static 'js/user_chatting.js' %}" defer></script>
+</head>
+{% endblock %}
+{% block content %}
+<div class = "wrapper">
+    <div class = "chaeting_background">
+        <div class = "upper_nav">
+            <div class = "nav_img">
+                <input  type="image" class="menu_img" name="menu_img" src="image in 채팅창\메뉴바.png">
+                
+            </div>
+            <div class ="title">멋사가게</div>
+        </div>
+        
+        <div class="main">
+            <div class = "main_part1">                       
+
+                <div class = "phrases">케이크도안</div>
+
+                <div class = "design_cake">
+                    <input  type="image" class="cake_image" name="cake_image" src="image in 채팅창\케이크도안사진.png">
+                </div class="design_cake">
+                <div class="btns_div">
+                <button class="btns btns_r">주문 취소하기</button>
+                <button class="btns">도안 수정하기</button>
+                </div>
+              
+
+                    
+            </div class = "main_part1">
+
+            
+            <div class = "main_part2">  
+                <div class = "upside_message">
+                    <div class = "message1">
+                        <span class="span1" >네!! 좋아요</span>
+                        <span class="span1">이렇게 주문할게요!!</span>
+                    </div class = "message1">
+                    <input  type="image"  class = "profile1" name="profile1" src="image in 채팅창/채팅사진1.png">
+
+                </div class = "upside_message">
+
+                <div class = "downside_message">
+                    <input  type="image" class="profile2" name="profile2" src="image in 채팅창\image 49.png">
+
+                        <div class = "message2">
+
+                            <div class = "message3">
+
+                                <div class="story1">
+                                    <div>[주문완료]</div>
+                                    <div>'연빈'님이 주문하신 케이크가 정상적으로 접수되었습니다.</div>
+                                </div>
+
+                                <div class="story2">
+                                    <div>주문자 : 박연빈</div>
+                                    <div>주문일자 : 2022.07.30</div>
+                                    <div>픽업일자 : 2022.08.05</div>
+                                </div>
+
+                                <div class="story3">
+                                    <li>1호</li>
+                                    <li>초코시트+우유생크림</li>
+                                    <li>추가옵션 없음</li>
+                                </div>
+                            
+
+                                <div class="story4">
+                                    결제하기 를 누르면 결제가 진행됩니다.
+                                </div>
+
+                                <button class ="pay_in_message2">결제하기</button>
+                            </div class= "message3">
+
+                        </div class="message2">
+                        
+
+                        
+    
+                </div class = "downside_message">    
+                
+                
+
+                <div class = "MESSAGE">
+                    <input  type="image" class="send" name="send_image" src="image in 채팅창\역삼각형.png">
+                
+                </div>
+                
+            </div class = "main_part2"> 
+
+        </div class="main">   
+
+            
+        
+    </div class = "chaeting_background">
+</div class = "wrapper">
+{% endblock %}
