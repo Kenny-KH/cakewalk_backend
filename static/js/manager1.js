@@ -1,17 +1,3 @@
-const $header = document.querySelector('header');
-// const $leftBtn = document.querySelector('.left-btn');
-// const $rightBtn = document.querySelector('.right-btn');
-// const $cakeList = document.querySelector('.cakes');
-
-console.log($header);
-window.addEventListener("scroll", () => {
-  if (window.scrollY !== 0) {
-    $header.classList.add('headerBottom');
-  } else {
-    $header.classList.remove('headerBottom');
-  }
-});
-
 const $dates = document.querySelector('.dates');
 const $month = document.querySelector('.month');
 
@@ -82,8 +68,20 @@ function prev() {
   render(current);
 }
 
-function monthText(num) {
-  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const en = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'];
-}
+const $modalWrap = document.querySelector('.modal-wrap');
+const $modal = document.querySelector('.modal');
+const $cakePhoto = document.querySelector('.cake-design');
+
+$cakePhoto.addEventListener('click', () => {
+  $modalWrap.classList.add('show');
+  $modal.classList.add('show');
+})
+
+$modalWrap.addEventListener('click', (e) => {
+  if(e.target.className.includes('modal-wrap')) {
+    $modalWrap.classList.remove('show');
+    $modal.classList.remove('show');
+  }
+  console.log(e.target.className);
+})
+

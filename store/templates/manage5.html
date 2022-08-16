@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}   
+    <title>마이페이지5</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/manage5.css' %}"
+    />
+    <script
+      src="https://kit.fontawesome.com/d35df90ac6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  {% endblock %} {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "store_base.html" %}
+  <div>{% block profile %} {% endblock %}</div>
+  <body>
+    <section>
+      <div class="title">1:1 문의 관리</div>
+
+      <div class="day-button">
+        <a
+          href="http://127.0.0.1:5500/cakewalk_front/mypage3.html"
+          target="blank"
+          class="a"
+          style="border-right: 1px solid#767676"
+          >1개월</a
+        >
+        <a
+          href="http://127.0.0.1:5500/cakewalk_front/mypage3.html"
+          target="blank"
+          class="a"
+          style="border-right: 1px solid#767676"
+          >3개월</a
+        >
+        <a
+          href="http://127.0.0.1:5500/cakewalk_front/mypage3.html"
+          target="blank"
+          class="a"
+          style="border-right: 1px solid#767676"
+          >6개월</a
+        >
+        <a
+          href="http://127.0.0.1:5500/cakewalk_front/mypage3.html"
+          target="blank"
+          class="b"
+          >전체시기</a
+        >
+      </div>
+
+      <div class="ask-menu-wrap">
+        <div class="ask-menu">
+          <div class="ask-user">고객</div>
+          <div class="ask-type">문의 유형</div>
+          <div class="ask-content">문의 내용</div>
+          <div class="ask-day">답변 여부</div>
+        </div>
+        <div class="ask-menu-bar">
+          <div class="ask-menu-name">공규환</div>
+          <div class="ask-menu-type">사이즈</div>
+
+          <div class="ask-menu-text">
+            <i class="fa-solid fa-lock"></i>사이즈 관련 문의 드립니다
+          </div>
+          <div class="ask-menu-day">미답변</div>
+          <button
+            class="ask-menu-answer"
+            type="button"
+            onclick="location.href='https://www.figma.com/file/te6lidGhyHbwDKvVwrwMIH/lettering-cake?node-id=0%3A1' "
+          >
+            답변하기
+          </button>
+        </div>
+        <div class="line-box" style="border-bottom: 1px solid"></div>
+        <!-- 문의박스 여기까지  -->
+        <!-- 문의박스 여기부터 -->
+        <div class="ask-menu-bar">
+          <div class="ask-menu-name">이선호</div>
+          <div class="ask-menu-type">도안</div>
+          <div class="ask-menu-text">
+            <i class="fa-solid fa-lock"></i>도안 관련 문의요!!
+          </div>
+          <div class="ask-menu-day">미답변</div>
+          <button
+            class="ask-menu-answer"
+            type="button"
+            onclick="location.href='https://www.figma.com/file/te6lidGhyHbwDKvVwrwMIH/lettering-cake?node-id=0%3A1' "
+          >
+            답변하기
+          </button>
+        </div>
+        <div class="line-box" style="border-bottom: 1px solid"></div>
+        <!-- 문의박스 여기까지  -->
+        <!-- 문의박스 여기부터 -->
+        <div class="ask-menu-bar">
+          <div class="ask-menu-name">김유경</div>
+          <div class="ask-menu-type">디자인</div>
+          <div class="ask-menu-text">
+            <i class="fa-solid fa-lock"></i>디자인 문의드려요
+          </div>
+          <div class="ask-menu-day">답변 완료</div>
+        </div>
+        <div class="line-box" style="border-bottom: 1px solid"></div>
+      </div>
+    </section>
+    <!-- 메뉴바 여기까지 -->
+    <!-- 문의박스 여기부터 -->
+
+    <!-- 문의박스 여기까지  -->
+    <div class="page-number">
+      <a
+        href="http://127.0.0.1:5500/cakewalk_front/mypage4.html"
+        target="blank"
+        class="c"
+        >1</a
+      >
+    </div>
+    {% endblock %}
