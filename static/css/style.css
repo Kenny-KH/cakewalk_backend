@@ -230,7 +230,7 @@
     cursor: pointer;
 }
 
-.tag:nth-child(1) .tag-btn {
+.tag-color {
     background-color: #25282F;
     color: white;
 }
