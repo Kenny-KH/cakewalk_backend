@@ -1,12 +1,4 @@
 {% load static %}
-<head>
-  <link
-    link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'css/store_profile.css' %}"
-  />
-</head>
 
 <div class="side">
   <img
@@ -29,24 +21,29 @@
     >
   </div>
   <ul class="nav-wrap">
-    <a href="www.naver.com">
-      <li class="nav-li" id="first" style="color: aqua; cursor: pointer">
-        주문 관리
-      </li></a
+    <li class="nav-li" onclick="location.href='{% url 'manage' %}'">
+      주문 관리
+    </li>
+    <li
+      class="nav-li"
+      onclick="location.href='{% url 'manage_store_before' %}'"
     >
-    <li class="nav-li" onmouseover="console.log('클릭')">가게 관리</li>
-    <li class="nav-li">도안 관리</li>
-    <li class="nav-li">리뷰 관리</li>
-    <li class="nav-li">1:1 문의 관리</li>
-    <li class="nav-li">가게정보 설정</li>
-    <li class="nav-li">MY TALK</li>
+      가게 관리
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'manage3' %}'">
+      도안 관리
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'manage4' %}'">
+      리뷰 관리
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'manage5' %}'">
+      1:1 문의 관리
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'manage6_before' %}'">
+      가게정보 설정
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'manage5' %}'">
+      MY TALK
+    </li>
   </ul>
 </div>
-<script>
-  const li = document.querySelector("#first");
-  console.log(li);
-  li.addEventListener("click", function () {
-    console.log("");
-    alert("addEventListener-1");
-  });
-</script>

@@ -1,42 +1,69 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
     <link rel="stylesheet" href="{% static 'css/css_reset.css' %}" />
-    {% block head %}
-    {% endblock %}
-</head>
-<body>
+
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/store_profile.css' %}"
+    />
+
+    {% block head %} {% endblock %}
+  </head>
+  <body>
     <nav class="headernav">
-        <img class="logo" src="{% static 'img/logo.png' %}" onclick="location.href='{% url 'home' %}'"></img>
-        <div class="navbar">
-            <div class="nav_item" onclick="location.href='{% url 'make' %}'">MAKE</div>
-            <div class="nav_item" onclick="location.href='{% url 'watch_cake' %}'">CAKE</div>
-
-            {% if user.is_authenticated %}
-            {% if user.is_business == 1 %}
-            <div class="nav_item" onclick="location.href='{% url 'manage' %}'">마이페이지</div>
-
-            {% else %}
-            <div class="nav_item" onclick="location.href='{% url 'user_mypage' %}'">마이페이지</div>
-            
-            {% endif %}
-            
-            <div class="nav_item" onclick="location.href='{% url 'logout' %}'">LOGOUT</div>
-            <div class="nav_item"><img src="{% static 'img/nav_star.png' %}"></div>
-            <div class="nav_item"><img src="{% static 'img/nav_heart.png' %}"></div>
-            <div class="nav_item"><img src="{% static 'img/nav_bell.png' %}"></div>
-            {% else %}
-            <div class="nav_item" onclick="location.href='{% url 'login' %}'">로그인</div>
-            {% endif %}
+      <img
+        class="logo"
+        src="{% static 'img/logo.png' %}"
+        onclick="location.href='{% url 'home' %}'"
+      />
+      <div class="navbar">
+        <div class="nav_item" onclick="location.href='{% url 'make' %}'">
+          MAKE
         </div>
+        <div class="nav_item" onclick="location.href='{% url 'watch_cake' %}'">
+          CAKE
+        </div>
+
+        {% if user.is_authenticated %} {% if user.is_business == 1 %}
+        <div class="nav_item" onclick="location.href='{% url 'manage' %}'">
+          마이페이지
+        </div>
+
+        {% else %}
+        <div class="nav_item" onclick="location.href='{% url 'user_mypage' %}'">
+          마이페이지
+        </div>
+
+        {% endif %}
+
+        <div class="nav_item" onclick="location.href='{% url 'logout' %}'">
+          LOGOUT
+        </div>
+        <div class="nav_item">
+          <img src="{% static 'img/nav_star.png' %}" />
+        </div>
+        <div class="nav_item">
+          <img src="{% static 'img/nav_heart.png' %}" />
+        </div>
+        <div class="nav_item">
+          <img src="{% static 'img/nav_bell.png' %}" />
+        </div>
+        {% else %}
+        <div class="nav_item" onclick="location.href='{% url 'login' %}'">
+          로그인
+        </div>
+        {% endif %}
+      </div>
     </nav>
 
-    {% block content %}
-    {% endblock %}
-</body>
+    {% block content %} {% endblock %}
+  </body>
 </html>
