@@ -378,6 +378,8 @@ main{
     border: 1px solid #ccc;
 
     word-break: break-all;
+
+    resize: none;
 }
 .memo_input:focus{
     border: none;
@@ -471,4 +473,117 @@ main{
 .gradient_set_item{
     margin-left: 1rem;
     margin-top: 0.5rem;
+}
+/*-------------------------- STEP3 TEXT ------------------------*/
+.step3_item, .step5_item{
+    white-space: nowrap;
+}
+
+.text_type, .board_text_type{
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text_type_item, .board_text_type_item{
+    border: 1px solid black;
+    border-radius: 0.2rem;
+
+    width: 1rem;
+    height: 1rem;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.text_type_item_active, .board_text_type_item_active{
+    background-color: #ec407a;
+    color: white;
+    font-weight: 900;
+}
+
+.text_size, .board_text_size{
+    margin-top: 1rem;
+}
+.font_size, .board_font_size{
+    margin-left: 1rem;
+
+    padding: 0.2rem;
+    width:3rem;
+}
+
+.text_familly, .board_text_familly{
+    margin-top: 1rem;
+
+    display: flex;
+    align-items: center;
+}
+#font_familly_selector, #board_font_familly_selector{
+    margin-left: 1rem;
+}
+
+.text_content, .board_text_content{
+    margin-top: 1rem;
+}
+.text_content_item, .board_text_content_item{
+    display: block;
+    
+    height: 8rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+
+    margin-top: 0.5rem;
+
+    width: 1rem;
+
+    resize: none;
+}
+
+.create_text_btn{
+    border: 1px solid black;
+    border-radius: 1.6rem;
+
+    margin: 1rem auto;
+    padding: 0.3rem 2rem;
+
+    background-color: #ec407a;
+    
+    text-align: center;
+    color: white;
+
+    opacity: 0.8;
+
+    cursor: pointer;
+}
+.create_text_btn:hover{
+    opacity: 1;
+}
+
+/*-------------------------- STEP5 create_support ------------------------*/
+.create_support{
+    border: 1px solid black;
+    border-radius: 1.6rem;
+
+    margin-bottom: 1rem;
+    padding: 0.3rem 2rem;
+
+    background-color: #C2185B;
+    
+    text-align: center;
+    color: white;
+
+    opacity: 0.8;
+
+    cursor: pointer;
+}
+.create_support:hover{
+    opacity: 1;
 }
