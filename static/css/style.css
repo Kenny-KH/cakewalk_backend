@@ -1,49 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Kavivanar&display=swap');
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-body {
-    margin: 0;
-}
-
-/* 헤더 */
-header {
-    width: 100%;
-    height: 65px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 50px;
-    position: fixed;
-    background-color: white;
-    z-index: 10;
-}
-
-.headerBottom {
-    border-bottom: 1px solid #e5e8eb;
-}
-
-.logoImg {
-    width: 100px;
-    height: 60px;
-}
-
-.header-ul {
-    display: flex;
-    margin: 0;
-    list-style: none;
-}
-
-.header-li {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    margin-left: 60px;
-}
-
-#order-link {
+/* #order-link {
     display: block;
     padding-top: 65px;
-}
+} */
 
 /* 바디 */
 .top-container {
@@ -67,7 +33,9 @@ header {
 }
 
 .sub-title {
+    margin-bottom: 6px;
     font-size: 24px;
+    font-family: 'Kavivanar', cursive;
 }
 
 .title {
@@ -111,7 +79,7 @@ header {
     cursor: pointer;
 }
 
-.top-cake-info button:nth-child(1) {
+.top-cake-info .info-btn:nth-child(1) {
     margin-bottom: 26px;
 }
 
@@ -128,6 +96,7 @@ header {
 }
 
 .top-address {
+    margin-bottom: 7px;
     font-size: 10px;
 }
 
@@ -254,14 +223,14 @@ header {
     border: none;
     border: 1px solid #25282F;
     border-radius: 30px;
-    padding: 6px 17px;
+    padding: 0px 17px;
     background-color: #F5F5F5;
     font-weight: 700;
     color: #25282F;
     cursor: pointer;
 }
 
-.tag:nth-child(1) .tag-btn {
+.tag-color {
     background-color: #25282F;
     color: white;
 }
@@ -327,7 +296,7 @@ header {
     display: flex;
 }
 
-.cake-info button:nth-child(1) {
+.cake-info .info-btn:nth-child(1) {
     margin-bottom: 26px;
 }
 

@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns = [
     path('mypage', views.myPage, name="user_mypage"),
+    path('mypage2', views.myPage2, name="user_mypage"),
 ] 
