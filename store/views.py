@@ -74,8 +74,10 @@ def storeInfo(request):
 def storeInfoMore(request):
     return render(request,'store_info_more.html') 
 
+
 def watchStore(request):
     cakes = []
     stores = BsSignupDetail.objects.all()
     
     return render(request, 'watch_store.html', {"stores" : stores})
+
