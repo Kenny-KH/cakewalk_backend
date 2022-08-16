@@ -1,0 +1,125 @@
+.title {
+  font-size: 32px;
+  font-weight: 550;
+  margin-top: 175px;
+}
+
+.text {
+  padding-top: 12px;
+}
+
+.day-button {
+  /* position: absolute; */
+  display: flex;
+  padding-top: 50px;
+}
+
+.a {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 80px;
+  font-size: 17px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.b {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 90px;
+  font-size: 17px;
+  margin-left: 9px;
+}
+
+.design-all {
+  display: flex;
+  flex-wrap: wrap;
+  width: 970px;
+  margin-top: 26px;
+}
+
+.design-total {
+  display: flex;
+  flex-direction: column;
+  width: 294px;
+  height: 406px;
+
+  background-color: rgba(217, 217, 217, 0.21);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+}
+
+.design-name {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.order-button {
+  width: 150px;
+  height: 40px;
+  margin-top: 22px;
+  margin-left: 72px;
+  background: #ffdbe4;
+  border: none;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.cake-design {
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-left: 18px;
+  /* position: absolute; */
+  width: 260px;
+  height: 260px;
+
+  background: white;
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+
+.page-number {
+  margin-left: 820px;
+  margin-top: 60px;
+}
+
+.c {
+  background-color: white;
+  float: left;
+  border: none;
+  color: #767676;
+  margin: 10px;
+}
+
+a:link {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}

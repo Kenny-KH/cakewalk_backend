@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% load static %}{% block head %}
-
 <title>Document</title>
 <link
   link
@@ -12,57 +11,74 @@
   src="https://kit.fontawesome.com/d35df90ac6.js"
   crossorigin="anonymous"
 ></script>
-<script src="{% static 'js/manager1.js' %}" defer></script>
+<script src="{% static 'js/manager_store.js' %}" defer></script>
 {% endblock %} {% block content %}
-<div class="main_wrapper" style="display: flex">
-  {% include "store_base.html" %} {% block profile %} {% endblock %}
-  <div class="main_wrapper" style="display: flex">
-    <main>
-      <section>
-        <div class="container">
-          <h1 class="title">주문 관리</h1>
-          <div class="order-wrap">
-            <div id="calendar">
-              <div class="month-wrap">
-                <button class="arrow-btn" id="left">
-                  <i class="fa-solid fa-angle-left"></i>
-                </button>
-                <span class="month"> </span>
-                <button class="arrow-btn" id="right">
-                  <i class="fa-solid fa-angle-right"></i>
-                </button>
-              </div>
-              <div class="days">
-                <div class="day">일</div>
-                <div class="day">월</div>
-                <div class="day">화</div>
-                <div class="day">수</div>
-                <div class="day">목</div>
-                <div class="day">금</div>
-                <div class="day">토</div>
-              </div>
-              <div class="dates"></div>
-            </div>
-            <div class="order-detail-wrap">
-              <span class="date">8/5</span>
-              <div class="detail-wrap">
-                <p>예약자명: 박연빈</p>
-                <p>전화번호: 010-0000-0000</p>
-                <p>케이크 주문: 1호/초코시트+우유생크림</p>
-                <p>추가 옵션: 없음</p>
-                <p>픽업시간: 12:30</p>
-              </div>
-              <img class="cake-design" src="./src/img/cake.png" alt="cake" />
-              <div class="pages">
-                <button class="page-btn">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-              </div>
-            </div>
+<div class="main_wrapper" style="display: flex"></div>
+{% include "store_base.html" %}
+<div>{% block profile %} {% endblock %}</div>
+
+<main class="total-wrap">
+  <section class="total">
+    <div class="container">
+      <h1 class="title">주문 관리</h1>
+      <div class="order-wrap">
+        <div id="calendar">
+          <div class="month-wrap">
+            <button class="arrow-btn" id="left">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <span class="month"> </span>
+            <button class="arrow-btn" id="right">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+          <div class="days">
+            <div class="day">일</div>
+            <div class="day">월</div>
+            <div class="day">화</div>
+            <div class="day">수</div>
+            <div class="day">목</div>
+            <div class="day">금</div>
+            <div class="day">토</div>
+          </div>
+          <div class="dates"></div>
+        </div>
+        <div class="order-detail-wrap">
+          <span class="date">2022.08.05</span>
+          <div class="detail-wrap">
+            <p class="reserve name">예약자명: 박연빈</p>
+            <p class="reserve number">전화번호: 010-0000-0000</p>
+            <p class="reserve cake">케이크 주문: 1호/초코시트+우유생크림</p>
+            <p class="reserve option">추가 옵션: 없음</p>
+            <p class="reserve time">픽업시간: 12:30</p>
+          </div>
+          <img class="cake-design" src="/static/img/cake.png" alt="cake" />
+          <div class="pages">
+            <button class="page-btn">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
           </div>
         </div>
-      </section>
-    </main>
-    {% endblock %}
-  </div>
-</div>
+      </div>
+    </div>
+    <div class="modal-wrap">
+      <div class="modal">
+        <div class="modal-info">
+          <span class="modal-date">2022.08.05</span>
+          <img class="modal-cake" src="/static/img/cake.png" alt="cake" />
+        </div>
+        <div class="modal-detail-wrap">
+          <div class="modal-detail">
+            <p class="modal-reserve name">예약자명: 박연빈</p>
+            <p class="modal-reserve cake">
+              케이크 주문: 1호/초코시트+우유생크림
+            </p>
+            <p class="modal-reserve option">추가 옵션: 없음</p>
+          </div>
+          <div class="modal-memo"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

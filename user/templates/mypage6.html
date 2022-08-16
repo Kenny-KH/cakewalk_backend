@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>마이페이지6</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/mypage6.css' %}"
+    />
+  </head>
+  {% endblock %}
+  {% block content %}
+  <body>
+    <div class="title">회원정보 수정</div>
+    <div class="text">나의 회원정보를 수정할 수 있습니다.</div>
+    <div class="info-title">
+      <div>기본 회원정보</div>
+      <div class="info-must">필수</div>
+    </div>
+    <!-- 사진 칸 여기부터 -->
+    <section>
+      <div class="total-first">
+        <div class="img-title">사진</div>
+        <div class="img-text">
+          <img
+            class="profile-img"
+            src="https://yt3.ggpht.com/a/AATXAJyPF9O2oHYh7iO2Byayhy_m7YlNB9mOIGn99Guuaw=s900-c-k-c0xffffffff-no-rj-mo"
+            alt="프로필사진"
+          />
+          <div class="profile-text">
+            나를 알릴 사진을 등록해 보세요. <br />
+            등록된 사진은 후기와 채팅에서 사용 됩니다.
+          </div>
+        </div>
+
+        <button class="img-button">사진 변경</button>
+      </div>
+    </section>
+    <!-- 사진 칸 여기까지 -->
+    <!-- 닉네임 칸 여기부터 -->
+    <section>
+      <div class="total-second">
+        <div class="nikname">닉네임</div>
+        <div class="name">OOO</div>
+        <button class="name-button">닉네임 변경</button>
+      </div>
+    </section>
+    <!-- 닉네임 칸 여기까지 -->
+    <!-- 휴대전화 칸 여기부터 -->
+    <section>
+      <div class="total-third">
+        <div class="cellphone">휴대전화</div>
+        <div class="phone">OOO-OOOO-OOOO</div>
+        <button class="phone-button">번호 변경</button>
+      </div>
+    </section>
+    <!-- 휴대전화 칸 여기까지 -->
+    <!-- 추가 회원정보 선택 여기부터  -->
+    <div class="info-sub-title">
+      <div>추가 회원정보</div>
+      <div class="info-choice">선택</div>
+    </div>
+
+    <!-- 주소 칸 여기부터  -->
+    <section>
+      <div class="total-forth">
+        <div class="address-up">주소</div>
+        <div class="address">진주시 경상국립대학교</div>
+        <button class="address-button">주소 변경</button>
+      </div>
+    </section>
+    <!-- 주소 칸 여기까지  -->
+    <!-- 휴대전화 칸 여기까지  -->
+    <button class="change-button">수정하기</button>
+    <div class="out">
+      <div class="out-text">탈퇴를 원하시면 회원 탈퇴를 눌러주세요.</div>
+      <button class="out-button">회원 탈퇴</button>
+    </div>
+    {% endblock %}

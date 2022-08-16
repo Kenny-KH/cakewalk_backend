@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Document</title>
+    <title>마이페이지1</title>
     <link
       link
       rel="stylesheet"
@@ -17,17 +17,9 @@
   </head>
   {% endblock %}
   {% block content %}
-    <header class="header">
-      <img class="logoImg" src="./src/img/logo.png" />
-      <ul class="header-ul">
-        <li class="header-li">MAKE</li>
-        <li class="header-li">CAKE</li>
-        <li class="header-li">MYPAGE</li>
-        <li class="header-li">LOGOUT</li>
-      </ul>
-    </header>
+
     <main>
-      <nav>
+      <nav class="side">
         <img
           class="profile-img"
           src="{% static 'img/human.png' %}"
@@ -44,26 +36,64 @@
           <li class="nav-li">MY TALK</li>
         </ul>
       </nav>
-      <section>
-        <div class="container">
-          <div class="setting-header">
-            <h1 class="title">최근에 본 케이크</h1>
-            <div class="show-btns">
-              <div class="btn-wrap">
-                <button class="show-btn" id="point">P</button>
-                <span>포인트></span>
-                <span class="point-score">100</span>
-              </div>
-              <div class="btn-wrap">
-                <button class="show-btn" id="coupon">C</button>
-                <span>쿠폰></span>
-                <span class="coupon-score">2</span>
+      <section class="container-wrap">
+        <div class="p-modal-total-wrap">
+          <div class="p-modal-wrap">
+            <div class="point-modal">
+              <p class="point-modal-title">포인트 내역</p>
+              <div class="points">
+                <div class="point-wrap">
+                  <p class="point-date">2022.08.01</p>
+                  <p class="point-score">-500</p>
+                </div>
+                <div class="point-wrap">
+                  <p class="point-date">2022.08.01</p>
+                  <p class="point-score">-500</p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <hr class="main-under" />
-          <div class="cakes-wrap">
+        <div class="c-modal-total-wrap">
+          <div class="c-modal-wrap">
+            <div class="coupon-modal">
+              <p class="coupon-modal-title">나의 쿠폰함</p>
+              <div class="coupons">
+                <div class="coupon-wrap">
+                  <p class="coupon-remaining">7일 남음</p>
+                  <p class="coupon-title">[회원가입 10% 할인 쿠폰]</p>
+                  <p class="coupon-date">2022.08.07~2022.08.14</p>
+                </div>
+                <div class="coupon-wrap">
+                  <p class="coupon-remaining">7일 남음</p>
+                  <p class="coupon-title">[회원가입 10% 할인 쿠폰]</p>
+                  <p class="coupon-date">2022.08.07~2022.08.14</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="container">
+            <div class="setting-header">
+              <h1 class="title">최근에 본 케이크</h1>
+              <div class="show-btns">
+                <div class="btn-wrap">
+                  <button class="show-btn" id="point">P</button>
+                  <span>포인트></span>
+                  <span class="point-score">100</span>
+                </div>
+                <div class="btn-wrap">
+                  <button class="show-btn" id="coupon">C</button>
+                  <span>쿠폰></span>
+                  <span class="coupon-score">2</span>
+                </div>
+              </div>
+            </div>
+
+          <hr class="main-under">
+        <div class="cakes-wrap">
             <div class="cakes">
               <div class="cake-wrap">
                 <span class="cake-shop">likelion bakery 도안</span>

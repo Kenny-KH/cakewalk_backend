@@ -24,11 +24,13 @@ $orderBtn.addEventListener('click', () => {
 	$modalWrap.classList.add('show');
 	$modal.classList.add('show');
 	$body.classList.add('color');
+	$body.classList.add('scroll-none');
 })
 
 $confirmBtn.addEventListener('click', () => {
 	$modalWrap.classList.remove('show');
 	$modal.classList.remove('show');
 	$body.classList.remove('color');
+	$body.classList.remove('scroll-none');
 })
 

@@ -1,23 +1,14 @@
-const $header = document.querySelector('header');
 const [$showRightBtn, $shopRightBtn] = document.querySelectorAll('#right');
 const [$showLeftBtn, $shopLeftBtn] = document.querySelectorAll('#left');
 const [$showCakeList, $shopCakeList] = document.querySelectorAll('.cakes-wrap');
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY !== 0) {
-        $header.classList.add('headerBottom');
-    } else {
-        $header.classList.remove('headerBottom');
-    }
-});
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY !== 0) {
-        $header.classList.add('headerBottom');
-    } else {
-        $header.classList.remove('headerBottom');
-    }
-});
+const mainCakeInfo = document.querySelector('.top-cake-info');
+const mainCake = document.querySelector('.top-img-wrap');
+const [$showCakeInfo, $shopCakeInfo] = document.querySelectorAll('.cake-info');
+// const firstCake = document.querySelector('.cake-wrap');
+// console.log(firstCake);
+// const defaultX = firstCake.getBoundingClientRect().left;
+const $tagWrap = document.querySelector('.tag-wrap');
+console.log($tagWrap);
 
 const num = 500;
 
@@ -37,8 +28,6 @@ $shopLeftBtn.addEventListener("click", () => {
     $shopCakeList.scrollBy({ left: -num, top: 0, behavior: 'smooth' }) 
 })
 
-const mainCakeInfo = document.querySelector('.top-cake-info');
-const mainCake = document.querySelector('.top-img-wrap');
 mainCake.addEventListener('mouseenter', () => {
     mainCakeInfo.classList.add('show');
     console.log('enter');
@@ -49,11 +38,9 @@ mainCake.addEventListener('mouseleave', () => {
     console.log('leave');
 })
 
-const [$showCakeInfo, $shopCakeInfo] = document.querySelectorAll('.cake-info');
-const firstCake = document.querySelector('.cakes-wrap li');
+
 $showCakeList.addEventListener('mouseover', (e) => handleMouseover(e, $showCakeInfo));
 $shopCakeList.addEventListener('mouseover', (e) => handleMouseover(e, $shopCakeInfo));
-const defaultX = firstCake.getBoundingClientRect().left;
 
 function handleMouseover(e, element) {
     if(e.target.tagName === 'IMG') {
@@ -72,4 +59,18 @@ $showCakeList.addEventListener('scroll', () => {
 
 $shopCakeList.addEventListener('scroll', () => {
     $shopCakeInfo.classList.remove('show');
+})
+
+$tagWrap.addEventListener('click', (e) => {
+    const $ul = e.target.closest('ul');
+    if(e.target.tagName === 'BUTTON') {
+        for(let i=0; i < $ul.children.length; i++) {
+            if($ul.children[i].classList.contains('tag-check')) {
+                $ul.children[i].classList.remove('tag-check');
+                $ul.children[i].children[0].classList.remove('tag-color');
+            }
+        }
+        e.target.parentNode.classList.add('tag-check');
+        e.target.classList.add('tag-color');
+    }
 })
