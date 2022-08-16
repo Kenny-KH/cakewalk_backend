@@ -21,4 +21,5 @@ urlpatterns = [
     path('manage_chatting', views.manageChatting, name="manage_chatting"),
     path('store_info', views.storeInfo, name="store_info"),
     path('store_info_more', views.storeInfoMore, name="store_info_more"),
+    path('watchstore', views.watchStore, name="watch_store")
 ] 
