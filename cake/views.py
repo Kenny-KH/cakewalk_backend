@@ -1,3 +1,4 @@
+from store.models import StoreCake
 from django.shortcuts import render, get_object_or_404, redirect
 
 
@@ -23,4 +24,5 @@ def payment(request):
     return render(request, 'payment.html')
 
 def watch_cake(request):
-    return render(request, 'watch_cake.html')
+    cakes = StoreCake.objects.all()
+    return render(request, 'watch_cake.html', {"cakes" : cakes})

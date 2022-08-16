@@ -9,19 +9,34 @@
 </head>
 
 <nav class="side">
-    <img
-      class="profile-img"
-      src="{% static 'img/human.png' %}"
-      alt="human_profile"
-    />
-    <span class="use-name">ㅇㅇ 님</span>
-    <hr class="use-name-under" />
-    <span class="my-walk">MY WALK</span>
-    <ul class="nav-wrap">
-      <li class="nav-li">도안</li>
-      <li class="nav-li">작성 후기</li>
-      <li class="nav-li">1:1 문의</li>
-      <li class="nav-li">회원정보 수정</li>
-      <li class="nav-li">MY TALK</li>
-    </ul>
-  </nav>
+  <img
+    class="profile-img"
+    src="{% static 'img/human.png' %}"
+    alt="human_profile"
+  />
+  <span class="use-name">{{user.name}} 님</span>
+  <hr class="use-name-under" />
+  <span class="my-walk" onclick="location.href='{% url 'user_mypage' %}'"
+    >MY WALK</span
+  >
+  <ul class="nav-wrap">
+    <li class="nav-li" onclick="location.href='{% url 'user_mypage2' %}'">
+      주문내역
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'user_mypage3' %}'">
+      도안 관리
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'user_mypage4' %}'">
+      작성 후기
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'user_mypage5' %}'">
+      1:1 문의
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'user_mypage6' %}'">
+      회원정보 수정
+    </li>
+    <li class="nav-li" onclick="location.href='{% url 'user_mypage7' %}'">
+      MY TALK
+    </li>
+  </ul>
+</nav>
