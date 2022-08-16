@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>mypage7</title>
+    <title>마이페이지7</title>
     <link
       link
       rel="stylesheet"
@@ -9,8 +9,10 @@
       href="{% static 'css/mypage7.css' %}"
     />
   </head>
-  {% endblock %}
-  {% block content %}
+  {% endblock %} {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "mypage_base.html" %}
+  <div>{% block profile %} {% endblock %}</div>
   <body>
     <div class="title">MY TALK</div>
     <div class="text">메세지 모아보기</div>

@@ -88,12 +88,17 @@ def manageStoreBefore(request):
     
     #     return redirect('/store/manage_store')
     return render(request,'manage_store_before.html', )
+def manage3(request):
+    return render(request,'manage3.html')
 
 def manage4(request):
     return render(request,'manage4.html')
 
 def manage5(request):
     return render(request,'manage5.html')
+
+def manage6_before(request):
+    return render(request,'manage6_before.html')
 
 def manage6(request):
     return render(request,'manage6.html')
@@ -109,3 +114,9 @@ def detail(request, store_id):
 
 def inquire(request):
     return render(request,'inquire.html')
+
+def manageChatting(request):
+    return render(request,'manage_chatting.html') 
+
+def storeInfo(request):
+    return render(request,'store_info.html') 

@@ -9,8 +9,10 @@
       href="{% static 'css/mypage5.css' %}"
     />
   </head>
-  {% endblock %}
-  {% block content %}
+  {% endblock %} {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "mypage_base.html" %}
+  <div>{% block profile %} {% endblock %}</div>
   <body>
     <!-- 메뉴바 여기부터 -->
     <section>
