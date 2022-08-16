@@ -1,3 +1,8 @@
+.body {
+  position: relative;
+  margin: 0;
+}
+
 .b_watch {
   height: 4rem;
   display: flex;
@@ -16,7 +21,7 @@
 
 .hash {
   display: flex;
-
+  margin: 2rem;
   justify-content: center;
 }
 
@@ -25,13 +30,41 @@
   height: 30px;
   border-radius: 30px;
   border: 1px solid #505050;
+  background-color: #ffffff;
+
+  margin-right: 20px;
+}
+
+.hash2 {
+  width: 120px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid #505050;
+  margin-right: 20px;
+  background-color: #505050;
+  color: #ffffff;
+}
+
+.sort_fil {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 13px;
+  justify-content: end;
+
+  width: 955px;
+  height: 30px;
 }
 
 .sorting {
   display: flex;
-  margin-left: 65%;
+  margin-right: 5px;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.filter {
+  width: 30px;
+  height: 30px;
 }
 
 .pink_background {
@@ -63,12 +96,11 @@
 .cp {
   width: 220px;
   height: 220px;
-  margin: 0 5px 26px 5px;
+  margin: 0 26px 26px 0px;
 }
 
-img {
-  width: 450px;
-  height: 450px;
+.cp:nth-child(4n) {
+  margin-right: 0px;
 }
 
 .img2 {
@@ -80,23 +112,25 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 835px;
-  height: 605px;
+  width: 100%;
+  height: 100%;
   display: none;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
 }
 
 .modal_body {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
 
-  width: 100%;
-  height: 100%;
+  width: 835px;
+  height: 605px;
 
   margin: auto;
   padding: 40px;
-  margin-left: 91.5%;
-  margin-top: 100px;
+
   text-align: center;
 
   background-color: rgb(255, 255, 255);
@@ -107,13 +141,18 @@ img {
   display: none;
 }
 
+.hide {
+  overflow: hidden;
+}
+
 .show {
   display: block;
-  width: 835px;
-  height: 605px;
 }
 
 .modal-img {
+  width: 450px;
+  height: 450px;
+
   margin-top: -10%;
   margin-left: 23%;
   display: block;
@@ -122,29 +161,30 @@ img {
 .m_button {
   width: 200px;
   height: 43px;
+  margin-right: 15px;
   background: #ffe8e8;
   border-radius: 50px;
   border: 0;
 }
 
 .buttons {
-  margin: 20px;
-  margin-left: 50%;
-  display: block;
-
-  left: 695px;
-  top: 1316px;
+  display: flex;
+  justify-content: center;
+  padding-top: 53px;
+  padding-bottom: 33px;
 }
 
 .page_button {
   border: 0;
   outline: 0;
+  background: none;
 }
 
 .page_button1 {
   border: 0;
   outline: 0;
   color: black;
+  background: none;
 }
 
 .previous {

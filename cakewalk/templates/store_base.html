@@ -8,19 +8,22 @@
   />
 </head>
 
-<nav class="side">
+<div class="side">
   <img
     class="profile-img"
     src="{% static 'img/shop_main.png' %}"
     alt="human_profile"
+    onclick="console.log('하이')"
   />
   <span class="shop-name">bsName</span>
   <div class="shop-infos">
-    <span class="shop-address shop-info" 
+    <span class="shop-address shop-info"
       ><i class="fa-solid fa-location-arrow"></i>진주시 가좌동</span
     >
     <span class="shop-info"><i class="fa-brands fa-instagram"></i>@abcd</span>
-    <span class="shop-info"><i class="fa-solid fa-phone"></i>010-0000-0000</span>
+    <span class="shop-info"
+      ><i class="fa-solid fa-phone"></i>010-0000-0000</span
+    >
     <span class="shop-time shop-info"
       ><i class="fa-solid fa-clock"></i>10:00 ~ 19:00</span
     >
@@ -32,10 +35,18 @@
     <li class="nav-li" onclick="location.href='{% url 'manage_store' %}'">
       가게 관리
     </li>
-    <li class="nav-li">도안 관리</li>
+    <li class="nav-li" >도안 관리</li>
     <li class="nav-li">리뷰 관리</li>
     <li class="nav-li">1:1 문의 관리</li>
     <li class="nav-li">가게정보 설정</li>
     <li class="nav-li">MY TALK</li>
   </ul>
-</nav>
+</div>
+<script>
+  const li = document.querySelector("#first");
+  console.log(li);
+  li.addEventListener("click", function () {
+    console.log("");
+    alert("addEventListener-1");
+  });
+</script>

@@ -120,3 +120,6 @@ def manageChatting(request):
 
 def storeInfo(request):
     return render(request,'store_info.html') 
+
+def storeInfoMore(request):
+    return render(request,'store_info_more.html') 
