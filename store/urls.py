@@ -17,4 +17,5 @@ urlpatterns = [
     path('manage7', views.manage7, name="manage7"),
     path('detail/<int:store_id>', views.detail, name="storeDetail"),
     path('inquire', views.inquire, name="inquire"),
+    path('manage_chatting', views.manageChatting, name="manage_chatting"),
 ] 

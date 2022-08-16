@@ -111,3 +111,6 @@ def detail(request, store_id):
 
 def inquire(request):
     return render(request,'inquire.html')
+
+def manageChatting(request):
+    return render(request,'manage_chatting.html') 
