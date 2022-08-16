@@ -6,7 +6,7 @@
 }
 
 /* 네브 */
-.side {
+/* .side {
     position: fixed;
     top: 0;
     z-index: -5;
@@ -48,7 +48,7 @@
 
 .nav-li {
     margin-bottom: 20px;
-}
+} */
 
 /* 메인섹션 레이아웃 */
 .container-wrap {

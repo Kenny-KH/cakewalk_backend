@@ -88,6 +88,8 @@ def manageStoreBefore(request):
     
     #     return redirect('/store/manage_store')
     return render(request,'manage_store_before.html', )
+def manage3(request):
+    return render(request,'manage3.html')
 
 def manage4(request):
     return render(request,'manage4.html')

@@ -22,3 +22,5 @@ def myPage6(request):
 def myPage7(request):
     return render(request, "mypage7.html")
 
+def userreview(request):
+    return render(request, "userreview.html")

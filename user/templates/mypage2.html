@@ -15,24 +15,12 @@
     ></script>
     <script src="{% static 'js/mypage.js' %}" defer></script>
   </head>
-{% endblock %}
-
-{% block content %}
+  {% endblock %} {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "mypage_base.html" %}
+  <div>{% block profile %} {% endblock %}</div>
 
     <main>
-      <nav class="side">
-        <img class="profile-img" src="{% static 'img/human.png' %}" alt="human_profile" />
-        <span class="use-name">ㅇㅇ 님</span>
-        <hr class="use-name-under" />
-        <span class="my-walk">MY WALK</span>
-        <ul class="nav-wrap">
-          <li class="nav-li">도안</li>
-          <li class="nav-li">작성 후기</li>
-          <li class="nav-li">1:1 문의</li>
-          <li class="nav-li">회원정보 수정</li>
-          <li class="nav-li">MY TALK</li>
-        </ul>
-      </nav>
       <section class="container-wrap">
         <div class="container">
           <div class="setting-header">

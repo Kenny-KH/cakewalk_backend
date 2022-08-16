@@ -13,4 +13,5 @@ urlpatterns = [
     path('mypage5', views.myPage5, name="user_mypage"),
     path('mypage6', views.myPage6, name="user_mypage"),
     path('mypage7', views.myPage7, name="user_mypage"),
+    path('userreview', views.userreview, name="userreview"),
 ] 

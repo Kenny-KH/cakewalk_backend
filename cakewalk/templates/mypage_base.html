@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+  <link
+    link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/mypage_base.css' %}"
+  />
+</head>
+
+<nav class="side">
+    <img
+      class="profile-img"
+      src="{% static 'img/human.png' %}"
+      alt="human_profile"
+    />
+    <span class="use-name">ㅇㅇ 님</span>
+    <hr class="use-name-under" />
+    <span class="my-walk">MY WALK</span>
+    <ul class="nav-wrap">
+      <li class="nav-li">도안</li>
+      <li class="nav-li">작성 후기</li>
+      <li class="nav-li">1:1 문의</li>
+      <li class="nav-li">회원정보 수정</li>
+      <li class="nav-li">MY TALK</li>
+    </ul>
+  </nav>
