@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mypage6</title>
-    <link rel="stylesheet" href="mypage6.css" />
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>마이페이지6</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/mypage6.css' %}"
+    />
   </head>
+  {% endblock %}
+  {% block content %}
   <body>
     <div class="title">회원정보 수정</div>
     <div class="text">나의 회원정보를 수정할 수 있습니다.</div>
@@ -73,5 +77,4 @@
       <div class="out-text">탈퇴를 원하시면 회원 탈퇴를 눌러주세요.</div>
       <button class="out-button">회원 탈퇴</button>
     </div>
-  </body>
-</html>
+    {% endblock %}
