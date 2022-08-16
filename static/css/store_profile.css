@@ -1,4 +1,9 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
 
 .side {
   position: fixed;

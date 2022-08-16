@@ -97,6 +97,9 @@ def manage4(request):
 def manage5(request):
     return render(request,'manage5.html')
 
+def manage6_before(request):
+    return render(request,'manage6_before.html')
+
 def manage6(request):
     return render(request,'manage6.html')
 
@@ -114,3 +117,6 @@ def inquire(request):
 
 def manageChatting(request):
     return render(request,'manage_chatting.html') 
+
+def storeInfo(request):
+    return render(request,'store_info.html') 
