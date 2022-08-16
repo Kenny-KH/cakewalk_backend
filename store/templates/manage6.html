@@ -1,127 +1,195 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block head %}
-<title>채팅창</title>
+{% extends 'base.html' %} {% load static %}{% block head %}
+<title>가게정보설정</title>
 <link
   link
   rel="stylesheet"
   type="text/css"
-  href="{% static 'css/manager6.css' %}"
+  href="{% static 'css/manage6.css' %}"
 />
-<!--Font Awesome-->
-<script
-  src="https://kit.fontawesome.com/d35df90ac6.js"
-  crossorigin="anonymous"
-></script>
-<script src="{% static 'js/manager6.js' %}" defer></script>
+<script src="{% static 'js/manage6_before.js' %}" defer></script>
+{% endblock %} {% block content %}
+<div class="main_wrapper" style="display: flex"></div>
+{% include "store_base.html" %}
+<div>{% block profile %} {% endblock %}</div>
+<main class = "body">
+    <div class = "wrapper">
+
+    <div class = "store_info">가게정보 설정</div>
+    
+    <div class = "main1">
+    <div class = "profile">프로필 설정</div>
+    <div class = "store_logo">
+        가게로고(프로필)
+        <img class="logo_img" src="./image 49.png" alt="logo" /> 
+        
+    </div>
+
+    <div class = "store_name">
+        <div class = "store_name1">가게명</div> 
+        <div class = "store_name2">멋사가게</div>
+        </div>
+
+    <div class = "location">
+        <div class= "location1">위치</div>
+        <div class= "location2">가좌동</div>
+    </div>
+
+    <div class = "phone">
+        <div class= "phone1">대표 전화번호</div>
+        <div class= "phone2">010-0000-0000</div>
+    </div>
+    <div class = "time">
+        <div class = "time1">영업시간</div>
+        <div class = "time2">10:00~17:00</div>
+    </div>
+
+
+    <div class = "sns">
+    <div class = "sns1">대표 SNS</div>
+    <div class = "sns2">
+        <div class="ig1"> <input type="radio" class = "ig">instargram </input> </div> 
+        <span class = "abc">@abcdef</span> </div>
+    </div>
+</div class = "main1">
+
+    <div class = "main2">
+
+        <div class = "order_option_settings">주문 옵션 관리</div>
+
+        <div class = "pickup">
+        <div class = "pickup1">픽업시간 관리</div>
+        <div class = "pickup2">
+            <div class="div1219">12:00</div>
+            <div >~</div>
+            <div class="div1219">19:00</div>
+
+            <select name="min" class="min">
+                <option disabled selected>없음</option>
+                <option value="10min">10분</option>
+                <option value="20min">20분</option>
+                <option value="30min">30분</option>
+                <option value="1h">1시간</option>
+            </select>
+
+            <div class = "intervel">간격</div>
+
+            <div class = "break_time">
+                (휴게 시간 
+                <div class = "rec"></div>
+                <div>~</div>
+                <div class="rec1"></div>)
+            </div>
+
+
+            
+
+
+        </div>     
+        </div>
+
+        <div class = "sub">
+        <div class = "order_option"> 주문 옵션</div>
+
+        <div class=" sub0">
+
+        <div class = "sub1">
+            <div class = "size">케이크 호수</div>
+
+            <div class ="radio_css">
+
+            <div class = "radio1" > 
+                <input type="radio" >미니     </input> <div class="close close1"></div> 
+                </div>
+                
+            <div class = "radio1" > 
+                <input type="radio" >1호   </input> <div class="close close1"></div> 
+                </div>
+                
+            <div class = "radio1" > 
+                <input type="radio" >2호    </input> <div class="close close1"></div> 
+                </div>
+            
+            <div class = "radio1" > 
+                <input type="radio" >3호   </input> <div class="close close1"></div> 
+            </div>
+        
+            <div class = "radio1" > 
+                <input type="radio" >기타</input>
+                </div>
+
+                
+            
+            
+
+            </div>
+
+        </div>
+
+        <div class="sub2" >
+            <div class = "flavor"><i class="fa-duotone fa-star-sharp"></i>케이크 맛</div>
+
+            <div class = "flavor_list">
+            <div class = "vanilla_choco">바닐라시트+초코크림 
+            </div>
+            <div>
+            <div>초코시트+우유생크림
+                <div class="close close1"></div>
+            </div>
+            <div>초코시트+초코크림
+                <div class="close close1"></div>
+            </div>
+            <div>바닐라시트+우유생크림
+                <div class="close close1"></div>
+            </div>
+            </div>
+        </div>
+
+            
+        </div>
+
+        
+        <div class="sub3" >
+        <div class = "add">추가옵션</div>
+
+            <div class = "adding">
+            
+            <div class = "radio1" > 
+                <input type="radio" >초 추가       <span> x</span></input> 
+                </div>
+            <div class = "radio1" >                 
+                <input type="radio" >풍선 추가 <span> x</span></input>  
+                </div>  
+            <div class = "radio1" > 
+                <input type="radio" >보냉백 추가 <span> x</span></input> 
+                </div>
+            <div class = "radio1" > 
+                    <input type="radio" >기타 <span> x</span></input>
+                    </div>
+
+            </div>
+        </div>
+
+        </div class= "sub0">
+
+    </div class="sub">
+    </div class = "main2">
+
+    </div>
+    <div class = "button_div">
+        <button class = "button">수정완료</button>
+    </div>
+    
+
+    <div class = "last_button ">
+        <div>탈퇴를 원하시면 회원 탈퇴를 눌러주세요.</div>
+        <button class="out_button">회원탈퇴</button>
+    </div>
+    
+
+
+
+</div class = "wrapper"> 
+
+</main>
 {% endblock %}
 
-
-  {% block content %}
-  <div class="main_wrapper" style="display: flex"></div>
-  {% include "store_base.html" %} <div>{% block profile %} {% endblock %}</div>
-
-  <main>
-    <section>
-      <div class="container">
-        <h1 class="title">MY TALK</h1>
-        <span class="sub_title">메세지 모아보기</span>
-        <ul class="time-wrap">
-          <li class="time">1개월</li>
-          <li class="time">3개월</li>
-          <li class="time">6개월</li>
-          <li class="time">전체시기</li>
-        </ul>
-        <div class="talk-wrap">
-          <div class="talk-wrap-text">지난 대화 모아보기</div>
-          <div class="talks">
-            <div class="talk">
-              <div class="img-wrap">
-                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
-              </div>
-              <div class="human-info">
-                <span class="name">양희주</span>
-                <span class="name"
-                  >안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다.
-                  문의 하신 케...</span
-                >
-              </div>
-              <div class="cake-info-container">
-                <div class="cake-info-wrap">
-                  <span>날짜: 8월 10일</span>
-                  <span>케이크: 1호/ 초코시트+초코크림</span>
-                  <span>추가옵션: 없음</span>
-                  <span>픽업시간: 18:00</span>
-                </div>
-              </div>
-            </div>
-            <div class="talk">
-              <div class="img-wrap">
-                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
-              </div>
-              <div class="human-info">
-                <span class="name">양희주</span>
-                <span class="message"
-                  >안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다.
-                  문의 하신 케...</span
-                >
-              </div>
-              <div class="cake-info-container">
-                <div class="cake-info-wrap">
-                  <span>날짜: 8월 10일</span>
-                  <span>케이크: 1호/ 초코시트+우유생크림</span>
-                  <span>추가옵션: 없음</span>
-                  <span>픽업시간: 18:00</span>
-                </div>
-              </div>
-            </div>
-            <div class="talk">
-              <div class="img-wrap">
-                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
-              </div>
-              <div class="human-info">
-                <span class="name">양희주</span>
-                <span class="message"
-                  >안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다.
-                  문의 하신 케...</span
-                >
-              </div>
-              <div class="cake-info-container">
-                <div class="cake-info-wrap">
-                  <span>날짜: 8월 10일</span>
-                  <span>케이크: 1호/ 초코시트+우유생크림</span>
-                  <span>추가옵션: 없음</span>
-                  <span>픽업시간: 18:00</span>
-                </div>
-              </div>
-            </div>
-            <div class="talk">
-              <div class="img-wrap">
-                <img src="{% static 'img/shop_main.png' %}" alt="profile" />
-              </div>
-              <div class="human-info">
-                <span class="name">양희주</span>
-                <span class="message"
-                  >안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다.
-                  문의 하신 케...</span
-                >
-              </div>
-              <div class="cake-info-container">
-                <div class="cake-info-wrap">
-                  <span>날짜: 8월 10일</span>
-                  <span>케이크: 1호/ 초코시트+우유생크림</span>
-                  <span>추가옵션: 없음</span>
-                  <span>픽업시간: 18:00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pages">
-          <button class="page-btn">1</button>
-          <button class="page-btn">2</button>
-          <button class="page-btn">3</button>
-        </div>
-      </div>
-    </section>
-{% endblock %}

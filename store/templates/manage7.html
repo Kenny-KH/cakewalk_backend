@@ -1,0 +1,126 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>Document</title>
+<link
+  link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/manage7.css' %}"
+/>
+<!--Font Awesome-->
+<script
+  src="https://kit.fontawesome.com/d35df90ac6.js"
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/manager7.js' %}" defer></script>
+{% endblock %}
+
+
+  {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "store_base.html" %} <div>{% block profile %} {% endblock %}</div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">MY TALK</h1>
+        <span class="sub_title">메세지 모아보기</span>
+        <ul class="time-wrap">
+          <li class="time">1개월</li>
+          <li class="time">3개월</li>
+          <li class="time">6개월</li>
+          <li class="time">전체시기</li>
+        </ul>
+        <div class="talk-wrap">
+          <div class="talk-wrap-text">지난 대화 모아보기</div>
+          <div class="talks">
+            <div class="talk">
+              <div class="img-wrap">
+                <img class="talk-profile" src="{% static 'img/human.png' %}" alt="human_profile"/>
+              </div>
+              <div class="human-info">
+                <span class="name">양희주</span>
+                <span class="name"
+                  >안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다.
+                  문의 하신 케...</span
+                >
+              </div>
+              <div class="cake-info-container">
+                <div class="cake-info-wrap">
+                  <span class="cake-info">날짜: 8월 10일</span>
+                  <span class="cake-info">케이크: 1호/ 초코시트+초코크림</span>
+                  <span class="cake-info">추가옵션: 없음</span>
+                  <span>픽업시간: 18:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="talk">
+              <div class="img-wrap">
+                <img class="talk-profile" src="{% static 'img/human.png' %}" alt="human_profile"/>
+              </div>
+              <div class="human-info">
+                <span class="name">박연빈</span>
+                <span class="message"
+                  >[주문완료] '연빈'님이 주문하신 케이크가 정상적으로 접수되었습니다. 주문...</span
+                >
+              </div>
+              <div class="cake-info-container">
+                <div class="cake-info-wrap">
+                  <span class="cake-info">날짜: 8월 5일</span>
+                  <span class="cake-info">케이크: 1호/ 초코시트+우유생크림</span>
+                  <span class="cake-info">추가옵션: 없음</span>
+                  <span>픽업시간: 12:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="talk">
+              <div class="img-wrap">
+                <img class="talk-profile" src="{% static 'img/human.png' %}" alt="human_profile"/>
+              </div>
+              <div class="human-info">
+                <span class="name">김지현</span>
+                <span class="message"
+                  >픽업 시간을 다시 바꿀 수 있을까요?</span
+                >
+              </div>
+              <div class="cake-info-container">
+                <div class="cake-info-wrap">
+                  <span class="cake-info">날짜: 8월 6일</span>
+                  <span class="cake-info">케이크: 1호/ 바닐라시트+우유생크림</span>
+                  <span class="cake-info">추가옵션: 없음</span>
+                  <span>픽업시간: 15:00</span>
+                </div>
+              </div>
+              <div class="count">1</div>
+            </div>
+            <div class="talk">
+              <div class="img-wrap">
+                <img class="talk-profile" src="{% static 'img/human.png' %}" alt="human_profile"/>
+              </div>
+              <div class="human-info">
+                <span class="name">이선호</span>
+                <span class="message"
+                  >안녕하세요. 보냉팩 추가는 날씨보고 다시 알려드려도 될까요?</span
+                >
+              </div>
+              <div class="cake-info-container">
+                <div class="cake-info-wrap">
+                  <span class="cake-info">날짜: 8월 13일</span>
+                  <span class="cake-info">케이크: 1호/ 바닐라시트+우유생크림</span>
+                  <span class="cake-info">추가옵션: 없음</span>
+                  <span>픽업시간: 13:30</span>
+                </div>
+              </div>
+              <div class="count">1</div>
+            </div>
+          </div>
+        </div>
+        <div class="pages">
+          <button class="page-btn">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+{% endblock %}

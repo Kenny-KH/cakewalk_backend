@@ -1,19 +1,28 @@
-
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import BsSignupDetail
-from django.utils import timezone
+from .models import BsSignupDetail, User
 from .models import User
 from django.contrib import auth
 from django.contrib import messages
 
-# Create your views here.
+#카카오 로그인 모듈
+import requests
+from django.conf import settings
+from django.http import HttpResponse
 
 def login(request):
     return render(request, 'login.html')
 
 def signup(request):
+    
+    if request.method == 'POST':
+        name = request.POST['name']
+        tel = request.POST['tel']
+        email = request.POST['email']
+        address = request.POST['address']
+        user = User.objects.create_user(email, name, tel, address, None, None, None)
 
-    return render(request, 'signup.html')
+        auth.login(request, user)
+        return redirect('/')
 
 def businessLogin(request):
     if request.method == 'POST':
@@ -71,3 +80,72 @@ def businessSignupDetail(request):
         return redirect('/')
     else:
         return render(request, 'business-signup-detail.html')
+
+
+kakao_login_uri = "https://kauth.kakao.com/oauth/authorize"
+kakao_token_uri = "https://kauth.kakao.com/oauth/token"
+kakao_profile_uri = "https://kapi.kakao.com/v2/user/me"
+
+def kakaoLogin(request):
+    client_id = settings.KAKAO_CONFIG['KAKAO_REST_API_KEY']
+    redirect_uri = settings.KAKAO_CONFIG['KAKAO_REDIRECT_URI']
+    uri = f"{kakao_login_uri}?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
+    
+    res = redirect(uri)
+    print("여기에요 살려주시라요")
+    return res
+
+def kakaocallback(request):
+    # access_token 발급 요청
+    code = request.GET["code"]
+    if not code:
+        return HttpResponse("없엉")
+
+    request_data = {
+        'grant_type': 'authorization_code',
+        'client_id': settings.KAKAO_CONFIG['KAKAO_REST_API_KEY'],
+        'redirect_uri': settings.KAKAO_CONFIG['KAKAO_REDIRECT_URI'],
+        'client_secret': settings.KAKAO_CONFIG['KAKAO_CLIENT_SECRET_KEY'],
+        'code': code,
+    }
+    token_headers = {
+        'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    }
+    token_res = requests.post(kakao_token_uri, data=request_data, headers=token_headers)
+
+    token_json = token_res.json()
+    access_token = token_json.get('access_token')
+
+    if not access_token:
+        return HttpResponse("없엉")
+    access_token = f"Bearer {access_token}"  # 'Bearer ' 마지막 띄어쓰기 필수
+
+    # kakao 회원정보 요청
+    auth_headers = {
+        "Authorization": access_token,
+        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+    }
+    user_info_res = requests.get(kakao_profile_uri, headers=auth_headers)
+    user_info_json = user_info_res.json()
+    user_info_json_id = user_info_json.get('id')
+
+    social_type = 'kakao'
+    social_id = f"{social_type}_{user_info_json_id}"
+
+    kakao_account = user_info_json.get('kakao_account')
+    
+    if not kakao_account:
+        return HttpResponse("없엉")
+
+    user_email = kakao_account.get('email')
+
+    #is_business가 no임을 체크해야해
+    try:
+        checked_user = User.objects.get(email=user_email)
+        print(checked_user)
+    except:
+        print("여기가 진행 된거지??")
+        return render(request, 'signup.html', {'kakao_email':user_email})
+    else:
+        auth.login(request, checked_user)
+        return redirect('/')

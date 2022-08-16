@@ -2,42 +2,26 @@
 {% load static %}
 {% block head %}
     <title>Document</title>
-    <link link rel="stylesheet" type="text/css" href="./src/css/mypage2.css" />
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/mypage2.css' %}"
+    />
     <!--Font Awesome-->
     <script
       src="https://kit.fontawesome.com/d35df90ac6.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./src/js/mypage2.js" defer></script>
+    <script src="{% static 'js/mypage.js' %}" defer></script>
   </head>
-{% endblock %}
-
-{% block content %}
-    <header class="header">
-      <img class="logoImg" src="./src/img/logo.png" />
-      <ul class="header-ul">
-        <li class="header-li">MAKE</li>
-        <li class="header-li">CAKE</li>
-        <li class="header-li">MYPAGE</li>
-        <li class="header-li">LOGOUT</li>
-      </ul>
-    </header>
+  {% endblock %} {% block content %}
+  <div class="main_wrapper" style="display: flex"></div>
+  {% include "mypage_base.html" %}
+  <div>{% block profile %} {% endblock %}</div>
 
     <main>
-      <nav>
-        <img class="profile-img" src="./src/img/human.png" alt="human_profile" />
-        <span class="use-name">ㅇㅇ 님</span>
-        <hr class="use-name-under" />
-        <span class="my-walk">MY WALK</span>
-        <ul class="nav-wrap">
-          <li class="nav-li">도안</li>
-          <li class="nav-li">작성 후기</li>
-          <li class="nav-li">1:1 문의</li>
-          <li class="nav-li">회원정보 수정</li>
-          <li class="nav-li">MY TALK</li>
-        </ul>
-      </nav>
-      <section>
+      <section class="container-wrap">
         <div class="container">
           <div class="setting-header">
             <div class="title-wrap">
@@ -65,98 +49,111 @@
             <li class="time">전체시기</li>
           </ul>
 
-          <table>
+          <table class="info-wrap">
             <thead>
-              <tr>
+              <tr class="row">
                 <th class="thead-th">케이크</th>
                 <th class="thead-th">주문 일자</th>
                 <th class="thead-th">주문금액(수량)</th>
                 <th class="thead-th">주문 상태</th>
+                <th class="thead-th"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody class="info-body">
+              <tr class="row">
                 <th class="cake-wrap">
-                    <img class="cake-photo" src="./src/img/mypage2_cake1.png" alt="cake">
+                    <img class="cake-photo" src="{% static 'img/mypage2_cake1.png' %}" alt="cake">
                     <ul class="cake-options">
                         <li class="cake-option">likelion bakery</li>
                         <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
                         <li class="cake-option">초코시트+우유생크림</li>
                     </ul>
                 </th>
-                <td class="date">2022.07.08</td>
-                <td class="price_count">
+                <td class="date block">2022.07.08</td>
+                <td class="price_count block">
                     <span class="price">57,000원</span>
                     <br>
                     <span class="count">(1개)</span>
                 </td>
-                <td class="state">
+                <td class="state block">
                     <span class="state-text">구매확정</span>
                     <br>
                     <button class="state-btn">제작 중</button>
                 </td>
+                <td class="block">
+                  <a class="review-link" href="#">리뷰쓰기</a>
+                </td>
               </tr>
-              <tr>
-                <th class="cake-wrap">
-                    <img class="cake-photo" src="./src/img/mypage2_cake2.png" alt="cake">
+              <tr class="row">
+                <th class="cake-wrap block">
+                    <img class="cake-photo" src="{% static 'img/mypage2_cake2.png' %}" alt="cake">
                     <ul class="cake-options">
                         <li class="cake-option">likelion bakery</li>
                         <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
                         <li class="cake-option">초코시트+우유생크림</li>
                     </ul>
                 </th>
-                <td class="date">2022.05.04</td>
-                <td class="price_count">
+                <td class="date block">2022.05.04</td>
+                <td class="price_count block">
                     <span class="price">59,000원</span>
                     <br>
                     <span class="count">(1개)</span>
                 </td>
-                <td class="state">
+                <td class="state block">
                     <span class="state-text">구매확정</span>
                     <br>
                     <button class="state-btn">픽업 완료</button>
                 </td>
+                <td class="block">
+                  <a class="review-link" href="#">리뷰쓰기</a>
+                </td>
               </tr>
-              <tr>
+              <tr class="row">
                 <th class="cake-wrap">
-                    <img class="cake-photo" src="./src/img/mypage2_cake3.png" alt="cake">
+                    <img class="cake-photo" src="{% static 'img/mypage2_cake3.png' %}" alt="cake">
                     <ul class="cake-options">
                         <li class="cake-option">likelion bakery</li>
                         <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
                         <li class="cake-option">초코시트+우유생크림</li>
                     </ul>
                 </th>
-                <td class="date">2022.03.21</td>
-                <td class="price_count">
+                <td class="date block">2022.03.21</td>
+                <td class="price_count block">
                     <span class="price">45,000원</span>
                     <br>
                     <span class="count">(1개)</span>
                 </td>
-                <td class="state">
+                <td class="state block">
                     <span class="state-text">구매확정</span>
                     <br>
                     <button class="state-btn">픽업 완료</button>
                 </td>
+                <td class="block">
+                  <a class="review-link" href="#">리뷰쓰기</a>
+                </td>
               </tr>
-              <tr>
+              <tr class="row">
                 <th class="cake-wrap">
-                    <img class="cake-photo" src="./src/img/mypage2_cake4.png" alt="cake">
+                    <img class="cake-photo" src="{% static 'img/mypage2_cake4.png' %}" alt="cake">
                     <ul class="cake-options">
                         <li class="cake-option">likelion bakery</li>
                         <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
                         <li class="cake-option">초코시트+우유생크림</li>
                     </ul>
                 </th>
-                <td class="date">2022.01.11</td>
-                <td class="price-and-count">
+                <td class="date block">2022.01.11</td>
+                <td class="price-and-count block">
                     <span class="price">47,000원</span>
                     <br>
                     <span class="count">(1개)</span>
                 </td>
-                <td class="state">
+                <td class="state block">
                     <span class="state-text">구매확정</span>
                     <br>
                     <button class="state-btn">픽업 완료</button>
+                </td>
+                <td class="block">
+                  <a class="review-link" href="#">리뷰쓰기</a>
                 </td>
               </tr>
             </tbody>

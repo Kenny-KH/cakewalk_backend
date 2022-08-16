@@ -1,0 +1,159 @@
+* {
+  font-family: "Noto Sans";
+}
+
+.title {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 38px;
+}
+
+.goods-wrap {
+  display: flex;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 861px;
+  height: 113px;
+  margin-top: 45px;
+}
+
+.goods-title {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 15px;
+  width: 40px;
+  margin-top: 30px;
+}
+
+.goods {
+  display: flex;
+  margin-left: 110px;
+  margin-top: 15px;
+}
+
+.rectangle {
+  width: 80px;
+  height: 80px;
+  background-color: #d9d9d9;
+}
+
+.cake-info {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin-left: 21px;
+}
+
+.cake-info-taste {
+  color: rgba(0, 0, 0, 0.53);
+}
+
+.grade-wrap {
+  display: flex;
+  border-bottom: 1px solid black;
+  width: 861px;
+  height: 70px;
+  align-items: center;
+}
+
+.grade-title {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 15px;
+  width: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.grade {
+  display: flex;
+  margin-left: 110px;
+}
+
+.img-wrap {
+  display: flex;
+  border-bottom: 1px solid black;
+  width: 861px;
+  height: 133px;
+}
+
+.img-title {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  width: 40px;
+  margin-left: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.rectangle-img {
+  width: 100px;
+  height: 100px;
+  margin-left: 110px;
+  margin-top: 17px;
+  background-color: #d9d9d9;
+  align-items: center;
+}
+
+.review-wrap {
+  display: flex;
+  width: 861px;
+  border-bottom: 1px solid black;
+}
+
+.review-title {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  width: 40px;
+  margin-left: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.review {
+  width: 680px;
+  height: 190px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  resize: none;
+  margin-left: 110px;
+  margin-top: 17px;
+  margin-bottom: 17px;
+}
+
+textarea::placeholder {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #767676;
+  padding: 10px;
+}
+
+.enroll {
+  width: 120px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 42px;
+  margin-left: 400px;
+}

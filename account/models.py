@@ -15,7 +15,7 @@ class BsSignupDetail(models.Model):
     address = models.TextField()
     registeration = models.ImageField()
     report = models.ImageField()
-    
+    notice = models.TextField(blank=True, null=True)
     
 from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
 from django.db import models
