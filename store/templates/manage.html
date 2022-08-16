@@ -11,7 +11,7 @@
   src="https://kit.fontawesome.com/d35df90ac6.js"
   crossorigin="anonymous"
 ></script>
-<script src="{% static 'js/manager1.js' %}" defer></script>
+<script src="{% static 'js/manager_store.js' %}" defer></script>
 {% endblock %} {% block content %}
 <div class="main_wrapper" style="display: flex"></div>
 {% include "store_base.html" %}
@@ -70,7 +70,9 @@
         <div class="modal-detail-wrap">
           <div class="modal-detail">
             <p class="modal-reserve name">예약자명: 박연빈</p>
-            <p class="modal-reserve cake">케이크 주문: 1호/초코시트+우유생크림</p>
+            <p class="modal-reserve cake">
+              케이크 주문: 1호/초코시트+우유생크림
+            </p>
             <p class="modal-reserve option">추가 옵션: 없음</p>
           </div>
           <div class="modal-memo"></div>
