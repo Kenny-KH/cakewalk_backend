@@ -20,4 +20,5 @@ urlpatterns = [
     path('inquire', views.inquire, name="inquire"),
     path('manage_chatting', views.manageChatting, name="manage_chatting"),
     path('store_info', views.storeInfo, name="store_info"),
+    path('store_info_more', views.storeInfoMore, name="store_info_more"),
 ] 

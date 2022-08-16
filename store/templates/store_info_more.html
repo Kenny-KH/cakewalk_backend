@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>Document</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/store_info_more.css' %}"
+    />
+    <title>가게정보(더보기)</title>
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+
+</head>
+{% endblock %}
+{% block content %}
+
+    <div class="pink_background">
+        <div class="store_everything">
+            <div class="store_title"> < 멋사가게</div>
+
+            <div class = "store_info">
+                <span>
+                    <i class="fa-duotone fa-location-arrow"></i> 진주시 가좌동
+                </span>
+                <span>
+                    <i class="fa-brands fa-instagram"></i> @abcdef
+                </span>
+                <span>
+                    <i class="fa-thin fa-phone"></i>010-0000-0000
+                </span>
+                <span>
+                    <i class="fa-duotone fa-clock"></i> 10:00 ~ 19:00
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sort_fil">
+        <select class="sorting" name="정렬">
+        <option value="최신순">최신순</option>
+        <option value="리뷰많은순">리뷰많은순</option>
+        <option value="인기순">인기순</option>
+        <option value="추천순">추천순</option>
+        </select>
+        <i class="fa-light fa-filter"></i>
+    </div>
+
+    <div class="pics_cakes">
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+        <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+            <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+            <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+            <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+        <div class="cp">
+            <img class="img2" src="{% static 'img/cake0.png' %}" data-imgnum="0" alt="cake" />
+        </div>
+
+    </div>
+
+        <div class="buttons">
+            <button class="page_button1 page_button">1</button>
+            <button class="page_button">2</button>
+            <button class="page_button">3</button>
+        </div>
+        </div>
+{% endblock %}
