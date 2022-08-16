@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
     <title>mypage7</title>
-    <link rel="stylesheet" href="mypage7.css" />
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/mypage7.css' %}"
+    />
   </head>
+  {% endblock %}
+  {% block content %}
   <body>
     <div class="title">MY TALK</div>
     <div class="text">메세지 모아보기</div>
@@ -160,5 +164,4 @@
         >3</a
       >
     </div>
-  </body>
-</html>
+    {% endblock %}

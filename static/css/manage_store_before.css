@@ -1,0 +1,238 @@
+.title {
+  font-size: 32px;
+  font-weight: 550;
+  margin-top: 175px;
+}
+
+.sub-title {
+  margin-top: 60px;
+  margin-left: 10px;
+}
+
+/* 달력 시작 */
+#calendar {
+  width: 274px;
+  margin-right: 44px;
+  padding-top: 13px;
+}
+
+.month-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.month {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 15px;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cur {
+  border-top: 1px solid #d9d9d9;
+}
+
+.day,
+.week-day {
+  width: calc(100% / 7);
+}
+
+.day:nth-child(7n),
+.day:nth-child(7n + 1) {
+  color: #8a898e;
+}
+
+.dates .day {
+  height: 51px;
+}
+
+.day-num {
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.today {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #c4c4c6;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+/* .count {
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  background-color: #ffc7a7;
+  margin: 0 auto;
+} */
+
+.select-rest-wrap {
+  padding-top: 25px;
+}
+
+.option-wrap {
+  border-top: 1px solid;
+  width: 860px;
+  margin-top: 21px;
+}
+
+.option-name {
+  margin-left: 18px;
+}
+
+.rest-wrap {
+  display: flex;
+}
+
+#select-rest-day {
+  width: 80px;
+  height: 26px;
+}
+
+.order-detail-wrap {
+  width: 503px;
+  padding-top: 16px;
+  border: 1px solid black;
+}
+
+.date {
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+}
+/* 달력 끝 */
+
+.notice-wrap {
+  display: flex;
+  width: 860px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid #767676;
+  margin-top: 24px;
+}
+
+.notice {
+  width: 130px;
+  margin-left: 18px;
+  margin-top: 30px;
+}
+
+.img {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  width: 130px;
+  margin-left: 18px;
+  margin-top: 30px;
+}
+
+.rectangle {
+  width: 150px;
+  height: 150px;
+  border: none;
+  background-color: #d9d9d9;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.img-cake {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-total {
+  display: flex;
+  border-bottom: 1px solid #d9d9d9;
+  width: 860px;
+  padding-bottom: 20px;
+}
+.img-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 670px;
+  height: 400px;
+  margin-left: 50px;
+  overflow-y: scroll;
+}
+
+.cake-name {
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 140px;
+  text-align: center;
+  /* border: 1px solid #d9d9d9; */
+  border: none;
+}
+
+textarea {
+  width: 625px;
+  height: 100px;
+  border: none;
+  resize: none;
+  margin-left: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cake-price {
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 140px;
+  text-align: center;
+  /* border: 1px solid #d9d9d9; */
+  border: none;
+}
+
+.img-wrap {
+  overflow-y: scroll;
+}
+
+.img-wrap::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.img-wrap::-webkit-scrollbar-thumb {
+  height: 100px; /* 스크롤바의 길이 */
+  background: #d9d9d9; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.img-wrap::-webkit-scrollbar-track {
+  background: transfer; /*스크롤바 뒷 배경 색상*/
+}
+
+.change {
+  width: 103px;
+  height: 30px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  margin-top: 40px;
+  margin-left: 480px;
+}

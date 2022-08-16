@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mypage4</title>
-    <link rel="stylesheet" href="mypage4.css" />
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>마이페이지4</title>
+    <link
+      link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/mypage4.css' %}"
+    />
     <script
       src="https://kit.fontawesome.com/d35df90ac6.js"
       crossorigin="anonymous"
     ></script>
   </head>
+  {% endblock %}
+  {% block content %}
   <body>
     <div class="title">작성 리뷰</div>
     <div class="text">지금까지 작성한 리뷰를 볼 수 있습니다.</div>
@@ -200,5 +204,5 @@
         >3</a
       >
     </div>
-  </body>
-</html>
+    {% endblock %}
+
