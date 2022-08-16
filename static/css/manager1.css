@@ -38,6 +38,7 @@ body {
 }
 
 .total-wrap {
+  z-index: -10;
 }
 
 .total {
