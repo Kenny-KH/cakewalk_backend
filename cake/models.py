@@ -18,3 +18,14 @@ class Store(models.Model):
     registeration = models.ImageField()
     report = models.ImageField()
     
+
+class Order(models.Model):
+    photo = models.ImageField()
+    price = models.IntegerField()
+    address = models.CharField(max_length=100)
+    date = models.CharField(max_length=100)
+    cake = models.ImageField()
+    size = models.CharField(max_length=30)
+    flavor = models.CharField(max_length=30)
+    additional = models.CharField(max_length=50)
+    require = models.CharField(max_length=50)

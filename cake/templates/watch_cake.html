@@ -25,7 +25,6 @@
     </div>
   </div>
 
-
   <br />
   <br />
   <br />
@@ -84,7 +83,12 @@
         <br />
         <br />
         <button class="m_button">가게보러가기</button>
-        <button class="m_button">주문하러가기</button>
+        <button
+          class="m_button"
+          onclick="location.href='{% url 'order' cake.id %}'"
+        >
+          주문하러가기
+        </button>
       </div>
     </div>
     {% endfor %}
