@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from .models import UserCake
 import json
@@ -33,14 +33,11 @@ def userChatting(request):
 
 def usercake(request):
     if request.method == 'POST':
-       
         data = json.loads(request.body)
-        print(data)
         
         new_user_cake = UserCake()
         new_user_cake.user = request.user
         new_user_cake.cake_img = data
         new_user_cake.save();
-        
 
-    return HttpResponse("test")
+        return redirect("/cake/order/"+str(new_user_cake.id))
