@@ -1,7 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
 <title>가게보기</title>
 
-
 <link
   rel="stylesheet"
   type="text/css"
@@ -20,13 +19,6 @@
   </div>
 </div>
 
-
-<div class="list">
-  <div class="list_item list_item_active">입점</div>
-  <div class="list_item">미입점</div>
-  <div class="list_item1">전체보기</div>
-</div>
-
 <div class="filter">
   <select class="sorting" name="정렬">
     <option value="리뷰많은순">리뷰많은순</option>
@@ -41,13 +33,13 @@
 </div>
 
 <div class="pink_background">
-  {% for store in stores %}
+  {% for store in stores%}
   <div
     class="store_box"
     onclick="location.href='{% url 'storeDetail' store.id %}'"
   >
     <div class="store_logo">
-      <img src="./image 49.png" alt="logo" />
+      <img src="{{store.logo.url}}" alt="logo" />
     </div>
 
     <div class="main_content">
@@ -94,9 +86,9 @@
         <div class="Lorem">{{store.notice}}</div>
 
         <div class="circles">
-          <img class="cake_circle" src="./Ellipse 51.png" alt="cake" />
-          <img class="cake_circle" src="./Ellipse 51.png" alt="cake" />
-          <img class="cake_circle" src="./Ellipse 51.png" alt="cake" />
+          {% for cake in store.storecake_set.all %}
+          <img class="cake_circle" src="{{cake.image.url}}" alt="cake" />
+          {% endfor %}
         </div>
       </div>
     </div>
