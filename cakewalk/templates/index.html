@@ -105,8 +105,9 @@
             class="cake-img"
             src="{{store.logo.url}}"
             alt="cake3"
+            id="{{store.id}}"
           />
-          <span class="shop-name">{{store.bsName}}</span>
+          <span class="shop-name" >{{store.bsName}}</span>
           <span class="shop-address"
             ><i class="fa-solid fa-location-arrow"></i>{{store.address}}</span
           >
@@ -122,8 +123,8 @@
         {% endfor %}
       </ul>
       <div class="cake-info">
-        <button class="info-btn"><a>가게 보러 가기</a></button>
-        <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+        <button class="info-btn" id="goToStore"><a>가게 보러 가기</a></button>
+        <button class="info-btn" id="goToOrder"><a>주문 하러 가기</a></button>
       </div>
       <button class="arrow-btn shop" id="left">
         <i class="fa-solid fa-angle-left"></i>
