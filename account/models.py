@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
+
 # Create your models here.
 class BsSignupDetail(models.Model):
     author = models.ForeignKey("User", related_name="user", on_delete=models.CASCADE)
@@ -15,6 +16,10 @@ class BsSignupDetail(models.Model):
     registeration = models.ImageField()
     report = models.ImageField()
     notice = models.TextField(blank=True, null=True)
+    time = models.CharField(max_length=100)
+    logo = models.ImageField()
+    
+    
     
     
 

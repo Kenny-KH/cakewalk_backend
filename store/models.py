@@ -1,14 +1,14 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from datetime import datetime
-from account.models import User
+from account.models import BsSignupDetail
 
 
 # Create your models here.
     
     
 class StoreCake(models.Model):
-    store = models.ForeignKey(User, on_delete=models.CASCADE)
+    store = models.ForeignKey(BsSignupDetail, on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     price_mini = models.IntegerField(blank=True, null=True)
     price_1 = models.IntegerField(blank=True, null=True)

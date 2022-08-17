@@ -6,20 +6,10 @@ from django.forms import CharField
 
 # Create your models here.
 
-class Store(models.Model):
-    tax = models.CharField(max_length=30)
-    businessNum = models.IntegerField()
-    type = models.CharField(max_length=50)
-    bsName = models.CharField(max_length=100)
-    repName = models.CharField(max_length=12)
-    birth = models.IntegerField()
-    phoneNum = models.IntegerField()
-    address = models.TextField()
-    registeration = models.ImageField()
-    report = models.ImageField()
+
     
 
-class Order(models.Model):
+class StoreOrder(models.Model):
     photo = models.ImageField()
     price = models.IntegerField()
     address = models.CharField(max_length=100)
@@ -29,6 +19,7 @@ class Order(models.Model):
     flavor = models.CharField(max_length=30)
     additional = models.CharField(max_length=50)
     require = models.CharField(max_length=50)
+    cakeObject = models.ForeignKey("store.StoreCake", on_delete=models.CASCADE)
 """
 class order(models.Model):
     mapSearch = models.ForeignKey(on_delete = models.CASCADE)
