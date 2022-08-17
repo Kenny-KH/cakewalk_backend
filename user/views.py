@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+from .models import UserCake
+import json
 
 # Create your views here.
 def myPage(request):
@@ -27,3 +30,17 @@ def userReview(request):
 
 def userChatting(request):
     return render(request, "user_chatting.html")
+
+def usercake(request):
+    if request.method == 'POST':
+       
+        data = json.loads(request.body)
+        print(data)
+        
+        new_user_cake = UserCake()
+        new_user_cake.user = request.user
+        new_user_cake.cake_img = data
+        new_user_cake.save();
+        
+
+    return HttpResponse("test")
