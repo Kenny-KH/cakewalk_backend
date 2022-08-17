@@ -1,4 +1,3 @@
-
 from copyreg import add_extension
 from django.shortcuts import render, redirect, get_object_or_404
 from account.models import BsSignupDetail
