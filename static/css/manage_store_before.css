@@ -1,3 +1,15 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.container-wrap {
+  margin-left: 388px;
+  padding-bottom: 66px;
+}
+
+.container {
+  width: 937px;
+  margin: 0;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
@@ -142,6 +154,15 @@
   margin-top: 30px;
 }
 
+.notice-input {
+  width: 620px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
 .img {
   font-family: "Noto Sans";
   font-style: normal;
@@ -186,8 +207,10 @@
   margin-top: 5px;
   width: 140px;
   text-align: center;
-  /* border: 1px solid #d9d9d9; */
-  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
 }
 
 textarea {
@@ -202,11 +225,13 @@ textarea {
 
 .cake-price {
   margin-left: 10px;
-  margin-top: 5px;
+  /* margin-top: 3px; */
   width: 140px;
   text-align: center;
-  /* border: 1px solid #d9d9d9; */
-  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
 }
 
 .img-wrap {
