@@ -17,6 +17,8 @@ def order(request, order_id):
     result = ""
     if request.method == 'POST':
         order = StoreOrder()
+        order.user = request.user
+        order.store = cake.store
         order.cake = cake.image
         if request.POST['size'] == "미니":
             order.price = cake.price_mini
@@ -56,7 +58,7 @@ def order(request, order_id):
             order.require = ""
         order.additional  = result
         order.save()
-        return redirect('/cake/payment/' + str(order_id))
+        return redirect('/user/user_chatting/' + str(order_id))
     return render(request, 'order.html', {'stores' : stores, 'order_id' : order_id, 'cake' : cake})
 """
 def order(request):
@@ -81,3 +83,4 @@ def payment(request, order_id):
 def watch_cake(request):
     cakes = StoreCake.objects.all()
     return render(request, 'watch_cake.html', {"cakes" : cakes})
+

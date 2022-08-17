@@ -20,6 +20,8 @@ class StoreOrder(models.Model):
     additional = models.CharField(max_length=50)
     require = models.CharField(max_length=50)
     cakeObject = models.ForeignKey("store.StoreCake", on_delete=models.CASCADE)
+    user = models.ForeignKey("account.User", on_delete=models.CASCADE)
+    store = models.ForeignKey("account.BsSignupDetail", on_delete=models.CASCADE)
 """
 class order(models.Model):
     mapSearch = models.ForeignKey(on_delete = models.CASCADE)
