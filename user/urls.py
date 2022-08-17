@@ -1,5 +1,8 @@
+from django import views
 from django.contrib import admin
 from django.urls import path
+from store import views
+
 from . import views
 
 urlpatterns = [
@@ -12,5 +15,4 @@ urlpatterns = [
     path('mypage7', views.myPage7, name="user_mypage7"), # My Talk
     path('user_review', views.userReview, name="user_review"), #리뷰하기
     path('user_chatting', views.userChatting, name="user_chatting"), # 사용자 채팅창
-    path('usercake/', views.usercake, name='user_cake'),
 ] 

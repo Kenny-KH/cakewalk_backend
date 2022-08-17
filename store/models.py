@@ -15,4 +15,3 @@ class StoreCake(models.Model):
     price_2 = models.IntegerField(blank=True, null=True)
     price_3 = models.IntegerField(blank=True, null=True)
     image = models.ImageField(upload_to = 'store/cake')
-    code = models.IntegerField(default=1)

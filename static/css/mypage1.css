@@ -9,24 +9,52 @@ html, body {
     margin: 0;
 }
 
-.nav-li:nth-child(1) {
-    background-color: #e6ccd5;
+/* .side {
+    position: fixed;
+    top: 0;
+    z-index: -5;
+    padding: 65px 41.3px 0px 41.3px;
+    width: 269px;
+    height: 100%;
+    background-color: rgba(248, 187, 208, 0.42);
 }
 
-body {
-    position: relative;
-    /* overflow: hidden; */
-    z-index: -10;
-}
-
-.main {
+.profile-img {
+    display: block;
     margin: 0 auto;
-    margin-left: 269px;
-    width: calc(100% - 269px);
+    margin-top: 90px;
 }
+
+.use-name {
+    display: flex;
+    justify-content: center;
+}
+
+.my-walk {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 32px;
+    color: rgba(0, 0, 0, 0.72);
+}
+
+.use-name-under {
+    width: 187px;
+    height: 7.13px;
+    border: none;
+    background-color: rgba(248, 187, 208, 0.68);
+}
+
+.nav-wrap {
+    padding: 0;
+    list-style: none;
+}
+
+.nav-li {
+    margin-bottom: 20px;
+} */
 
 .container-wrap {
-    /* margin-left: 269px; */
+    margin-left: 269px;
     padding-bottom: 79px;
     position: relative;
 }

@@ -2,15 +2,16 @@
 {% load static %}
 {% block head %}
     <title>케이크 디자인</title>
-
+    
+    <!-- CSS 초기화 코드 -->
+    <link rel="stylesheet" href="./src/css/init.css">
+    
     <!-- font 모음 CSS -->
     <link rel="stylesheet" href="{% static 'css/make_font.css' %}">
 
     <!-- 기본 stylesheet -->
     <link rel="stylesheet" href="{% static 'css/make.css' %}">
 
-    <!-- ajax CND -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!-- font Awesome CND -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
 
@@ -94,6 +95,10 @@
                             <input class="real_upload" type="file" accept="image/*" required multiple style="display: none;">
                             <div class="upload" ><p>사진 파일 가져오기</p></div>
                         </div>
+                    </div>
+
+                    <div class="order_btn">
+                        주문하기
                     </div>
                 </div>
                 <div class="step_box step2 unactive" data-step="2">
@@ -197,12 +202,11 @@
                         <textarea class="text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
                     </div>
 
-                    <div class="step3_item create_text_btn unactive">
-                        텍스트 생성하기
-                    </div>
-                    
+                    <div class="step3_item create_text_btn unactive">텍스트 생성하기</div>
+
                 </div>
                 <div class="step_box step4 unactive" data-step="4">
+
                 </div>
                 <div class="step_box step5 unactive" data-step="5">
                     <div class="create_support">판 생성하기</div>
@@ -230,10 +234,6 @@
                         <textarea class="board_text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
                     </div>
                 </div>
-                
-                <div class="order_btn">
-                    주문하기
-                </div>
             </div>
         </div>
         <div class="work_board_wrapper">
@@ -258,50 +258,4 @@
             </div>
         </div>
     </main>
-{% endblock %}
-{% block javascript %}
-<script>
-    const order_btns = document.querySelectorAll('.order_btn');
-    order_btns.forEach(element => {
-        element.addEventListener('click', ()=>{
-            const data = JSON.stringify(canvas.toDataURL());
-            
-            $.ajax({
-                type:'POST',
-                url: "{% url 'user_cake' %}",
-                data: data,
-                headers:{
-                    'X-CSRFTOKEN' : '{{ csrf_token }}'
-                },
-                
-                success:function(json){
-                    console.log("data pass success", json);
-                },
-                error : function(xhr, errmsg, err){
-                    console.log(xhr.status + ": " + xhr.responseText);
-                }
-            });
-        })
-    });
-    const save_btn = document.querySelector('.temp_save');
-    save_btn.addEventListener('click', ()=>{
-        const data = JSON.stringify(canvas);
-        console.log(data);
-        
-        $.ajax({
-            type:'POST',
-            url: "{% url 'user_cake' %}",
-            data: data,
-            headers:{
-                'X-CSRFTOKEN' : '{{ csrf_token }}'
-            },
-            success:function(json){
-                console.log("data pass success", json);
-            },
-            error : function(xhr, errmsg, err){
-                console.log(xhr.status + ": " + xhr.responseText);
-            }
-        });
-    });
-</script>
 {% endblock %}
