@@ -9,6 +9,10 @@ html, body {
     margin: 0;
 }
 
+.nav-li:nth-child(1) {
+    background-color: #e6ccd5;
+}
+
 /* .side {
     position: fixed;
     top: 0;
@@ -53,8 +57,20 @@ html, body {
     margin-bottom: 20px;
 } */
 
-.container-wrap {
+body {
+    position: relative;
+    /* overflow: hidden; */
+    z-index: -10;
+}
+
+.main {
+    margin: 0 auto;
     margin-left: 269px;
+    width: calc(100% - 269px);
+}
+
+.container-wrap {
+    /* margin-left: 269px; */
     padding-bottom: 79px;
     position: relative;
 }

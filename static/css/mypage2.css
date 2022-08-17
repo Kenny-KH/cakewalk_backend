@@ -51,10 +51,33 @@
 } */
 
 /* 메인섹션 레이아웃 */
+
+body {
+    position: relative;
+    /* overflow: hidden; */
+    z-index: -10;
+}
+
+.nav-li:nth-child(2) {
+    background-color: #e6ccd5;
+}
+
+.main {
+    margin: 0 auto;
+    margin-left: 269px;
+    width: calc(100% - 269px);
+}
+
 .container-wrap {
+    /* margin-left: 269px; */
+    padding-bottom: 79px;
+    position: relative;
+}
+
+/* .container-wrap {
     margin-left: 269px;
     padding-bottom: 66px;
-}
+} */
 
 .container {
     width: 937px;
