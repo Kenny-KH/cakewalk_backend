@@ -189,7 +189,12 @@
         />
         <br />
         <br />
-        <button class="m_button">가게보러가기</button>
+        <button
+          class="m_button"
+          onclick="location.href='{% url 'storeDetail' cake.store.id %}'"
+        >
+          가게보러가기
+        </button>
         <button
           class="m_button"
           onclick="location.href='{% url 'order' cake.id %}'"

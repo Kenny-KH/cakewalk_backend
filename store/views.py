@@ -58,7 +58,7 @@ def manage7(request):
 
 def detail(request, store_id):
     store = get_object_or_404(BsSignupDetail, pk=store_id)
-    cakes = StoreCake.objects.filter(store=store.author)
+    cakes = StoreCake.objects.filter(store=store.pk)
     
     return render(request,'store_info.html', {'store' : store, 'cakes' : cakes})
 
@@ -76,8 +76,8 @@ def storeInfoMore(request):
 
 
 def watchStore(request):
-    cakes = []
     stores = BsSignupDetail.objects.all()
-    
+   
+
     return render(request, 'watch_store.html', {"stores" : stores})
 
