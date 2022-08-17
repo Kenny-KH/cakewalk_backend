@@ -34,7 +34,6 @@ def order(request, order_id):
                                     
         order.address = request.POST['address']
         order.date = datetime.today().strftime("%m월%d일")
-        order.cake = cake.image
         order.size = request.POST['size']
         order.flavor = request.POST['flavor']
         order.cakeObject = cake
