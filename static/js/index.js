@@ -48,7 +48,7 @@ $showCakeList.addEventListener("mouseover", (e) => {
 
 //케이크에서 가게보러 가기
   document.querySelector("#cGoToOrder").addEventListener("click", () => {
-    location.href = `/cake/order/${e.target.name}`;
+    location.href = `/cake/order/store/${e.target.name}`;
   });
   handleMouseover(e, $showCakeInfo);
 });
@@ -60,7 +60,7 @@ $shopCakeList.addEventListener("mouseover", (e) => {
   });
 
   document.querySelector("#goToOrder").addEventListener("click", () => {
-    location.href = `/cake/order/${e.target.id}`;
+    location.href = `/cake/order/store/${e.target.id}`;
   });
 
 

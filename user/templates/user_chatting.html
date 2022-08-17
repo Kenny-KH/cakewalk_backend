@@ -16,7 +16,7 @@
     <div class = "chaeting_background">
         <div class = "upper_nav">
             <div class = "nav_img">
-                <input  type="image" class="menu_img" name="menu_img" src="image in 채팅창\메뉴바.png">
+                <input  type="image" class="menu_img" name="menu_img" src="{% static 'img/메뉴바.png' %}">
                 
             </div>
             <div class ="title">{{order.store.bsName}}</div>
@@ -46,7 +46,7 @@
                         <span class="span1" >네!! 좋아요</span>
                         <span class="span1">이렇게 주문할게요!!</span>
                     </div class = "message1">
-                    <img class = "profile1" name="profile1" src="image in 채팅창/채팅사진1.png">
+                    <img class = "profile1" name="profile1" src="{{requst.user.profile_image}}">
 
                 </div class = "upside_message">
 
@@ -92,7 +92,7 @@
                 
 
                 <div class = "MESSAGE">
-                    <input  type="image" class="send" name="send_image" src="image in 채팅창\역삼각형.png">
+                    <input  type="image" class="send" name="send_image" src="{% static 'img/역삼각형.png' %}">
                 
                 </div>
                 

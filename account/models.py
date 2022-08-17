@@ -24,7 +24,9 @@ class BsSignupDetail(models.Model):
    
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, name, tel, address = None, business_num = None , nickname = None, password=None):
+    def create_user(self, email, name, tel, photo=None,
+                    address = None, business_num = None , 
+                    nickname = None, password=None):
         if not email:
             raise ValueError("Users must have an email address")
 
@@ -34,7 +36,8 @@ class CustomUserManager(BaseUserManager):
             nickname = nickname,
             tel = tel,
             address = address,
-            business_num = business_num
+            business_num = business_num,
+            profile_image = photo
         )
 
         user.set_password(password)
@@ -59,6 +62,7 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractBaseUser):
     business_num = models.IntegerField(null=True, unique=True)
     name = models.CharField(max_length=10)
+    profile_image = models.ImageField(upload_to="profile/" , null = True, blank = True)
     nickname = models.CharField(max_length=10,null=True, unique=True)
     email = models.EmailField(max_length=255, unique=True)
     tel = models.CharField(max_length=40)
