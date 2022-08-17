@@ -15,10 +15,6 @@ class BsSignupDetail(models.Model):
     registeration = models.ImageField()
     report = models.ImageField()
     notice = models.TextField(blank=True, null=True)
-    
-    
-
-
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, name, tel, address = None, business_num = None , nickname = None, password=None):
