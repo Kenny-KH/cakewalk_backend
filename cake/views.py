@@ -1,7 +1,7 @@
 from copyreg import add_extension
 from django.shortcuts import render, redirect, get_object_or_404
 from account.models import BsSignupDetail
-from cake.models import Order, Store
+from cake.models import StoreOrder
 from store.models import StoreCake
 from datetime import datetime
 
@@ -16,7 +16,9 @@ def order(request, order_id):
     cake = get_object_or_404(StoreCake, pk=order_id)
     result = ""
     if request.method == 'POST':
-        order = Order()
+        order = StoreOrder()
+        order.user = request.user
+        order.store = cake.store
         order.cake = cake.image
         if request.POST['size'] == "미니":
             order.price = cake.price_mini
@@ -32,9 +34,10 @@ def order(request, order_id):
                                     
         order.address = request.POST['address']
         order.date = datetime.today().strftime("%m월%d일")
-        order.cake = request.FILES['image']
+        order.cake = cake.image
         order.size = request.POST['size']
         order.flavor = request.POST['flavor']
+        order.cakeObject = cake
         try:
             result  = result + "초 " + request.POST["number"] + "개" + "\n"
         except:
@@ -55,8 +58,8 @@ def order(request, order_id):
             order.require = ""
         order.additional  = result
         order.save()
-        return redirect('/cake/payment')
-    return render(request, 'order.html', {'stores' : stores, 'order_id' : order_id})
+        return redirect('/user/user_chatting/' + str(order_id))
+    return render(request, 'order.html', {'stores' : stores, 'order_id' : order_id, 'cake' : cake})
 """
 def order(request):
     if request.method("POST"):
@@ -73,9 +76,11 @@ def order(request):
         return render(request, 'order.html')
 """
 
-def payment(request):
-    return render(request, 'payment.html')
+def payment(request, order_id):
+    order = get_object_or_404(StoreOrder, pk=order_id)
+    return render(request, 'payment.html', {"order" : order})
 
 def watch_cake(request):
     cakes = StoreCake.objects.all()
     return render(request, 'watch_cake.html', {"cakes" : cakes})
+

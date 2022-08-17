@@ -26,6 +26,7 @@
 
 <script src="{% static 'js/order.js' %}" defer></script>
 {% endblock %} {% block content %}
+
 <body class="body">
   <!-- 단계 버튼 -->
   <div class="step">
@@ -193,15 +194,13 @@
           </div>
         </div>
         <div class="optionContents">
-          <label class="fileLabel" for="input-file">파일찾기</label>
-          <input class="fileInput" type="file" id="input-file" name="image" />
-          <div class="fileName">첨부파일</div>
+          <div class="fileName">{{cake.image.name}} </div>
 
           <textarea
             class="requireTextarea"
             placeholder="주문 시 요청사항을 적어주세요."
           ></textarea>
-          <div class="attachedImgDiv"></div>
+          <img src="{{cake.image.url}}">
         </div>
       </div>
       <!-- 주문3 끝 -->
@@ -304,7 +303,7 @@
       </p>
       <button
         class="confirm-btn"
-        onclick="location.href='{% url 'user_chatting' %}'"
+       
       >
         <button class="chatting" type="submit">확인</button>
       </button>
