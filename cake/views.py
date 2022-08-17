@@ -1,4 +1,4 @@
-from store.models import StoreCake
+from store.models import StoreCake  
 from django.shortcuts import render, get_object_or_404, redirect
 
 
