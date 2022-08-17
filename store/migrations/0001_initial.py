@@ -1,5 +1,3 @@
-
-
 from django.db import migrations, models
 import django.db.models.deletion
 
@@ -24,7 +22,7 @@ class Migration(migrations.Migration):
                 ('price_3', models.IntegerField(blank=True, null=True)),
                 ('image', models.ImageField(upload_to='store/cake')),
                 ('code', models.IntegerField(default=1)),
-                ('store', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='store', to='account.bssignupdetail')),
+                ('store', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='account.bssignupdetail')),
             ],
         ),
     ]

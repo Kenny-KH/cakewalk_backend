@@ -21,9 +21,7 @@ class BsSignupDetail(models.Model):
     
     
     
-    
-
-
+   
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, name, tel, address = None, business_num = None , nickname = None, password=None):

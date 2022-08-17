@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.nav-li:nth-child(3) {
+.nav-li:nth-child(2) {
   background-color: #e6ccd5;
 }
 
@@ -74,6 +74,7 @@ body {
   flex-wrap: wrap;
   width: 970px;
   margin-top: 26px;
+  margin-bottom: 51px; ///
 }
 
 .design-total {
@@ -131,17 +132,14 @@ body {
   width: 100%;
 }
 
-.page-number {
-  margin-left: 510px;
-  margin-top: 60px;
+.pages {
+  text-align: center;
 }
 
-.c {
-  background-color: white;
-  float: left;
+.page-btn {
   border: none;
-  color: #767676;
-  margin: 10px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 a:link {

@@ -26,6 +26,7 @@
 
 <script src="{% static 'js/order.js' %}" defer></script>
 {% endblock %} {% block content %}
+
 <body class="body">
   <!-- 단계 버튼 -->
   <div class="step">
@@ -302,7 +303,7 @@
       </p>
       <button
         class="confirm-btn"
-        onclick="location.href='{% url 'user_chatting' %}'"
+       
       >
         <button class="chatting" type="submit">확인</button>
       </button>

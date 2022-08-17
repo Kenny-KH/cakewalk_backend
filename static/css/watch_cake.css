@@ -87,7 +87,7 @@
   place-items: center;
 
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: stretch;
 
   text-align: center;
@@ -96,7 +96,7 @@
 .cp {
   width: 220px;
   height: 220px;
-  margin: 0 26px 26px 0px;
+  /*margin: 0 26px 26px 0px;*/
 }
 
 .cp:nth-child(4n) {
@@ -162,8 +162,9 @@
   width: 450px;
   height: 450px;
 
-  margin-top: -10%;
-  margin-left: 23%;
+  margin-top: -15%;
+  margin-left: 22%;
+  margin-bottom: 32px;
   display: block;
 }
 
@@ -199,25 +200,30 @@
 .previous {
   border: 0;
   background-color: white;
-  transform: translate(-900%, 250%);
+  transform: translate(-900%, 150%);
+  font-size: 70px;
+  width: 30px;
+
 }
 
-.previous2 {
+/*.previous2 {
   width: 30px;
   height: 92px;
   border: 0;
   float: left;
   background-color: white;
   font-weight: 30px;
-}
+}*/
 
 .next {
   border: 0;
   background-color: white;
-  transform: translate(900%, 250%);
+  transform: translate(900%, 150%);
+  font-size: 70px;
+  width: 30px;
 }
 
-.next2 {
+/*.next2 {
   width: 30px;
   height: 92px;
   border: 0;
@@ -225,5 +231,4 @@
   float: right;
   background-color: white;
   font-weight: 30px;
-}
-
+}*/
