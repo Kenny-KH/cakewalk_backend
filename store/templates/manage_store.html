@@ -17,21 +17,16 @@
 {% endfor %} {% endif %}
 <!-- 요기까지 -->
 
-
+<div>
   {% include 'store_base.html' %}
   <div style="margin-right: 2rem">{% block profile %} {% endblock %}</div>
   <div class="main_wrapper">
-  <section class="total">
-    <div class="container">
-      <h1 class="title">가게관리</h1>
-      <div class="options-wrap">
-        <h2 class="option-title">가게 정보 페이지 관리</h2>
-        <form
-          class="{% url 'manage_store' %}"
-          method="post"
-          enctype="multipart/form-data"
-        >
-          {% csrf_token %}
+    <section class="total">
+      <div class="container">
+        <h1 class="title">가게관리</h1>
+        <div class="options-wrap">
+          <h2 class="option-title">가게 정보 페이지 관리</h2>
+
           <article class="options">
             <section class="option-wrap">
               <span class="option-name">가게 휴무일</span>
@@ -58,7 +53,9 @@
                   <div class="dates"></div>
                 </div>
                 <div class="select-rest-wrap">
-                  <label class="rest-text" for="select-rest-day">정기 휴무일</label>
+                  <label class="rest-text" for="select-rest-day"
+                    >정기 휴무일</label
+                  >
                   <select name="rest" id="select-rest-day">
                     <option value="mon">월요일</option>
                     <option value="tue">화요일</option>
@@ -71,132 +68,158 @@
                 </div>
               </div>
             </section>
-            <section class="option-wrap">
-              <span class="option-name">가게 공지사항</span>
-              <div class="option-detail-wrap">
-                <textarea class="notice" name="notice" value="{{notice}}">
-{{notice}} </textarea>
-              </div>
-            </section>
-            <section class="option-wrap">
-              <span class="option-name">케이크 사진 관리</span>
-              <div class="cake-detail-wrap">
-                <div class="update-cake-wrap">
-                  <img class="update-cake-preview" alt="updateCakePhoto" />
-                  <div class="update-cake-info">
-                    <input
-                      class="cake-name-input"
-                      type="text"
-                      name="name"
-                      placeholder="케이크 이름"
-                    />
-                    <div class="update-cake-price">
-                      <span>가격</span>
-                      <div class="input-wrap">
-                        <input
-                          type="radio"
-                          class="size"
-                          id="mini"
-                          name="sizemini"
-                        />
-                        <label class="size-text" for="mini">미니</label>
-                        <input
-                          class="price-input"
-                          type="text"
-                          name="price_mini"
-                        />
-
-                        <input
-                          type="radio"
-                          class="size"
-                          id="two"
-                          name="size2"
-                        />
-                        <label class="size-text" for="two">2호</label>
-                        <input class="price-input" type="text" name="price_2" />
-
-                        <input
-                          type="radio"
-                          class="size"
-                          id="one"
-                          name="size1"
-                        />
-                        <label class="size-text" for="one">1호</label>
-                        <input class="price-input" type="text" name="price_1" />
-
-                        <input
-                          type="radio"
-                          class="size"
-                          id="three"
-                          name="size3"
-                        />
-                        <label class="size-text" for="three">3호</label>
-                        <input class="price-input" type="text" name="price_3" />
-                      </div>
-                    </div>
-                    <textarea
-                      class="cake-notice"
-                      name="cake-notice"
-                      placeholder="알림사항(선택)"
-                    ></textarea>
-                  </div>
+            <form
+              action="{% url 'manage_store' %}"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              {% csrf_token %}
+              <section class="option-wrap">
+                <span class="option-name">가게 공지사항</span>
+                <div class="option-detail-wrap">
+                  <textarea class="notice" name="notice" value="{{notice}}">
+{{notice}} </textarea
+                  >
                 </div>
-                <ul class="cake-list">
-                  <li class="cake-photo">
-                    <img src="{% static 'img/image 57.png' %}" alt="cake" />
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <li class="cake-photo">
-                    <button class="delete-btn">
-                      <i class="fa-solid fa-xmark"></i>
-                    </button>
-                  </li>
-                  <form class="fileForm" action="#" method="post" enctype="multipart/form-data">
+              </section>
+              <section class="option-wrap">
+                <span class="option-name">케이크 사진 관리</span>
+                <div class="cake-detail-wrap">
+                  <div class="update-cake-wrap">
+                    <input type="file" />
+                    <div class="update-cake-info">
+                      <input
+                        class="cake-name-input"
+                        type="text"
+                        name="name"
+                        placeholder="케이크 이름"
+                      />
+                      <div class="update-cake-price">
+                        <span>가격</span>
+                        <div class="input-wrap">
+                          <input
+                            type="radio"
+                            class="size"
+                            id="mini"
+                            name="sizemini"
+                          />
+                          <label class="size-text" for="mini">미니</label>
+                          <input
+                            class="price-input"
+                            type="text"
+                            name="price_mini"
+                          />
+
+                          <input
+                            type="radio"
+                            class="size"
+                            id="two"
+                            name="size2"
+                          />
+                          <label class="size-text" for="two">2호</label>
+                          <input
+                            class="price-input"
+                            type="text"
+                            name="price_2"
+                          />
+
+                          <input
+                            type="radio"
+                            class="size"
+                            id="one"
+                            name="size1"
+                          />
+                          <label class="size-text" for="one">1호</label>
+                          <input
+                            class="price-input"
+                            type="text"
+                            name="price_1"
+                          />
+
+                          <input
+                            type="radio"
+                            class="size"
+                            id="three"
+                            name="size3"
+                          />
+                          <label class="size-text" for="three">3호</label>
+                          <input
+                            class="price-input"
+                            type="text"
+                            name="price_3"
+                          />
+                        </div>
+                      </div>
+                      <textarea
+                        class="cake-notice"
+                        name="cake-notice"
+                        placeholder="알림사항(선택)"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <ul class="cake-list">
+                    <li class="cake-photo">
+                      <img src="{% static 'img/image 57.png' %}" alt="cake" />
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+                    <li class="cake-photo">
+                      <button class="delete-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    </li>
+
                     <label class="plus-btn" for="add">
-                        <i id ="plus-icon" class="fa-solid fa-plus"></i>
+                      <i id="plus-icon" class="fa-solid fa-plus"></i>
                     </label>
                     <input class="fileInput" type="file" id="add" />
-                </form>
-                </ul>
-              </div>
-            </section>
+                  </ul>
+                </div>
+              </section>
+              <input
+                type="submit"
+                class="update-btn"
+                style="z-index: 1000"
+                onclick="console.log('ㅎㅇㅎㅇ d')"
+              />
+            </form>
           </article>
-          <button class="update-btn">수정 완료</button>
-        </form>
+
+          수정 완료
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}

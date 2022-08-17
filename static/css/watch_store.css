@@ -3,59 +3,80 @@
     border: 1px solid red;
 } */
 .wrapper {
-    margin: 0 auto;
+  margin: 0 auto;
 
-    width: 80vw;
+  width: 80vw;
 }
 .b_watch {
-    height: 4rem;
-    display: flex;
-    justify-content: center;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
 }
 .b_watch_item {
-    padding: 1rem;
-    border-bottom: 2px solid #ccc;
-    color: #ccc;
+  padding: 1rem;
+  border-bottom: 2px solid #ccc;
+  color: #ccc;
 }
 .b_watch_item_active {
-    color: black;
-    border-bottom: 2px solid black;
+  color: black;
+  border-bottom: 2px solid black;
 }
 
 .list {
-    margin: 2rem 0;
-    display: flex;
+  margin: 49px 0 51px 0;
+  display: flex;
+  justify-content: center;
+  padding-left: 272px;
+  padding-right: 936px;
 }
 .list_item {
-    border-right: 2px solid rgb(80, 80, 80);
+  border-right: 2px solid #767676;
 
-    padding: 0 1rem;
-    margin: 0.5rem 0;
+  padding: 0 1rem;
+  margin: 0.5rem 0;
 
-    color: #ccc;
+  color: #ccc;
 }
 .list_item_active {
-    color: black;
+  color: black;
+}
+
+.list_item1 {
+  padding: 0 1rem;
+  margin: 0.5rem 0;
+
+  color: #ccc;
 }
 
 .filter {
-    position: relative;
-    width: 100%;
-    min-height: 1.5rem;
+  position: relative;
+
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 13px;
+  justify-content: end;
+
+  width: 955px;
+  height: 30px;
+}
+
+.filter_img {
+  width: 30px;
+  height: 30px;
 }
 .sorting {
-    position: absolute;
-    top: 0; right: 0;
+  
+  top: 0;
+  right: 0;
 }
 
 .pink_background {
-    width: 100vw;
-    height: 150vh;
-    background: #fff6f6;
+  width: 100vw;
+  height: 150vh;
+  background: #fff6f6;
 }
 
 .store_box {
-  
   box-sizing: border-box;
   border: 1px solid black;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
@@ -67,68 +88,64 @@
   border-radius: 22px;
 
   padding: 1rem;
-display: flex; 
-align-items: center;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 .store_logo {
-    width: 93px;
-    height: 90px;
+  width: 93px;
+  height: 90px;
 
-    margin: 0 1rem;
-    margin-right: 2rem;
+  margin: 0 1rem;
+  margin-right: 2rem;
 }
-.main_content{
-
-    width: 100%;
-    height: 100%;
-
+.main_content {
+  width: 100%;
+  height: 100%;
 }
 
 .title_in_div {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    min-height: 1.5rem;
+  width: 100%;
+  min-height: 1.5rem;
 
-    margin-bottom: 0.5rem;
-    padding: 0 15px;
+  margin-bottom: 0.5rem;
+  padding: 0 15px;
 }
-.store_name{
-    position: absolute;
-    top: 0; left: 0;
+.store_name {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    font-size: 1.5rem;
-    font-weight: 900;
+  font-size: 1.5rem;
+  font-weight: 900;
 }
-.sig_cake{
-    position: absolute;
-    top: 0; right: 2rem;
+.sig_cake {
+  position: absolute;
+  top: 0;
+  right: 2rem;
 }
 
 .contents_div {
-    
-   margin: 0.5rem;
+  margin: 0.5rem;
   display: flex;
   flex-direction: row;
 }
 
 .store_detail {
-    border-right: 2px solid black;
-    
-    
-    
+  border-right: 2px solid #8a8a8a;
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
- 
+
   padding: 1rem 2rem 1rem 0.000001rem;
-  
-  
+  margin-left: -5px;
+
   width: 228px;
   height: 44px;
 }
-  
-
 
 .address {
   width: 15px;
@@ -145,16 +162,20 @@ align-items: center;
   height: 15px;
 }
 
+.phone1 {
+  margin-right: 9px;
+}
+
 .time {
   width: 15px;
   height: 15px;
 }
 
 .Lorem {
-    border-right: 2px solid black;
-    padding-right: 0.5rem ;
-    margin-top: 0.009rem;
-    padding : 0 1rem  ;
+  border-right: 2px solid #8a8a8a;
+  padding-right: 13px;
+  margin-top: 0.009rem;
+  padding: 0 1rem;
   display: flex;
   width: 278px;
   height: 77px;
@@ -166,10 +187,30 @@ align-items: center;
   display: flex;
   justify-content: space-between;
   margin: 0 1rem;
-  
 }
 
-.cake_circle{
-    padding: 0.09rem ;
-    margin-right: 0.5rem ;
+.cake_circle {
+  padding: 0.09rem;
+  margin-right: 0.5rem;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding-top: 53px;
+  padding-bottom: 33px;
+}
+
+.page_button {
+  border: 0;
+  outline: 0;
+  background: none;
+}
+
+.page_button1 {
+  border: 0;
+  outline: 0;
+  color: black;
+  background: none;
+}
+
