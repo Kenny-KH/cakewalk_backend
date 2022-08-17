@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %} 
-    <title>ownerreview</title>
+    <title>리뷰관리</title>
     <link
       link
       rel="stylesheet"
@@ -17,7 +17,7 @@
   <div class="main_wrapper" style="display: flex"></div>
   {% include "store_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
-  <body>   
+<div>
     <div class="title">리뷰 관리</div>
     <div class="day-button">
       <a
@@ -210,5 +210,6 @@
     class="c"
     >3</a
   >
+</div>
 </div>
 {% endblock %}
