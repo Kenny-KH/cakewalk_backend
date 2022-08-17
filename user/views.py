@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+from .models import UserCake
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 
 from cake.models import StoreOrder
@@ -33,4 +35,13 @@ def userChatting(request, order_id):
     order = get_object_or_404(StoreOrder, pk=order_id)
     return render(request, "user_chatting.html", {"order" : order})
 
+def usercake(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        
+        new_user_cake = UserCake()
+        new_user_cake.user = request.user
+        new_user_cake.cake_img = data
+        new_user_cake.save();
 
+        return redirect("/cake/order/"+str(new_user_cake.id))
