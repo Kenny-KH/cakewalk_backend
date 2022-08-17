@@ -78,13 +78,13 @@
     <ul class="cakes-wrap">
       {% for cake in cakes %}
       <li data-shop="cake1 shop" data-design="cake1 design">
-        <img class="cake-img" src="{{cake.image.url}}" alt="cake1" />
+        <img class="cake-img" src="{{cake.image.url}}" alt="cake1" id="{{cake.store.id}}" name="{{cake.id}}" />
       </li>
       {% endfor %}
     </ul>
-    <div class="cake-info">
-      <button class="info-btn"><a>가게 보러 가기</a></button>
-      <button class="info-btn"><a>도안 디자인 하러 가기</a></button>
+    <div class="cake-info" id="cakeModal">
+      <button class="info-btn" id="cGoToStore"><a>가게 보러 가기</a></button>
+      <button class="info-btn" id="cGoToOrder"><a>주문 하러 가기</a></button>
     </div>
     <button class="arrow-btn" id="left">
       <i class="fa-solid fa-angle-left"></i>
@@ -141,4 +141,5 @@
   <p>copyright © 2022 all rights reserved</p>
   <p>contact</p>
 </footer>
+
 {% endblock %}

@@ -42,11 +42,19 @@ mainCake.addEventListener("mouseleave", () => {
 });
 
 $showCakeList.addEventListener("mouseover", (e) => {
+  document.querySelector("#cGoToStore").addEventListener("click", () => {
+    location.href = `/store/detail/${e.target.id}`;
+  });
+
+//케이크에서 가게보러 가기
+  document.querySelector("#cGoToOrder").addEventListener("click", () => {
+    location.href = `/cake/order/${e.target.name}`;
+  });
   handleMouseover(e, $showCakeInfo);
 });
 $shopCakeList.addEventListener("mouseover", (e) => {
   handleMouseover(e, $shopCakeInfo);
-
+    console.log(e.target);
   document.querySelector("#goToStore").addEventListener("click", () => {
     location.href = `/store/detail/${e.target.id}`;
   });
@@ -54,6 +62,8 @@ $shopCakeList.addEventListener("mouseover", (e) => {
   document.querySelector("#goToOrder").addEventListener("click", () => {
     location.href = `/cake/order/${e.target.id}`;
   });
+
+
 });
 // console.log($shopCakeInfo);
 
