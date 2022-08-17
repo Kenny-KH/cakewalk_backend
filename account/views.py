@@ -92,14 +92,13 @@ def kakaoLogin(request):
     uri = f"{kakao_login_uri}?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
     
     res = redirect(uri)
-    print("여기에요 살려주시라요")
     return res
 
 def kakaocallback(request):
     # access_token 발급 요청
     code = request.GET["code"]
     if not code:
-        return HttpResponse("없엉")
+        return HttpResponse("code 없엉")
 
     request_data = {
         'grant_type': 'authorization_code',
