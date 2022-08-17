@@ -1,9 +1,13 @@
+
 from copyreg import add_extension
 from django.shortcuts import render, redirect, get_object_or_404
 from account.models import BsSignupDetail
 from cake.models import Order, Store
 from store.models import StoreCake
 from datetime import datetime
+
+
+
 # Create your views here.
 def make(request):
     return render(request, 'make.html')
@@ -54,6 +58,21 @@ def order(request, order_id):
         order.save()
         return redirect('/cake/payment')
     return render(request, 'order.html', {'stores' : stores, 'order_id' : order_id})
+"""
+def order(request):
+    if request.method("POST"):
+        order = order()
+        order.mapSearch = request.POST["mapSearch"]
+        order.orderDate = request.POST["orderDate"]
+        order.cakeImg = request.POST["cakeImg"]
+        order.cakeSize = request.POST["cakeTaste"]
+        order.addOptions = request.POST["addOptions"]
+        order.cakeRequest = request.POST["cakeRequest"]
+        order.save()
+        return redirect('/')
+    else:
+        return render(request, 'order.html')
+"""
 
 def payment(request):
     return render(request, 'payment.html')

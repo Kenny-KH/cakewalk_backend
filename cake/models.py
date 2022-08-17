@@ -4,8 +4,8 @@ from datetime import datetime
 
 from django.forms import CharField
 
-
 # Create your models here.
+
 class Store(models.Model):
     tax = models.CharField(max_length=30)
     businessNum = models.IntegerField()
@@ -29,3 +29,16 @@ class Order(models.Model):
     flavor = models.CharField(max_length=30)
     additional = models.CharField(max_length=50)
     require = models.CharField(max_length=50)
+"""
+class order(models.Model):
+#    mapSearch = models.ForeignKey(on_delete = models.CASCADE)
+    orderDate = models.DateTimeField()
+    cakeImg = models.ImageField()
+    cakeSize = models.CharField(max_length=10)
+    cakeTaste = models.CharField(max_length=50)
+    addOptions = models.CharField(max_length=50)
+    cakeRequest = models.TextField(max_length=500, blank=True)
+
+    class Meta:
+        db_table = 'map'
+"""
