@@ -1,4 +1,12 @@
 /*--------------------------------- Canvas --------------------------------- */
+window.addEventListener('keydown',(e)=>{
+    if(e.keyCode == 16){
+        let canvassavefile =JSON.stringify(canvas);
+        let canvas2savefile = JSON.stringify(canvas2);
+        console.log(canvassavefile);
+        console.log(canvas2savefile);
+    }
+})
 const canvas = new fabric.Canvas('c');
 const canvas2 = new fabric.Canvas('c2');
 

@@ -1,23 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block head %}    
-    <title>ownermanage</title>
-    <link
-      link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/manage_store_before.css' %}"
-    />
-    <!--Font Awesome-->
-    <script
-      src="https://kit.fontawesome.com/d35df90ac6.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="{% static 'js/manage_store_before.js' %}" defer></script>
-  </head>
-  {% endblock %}
-  {% block content %}
-  <body>
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>ownermanage</title>
+<link
+  link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/manage_store_before.css' %}"
+/>
+<!--Font Awesome-->
+<script src="{% static 'js/manage_store_before.js' %}" defer></script>
+
+{% endblock %} {% block content %}
+<div style="display: flex">
+  {% include 'store_base.html' %}
+  <div style="position: relative; left: 600px; bottom: 60px">
     <div class="title">가게 관리</div>
     <div class="sub-title">가게 정보 페이지 관리</div>
     <section class="option-wrap">
@@ -44,83 +39,82 @@
           </div>
           <div class="dates"></div>
         </div>
-     
       </div>
     </section>
     <div class="notice-wrap">
       <div class="notice">가게 공지사항</div>
       <form action="#">
-        <textarea
-          class="notice_input"
-          placeholder="공지 작성하기"
-        ></textarea>
-       
+        <textarea class="notice_input" placeholder="공지 작성하기"></textarea>
       </form>
     </div>
     <div class="img-total">
-    <div class="img">케이크 사진 관리</div>
-    <div class="img-wrap">
-    <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name" placeholder="케이크 이름"></input>
- <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>  
-    <input class="cake-price" type="text" placeholder="케이크 가격"></div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
-  </div>
-  <div class="img-cake">
-    <img class="rectangle"></img>
-    <input class="cake-name"  placeholder="케이크 이름"></input>
-    <input class="cake-price" type="text" placeholder="케이크 가격">
+      <div class="img">케이크 사진 관리</div>
+      <div class="img-wrap">
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+        <div class="img-cake">
+          <img class="rectangle" />
+          <input class="cake-name" placeholder="케이크 이름" />
+          <input class="cake-price" type="text" placeholder="케이크 가격" />
+        </div>
+      </div>
+    </div>
+    <button class="change" onclick="location.href='{% url 'manage_store' %}'">
+      수정하기
+    </button>
   </div>
 </div>
-</div>
-<button class="change">수정하기</button>
-
 {% endblock %}
