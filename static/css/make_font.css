@@ -1,0 +1,34 @@
+@font-face{
+    font-family: "Jua";
+    font-weight: 400;
+    src : url("../font/Jua/Jua-Regular.ttf")format("truetype");
+    font-display: swap;
+}
+
+@font-face{
+    font-family: "Nanum Gothic Regular";
+    font-weight: 400;
+    src : url("../font/NanumGothic/NanumGothic-Regular.ttf")format("truetype");
+    font-display: swap;
+}
+
+@font-face{
+    font-family: "Nanum Gothic Bold";
+    font-weight: 400;
+    src : url("../font/NanumGothic/NanumGothic-Bold.ttf")format("truetype");
+    font-display: swap;
+}
+
+@font-face{
+    font-family: "NanumPen";
+    font-weight: 400;
+    src : url("../font/Nanum_Pen_Script/NanumPenScript-Regular.ttf")format("truetype");
+    font-display: swap;
+}
+
+@font-face{
+    font-family: "Sunflower";
+    font-weight: 400;
+    src : url("../font/Sunflower/Sunflower-Medium.ttf")format("truetype");
+    font-display: swap;
+}

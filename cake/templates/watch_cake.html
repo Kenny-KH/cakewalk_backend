@@ -1,32 +1,33 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block head %}
-    <title>케이크보기</title>
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>케이크보기</title>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/watch_cake.css' %}" />
-    <script src="{% static 'js/watch_cake.js' %}" defer></script>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/watch_cake.css' %}"
+/>
+<script src="{% static 'js/watch_cake.js' %}" defer></script>
 
-  {% endblock %}
-  {% block content %}
-  <body class="body">
-     <div class = "b_watch">
-      <button class = "b_watch_item b_watch_c b_watch_item_active">케이크보기</button>
-      <button class = "b_watch_item b_watch_s"><span class = "watch.s">가게보기</span></button>
+{% endblock %} {% block content %}
+<body class="body">
+  <div class="b_watch">
+    <div class="b_watch_item b_watch_c b_watch_item_active">케이크보기</div>
+    <div class="b_watch_item b_watch_s">가게보기</div>
   </div>
-    
 
-    <br />
-    <br />
-    <br /> 
-    <div class="hash">
-      <button class="hash1">#어버이날</button>
-      <button class="hash1">#축!전역</button>
-      <button class="hash1">#커플기념일</button>
-      <button class="hash1">#생일</button>
-      <button class="hash1">#크리스마스</button>
-    </div>
-    <br />
+  <br />
+  <br />
+  <br />
+  <div class="hash">
+    <button class="hash1">#어버이날</button>
+    <button class="hash1">#축!전역</button>
+    <button class="hash1">#커플기념일</button>
+    <button class="hash1">#생일</button>
+    <button class="hash1">#크리스마스</button>
+  </div>
+  <br />
 
+  <div class="sort_fil">
     <select class="sorting" name="정렬">
       <option value="최신순">최신순</option>
       <option value="리뷰많은순">리뷰많은순</option>
@@ -34,76 +35,116 @@
       <option value="추천순">추천순</option>
     </select>
 
-    <br />
-    <div class="pink_background">
-      <div class="pics_cakes">
-        <div class="cp">
-          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake1.png' %}" alt="cake"/>
-        </div>
-        
-        <div class="cp">
-          <img class="img2" src="{% static 'img/watchcake/cakeview_cake2.png' %}" alt="cake" />
-        </div>
-        
-        <div class="cp"> 
-          <img class="img2" src="{% static 'img/watchcake/cakeview_cake3.png' %}" alt="cake" />
-        </div>
+    <img class="filter" src="./filter.png" alt="filter" />
+  </div>
 
-        <div class="cp">
-          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake4.png' %}" alt="cake"/>
-        </div>
-
-        <div class="cp">
-          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake5.png' %}" alt="cake"  />
-
-        </div>
-        <div class="cp">
-          <img class ="img2" src="{% static 'img/watchcake/cakeview_cake1.png' %}" alt="cake"  />
-
-        </div>
-        <div class="cp">
-          <img class="img2" src="{% static 'img/watchcake/cakeview_cake3.png' %}" alt="cake" />
-
-        </div>
-        <div class="cp">
-          <img class="img2" src="{% static 'img/watchcake/cakeview_cake6.png' %}" alt="cake" />
-
-        </div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
-        <div class="cp">케이크사진넣기</div>
+  <br />
+  <div class="pink_background">
+    <div class="pics_cakes">
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake1.png' %}"
+          alt="cake"
+        />
       </div>
 
-      <div class="modal">
-        <div class="modal_body">
-          <button class="previous">
-            <img class="previous2" src="{% static 'img/watchcake/arrow_left.png' %}" alt="arrow" />    
-          </button> 
-            
-          <button class="next"> 
-            <img class="next2" src="{% static 'img/watchcake/arrow_right.png' %}" alt="arrow" />
-          </button>  
-          
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake2.png' %}"
+          alt="cake"
+        />
+      </div>
+
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake3.png' %}"
+          alt="cake"
+        />
+      </div>
+
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake4.png' %}"
+          alt="cake"
+        />
+      </div>
+
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake5.png' %}"
+          alt="cake"
+        />
+      </div>
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake1.png' %}"
+          alt="cake"
+        />
+      </div>
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake3.png' %}"
+          alt="cake"
+        />
+      </div>
+      <div class="cp">
+        <img
+          class="img2"
+          src="{% static 'img/watchcake/cakeview_cake6.png' %}"
+          alt="cake"
+        />
+      </div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+    </div>
+
+    <div class="modal">
+      <div class="modal_body">
+        <button class="previous">
           <img
-            class="modal-img"
-            src="{% static 'img/watchcake/cakeview_cake3.png' %}"
-            alt="cake"
-           />
-           <br/>
-           <br/>
-           <button class="m_button" >가게보러가기</button>
-           <button class="m_button" >도안보러가기</button>
-        </div>
-      </div>
-      <div class="buttons">
-        <button class="page_button">1</button>
-        <button class="page_button">2</button>
-        <button class="page_button">3</button>
+            class="previous2"
+            src="{% static 'img/watchcake/arrow_left.png' %}"
+            alt="arrow"
+          />
+        </button>
+
+        <button class="next">
+          <img
+            class="next2"
+            src="{% static 'img/watchcake/arrow_right.png' %}"
+            alt="arrow"
+          />
+        </button>
+
+        <img
+          class="modal-img"
+          src="{% static 'img/watchcake/cakeview_cake3.png' %}"
+          alt="cake"
+        />
+        <br />
+        <br />
+        <button class="m_button">가게보러가기</button>
+        <button class="m_button">도안보러가기</button>
       </div>
     </div>
-{% endblock %}
+    <div class="buttons">
+      <button class="page_button">1</button>
+      <button class="page_button">2</button>
+      <button class="page_button">3</button>
+    </div>
+  </div>
+  {% endblock %}
+</body>
