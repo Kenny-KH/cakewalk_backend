@@ -3,7 +3,7 @@ const all_images = document.querySelectorAll(".img2");
 const modal = document.querySelector(".modal");
 const modal_body = document.querySelector(".modal_body");
 const modal_img = document.querySelector(".modal-img");
-
+let current_image;
 let cur_img_num;
 
 all_images.forEach((ele) => {
@@ -11,9 +11,21 @@ all_images.forEach((ele) => {
     modal.style.display = "block";
     modal_body.style.display = "block";
 
-    console.log(modal_img.src);
     // cur_img_num = Number(ele.dataset.imgnum);
+
     cur_img_num = e.target.id;
+    current_image = cur_img_num;
+
+    // 가게보기 버튼 제작
+    document.querySelector("#goToStore").addEventListener("click", () => {
+      location.href = `/store/detail/${current_image}`;
+    });
+
+    // 주문하기 버튼 제작
+    document.querySelector("#goToOrder").addEventListener("click", () => {
+      location.href = `/cake/order/${current_image}`;
+    });
+
     let img_src = ele.getAttribute("src");
     modal_img.setAttribute("src", `${img_src}`);
   });
