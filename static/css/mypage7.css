@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.nav-li:nth-child(7) {
+.nav-li:nth-child(6) {
   background-color: #e6ccd5;
 }
 
@@ -151,9 +151,14 @@ a:active {
   margin-left: 33px;
 }
 
-.page-number {
-  margin-left: 510px;
-  margin-top: 60px;
+.pages {
+  text-align: center;
+}
+
+.page-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 a:link {
@@ -176,15 +181,11 @@ a:active {
   text-decoration: none;
 }
 
-.c {
-  background-color: white;
-  float: left;
-  border: none;
-  color: #767676;
-  margin: 10px;
-}
-
 .line-bottom {
   margin-top: 46px;
   width: 935px;
+}
+
+.last-talk-wrap {
+  margin-bottom: 51px;
 }
