@@ -19,7 +19,9 @@
   {% include "mypage_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
   
-  <main style="position:relative; left:500px; bottom : 100px;">
+  <main class="main">
+    <section class="container-wrap">
+   <div class="container">
     <div class="title">도안 관리</div>
     <div class="text">지금까지 제작한 케이크 도안을 볼 수 있습니다.</div>
     <div class="day-button">
@@ -140,6 +142,7 @@
         >3</a
       >
     </div>
-
+  </div>
+</section>
   </main>
 {% endblock %}

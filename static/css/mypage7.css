@@ -1,7 +1,41 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nav-li:nth-child(1) {
+  background-color: #e6ccd5;
+}
+
+body {
+  position: relative;
+  /* overflow: hidden; */
+  z-index: -10;
+}
+
+.main {
+  margin: 0 auto;
+  margin-left: 269px;
+  width: calc(100% - 269px);
+}
+
+.container-wrap {
+  /* margin-left: 269px; */
+  padding-bottom: 79px;
+  position: relative;
+}
+
+.container {
+  width: 937px;
+  margin: 0 auto;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
   margin-top: 175px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
 }
 
 .text {
@@ -54,7 +88,7 @@ a:active {
 
 .last-talk {
   font-size: 15px;
-  margin-top: 15px;
+  margin-top: 22px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 935px;
@@ -84,6 +118,10 @@ a:active {
   border-right: 1px solid #d9d9d9;
 }
 
+.mytalk-text {
+  margin-top: 5px;
+}
+
 .info-text {
   display: flex;
   flex-direction: column;
@@ -100,7 +138,7 @@ a:active {
   margin-top: 50px;
   background: #fef4f7;
   border-radius: 15px;
-  margin-left: 37px;
+  margin-left: 33px;
 }
 
 .total-second {
@@ -110,10 +148,11 @@ a:active {
   margin-top: 20px;
   background: #fef4f7;
   border-radius: 15px;
-  margin-left: 37px;
+  margin-left: 33px;
 }
 
 .page-number {
+  margin-left: 510px;
   margin-top: 60px;
 }
 

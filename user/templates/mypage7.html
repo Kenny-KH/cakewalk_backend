@@ -13,7 +13,12 @@
   <div class="main_wrapper" style="display: flex"></div>
   {% include "mypage_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
-  <div style="position:relative; left:500px; bottom : 100px;">
+
+  <body>
+    <main class="main">
+    <section class="container-wrap">
+      <div class="container">
+
     <div class="title">MY TALK</div>
     <div class="text">메세지 모아보기</div>
     <div class="day-button">
@@ -60,7 +65,7 @@
         </div>
         <div class="name-text">
           <div>likelion bakery</div>
-          <div>likelion bakery가 메세지를 확인하였습니다.</div>
+          <div class="mytalk-text">likelion bakery가 메세지를 확인하였습니다.</div>
         </div>
 
         <div class="info-text">
@@ -82,7 +87,7 @@
         </div>
         <div class="name-text">
           <div>Awesome cake shop</div>
-          <div>
+          <div  class="mytalk-text">
             안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다. 문의 하신
             케...
           </div>
@@ -106,10 +111,9 @@
           />
         </div>
         <div class="name-text">
-          <div>Awesome cake shop</div>
-          <div>
-            안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다. 문의 하신
-            케...
+          <div>lovely cake home</div>
+          <div  class="mytalk-text">
+            픽업 시간을 다시 바꿀 수 있을까요?
           </div>
         </div>
 
@@ -131,10 +135,11 @@
           />
         </div>
         <div class="name-text">
-          <div>Awesome cake shop</div>
-          <div>
-            안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다. 문의 하신
-            케...
+          <div>look at cake store
+
+          </div>
+          <div  class="mytalk-text">
+            안녕하세요. 보냉백 추가는 날씨보고 다시 알려드려도 될까요?
           </div>
         </div>
 
@@ -166,5 +171,8 @@
         >3</a
       >
     </div>
-    </div>
+  </div>
+</section>
+</main>
+
     {% endblock %}
