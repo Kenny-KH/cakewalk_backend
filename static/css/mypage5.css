@@ -1,3 +1,32 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nav-li:nth-child(5) {
+  background-color: #e6ccd5;
+}
+
+body {
+  position: relative;
+  /* overflow: hidden; */
+  z-index: -10;
+}
+
+.main {
+  margin: 0 auto;
+  margin-left: 269px;
+  width: calc(100% - 269px);
+}
+
+.container-wrap {
+  /* margin-left: 269px; */
+  padding-bottom: 79px;
+  position: relative;
+}
+
+.container {
+  width: 937px;
+  margin: 0 auto;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
@@ -64,7 +93,7 @@ a:active {
   align-items: center;
   width: 935px;
   height: 48px;
-  margin-top: 10px;
+  margin-top: 22px;
 
   font-size: 15px;
   border-top: 1px solid black;
@@ -72,10 +101,10 @@ a:active {
 }
 
 .ask-store {
-  margin-left: 60px;
+  margin-left: 50px;
 }
 .ask-type {
-  margin-left: 100px;
+  margin-left: 140px;
 }
 
 .ask-content {
@@ -89,7 +118,6 @@ a:active {
 .ask-menu-bar {
   display: flex;
   align-items: center;
-
   font-size: 15px;
   border-bottom: 1px solid black;
   width: 935px;
@@ -98,7 +126,7 @@ a:active {
 
 .ask-menu-name {
   width: 114px;
-  margin-left: 18px;
+  margin-left: 35px;
 }
 
 .ask-menu-type {
@@ -107,12 +135,12 @@ a:active {
 }
 
 .ask-menu-text {
-  margin-left: 115px;
+  margin-left: 117px;
   width: 200px;
 }
 
 .ask-menu-day {
-  margin-left: 220px;
+  margin-left: 218px;
 }
 
 .line-box {
@@ -122,6 +150,7 @@ a:active {
 }
 
 .page-number {
+  margin-left: 510px;
   margin-top: 60px;
 }
 

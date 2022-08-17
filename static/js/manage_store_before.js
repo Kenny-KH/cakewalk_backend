@@ -1,9 +1,5 @@
 const $form = document.querySelector("form");
 
-$form.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
-
 const $dates = document.querySelector(".dates");
 const $month = document.querySelector(".month");
 
@@ -80,26 +76,26 @@ function prev() {
   render(current);
 }
 
-const $fileInput = document.querySelector(".fileInput");
-const $preview = document.querySelector(".update-cake-preview");
+// const $fileInput = document.querySelector(".fileInput");
+// const $preview = document.querySelector(".update-cake-preview");
 
-// #8c8b90주말 표시
+// // #8c8b90주말 표시
 
-function readImage(input) {
-  // 인풋 태그에 파일이 있는 경우
-  if (input.files && input.files[0]) {
-    // 이미지 파일인지 검사 (생략)
-    // FileReader 인스턴스 생성
-    const reader = new FileReader();
-    // 이미지가 로드가 된 경우
-    reader.onload = (e) => {
-      $preview.src = e.target.result;
-    };
-    // reader가 이미지 읽도록 하기
-    reader.readAsDataURL(input.files[0]);
-  }
-}
+// function readImage(input) {
+//   // 인풋 태그에 파일이 있는 경우
+//   if (input.files && input.files[0]) {
+//     // 이미지 파일인지 검사 (생략)
+//     // FileReader 인스턴스 생성
+//     const reader = new FileReader();
+//     // 이미지가 로드가 된 경우
+//     reader.onload = (e) => {
+//       $preview.src = e.target.result;
+//     };
+//     // reader가 이미지 읽도록 하기
+//     reader.readAsDataURL(input.files[0]);
+//   }
+// }
 
-$fileInput.addEventListener("change", (e) => {
-  readImage(e.target);
-});
+// $fileInput.addEventListener("change", (e) => {
+//   readImage(e.target);
+// });

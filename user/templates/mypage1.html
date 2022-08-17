@@ -20,7 +20,7 @@
   {% include "mypage_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
 
-    <main>
+    <main class="main">
 
       <section class="container-wrap">
         <div class="p-modal-total-wrap">
@@ -82,67 +82,59 @@
         <div class="cakes-wrap">
             <div class="cakes">
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake1.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220312_140%2F1647012560261ntsIA_JPEG%2FIMG_20220206_055705_734.jpg"
                   alt="cake1photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake2.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220312_246%2F1647012560104HLy6N_JPEG%2FIMG_20220226_224815_886.jpg"
                   alt="cake2photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake3.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220310_113%2F16468580007132WTma_JPEG%2F29FFF9D2-5465-41A8-9719-87B21C73E763.jpeg"
                   alt="cake3photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake4.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220524_51%2F1653387186534cOme4_JPEG%2Fimage.jpg"
                   alt="cake4photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake1.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220312_140%2F1647012560261ntsIA_JPEG%2FIMG_20220206_055705_734.jpg"
                   alt="cake5photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake2.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220312_246%2F1647012560104HLy6N_JPEG%2FIMG_20220226_224815_886.jpg"
                   alt="cake6photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <div class="class=" cake-photo></div>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake3.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220310_113%2F16468580007132WTma_JPEG%2F29FFF9D2-5465-41A8-9719-87B21C73E763.jpeg"
                   alt="cake7photo"
                 />
               </div>
               <div class="cake-wrap">
-                <span class="cake-shop">likelion bakery 도안</span>
                 <img
                   class="cake-photo"
-                  src="{% static 'img/cake4.png' %}"
+                  src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220524_51%2F1653387186534cOme4_JPEG%2Fimage.jpg"
                   alt="cake8photo"
                 />
               </div>
@@ -165,10 +157,10 @@
                 </button>
               </div>
               <div class="info-img-wrap">
-                <img class="info-img" src="./src/img/cake1.png" alt="cake1" />
-                <img class="info-img" src="./src/img/cake2.png" alt="cake2" />
-                <img class="info-img" src="./src/img/cake3.png" alt="cake3" />
-                <img class="info-img" src="./src/img/cake4.png" alt="cake4" />
+                <img class="info-img" src="{% static 'img/like-cake1.png' %}" alt="cake1" />
+                <img class="info-img" src="{% static 'img/like-cake2.png' %}" alt="cake2" />
+                <img class="info-img" src="{% static 'img/like-cake3.png' %}" alt="cake3" />
+                <img class="info-img" src="{% static 'img/like-cake4.png' %}" alt="cake4" />
               </div>
             </div>
             <div class="info-like-wrap">
@@ -179,10 +171,10 @@
                 </button>
               </div>
               <div class="info-img-wrap">
-                <img class="info-img" src="./src/img/cake1.png" alt="cake1" />
-                <img class="info-img" src="./src/img/cake2.png" alt="cake2" />
-                <img class="info-img" src="./src/img/cake3.png" alt="cake3" />
-                <img class="info-img" src="./src/img/cake4.png" alt="cake4" />
+                <img class="info-img" src="{% static 'img/bookmark-cake1.png' %}" alt="cake1" />
+                <img class="info-img" src="{% static 'img/bookmark-cake2.png' %}" alt="cake2" />
+                <img class="info-img" src="{% static 'img/bookmark-cake3.png' %}" alt="cake3" />
+                <img class="info-img" src="{% static 'img/bookmark-cake4.png' %}" alt="cake4" />
               </div>
             </div>
           </div>

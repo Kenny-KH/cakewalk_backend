@@ -9,52 +9,20 @@ html, body {
     margin: 0;
 }
 
-/* .side {
-    position: fixed;
-    top: 0;
-    z-index: -5;
-    padding: 65px 41.3px 0px 41.3px;
-    width: 269px;
-    height: 100%;
-    background-color: rgba(248, 187, 208, 0.42);
+body {
+    position: relative;
+    /* overflow: hidden; */
+    z-index: -10;
 }
 
-.profile-img {
-    display: block;
+.main {
     margin: 0 auto;
-    margin-top: 90px;
+    margin-left: 269px;
+    width: calc(100% - 269px);
 }
-
-.use-name {
-    display: flex;
-    justify-content: center;
-}
-
-.my-walk {
-    font-size: 22px;
-    display: block;
-    margin-bottom: 32px;
-    color: rgba(0, 0, 0, 0.72);
-}
-
-.use-name-under {
-    width: 187px;
-    height: 7.13px;
-    border: none;
-    background-color: rgba(248, 187, 208, 0.68);
-}
-
-.nav-wrap {
-    padding: 0;
-    list-style: none;
-}
-
-.nav-li {
-    margin-bottom: 20px;
-} */
 
 .container-wrap {
-    margin-left: 269px;
+    /* margin-left: 269px; */
     padding-bottom: 79px;
     position: relative;
 }
@@ -237,7 +205,8 @@ html, body {
 
 .cakes {
     display: flex;
-    width: 938px;
+    width: 910px;
+    margin: 0 auto;
     white-space: nowrap;
     overflow-x: scroll;
     -ms-overflow-style: none; /* IE, Edge */
@@ -257,7 +226,7 @@ html, body {
 .cake-wrap {
     display: flex;
     flex-direction: column;
-    margin-left: 93px;
+    margin-left: 24px;
 }
 
 .cake-wrap:nth-child(1) {
@@ -353,24 +322,24 @@ html, body {
 }
 
 .info-img:nth-child(1) {
-    border: 1px solid black;
+    border: 1px solid #8A8A8A;
     border-radius: 9px 0 0 0;
 }
 
 .info-img:nth-child(2) {
-    border: 1px solid black;
+    border: 1px solid #8A8A8A;
     border-left: none;
     border-radius: 0 9px 0 0;
 }
 
 .info-img:nth-child(3) {
-    border: 1px solid black;
+    border: 1px solid #8A8A8A;
     border-top: none;
     border-radius: 0 0 0 9px;
 }
 
 .info-img:nth-child(4) {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid #8A8A8A;
+    border-bottom: 1px solid #8A8A8A;
     border-radius: 0 0 9px 0;
 }
