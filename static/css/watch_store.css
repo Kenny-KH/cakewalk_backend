@@ -72,7 +72,7 @@
 
 .pink_background {
   width: 100vw;
-  height: 150vh;
+  /* height: 150vh; */
   background: #fff6f6;
 }
 
@@ -91,6 +91,7 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
+  margin-bottom: 13px;
 }
 .store_logo {
   width: 93px;
@@ -99,6 +100,22 @@
   margin: 0 1rem;
   margin-right: 2rem;
 }
+
+.store_logo_img {
+  width: 90px;
+  height: 90px;
+}
+
+.store_detail_line {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.store_detail_line:nth-child(1) {
+  margin-bottom: 7px;
+}
+
 .main_content {
   width: 100%;
   height: 100%;
@@ -131,20 +148,19 @@
   margin: 0.5rem;
   display: flex;
   flex-direction: row;
+  height: 4.438rem;
+  color: #8A8A8A;
 }
 
 .store_detail {
-  border-right: 2px solid #8a8a8a;
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  padding: 1rem 2rem 1rem 0.000001rem;
-  margin-left: -5px;
-
-  width: 228px;
-  height: 44px;
+  border-right: 1px solid #8a8a8a;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    padding: 1rem 0rem 1rem 0.000001rem;
+    /* margin-left: -5px; */
+    width: 248px;
+    height: 100%;
 }
 
 .address {
@@ -166,19 +182,23 @@
   margin-right: 9px;
 }
 
+.address1 {
+  margin-right: 33px;
+}
+
 .time {
   width: 15px;
   height: 15px;
 }
 
 .Lorem {
-  border-right: 2px solid #8a8a8a;
+  border-right: 1px solid #8a8a8a;
   padding-right: 13px;
   margin-top: 0.009rem;
   padding: 0 1rem;
   display: flex;
   width: 278px;
-  height: 77px;
+  height: 100%;
 }
 
 .circles {
