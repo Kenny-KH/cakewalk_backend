@@ -13,50 +13,6 @@ html, body {
     background-color: #e6ccd5;
 }
 
-/* .side {
-    position: fixed;
-    top: 0;
-    z-index: -5;
-    padding: 65px 41.3px 0px 41.3px;
-    width: 269px;
-    height: 100%;
-    background-color: rgba(248, 187, 208, 0.42);
-}
-
-.profile-img {
-    display: block;
-    margin: 0 auto;
-    margin-top: 90px;
-}
-
-.use-name {
-    display: flex;
-    justify-content: center;
-}
-
-.my-walk {
-    font-size: 22px;
-    display: block;
-    margin-bottom: 32px;
-    color: rgba(0, 0, 0, 0.72);
-}
-
-.use-name-under {
-    width: 187px;
-    height: 7.13px;
-    border: none;
-    background-color: rgba(248, 187, 208, 0.68);
-}
-
-.nav-wrap {
-    padding: 0;
-    list-style: none;
-}
-
-.nav-li {
-    margin-bottom: 20px;
-} */
-
 body {
     position: relative;
     /* overflow: hidden; */
