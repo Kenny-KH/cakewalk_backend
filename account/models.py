@@ -1,6 +1,5 @@
 from django.db import models
-
-
+from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
 # Create your models here.
 class BsSignupDetail(models.Model):
     author = models.ForeignKey("User", related_name="user", on_delete=models.CASCADE)
@@ -17,8 +16,8 @@ class BsSignupDetail(models.Model):
     report = models.ImageField()
     notice = models.TextField(blank=True, null=True)
     
-from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
-from django.db import models
+    
+
 
 
 class CustomUserManager(BaseUserManager):
@@ -47,6 +46,8 @@ class CustomUserManager(BaseUserManager):
             tel = tel,
             email=email
         )
+        user.is_admin = True 
+        user.is_staff = True
         user.is_business = True
         user.save(using=self._db)
         return user
@@ -61,8 +62,16 @@ class User(AbstractBaseUser):
     address = models.CharField(max_length=300, null=True)
     is_business = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False) 
+    is_staff = models.BooleanField(default=False)   
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    
+    def has_perm(self, perm, obj=None):
+        return self.is_staff
+    
+    def has_module_perms(self, app_label):
+        return self.is_staff
 
     class Meta:
         db_table = 'user'
