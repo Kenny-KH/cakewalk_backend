@@ -1,7 +1,43 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nav-li:nth-child(6) {
+  background-color: #e6ccd5;
+}
+
+body {
+  position: relative;
+  /* overflow: hidden; */
+  z-index: -10;
+}
+
+.main {
+  margin: 0 auto;
+  margin-left: 269px;
+  width: calc(100% - 269px);
+}
+
+.container-wrap {
+  /* margin-left: 269px; */
+  padding-bottom: 79px;
+  position: relative;
+}
+
+.container {
+  width: 937px;
+  margin: 0 auto;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
   margin-top: 175px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 44px;
+
+  color: #000000;
 }
 
 .text {
@@ -20,7 +56,7 @@
   color: rgba(0, 0, 0, 0.53);
 }
 
-.profile-img {
+.profile-image {
   width: 100px;
   height: 100px;
   margin-left: 100px;
@@ -172,7 +208,7 @@
 
   width: 103px;
   height: 30px;
-  margin-left: 350px;
+  margin-left: 355px;
   margin-top: 70px;
   font-size: 16px;
   background: #ffffff;
@@ -182,8 +218,9 @@
 .out {
   display: flex;
   font-size: 16px;
-
+  margin-left: 500px;
   margin-top: 120px;
+  align-items: center;
 }
 
 .out-text {
@@ -195,6 +232,6 @@
   background: #ffffff;
   border: 1px solid #000000;
 
-  margin-left: 30px;
+  margin-left: 25px;
   font-size: 16px;
 }
