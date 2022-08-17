@@ -9,7 +9,114 @@
 <script src="{% static 'js/watch_cake.js' %}" defer></script>
 
 {% endblock %} {% block content %}
+
 <body class="body">
+  <div class="b_watch">
+    <div class="b_watch_item b_watch_c b_watch_item_active">케이크보기</div>
+    <div class="b_watch_item b_watch_s">가게보기</div>
+  </div>
+
+  <div class="hash">
+    <button class="hash2">#어버이날</button>
+    <button class="hash1">#축!전역</button>
+    <button class="hash1">#커플기념일</button>
+    <button class="hash1">#생일</button>
+    <button class="hash1">#크리스마스</button>
+  </div>
+
+  <div class="sort_fil">
+    <select class="sorting" name="정렬">
+      <option value="최신순">최신순</option>
+      <option value="리뷰많은순">리뷰많은순</option>
+      <option value="인기순">인기순</option>
+      <option value="추천순">추천순</option>
+    </select>
+
+    <img class="filter" src="./filter.png" alt="filter" />
+  </div>
+
+  <div class="pink_background">
+    <div class="pics_cakes">
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake0.png" data-imgnum="0" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake1.png" data-imgnum="1" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake2.png" data-imgnum="2" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake3.png" data-imgnum="3" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake4.png" data-imgnum="4" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake5.png" data-imgnum="5" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake6.png" data-imgnum="6" alt="cake" />
+      </div>
+      <div class="cp">
+        <img class="img2" src="./cake_img/cake7.png" data-imgnum="7" alt="cake" />
+      </div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+      <div class="cp">케이크사진넣기</div>
+    </div>
+
+    <!-- <div class="modal">
+      <div class="modal_body">
+        <button class="previous">
+          <img class="previous2" src="./Vector 8.png" alt="arrow" />
+        </button>
+
+        <button class="next">
+          <img class="next2" src="./Vector 9.png" alt="arrow" />
+        </button>
+
+        <img class="modal-img" src="./Rectangle 219.png" alt="cake" />
+        
+        <button class="m_button">가게보러가기</button>
+        <button class="m_button">도안보러가기</button>
+      </div>
+    </div> -->
+
+    <div class="buttons">
+      <button class="page_button1">1</button>
+      <button class="page_button">2</button>
+      <button class="page_button">3</button>
+    </div>
+  </div>
+  <div class="modal">
+    <div class="modal_body">
+      <div class = "close_modal" >X</div>
+      <button class="previous">
+        <img class="previous2" src="./Vector 8.png" alt="arrow" />
+      </button>
+
+      <button class="next">
+        <img class="next2" src="./Vector 9.png" alt="arrow" />
+      </button>
+
+      <img class="modal-img" alt="cake" />
+      
+
+      <button class="m_button">가게보러가기</button>
+      <button class="m_button">도안보러가기</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!--body class="body">
   <div class="b_watch">
     <div class="b_watch_item b_watch_c b_watch_item_active">케이크보기</div>
     <div class="b_watch_item b_watch_s">가게보기</div>

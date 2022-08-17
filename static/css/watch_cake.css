@@ -141,6 +141,15 @@
   display: none;
 }
 
+.close_modal {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .hide {
   overflow: hidden;
 }
