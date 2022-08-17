@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 * {
   font-family: "Noto Sans";
 }
@@ -49,8 +51,14 @@
   margin-left: 21px;
 }
 
+.cake-goods-name {
+  display: flex;
+  flex-direction: column;
+}
+
 .cake-info-taste {
   color: rgba(0, 0, 0, 0.53);
+  margin-top: 5px;
 }
 
 .grade-wrap {

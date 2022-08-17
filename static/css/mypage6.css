@@ -1,3 +1,15 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.container-wrap {
+  margin-left: 388px;
+  padding-bottom: 66px;
+}
+
+.container {
+  width: 937px;
+  margin: 0;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
@@ -20,7 +32,7 @@
   color: rgba(0, 0, 0, 0.53);
 }
 
-.profile-img {
+.profile-image {
   width: 100px;
   height: 100px;
   margin-left: 100px;
@@ -172,7 +184,7 @@
 
   width: 103px;
   height: 30px;
-  margin-left: 350px;
+  margin-left: 355px;
   margin-top: 70px;
   font-size: 16px;
   background: #ffffff;
@@ -182,8 +194,9 @@
 .out {
   display: flex;
   font-size: 16px;
-
+  margin-left: 500px;
   margin-top: 120px;
+  align-items: center;
 }
 
 .out-text {
@@ -195,6 +208,6 @@
   background: #ffffff;
   border: 1px solid #000000;
 
-  margin-left: 30px;
+  margin-left: 25px;
   font-size: 16px;
 }

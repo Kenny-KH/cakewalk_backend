@@ -1,7 +1,26 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.container-wrap {
+  margin-left: 388px;
+  padding-bottom: 66px;
+}
+
+.container {
+  width: 937px;
+  margin: 0;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
   margin-top: 175px;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+
+  color: #000000;
 }
 
 .text {
@@ -38,7 +57,6 @@
   flex-wrap: wrap;
   width: 970px;
   margin-top: 26px;
-  margin-left: 269px;
 }
 
 .design-total {
@@ -93,7 +111,7 @@
 }
 
 .page-number {
-  margin-left: 820px;
+  margin-left: 510px;
   margin-top: 60px;
 }
 

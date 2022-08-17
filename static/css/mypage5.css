@@ -1,3 +1,15 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.container-wrap {
+  margin-left: 388px;
+  padding-bottom: 66px;
+}
+
+.container {
+  width: 937px;
+  margin: 0;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
@@ -57,7 +69,7 @@ a:active {
   align-items: center;
   width: 935px;
   height: 48px;
-  margin-top: 10px;
+  margin-top: 22px;
 
   font-size: 15px;
   border-top: 1px solid black;
@@ -115,6 +127,7 @@ a:active {
 }
 
 .page-number {
+  margin-left: 510px;
   margin-top: 60px;
 }
 

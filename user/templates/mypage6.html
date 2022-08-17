@@ -14,6 +14,8 @@
   {% include "mypage_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
   <body>
+    <section class="container-wrap">
+      <div class="container">
     <div class="title">회원정보 수정</div>
     <div class="text">나의 회원정보를 수정할 수 있습니다.</div>
     <div class="info-title">
@@ -26,7 +28,7 @@
         <div class="img-title">사진</div>
         <div class="img-text">
           <img
-            class="profile-img"
+            class="profile-image"
             src="https://yt3.ggpht.com/a/AATXAJyPF9O2oHYh7iO2Byayhy_m7YlNB9mOIGn99Guuaw=s900-c-k-c0xffffffff-no-rj-mo"
             alt="프로필사진"
           />
@@ -79,4 +81,6 @@
       <div class="out-text">탈퇴를 원하시면 회원 탈퇴를 눌러주세요.</div>
       <button class="out-button">회원 탈퇴</button>
     </div>
+  </div>
+</section>
     {% endblock %}
