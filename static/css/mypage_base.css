@@ -1,4 +1,4 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap%27');
 
 * {
   box-sizing: border-box;
@@ -6,13 +6,16 @@
 }
 
 .side {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  padding: 65px 41.3px 0px 41.3px;
-  width: 269px;
-  height: 100%;
-  background-color: rgba(248, 187, 208, 0.42);
+    float: left;
+    position: absolute;
+    /* position: fixed; */
+    top: 0;
+    z-index: -5;
+    padding: 65px 41.3px 0px 41.3px;
+    width: 269px;
+    height: 100%;
+    background-color: rgba(248, 187, 208, 0.42);
+
 }
 
 .profile-img {
@@ -21,23 +24,27 @@
   margin-top: 90px;
 }
 
-.use-name {
-  display: flex;
-  justify-content: center;
+
+.user-name {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .my-walk {
-  font-size: 22px;
-  display: block;
-  margin-bottom: 32px;
-  color: rgba(0, 0, 0, 0.72);
+    display: block;
+    margin-bottom: 32px;
+    color: rgba(0, 0, 0, 0.72);
+    font-weight: 500;
+    font-size: 24px;
 }
 
-.use-name-under {
-  width: 187px;
-  height: 7.13px;
-  border: none;
-  background-color: rgba(248, 187, 208, 0.68);
+.user-name-under {
+    width: 187px;
+    height: 7.13px;
+    border: none;
+    background-color: rgba(248, 187, 208, 0.68);
+
 }
 
 .nav-wrap {
@@ -46,5 +53,11 @@
 }
 
 .nav-li {
-  margin-bottom: 20px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
 }
+
