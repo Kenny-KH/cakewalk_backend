@@ -10,7 +10,7 @@ class BsSignupDetail(models.Model):
     bsName = models.CharField(max_length=100)
     repName = models.CharField(max_length=12)
     birth = models.IntegerField()
-    phoneNum = models.IntegerField()
+    phoneNum = models.CharField(max_length=50)
     insta = models.CharField(max_length=100)
     address = models.TextField()
     registeration = models.ImageField()
