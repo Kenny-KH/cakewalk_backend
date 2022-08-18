@@ -519,7 +519,7 @@ main{
     padding: 0.2rem;
     width:3rem;
 }
-.font_size_control{
+.font_size_control, .board_font_size_control{
     width: 60%;
     margin-left: 1rem;
 }
@@ -556,7 +556,7 @@ main{
     resize: none;
 }
 
-.create_text_btn{
+.create_text_btn, .step5_create_text_btn{
     border: 1px solid black;
     border-radius: 1.6rem;
 

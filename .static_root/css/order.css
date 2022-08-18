@@ -60,6 +60,8 @@
 
 .storenotice {
   font-size: 18px;
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
 .storetext {
@@ -72,6 +74,7 @@
   font-size: 15px;
   line-height: 20px;
   color: #515151;
+  word-wrap: break-word;
 }
 
 .search-input {
@@ -99,14 +102,28 @@
 }
 
 .store {
-  display: flex;
-  flex-direction: row;
   width: 415px;
   height: 73px;
   border-radius: 5px;
   background-color: #ffe5e5;
   margin: 0 25px;
-  padding: 12px 13px;
+  padding: 0 13px;
+  overflow-y: scroll;
+}
+
+.store::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+.store::-webkit-scrollbar-thumb {
+  height: 112px; /* 스크롤바의 길이 */
+  background: #d9d9d9; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.store::-webkit-scrollbar-track {
+  background: transfer; /*스크롤바 뒷 배경 색상*/
 }
 
 .scroll {
@@ -185,8 +202,10 @@
 
 .store-info-line {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   color: #8a8a8a;
+  width: 255px;
 }
 
 .store-info-line:nth-child(1) {
@@ -201,12 +220,10 @@
 
 .store-info-insta {
   width: 125px;
-  margin-left: 22px;
 }
 
 .store-info-time {
   width: 125px;
-  margin-left: 8px;
 }
 
 i {
@@ -284,18 +301,16 @@ i {
 .month-wrap {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .month {
-  width: 86px;
   height: 34px;
-
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 25px;
   line-height: 34px;
-
   color: #000000;
   margin: 0 15px;
 }
@@ -311,7 +326,7 @@ i {
   flex-wrap: wrap;
   text-align: center;
   margin-top: 16px;
-  width: 390px;
+  width: 100%;
   height: 366px;
 }
 
@@ -319,6 +334,8 @@ i {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .cur {
@@ -335,7 +352,6 @@ i {
 }
 
 .dates .day {
-  width: 51px;
   height: 65px;
 }
 
@@ -346,14 +362,22 @@ i {
 
 .today {
   display: flex;
-  width: 40px;
-  height: 40px;
-  border: 2px solid black;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
   border-radius: 50%;
   margin: 0 auto;
-  margin-top: 6px;
+  margin-top: 10px;
   justify-content: center;
   align-items: center;
+}
+
+.impossible {
+  color: #dddddd;
+}
+
+.possible {
+  cursor: pointer;
 }
 
 .choice_pickup {
@@ -377,14 +401,22 @@ i {
   height: 49px;
   font-family: "Noto Sans";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 25px;
+  background-color: #fff2f2;
+  border: 1px solid #ffe5e5;
+  cursor: pointer;
 }
 
-.pink_btn {
-  background: #ffe5e5;
+/* .prev-time {
+  color: #c8c8c8;
+  background-color: #f8f8f8;
+  border: 1px solid #D9D9D9;
+} */
 
+.pink_btn {
+  background: #ffd6d6;
   color: #000000;
 }
 

@@ -80,18 +80,13 @@
   height: 958px;
   margin: auto;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   place-items: center;
-<<<<<<< HEAD
-=======
-
   align-items: center;
   /* justify-content: flex-start;
   align-content: stretch; */
   justify-content: start;
   align-items: start;
-
->>>>>>> ef60520f8bfe1629fd71504c42b5a76ca42ef149
   text-align: center;
   justify-content: flex-start;
   align-content: flex-start;
