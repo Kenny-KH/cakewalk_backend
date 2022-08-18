@@ -10,5 +10,8 @@ def home(request):
         code = 1
         status = "N"
     stores = BsSignupDetail.objects.all()
-    cakes = StoreCake.objects.filter(code=code)
+    if code == "0":
+        cakes = StoreCake.objects.all()
+    else:
+        cakes = StoreCake.objects.filter(code=code)
     return render(request, 'index.html', {'stores' : stores, 'cakes' : cakes, 'code' : code, "status" : status})
