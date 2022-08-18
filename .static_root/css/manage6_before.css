@@ -1,0 +1,289 @@
+/*.body {
+  border: 1px solid blueviolet;
+}*/
+
+.main1 {
+  display: flex;
+  margin: 46px 0 57px 0;
+  padding-left: 35px;
+  flex-direction: column;
+  align-items: center;
+}
+.store_info {
+  margin-bottom: 46px;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 44px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.profile {
+  border-bottom: 1px solid #767676;
+  padding-bottom: 14px;
+  width: 860px;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.store_logo {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.logo_img {
+  width: 93px;
+  height: 90px;
+  margin-left: 71px;
+  border-radius: 50px;
+  padding: 14px 0;
+}
+
+.store_name {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  padding: 28px 0;
+  padding-bottom: 28px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.store_name1 {
+  margin-right: 143px;
+}
+
+.location {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+  padding: 28px 0;
+  padding-bottom: 28px;
+  padding-left: 20px;
+}
+
+.location1 {
+  margin-right: 158px;
+}
+
+.phone {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 28px 0;
+  padding-bottom: 28px;
+  padding-left: 20px;
+}
+
+.phone1 {
+  margin-right: 95px;
+}
+
+.time {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 28px 0;
+  padding-bottom: 28px;
+  padding-left: 20px;
+}
+
+.time1 {
+  margin-right: 129px;
+}
+
+.sns {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 28px 0;
+  padding-bottom: 28px;
+  padding-left: 20px;
+}
+
+.sns1 {
+  margin-right: 124px;
+}
+
+span {
+  margin-left: 24px;
+}
+
+.main2 {
+  padding-left: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.order_option_settings {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  padding-bottom: 14px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+
+  color: #000000;
+}
+
+.pickup {
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+  margin: 28px 0;
+  padding-bottom: 28px;
+  
+}
+
+.pickup1 {
+  margin-right: 101px;
+  padding-left: 20px;
+
+}
+
+.sub {
+  padding-bottom: 29px;
+  border-bottom: 1px solid #767676;
+  width: 860px;
+  display: flex;
+}
+
+.order_option {
+  padding-right: 131px;
+  padding-bottom: 28px;
+  padding-left: 20px;
+}
+
+.sub0 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sub1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.size {
+  margin-right: 17px;
+}
+
+.radio_css {
+  display: flex;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.radio1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.sub2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 26px 0 67px 0;
+}
+
+.flavor {
+  padding-right: 31px;
+}
+
+.sub3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.add {
+  padding-right: 34px;
+}
+
+.adding {
+  display: flex;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.button {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #000000;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.button_div {
+  display: flex;
+  justify-content: center;
+  padding: 42px 0 85px 0;
+}
