@@ -44,29 +44,26 @@ body {
   padding-top: 12px;
 }
 
-.day-button {
-  /* position: absolute; */
+.time-wrap {
+  list-style: none;
+  padding: 0;
   display: flex;
-  padding-top: 50px;
+  flex-direction: row;
+  color: #767676;
+  margin-bottom: 17px;
+  margin-top: 27px;
 }
 
-.a {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 80px;
-  font-size: 17px;
-  margin-left: 5px;
-  text-align: center;
+.time {
+  padding: 0 11px;
+  border-right: 1.5px solid #767676;
+  cursor: pointer;
 }
 
-.b {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 90px;
-  font-size: 17px;
-  margin-left: 9px;
+.time:nth-child(4) {
+  font-weight: bold;
+  color: black;
+  border-right: none;
 }
 
 .design-all {
@@ -74,7 +71,7 @@ body {
   flex-wrap: wrap;
   width: 970px;
   margin-top: 26px;
-  margin-bottom: 51px; ///
+  margin-bottom: 51px;
 }
 
 .design-total {
@@ -140,24 +137,4 @@ body {
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-a:link {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:hover {
-  color: black;
-  font-weight: bold;
-  text-decoration: underline;
-}
-a:active {
-  color: black;
-  text-decoration: none;
 }
