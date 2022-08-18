@@ -41,7 +41,7 @@ header {
 }
 
 .store-name {
-  font-family: nanumgothic;
+  font-family: "Noto Sans", sans-serif;
   font-size: 3rem;
 }
 .store-info-grid-box {

@@ -11,9 +11,20 @@
 <script src="{% static 'js/store_info.js' %}"></script>
 {% endblock %} {% block content %}
 <header>
+
+  <!-- 돌아가기 버튼 js로 구현 -->
+  <script>
+    const back = () => {
+      window.history.back();
+    }
+  </script>
+  <!-- end -->
+  <!-- Header -->
   <div class="header-contents-container">
     <div class="store-name-box">
-      <i class="fa-solid fa-chevron-left fa-store-icon-size"></i>
+      <a value="돌아가기" onclick="back()" >
+        <i class="fa-solid fa-chevron-left fa-store-icon-size"></i>
+      </a>
       <span class="store-name">{{store.bsName}}</span>
     </div>
     <div class="store-info-grid-box">
