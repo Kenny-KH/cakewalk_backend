@@ -27,6 +27,16 @@
 <script src="{% static 'js/order.js' %}" defer></script>
 {% endblock %} {% block content %}
 
+{% if messages %}
+	{% for message in messages %}
+		<script>alert("{{ message.message }}")</script>
+	{% endfor %}
+{% endif %}
+
+<script>
+
+</script>
+
 <body class="body">
   <!-- 단계 버튼 -->
   <div class="step">
@@ -198,28 +208,29 @@
         </div>
 
         <!--픽업 시간 선택-->
+        <input type="hidden" name="date" id="date"/>
         <div class="pickup">
           <div class="choice_pickup">
             <i class="fa-solid fa-check"></i>픽업 시간 선택
           </div>
           <div class="times_div">
-            <button class="time_btn">12:00</button>
-            <button class="time_btn">12:30</button>
-            <button class="time_btn">13:00</button>
-            <button class="time_btn">13:30</button>
-            <button class="time_btn">14:00</button>
-            <button class="time_btn">14:30</button>
-            <button class="time_btn pink_btn">15:00</button>
-            <button class="time_btn">15:30</button>
-            <button class="time_btn">16:00</button>
-            <button class="time_btn">16:30</button>
-            <button class="time_btn">17:00</button>
-            <button class="time_btn">17:30</button>
+            <button type="button" class="time_btn">12:00</button>
+            <button type="button" class="time_btn">12:30</button>
+            <button type="button" class="time_btn">13:00</button>
+            <button type="button" class="time_btn">13:30</button>
+            <button type="button" class="time_btn">14:00</button>
+            <button type="button" class="time_btn">14:30</button>
+            <button type="button" class="time_btn">15:00</button>
+            <button type="button" class="time_btn">15:30</button>
+            <button type="button" class="time_btn">16:00</button>
+            <button type="button" class="time_btn">16:30</button>
+            <button type="button" class="time_btn">17:00</button>
+            <button type="button" class="time_btn">17:30</button>
 
             <div class="last_btns_div">
-              <button class="time_btn">18:00</button>
-              <button class="time_btn">18:30</button>
-              <button class="time_btn">19:00</button>
+              <button type="button" class="time_btn">18:00</button>
+              <button type="button" class="time_btn">18:30</button>
+              <button type="button" class="time_btn">19:00</button>
             </div>
           </div>
         </div>
@@ -294,8 +305,8 @@
 
               <div class="taste">
                 <span class="text"><span style="color: red">*</span>케이크 맛</span>
-                <select class="taste-select" name="flavor">
-                  <option>케이크 맛을 선택하세요</option>
+                <select class="taste-select" name="flavor" required>
+                  
                   <option value="초코맛">초코맛</option>
                   <option value="딸기맛">딸기맛</option>
                   <option value="민트맛">민트맛</option>
@@ -344,10 +355,10 @@
         주세요.
       </p>
       <button
-        class="confirm-btn"
+        class="confirm-btn" type="submit"
        
       >
-        <button class="chatting" type="submit">확인</button>
+        확인
       </button>
     </div>
   </div>
