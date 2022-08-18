@@ -28,5 +28,5 @@ urlpatterns = [
     path('cake/', include('cake.urls')),
     path('account/', include('account.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
-    re_path(r'^static/(?:.*)$', serve, {'document_root': settings.STATIC_ROOT, }),
+
 ] 
