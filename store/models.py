@@ -18,4 +18,4 @@ class StoreCake(models.Model):
     code = models.IntegerField(default=1)
     
     def __str__(self):
-        return self.name
+        return str(self.store) + ", " + self.name
