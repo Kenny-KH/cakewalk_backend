@@ -59,21 +59,26 @@
       </div>
       <form action="{% url 'order' whatCake cake_id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {% if whatCake == "store" %}
+
+
+      <!-- 만약 케이크 바로 제작의 경우 가게가 하나일때 -->
+      {% if whatCake == "store" %}
       <div class="all">
         <div class="map-wrap">
-          <input class="search-input" type="text" name="address" placeholder="{{store.address}}" value="{{store.address}}"/>
+          <input class="search-input" type="text" name="address" placeholder="{{stores.address}}" value="{{stores.address}}"/>
           <div id="map"></div>
         </div>
 
         <div class="right"> 
-           <div class="storenotice">{{store.notice}}</div>
+           <div class="storenotice">공지사항</div>
           <div class="store">
             <div class="storetext">
-              <p class="notice-text"></p>
+              <p class="notice-text">{{stores.notice}}</p>
             </div>
           </div>
+          <input type="hidden" value="{{stores.id}}" name="store" id="store">
 
+          <!-- 케이크 주문제작인 경우는 가게가 여러개 -->
           {% else %}
           <div class="all">
             <div class="map-wrap">
@@ -88,10 +93,13 @@
                   <p class="notice-text"></p>
                 </div>
               </div>
+              <input type="hidden" value="" name="store" id="store">
           {% endif %}
+
+          
           <div class="storeclose">
             <p class="mystore">나와 가까운 가게</p>
-            <input type="hidden" value="" name="store" id="store">
+           
             <section class="scroll">
               {% if whatCake == "store" %}
  <!-- 가게정보시작부분 -->
@@ -99,7 +107,7 @@
                 <div class="storewrap">
                   <img
                     class="cakelogo"
-                    src="https://img.lovepik.com/element/40131/7560.png_860.png"
+                    src="{{stores.logo.url}}"
                     alt="가게로고"
                   />
                   <div class="storetextwrap">
@@ -129,9 +137,8 @@
                 </div>
               </article>
               <script>
-                const oneClickAction = (document.getElementById(
-                  "{{store.id}}"
-                ).onclick = function () {
+                const order_btn = document.getElementById("{{store.id}}")
+                order_btn.addEventListener("click", () => {
                   let searchInput = document.querySelector(".search-input");
                   let notice = document.querySelector(".notice-text");
                   let store = document.querySelector("#store")
@@ -141,38 +148,42 @@
                   notice.innerHTML = "{{store.notice}}";
                   store.value = "{{store.id}}";
                   console.log(store.value);
-                });
+
+                })
+
               </script>
               {% else %}
 <!-- 가게정보 여기까지 -->
               {% for store in stores %}
               <!-- 가게정보시작부분 -->
-              <article class="storebox" id="{{store.id}}">
-                <div class="storewrap">
+              <article class="storebox" >
+                <span style="display: none;" id="notice{{store.id}}">{{store.notice}}</span>
+                <div class="storewrap"  id= "{{store.id}}">
                   <img
                     class="cakelogo"
-                    src="https://img.lovepik.com/element/40131/7560.png_860.png"
+                    src="{{store.logo.url}}"
                     alt="가게로고"
+                    id= "{{store.id}}"
                   />
-                  <div class="storetextwrap">
-                    <div class="storename">{{store.bsName}}</div>
+                  <div class="storetextwrap" id= "{{store.id}}">
+                    <div class="storename" id= "{{store.id}}">{{store.bsName}}</div>
 
-                    <div class="storeinfo">
-                      <div class="store-info-line">
-                        <div>
-                          <i class="fa-solid fa-location-arrow"></i>
+                    <div class="storeinfo" id= "{{store.id}}">
+                      <div class="store-info-line" id= "{{store.id}}">
+                        <div id="{{store.id}}" name="address{{store.id}}">
+                          <i class="fa-solid fa-location-arrow" id="address{{store.id}}"></i>
                           {{store.address}}
                         </div>
-                        <div class="store-info-insta">
-                          <i class="fa-brands fa-instagram"></i>
+                        <div class="store-info-insta" id= "{{store.id}}">
+                          <i class="fa-brands fa-instagram" id= "{{store.id}}"></i>
                           @{{store.insta}}
-                        </div>
-                      </div>
-                      <div class="store-info-line">
-                        <div>
+                        </div >
+                      </div > 
+                      <div class="store-info-line id=" id= "{{store.id}}">
+                        <div id= "{{store.id}}">
                           <i class="fa-solid fa-phone"></i> {{store.phoneNum}}
                         </div>
-                        <div class="store-info-time">
+                        <div class="store-info-time" id= "{{store.id}}">
                           <i class="fa-solid fa-clock"></i> 10:00 ~ 19:00
                         </div>
                       </div>
@@ -181,21 +192,7 @@
                 </div>
               </article>
               
-              <script>
-                const clickAction = (document.getElementById(
-                  "{{store.id}}"
-                ).onclick = function () {
-                  let searchInput = document.querySelector(".search-input");
-                  let notice = document.querySelector(".notice-text");
-                  let store = document.querySelector("#store")
 
-                  console.log(searchInput);
-                  searchInput.value = "{{store.address}}";
-                  notice.innerHTML = "{{store.notice}}";
-                  store.value = "{{store.id}}";
-                  console.log(store.value);
-                });
-              </script>
               {% endfor %}
               <!-- 가게정보 여기까지 -->
               {% endif %}
@@ -395,5 +392,23 @@
     </div>
   </div>
 </form>
+<script>
+  const customBtn = document.getElementsByClassName("storebox");
+
+  for (let btn of customBtn){
+    btn.addEventListener("click", ( e ) => {
+      let target = e.target.id;
+      let address = document.querySelector(`div[name=address${target}]`).innerText  ;
+      
+      let notice = document.querySelector(`#notice${target}`).innerText;
+     
+      document.querySelector(".search-input").value = address
+      document.querySelector(".notice-text").innerHTML = notice;
+      document.querySelector("#store").value = target;
+      console.log(document.querySelector("#store").value)
+    })
+  }
+
+</script>
   {% endblock %}
 </body>
