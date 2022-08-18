@@ -1,4 +1,13 @@
+.only_order{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .pay {
+  display: flex;
+    width: 1058px;
+    justify-content: center;
   margin: 2rem;
   font-size: 30px;
   font-weight: 500;
@@ -38,9 +47,9 @@
   color: rgba(0, 0, 0, 0.53);
 }
 
-.amount {
+/*.amount {
   padding: 2rem 0;
-}
+}*/
 
 .smalldiv {
   padding-right: 9rem;
@@ -96,6 +105,10 @@
   flex-direction: row;
 }
 
+.zere_price{
+  margin-left: -12px;
+}
+
 .choice_cou {
   border-bottom: 1px solid rgba(0, 0, 0, 0.37);
   width: 860px;
@@ -131,7 +144,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.37);
   width: 860px;
   padding: 1rem 3rem;
-  margin-left: 1rem;
+  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -166,15 +179,15 @@
   flex-direction: row;
 }
 
-.order_agree {
+/*.order_agree {
   padding: 2rem;
-}
-
-/*.terms{
-    
-    
-    
 }*/
+
+.terms{
+    
+  margin-left: 1rem;
+    
+}
 
 .spec {
   text-decoration: underline;
