@@ -22,4 +22,7 @@ class Order(models.Model):
     userCake = models.ForeignKey("user.UserCake", on_delete=models.CASCADE, null=True, blank=True)
     user = models.ForeignKey("account.User", on_delete=models.CASCADE)
     store = models.ForeignKey("account.BsSignupDetail", on_delete=models.CASCADE, null=True, blank=True)
+    
+    def __str__(self):
+        return self.date + "주문"
 

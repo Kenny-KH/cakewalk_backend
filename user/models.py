@@ -8,6 +8,6 @@ class UserCake(models.Model):
     price = models.IntegerField(default=32500)
     image = models.ImageField()
     pub_date = models.DateTimeField(auto_now_add= True)
-
+    
     def __str__(self):
         return self.name
