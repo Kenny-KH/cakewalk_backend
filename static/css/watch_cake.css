@@ -7,6 +7,7 @@
   height: 4rem;
   display: flex;
   justify-content: center;
+  margin-top: 65px;
 }
 
 .b_watch_item {
@@ -87,8 +88,10 @@
   place-items: center;
 
   align-items: center;
-  justify-content: flex-start;
-  align-content: stretch;
+  /* justify-content: flex-start;
+  align-content: stretch; */
+  justify-content: start;
+  align-items: start;
 
   text-align: center;
 }
