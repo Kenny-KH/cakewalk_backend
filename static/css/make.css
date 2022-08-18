@@ -575,6 +575,51 @@ main{
 .create_text_btn:hover{
     opacity: 1;
 }
+/*-------------------------- STEP4 create_support ------------------------*/
+.deco_image{
+
+
+}
+
+.deco_imgs_box{
+    margin-top: 1rem;
+    padding: 0.5rem;
+
+    width: 100%;
+    height: 12rem;
+    overflow-y: scroll;
+
+    border-radius: 0.5rem;
+
+    background: #ccc;
+
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, 30%);
+
+    justify-self: center;
+    align-self: center;
+}
+.deco_upload, .deco_img_item{
+    width: 100%;
+    height: 5rem;
+
+    background-color: #d81b60;
+    
+    font-size: 2.5rem;
+    color: white;
+    display: flex;
+
+    border-radius: 0.5rem;
+
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+.deco_upload:hover{
+    background-color: #d14a7c;
+}
 
 /*-------------------------- STEP5 create_support ------------------------*/
 .create_support{
