@@ -1,4 +1,4 @@
-from django.conf import settings
+from cakewalk.settings.base import *
 from django.http import JsonResponse, HttpResponse
 from .models import UserCake
 import json
@@ -13,10 +13,13 @@ def myPage(request):
     return render(request, "mypage1.html")
 
 def myPage2(request):
-    return render(request, "mypage2.html")
+    userOrders = Order.objects.filter(user = request.user).order_by("-id")
+    
+    return render(request, "mypage2.html", {'orders' : userOrders})
 
 def myPage3(request):
-    return render(request, "mypage3.html")
+    cakes = UserCake.objects.filter(user = request.user).order_by("-id")
+    return render(request, "mypage3.html", {"cakes" : cakes})
 
 def myPage4(request):
     return render(request, "mypage4.html")
@@ -43,23 +46,25 @@ def usercake(request):
     if request.method == 'POST':
         new_user_cake = UserCake()
         new_user_cake.user = request.user
-        new_user_cake.name = f"${request.user.name}님이 제작한 케이크"
+        new_user_cake.name = f"{request.user.name}님이 제작한 케이크"
         new_user_cake.save();
 
-        image_string = json.loads(request.body)
+        cake_data = json.loads(request.body)
 
+        image_string = cake_data['cake_img']
+        
         # base64 인코딩
         header, data = image_string.split(';base64,')
         data_format, ext = header.split('/')
 
         image_data = base64.b64decode(data)
-        image_root = settings.MEDIA_ROOT + '\\' + "cake" + str(new_user_cake.id) + "." + ext
-        
+        image_root = MEDIA_ROOT + '/' + "cake" + str(new_user_cake.id) + "." + ext
+        print(MEDIA_ROOT)
         with open(image_root, 'wb') as f:
             f.write(image_data)
         cake = get_object_or_404(UserCake, pk = new_user_cake.id)
         cake.image = "cake" + str(new_user_cake.id) + "." + ext
         cake.save()
-
+        
 
         return JsonResponse({"id" : new_user_cake.id})

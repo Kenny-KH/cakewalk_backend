@@ -95,6 +95,9 @@
                             <div class="upload" ><p>사진 파일 가져오기</p></div>
                         </div>
                     </div>
+                    <button class="order_btn">
+                        주문하기
+                    </button>
                 </div>
                 <div class="step_box step2 unactive" data-step="2">
                     <div class="fill">
@@ -167,6 +170,9 @@
                             사진 각도 <input id="fill_img_angle" type="range" value=0 style="margin-left: 1rem;">
                         </div>
                     </div>
+                    <button class="order_btn">
+                        주문하기
+                    </but>
                 </div>
                 <div class="step_box step3 unactive" data-step="3">
                     <div class="step3_item text_type">
@@ -200,9 +206,27 @@
                     <div class="step3_item create_text_btn unactive">
                         텍스트 생성하기
                     </div>
-                    
+                    <button class="order_btn">
+                        주문하기
+                    </bu>
                 </div>
-                <div class="step_box step4 unactive" data-step="4">
+                <div class="step_box step4 unactive" data-step="4">    
+                    <div class="deco_image">
+                        이미지 가져오기
+                        <div class="caution" style="margin-top: 1rem;">
+                            <div class="caution_img"><img src="{% static 'img/make/caution.png' %}"></div>
+                            <div class="caution_text"> 가져온 사진의 사이즈는 워크보드에서 마우스로 직접 크기와 위치를 조절 할 수 있습니다</div>
+                        </div>
+
+                        <div class="deco_imgs_box">
+                            <input class="deco_real_upload" type="file" accept="image/*" required multiple style="display: none;">
+                            <div class="deco_upload" ><p>+</p></div>
+                        </div>
+                    </div>
+                    
+                    <button class="order_btn">
+                        주문하기
+                    </button>
                 </div>
                 <div class="step_box step5 unactive" data-step="5">
                     <div class="create_support">판 생성하기</div>
@@ -229,11 +253,11 @@
                         텍스트 입력
                         <textarea class="board_text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
                     </div>
+
+                    <button class="order_btn">
+                        주문하기
+                    </button>
                 </div>
-                
-                <button class="order_btn">
-                    주문하기
-                </button>
             </div>
         </div>
         <div class="work_board_wrapper">
@@ -244,7 +268,7 @@
             <div class="memo_board">
                 <h3 style="margin-bottom: 1rem;">&lt;memo&gt;</h3>
                 <list class="memo_list">
-                    <div class="memo_size"><li>사이즈 : 2호</li></div>
+                    <div class="memo_item memo_size"><li>사이즈 : 2호</li></div>
                 </list>
                 <textarea class="memo_input" placeholder="메모 작성하기" ></textarea>
                 
@@ -264,8 +288,20 @@
     const order_btns = document.querySelectorAll('.order_btn');
     order_btns.forEach(element => {
         element.addEventListener('click', ()=>{
-            const data = JSON.stringify(canvas.toDataURL());
-            
+            let memo_data = [];
+            document.querySelectorAll('.memo_item li').forEach(element => {
+                memo_data.push(element.innerText); 
+            });
+
+            let cake_design_data ={
+                canvas_data : canvas_object_info,
+                side_canvas_data : side_canvas_object_info,
+                memo_data : memo_data,
+                cake_img : canvas.toDataURL(),
+            }
+
+            const data = JSON.stringify(cake_design_data);
+
             $.ajax({
                 type:'POST',
                 url: "{% url 'user_cake' %}",
@@ -273,9 +309,8 @@
                 headers:{
                     'X-CSRFTOKEN' : '{{ csrf_token }}'
                 },
-                
                 success:function(json){
-                    location.href = '/cake/order/user/' + json.id;
+                    location.href = `/cake/order/user/${json.id}`;
                     console.log("data pass success", json);
                 },
                 error : function(xhr, errmsg, err){
@@ -284,30 +319,5 @@
             });
         })
     });
-    const save_btn = document.querySelector('.temp_save');
-    save_btn.addEventListener('click', ()=>{
-        const data = JSON.stringify(canvas);
-       
-        console.log(data);
-        
-        $.ajax({
-            type:'POST',
-            url: "{% url 'user_cake' %}",
-            data: data,
-            headers:{
-                'X-CSRFTOKEN' : '{{ csrf_token }}'
-            },
-            success:function(json){
-                location.href = `/cake/order/user/${json.id}`;
-                console.log("data pass success", json);
-                
-                console.log("왜안감?")
-            },
-            error : function(xhr, errmsg, err){
-                console.log(xhr.status + ": " + xhr.responseText);
-            }
-        });
-    });
-    
 </script>
 {% endblock %}

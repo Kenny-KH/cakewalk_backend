@@ -13,7 +13,7 @@
       src="https://kit.fontawesome.com/d35df90ac6.js"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'js/mypage.js' %}" defer></script>
+    <script src="{% static 'js/mypage2.js' %}" defer></script>
   </head>
   {% endblock %} {% block content %}
   <div class="main_wrapper" style="display: flex"></div>
@@ -28,18 +28,6 @@
               <h1 class="title">주문 내역</h1>
               <span>지금까지 주문한 케이크를 볼 수 있습니다.</span>
             </div>
-            <div class="show-btns">
-              <div class="btn-wrap">
-                <button class="show-btn" id="point">P</button>
-                <span>포인트></span>
-                <span class="point-score">100</span>
-              </div>
-              <div class="btn-wrap">
-                <button class="show-btn" id="coupon">C</button>
-                <span>쿠폰></span>
-                <span class="coupon-score">2</span>
-              </div>
-            </div>
           </div>
 
           <ul class="time-wrap">
@@ -48,7 +36,7 @@
             <li class="time">6개월</li>
             <li class="time">전체시기</li>
           </ul>
-
+          
           <table class="info-wrap">
             <thead>
               <tr class="row">
@@ -60,90 +48,19 @@
               </tr>
             </thead>
             <tbody class="info-body">
+              {% for order in orders %}
               <tr class="row">
                 <th class="cake-wrap">
-                    <img class="cake-photo" src="{% static 'img/mypage2_cake1.png' %}" alt="cake">
+                    <img class="cake-photo" src = "{{order.cake.url}}" alt="cake"/>
                     <ul class="cake-options">
-                        <li class="cake-option">likelion bakery</li>
-                        <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
-                        <li class="cake-option">초코시트+우유생크림</li>
+                        <li class="cake-option">{{order.store.bsName}}</li>
+                        <li class="cake-option">{{order.storeCake.name}}{{order.userCake.name}}</li>
+                        <li class="cake-option">{{order.flavor}}</li>
                     </ul>
                 </th>
-                <td class="date block">2022.07.08</td>
-                <td class="price_count block">
-                    <span class="price">57,000원</span>
-                    <br>
-                    <span class="count">(1개)</span>
-                </td>
-                <td class="state block">
-                    <span class="state-text">구매확정</span>
-                    <br>
-                    <button class="state-btn">제작 중</button>
-                </td>
-                <td class="block">
-                  <a class="review-link" href="#">리뷰쓰기</a>
-                </td>
-              </tr>
-              <tr class="row">
-                <th class="cake-wrap block">
-                    <img class="cake-photo" src="{% static 'img/mypage2_cake2.png' %}" alt="cake">
-                    <ul class="cake-options">
-                        <li class="cake-option">likelion bakery</li>
-                        <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
-                        <li class="cake-option">초코시트+우유생크림</li>
-                    </ul>
-                </th>
-                <td class="date block">2022.05.04</td>
-                <td class="price_count block">
-                    <span class="price">59,000원</span>
-                    <br>
-                    <span class="count">(1개)</span>
-                </td>
-                <td class="state block">
-                    <span class="state-text">구매확정</span>
-                    <br>
-                    <button class="state-btn">픽업 완료</button>
-                </td>
-                <td class="block">
-                  <a class="review-link" href="#">리뷰쓰기</a>
-                </td>
-              </tr>
-              <tr class="row">
-                <th class="cake-wrap">
-                    <img class="cake-photo" src="{% static 'img/mypage2_cake3.png' %}" alt="cake">
-                    <ul class="cake-options">
-                        <li class="cake-option">likelion bakery</li>
-                        <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
-                        <li class="cake-option">초코시트+우유생크림</li>
-                    </ul>
-                </th>
-                <td class="date block">2022.03.21</td>
-                <td class="price_count block">
-                    <span class="price">45,000원</span>
-                    <br>
-                    <span class="count">(1개)</span>
-                </td>
-                <td class="state block">
-                    <span class="state-text">구매확정</span>
-                    <br>
-                    <button class="state-btn">픽업 완료</button>
-                </td>
-                <td class="block">
-                  <a class="review-link" href="#">리뷰쓰기</a>
-                </td>
-              </tr>
-              <tr class="row">
-                <th class="cake-wrap">
-                    <img class="cake-photo" src="{% static 'img/mypage2_cake4.png' %}" alt="cake">
-                    <ul class="cake-options">
-                        <li class="cake-option">likelion bakery</li>
-                        <li class="cake-option">-HAPPY BIRTHDAY CAKE</li>
-                        <li class="cake-option">초코시트+우유생크림</li>
-                    </ul>
-                </th>
-                <td class="date block">2022.01.11</td>
+                <td class="date block">{{order.date}}</td>
                 <td class="price-and-count block">
-                    <span class="price">47,000원</span>
+                    <span class="price">{{order.price}}원</span>
                     <br>
                     <span class="count">(1개)</span>
                 </td>
@@ -156,6 +73,7 @@
                   <a class="review-link" href="#">리뷰쓰기</a>
                 </td>
               </tr>
+              {% endfor %}
             </tbody>
           </table>
           <div class="pages">
