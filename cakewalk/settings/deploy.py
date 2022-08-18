@@ -17,8 +17,9 @@ DATABASES = {
 		'NAME': 'cakewalk',
         'USER': 'root',
         'PASSWORD': 'gold3819',
-        'HOST': '127.0.0.1',
+        'HOST': 'mariadb',
         'PORT': '3306',
+
     }
 }
 
