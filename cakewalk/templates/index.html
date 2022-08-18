@@ -13,6 +13,7 @@
 ></script>
 <script src="{% static 'js/index.js' %}" defer></script>
 {% endblock %} {% block content %}
+
 <div class="top-container">
   <div class="top-wrap">
     <div class="title-wrap">
@@ -69,8 +70,8 @@
 
   <ul class="tag-wrap">
 
-    <li class="tag tag-check">
-      <button class="tag-btn tag-color" value="1">#축! 생일</button>
+    <li class="tag ">
+      <button class="tag-btn" value="1">#축! 생일</button>
     
     </li>
     <li class="tag"><button class="tag-btn" value="2">#커플케이크</button></li>
@@ -82,14 +83,10 @@
 <script>
   let codebuttons = document.querySelectorAll(".tag-btn")
   for(let button of codebuttons){
-    for(let b of codebuttons){
-      b.parentNode.classList.remove("tag-check");
-      b.classList.remove("tag-color");
-    }
 
     if (button.value === "{{code}}"){
-      button.parentNode.classList.add(" tag-check");
-      button.classList.add(" tag-color");
+      button.parentNode.classList.add("tag-check");
+      button.classList.add("tag-color");
       console.log("선택");
     }
   }
