@@ -231,9 +231,9 @@
                     </div>
                 </div>
                 
-                <div class="order_btn">
+                <button class="order_btn">
                     주문하기
-                </div>
+                </button>
             </div>
         </div>
         <div class="work_board_wrapper">
@@ -275,6 +275,7 @@
                 },
                 
                 success:function(json){
+                    location.href = '/cake/order/user/' + json.id;
                     console.log("data pass success", json);
                 },
                 error : function(xhr, errmsg, err){
@@ -286,6 +287,7 @@
     const save_btn = document.querySelector('.temp_save');
     save_btn.addEventListener('click', ()=>{
         const data = JSON.stringify(canvas);
+       
         console.log(data);
         
         $.ajax({
@@ -296,12 +298,16 @@
                 'X-CSRFTOKEN' : '{{ csrf_token }}'
             },
             success:function(json){
+                location.href = `/cake/order/user/${json.id}`;
                 console.log("data pass success", json);
+                
+                console.log("왜안감?")
             },
             error : function(xhr, errmsg, err){
                 console.log(xhr.status + ": " + xhr.responseText);
             }
         });
     });
+    
 </script>
 {% endblock %}

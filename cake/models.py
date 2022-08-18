@@ -9,8 +9,7 @@ from django.forms import CharField
 
     
 
-class StoreOrder(models.Model):
-    photo = models.ImageField()
+class Order(models.Model):
     price = models.IntegerField()
     address = models.CharField(max_length=100)
     date = models.CharField(max_length=100)
@@ -19,21 +18,8 @@ class StoreOrder(models.Model):
     flavor = models.CharField(max_length=30)
     additional = models.CharField(max_length=50)
     require = models.CharField(max_length=50)
-    cakeObject = models.ForeignKey("store.StoreCake", on_delete=models.CASCADE)
+    storeCake = models.ForeignKey("store.StoreCake", on_delete=models.CASCADE, null=True, blank=True)
+    userCake = models.ForeignKey("user.UserCake", on_delete=models.CASCADE, null=True, blank=True)
     user = models.ForeignKey("account.User", on_delete=models.CASCADE)
-    store = models.ForeignKey("account.BsSignupDetail", on_delete=models.CASCADE)
-"""
-class order(models.Model):
-    mapSearch = models.ForeignKey(on_delete = models.CASCADE)
-    orderDate = models.DateTimeField()
-    cakeImg = models.ImageField(upload_to = 'cake/' )
-    cakeSize = models.CharField(max_length=10)
-    cakeTaste = models.CharField(max_length=50)
-    addOptions = models.CharField(max_length=50)
-    cakeRequest = models.TextField(max_length=500, blank=True)
-
-
-    class Meta:
-        db_table = 'map'
-"""
+    store = models.ForeignKey("account.BsSignupDetail", on_delete=models.CASCADE, null=True, blank=True)
 

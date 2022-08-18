@@ -19,7 +19,8 @@ def signup(request):
         tel = request.POST['tel']
         email = request.POST['email']
         address = request.POST['address']
-        user = User.objects.create_user(email, name, tel, address, None, None, None)
+        profile = request.POST['profile']
+        user = User.objects.create_user(email, name, tel, profile,address, None, None, None)
 
         auth.login(request, user)
         return redirect('/')
@@ -75,6 +76,7 @@ def businessSignupDetail(request):
         bs.address = request.POST['address']
         bs.registeration = request.FILES['registeration']
         bs.report = request.FILES['report']
+        bs.logo = request.FILES['logo']
         bs.save()
         print("성공")
         return redirect('/')
@@ -132,7 +134,9 @@ def kakaocallback(request):
     social_id = f"{social_type}_{user_info_json_id}"
 
     kakao_account = user_info_json.get('kakao_account')
-    
+    kakao_image = kakao_account['profile']['thumbnail_image_url']
+    print(kakao_image)
+    print(kakao_account)
     if not kakao_account:
         return HttpResponse("없엉")
 
@@ -144,7 +148,7 @@ def kakaocallback(request):
         print(checked_user)
     except:
         print("여기가 진행 된거지??")
-        return render(request, 'signup.html', {'kakao_email':user_email})
+        return render(request, 'signup.html', {'kakao_email':user_email, 'kakao_image' : kakao_image})
     else:
         auth.login(request, checked_user)
         return redirect('/')
