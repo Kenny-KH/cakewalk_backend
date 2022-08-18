@@ -28,7 +28,7 @@
             <div class="toolbar">
                 <div class="toolbar_item back"><img src="{% static 'img/make/tool_back.png' %}" ></div>
                 <div class="toolbar_item forward"><img src="{% static 'img/make/tool_forward.png' %}" ></div>
-                <div class="toolbar_item memo"><img src="{% static 'img/make/tool_memo.png' %}"></div>
+                <div class="toolbar_item prohibit"><i class="fa-solid fa-ban"></i></div>
                 <div class="toolbar_item numbering"><img src="{% static 'img/make/tool_number.png' %}"></div>
                 <div class="toolbar_item share"><img src="{% static 'img/make/tool_share.png' %}"></div>
                 <div class="toolbar_item temp_save"><img src="{% static 'img/make/tool_temp_save.png' %}"></div>
@@ -243,7 +243,11 @@
                     </div>
                     <div class="step5_item board_text_size">
                         글자 크기
-                        <input type="number" class="board_font_size" value=18 >
+                        <input type="number" class="board_font_size_control" value=18 >
+                    </div>
+                    <div class="step5_item board_text_color">
+                        글자 색
+                        <input type="color" class="board_font_color_control" value='black'>
                     </div>
                     <div class="step5_item board_text_familly">
                         글꼴
@@ -252,6 +256,10 @@
                     <div class="step5_item board_text_content">
                         텍스트 입력
                         <textarea class="board_text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
+                    </div>
+                    
+                    <div class="step5_item step5_create_text_btn unactive">
+                        텍스트 생성하기
                     </div>
 
                     <button class="order_btn">
