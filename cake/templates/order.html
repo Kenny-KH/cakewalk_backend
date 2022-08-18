@@ -177,11 +177,11 @@
         <!--달력-->
         <div id="calendar">
           <div class="month-wrap">
-            <button class="arrow-btn" id="left">
+            <button type="button" class="arrow-btn" id="left">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
             <span class="month"> </span>
-            <button class="arrow-btn" id="right">
+            <button type="button" class="arrow-btn" id="right">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
@@ -244,7 +244,7 @@
             class="requireTextarea"
             placeholder="주문 시 요청사항을 적어주세요."
           ></textarea>
-          <img src="{{cake.image.url}}">
+          <img class="order_cake_design" src="{{cake.image.url}}">
         </div>
       </div>
       <!-- 주문3 끝 -->
@@ -263,9 +263,7 @@
           <div class="detailOptionWrap">
             <div class="detailOption">
               <div class="size">
-                <span class="text"
-                  ><span style="color: red">*</span>케이크 호수</span
-                >
+                <span class="text"><span style="color: red">*</span>케이크 호수</span>
                 <div class="radioBtnForm" action="#">
                   <input
                     class="radioBtn"
@@ -291,35 +289,34 @@
                     value="3호"
                     name="size"
                   />3호
-                </>
+                </div>
               </div>
 
               <div class="taste">
-                <span class="text"
-                  ><span style="color: red">*</span>케이크 맛</span
-                >
+                <span class="text"><span style="color: red">*</span>케이크 맛</span>
                 <select class="taste-select" name="flavor">
                   <option>케이크 맛을 선택하세요</option>
-                  <option value="초코맛">초코밋</option>
+                  <option value="초코맛">초코맛</option>
                   <option value="딸기맛">딸기맛</option>
                   <option value="민트맛">민트맛</option>
                 </select>
               </div>
               <div class="adtnlOptionWrap">
                 <span class="text"> 추가 옵션</span>
-
-                <label class="checkLabel">
-                  <input type="checkbox" value="candle" name="candle" />초
-                  추가<input class="countInput" name="number" />개
-                </label>
-                <label class="checkLabel">
-                  <input type="checkbox" value="풍선 추가" name="ballon" />풍선
-                  추가
-                </label>
-                <label class="checkLabel">
-                  <input type="checkbox" value="보냉백 추가" name="ice" />보냉백
-                  추가
-                </label>
+                <div class="adtDetailWrap">
+                  <label class="checkLabel">
+                    <input type="checkbox" value="candle" name="candle" />초
+                    추가<input class="countInput" name="number" />개
+                  </label>
+                  <label class="checkLabel">
+                    <input type="checkbox" value="풍선 추가" name="ballon" />풍선
+                    추가
+                  </label>
+                  <label class="checkLabel">
+                    <input type="checkbox" value="보냉백 추가" name="ice" />보냉백
+                    추가
+                  </label>
+                </div>
               </div>
             </div>
             <textarea
@@ -328,8 +325,9 @@
               name="require"
             ></textarea>
           </div>
-          <button type="button" class="orderBtn">주문하기</button>
+          
         </div>
+        <button type="button" class="orderBtn">주문하기</button>
       </div>
       <!-- 주문 4 끝 -->
  

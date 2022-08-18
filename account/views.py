@@ -129,7 +129,7 @@ def kakaocallback(request):
     user_info_res = requests.get(kakao_profile_uri, headers=auth_headers)
     user_info_json = user_info_res.json()
     user_info_json_id = user_info_json.get('id')
-
+    print(user_info_json)
     social_type = 'kakao'
     social_id = f"{social_type}_{user_info_json_id}"
 
