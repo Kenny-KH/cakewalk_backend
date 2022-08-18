@@ -42,8 +42,10 @@ all_images.forEach((ele) => {
 
     if(Number(ele.id) === firstId) {
       left_arrow.classList.add('hide');
+      right_arrow.classList.remove('hide');
     } else if(Number(ele.id) === lastId) {
       right_arrow.classList.add('hide');
+      left_arrow.classList.remove('hide');
     } else {
       left_arrow.classList.remove('hide');
       right_arrow.classList.remove('hide');
@@ -115,7 +117,6 @@ left_arrow.addEventListener("click", () => {
 });
 
 $tagWrap.addEventListener("click", (e) => {
-  // console.log('dsf');
   const $ul = e.target.closest("ul");
   if (e.target.tagName === "BUTTON") {
     for (let i = 0; i < $ul.children.length; i++) {
@@ -130,13 +131,3 @@ $tagWrap.addEventListener("click", (e) => {
     e.target.classList.add("tag-color");
   }
 });
-
-
-// 마우스오버시 슈웅 커짐
-// $pickCake.addEventListener('mouseover', (e) => {
-//   if(e.target.tagName === 'IMG') {
-//     console.log(e.target);
-//     e.target.classList.add('mouseover');
-//   }
-  
-// })
