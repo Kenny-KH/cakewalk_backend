@@ -1,4 +1,8 @@
 /*--------------------------------- Canvas --------------------------------- */
+const zindex_info ={
+
+};
+
 const canvas = new fabric.Canvas('c');
 const canvas2 = new fabric.Canvas('c2');
 
@@ -184,6 +188,7 @@ function drawShape() {
   }
 }
 /*--------------------------------- Tool bar --------------------------------- */
+//download
 const download_btn = document.querySelector('.download');
 download_btn.addEventListener('click', ()=>{
     const data = canvas.toDataURL();
@@ -193,6 +198,15 @@ download_btn.addEventListener('click', ()=>{
     link.click();
     link.remove();
 });
+
+//reset
+const prohibit_btn = document.querySelector('.prohibit');
+prohibit_btn.addEventListener('click', ()=>{
+  if(window.confirm("캔버스를 초기화 하겠습니까?")){
+    canvas.clear();
+    canvas2.clear();
+  }
+})
 
 /*--------------------------------- Object Delete --------------------------------- */
 const deleteIcon =
@@ -382,13 +396,13 @@ size_radios.forEach((element) => {
 
       switch (canvas_object_info.select_size) {
         case "1":
-          canvas_object_info.mag = 0.8;
+          canvas_object_info.mag = 0.6;
           break;
         case "2":
-          canvas_object_info.mag = 1.0;
+          canvas_object_info.mag = 0.8;
           break;
         case "3":
-          canvas_object_info.mag = 1.2;
+          canvas_object_info.mag = 1.0;
           break;
         default:
           break;
@@ -764,11 +778,10 @@ document.getElementById("fill_img_angle").oninput = function () {
   setFillImage();
 };
 
-/*--------------------------------- STEP3 레터링 --------------------------------- */
+/*--------------------------------- STEP3 레터링 & STEP5 레터링 --------------------------------- */
 //텍스트 입력 방식 버튼 이벤트
 let text_info = {
   text_type: "mouse",
-  width : 150,
   posX : 100,
   posY : 100,
   font_size: 18,
@@ -778,7 +791,9 @@ let text_info = {
 };
 
 const texttypes = document.querySelectorAll(".text_type_item");
+
 let cur_active_text_type = document.querySelector(".text_type_item_active");
+
 texttypes.forEach((element) => {
   element.addEventListener("click", () => {
     cur_active_text_type.classList.toggle("text_type_item_active", false);
@@ -786,7 +801,7 @@ texttypes.forEach((element) => {
     cur_active_text_type = element;
     text_info.text_type = cur_active_text_type.dataset.type;
 
-    writeText(text_info);
+    writeText();
   });
 });
 
@@ -794,13 +809,11 @@ texttypes.forEach((element) => {
 const font_size_control = document.querySelector(".font_size_control");
 font_size_control.oninput = function(){
   if(activeCanvas.getActiveObject()){
-    console.log(activeCanvas.getActiveObject());
     activeCanvas.getActiveObject().fontSize = font_size_control.value
     activeCanvas.requestRenderAll();
   }
   text_info.font_size = font_size_control.value;
-  writeText(text_info);
-  
+  writeText();
 };
 
 //글자 색 입력 받기
@@ -810,9 +823,8 @@ font_color_control.oninput = function(){
     activeCanvas.getActiveObject().fill = font_color_control.value;
     activeCanvas.requestRenderAll();
   }
-  console.log(activeCanvas.getActiveObject());
   text_info.font_color = font_color_control.value;
-  writeText(text_info);
+  writeText();
 };
 
 //글꼴 설정 및 입력 받기
@@ -823,6 +835,9 @@ const fonts = [
   "나눔 펜",
   "썬플라워",
 ];
+
+const step5_font_selector = document.getElementById("board_font_familly_selector");
+
 const font_selector = document.getElementById("font_familly_selector");
 //font <option>태그로 HTML에 추가
 fonts.forEach(function (font) {
@@ -831,8 +846,12 @@ fonts.forEach(function (font) {
   option.innerHTML = font;
   option.value = font;
   option.style.fontFamily = font;
+
   font_selector.style.fontFamily = "쥬아";
   font_selector.appendChild(option);
+
+  step5_font_selector.style.fontFamily ="쥬아";
+  step5_font_selector.appendChild(option);
 });
 
 font_selector.onchange = function () {
@@ -843,7 +862,7 @@ font_selector.onchange = function () {
     activeCanvas.requestRenderAll();
   }
   text_info.font_familly = font_selector.value;
-  writeText(text_info);
+  writeText();
 };
 
 // 텍스트 값 입력 받기
@@ -860,10 +879,10 @@ text_content_item.addEventListener("input", () => {
     activeCanvas.requestRenderAll();
   }
 
-  writeText(text_info);
+  writeText();
 });
 
-function writeText(cur_text_info) {
+function writeText() {
   fabric.Object.prototype.objectCaching = false;
   activeCanvas.isDrawingMode = false;
 
@@ -875,26 +894,26 @@ function writeText(cur_text_info) {
 
     case "box":
       textCreatebtn.classList.toggle("unactive", false);
-      textBox(cur_text_info);
+      textCreatebtn.removeEventListener('clikc', textBox);
+      textCreatebtn.addEventListener("click",textBox);
       break;
 
     case "curve":
       textCreatebtn.classList.toggle("unactive", true);
-      textCurve(cur_text_info);
+      textCurve();
       break;
   }
 }
+
 // 네모 박스 레터링
 const textCreatebtn = document.querySelector(".create_text_btn");
-function textBox(cur_text_info) {
-  textCreatebtn.addEventListener("click", () => {
-    let textbox = new fabric.Textbox(cur_text_info.text_contet, {
-      width: cur_text_info.width,
-      top : cur_text_info.posY,
-      left : cur_text_info.posX,
-      fontSize: cur_text_info.font_size,
-      fontFamily: cur_text_info.font_familly,
-      fill: cur_text_info.font_color,
+function textBox() {
+    let textbox = new fabric.Textbox(text_info.text_contet, {
+      top : text_info.posY,
+      left : text_info.posX,
+      fontSize: text_info.font_size,
+      fontFamily: text_info.font_familly,
+      fill: text_info.font_color,
       
       canvas : activeCanvas,
     });
@@ -927,28 +946,27 @@ function textBox(cur_text_info) {
     
     activeCanvas.add(textbox);
     activeCanvas.requestRenderAll();
-  });
 }
 
-function textCurve(cur_text_info) {
+function textCurve() {
   fabric.Object.prototype.objectCaching = true;
   activeCanvas.isDrawingMode = true;
 
-  activeCanvas.on("before:path:created", function (opt) {
+  activeCanvas.off("before:path:created").on("before:path:created", function (opt) {
     let path = opt.path;
     let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
     path.segmentsInfo = pathInfo;
     let pathLength = pathInfo[pathInfo.length - 1].length;
     let fontSize =
-    ((cur_text_info.font_size / 18) * pathLength) / cur_text_info.text_contet.length;
+    ((text_info.font_size / 18) * pathLength) / text_info.text_contet.length;
 
-    text = new fabric.Text(cur_text_info.text_contet, {
+    text = new fabric.Text(text_info.text_contet, {
       fontSize: fontSize,
       path: path,
       top: path.top,
       left: path.left,
-      fill : cur_text_info.font_color,
-      fontFamily : cur_text_info.font_familly,
+      fill : text_info.font_color,
+      fontFamily : text_info.font_familly,
     });
 
     if(activeCanvas == canvas){
@@ -1074,3 +1092,195 @@ create_support_btn.addEventListener("click", () => {
     support.moveTo(-999);
     canvas.requestRenderAll();
 });
+
+let step5_text_info = {
+  text_type: "mouse",
+  posX : 100,
+  posY : 100,
+  font_size: 18,
+  font_color: "black",
+  font_familly: "times New Roman",
+  text_contet: "생일 축하 합니다!",
+}
+
+const step5_texttypes = document.querySelectorAll(".board_text_type_item");
+let step5_cur_active_text_type = document.querySelector(".board_text_type_item_active");
+
+step5_texttypes.forEach((element) => {
+  element.addEventListener("click", () => {
+    console.log(step5_cur_active_text_type);
+    step5_cur_active_text_type.classList.toggle("board_text_type_item_active", false);
+    element.classList.toggle("board_text_type_item_active", true);
+    step5_cur_active_text_type = element;
+    step5_text_info.text_type = step5_cur_active_text_type.dataset.type;
+
+    step5WriteText();
+  });
+});
+
+const step5_font_size_control = document.querySelector(".board_font_size_control");
+step5_font_size_control.oninput = function(){
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fontSize = step5_font_size_control.value
+    activeCanvas.requestRenderAll();
+  }
+  step5_text_info.font_size = step5_font_size_control.value;
+  step5WriteText();
+};
+
+const step5_font_color_control = document.querySelector(".board_font_color_control");
+step5_font_color_control.oninput = function(){
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fill = step5_font_color_control.value;
+    activeCanvas.requestRenderAll();
+  }
+  step5_text_info.font_color = step5_font_color_control.value;
+  step5WriteText();
+};
+
+step5_font_selector.onchange = function () {
+  step5_font_selector.style.fontFamily = this.value;
+
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fontFamily = this.value
+    activeCanvas.requestRenderAll();
+  }
+  step5_text_info.font_familly = step5_font_selector.value;
+  step5WriteText();
+};
+
+const step5_text_content_item = document.querySelector(".board_text_content_item");
+step5_text_content_item.addEventListener("input", () => {
+  if (step5_text_content_item.value) {
+    step5_text_info.text_contet = step5_text_content_item.value;
+  } else {
+    step5_text_info.text_contet = "";
+  }
+
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().text = step5_font_selector.value;
+    activeCanvas.requestRenderAll();
+  }
+
+  step5WriteText();
+});
+
+function step5WriteText() {
+  fabric.Object.prototype.objectCaching = false;
+  activeCanvas.isDrawingMode = false;
+
+  switch (step5_text_info.text_type) {
+    case "mouse":
+      step5_textCreatebtn.classList.toggle("unactive", true);
+      textMouse();
+      break;
+
+    case "box":
+      step5_textCreatebtn.classList.toggle("unactive", false);
+      step5_textCreatebtn.removeEventListener('clikc', step5TextBox);
+      step5_textCreatebtn.addEventListener("click",step5TextBox);
+      break;
+
+    case "curve":
+      step5_textCreatebtn.classList.toggle("unactive", true);
+      step5TextCurve();
+      break;
+  }
+}
+
+const step5_textCreatebtn = document.querySelector(".step5_create_text_btn"); 
+function step5TextBox() {
+    let textbox = new fabric.Textbox(step5_text_info.text_contet, {
+      top : step5_text_info.posY,
+      left : step5_text_info.posX,
+      fontSize: step5_text_info.font_size,
+      fontFamily: step5_text_info.font_familly,
+      fill: step5_text_info.font_color,
+      
+      canvas : activeCanvas,
+    });
+
+    textbox.on('modified', ()=>{
+      if(textbox.canvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object == textbox){
+            canvas_object_info.object.splice(i, 0, textbox);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object == textbox){
+            side_canvas_object_info.object.splice(i, 0, textbox);
+            break;
+          }
+        }
+      }
+    });
+
+    if (activeCanvas == canvas){
+      canvas_object_info.object.push(textbox);
+    }
+    else{
+      side_canvas_object_info.object.push(textBox);
+    }
+    
+    activeCanvas.add(textbox);
+    activeCanvas.requestRenderAll();
+}
+
+function step5TextCurve() {
+  fabric.Object.prototype.objectCaching = true;
+  activeCanvas.isDrawingMode = true;
+
+  activeCanvas.off("before:path:created").on("before:path:created", function (opt) {
+    let path = opt.path;
+    let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
+    path.segmentsInfo = pathInfo;
+    let pathLength = pathInfo[pathInfo.length - 1].length;
+    let fontSize =
+    ((step5_text_info.font_size / 18) * pathLength) / step5_text_info.text_contet.length;
+
+    text = new fabric.Text(step5_text_info.text_contet, {
+      fontSize: fontSize,
+      path: path,
+      top: path.top,
+      left: path.left,
+      fill : step5_text_info.font_color,
+      fontFamily : step5_text_info.font_familly,
+    });
+
+    if(activeCanvas == canvas){
+      canvas_object_info.object.push(text);
+    }
+    else{
+      side_canvas_object_info.object.push(text);
+    }
+    text.on('modified', ()=>{
+      if(text.canvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object[i] == text){
+            canvas_object_info.object.splice(i, 0, text);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object[i] == text){
+            side_canvas_object_info.object.splice(i, 0, text);
+            break;
+          }
+        }
+      }
+    });
+
+    activeCanvas.add(text);
+    activeCanvas.setActiveObject(text);
+  });
+
+  activeCanvas.on("path:created", function (opt) {
+      activeCanvas.remove(opt.path);
+  });
+}
