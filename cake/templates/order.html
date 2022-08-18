@@ -73,6 +73,21 @@
               <p class="notice-text"></p>
             </div>
           </div>
+
+          {% else %}
+          <div class="all">
+            <div class="map-wrap">
+              <input class="search-input" type="text" name="address" />
+              <div id="map"></div>
+            </div>
+    
+            <div class="right"> 
+               <div class="storenotice">공지사항</div>
+              <div class="store">
+                <div class="storetext">
+                  <p class="notice-text"></p>
+                </div>
+              </div>
           {% endif %}
           <div class="storeclose">
             <p class="mystore">나와 가까운 가게</p>
