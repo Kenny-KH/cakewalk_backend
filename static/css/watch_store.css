@@ -11,7 +11,9 @@
   height: 4rem;
   display: flex;
   justify-content: center;
+  margin-top: 65px;
 }
+
 .b_watch_item {
   padding: 1rem;
   border-bottom: 2px solid #ccc;
