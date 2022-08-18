@@ -82,7 +82,7 @@ body {
 /* 섹션 헤더 */
 .setting-header {
     display: flex;
-    padding-top: 80px;
+    padding-top: 96px;
     margin-bottom: 42px;
     justify-content: space-between;
     align-items: end;
