@@ -1,0 +1,369 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title>주문 하기</title>
+
+<!-- CSS stylesheet -->
+<link
+  link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/order.css' %}"
+/>
+
+<script
+  type="text/javascript"
+  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7639c8295bc60ba86f2301c8d9948047"
+  defer
+></script>
+<script
+  type="text/javascript"
+  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7639c8295bc60ba86f2301c8d9948047&libraries=LIBRARY"
+></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script
+  src="https://kit.fontawesome.com/d35df90ac6.js"
+  crossorigin="anonymous"
+></script>
+
+<script src="{% static 'js/order.js' %}" defer></script>
+{% endblock %} {% block content %}
+
+{% if messages %}
+	{% for message in messages %}
+		<script>alert("{{ message.message }}")</script>
+	{% endfor %}
+{% endif %}
+
+<script>
+
+</script>
+
+<body class="body">
+  <!-- 단계 버튼 -->
+  <div class="step">
+    <button class="step-btn">1</button>
+    <button class="step-btn">2</button>
+    <button class="step-btn">3</button>
+    <button class="step-btn">4</button>
+    <hr class="line" />
+  </div>
+  <!-- 분홍 바탕 설명 부분 -->
+  <div class="explain-wrap">
+    <!-- 주문1 시작 -->
+    <div class="optionWrap one-select notAvailable">
+    <section class="optionWrap one-select">
+        <div class="optionTitleWrap">
+            <span class="optionNumber">1</span>
+                <div class="optionTextWrap">
+                    <span class="optionText">가게 선택하기</span>
+                    <p class="optionSubText">케이크를 주문할 가게를 선택해주세요.</p>
+                </div>
+            </div>
+        </div>
+      <form action="{% url 'order' whatCake cake_id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="all">
+        <div class="map-wrap">
+          <input class="search-input" type="text" name="address" />
+          <div id="map"></div>
+        </div>
+        <div class="right">
+          <div class="store">
+            <div class="storenotice">가게공지</div>
+            <div class="storetext">
+              <p class="notice-text"></p>
+            </div>
+          </div>
+          <div class="storeclose">
+            <p class="mystore">나와 가까운 가게</p>
+            <input type="hidden" value="" name="store" id="store">
+            <section class="scroll">
+              {% if whatCake == "store" %}
+ <!-- 가게정보시작부분 -->
+              <article class="storebox" id="{{stores.id}}">
+                <div class="storewrap">
+                  <img
+                    class="cakelogo"
+                    src="https://img.lovepik.com/element/40131/7560.png_860.png"
+                    alt="가게로고"
+                  />
+                  <div class="storetextwrap">
+                    <div class="storename">{{stores.bsName}}</div>
+
+                    <div class="storeinfo">
+                      <div class="store-info-line">
+                        <div>
+                          <i class="fa-solid fa-location-arrow"></i>
+                          {{stores.address}}
+                        </div>
+                        <div class="store-info-insta">
+                          <i class="fa-brands fa-instagram"></i>
+                          @{{stores.insta}}
+                        </div>
+                      </div>
+                      <div class="store-info-line">
+                        <div>
+                          <i class="fa-solid fa-phone"></i> {{stores.phoneNum}}
+                        </div>
+                        <div class="store-info-time">
+                          <i class="fa-solid fa-clock"></i> 10:00 ~ 19:00
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              {% else %}
+<!-- 가게정보 여기까지 -->
+              {% for store in stores %}
+              <!-- 가게정보시작부분 -->
+              <article class="storebox" id="{{store.id}}">
+                <div class="storewrap">
+                  <img
+                    class="cakelogo"
+                    src="https://img.lovepik.com/element/40131/7560.png_860.png"
+                    alt="가게로고"
+                  />
+                  <div class="storetextwrap">
+                    <div class="storename">{{store.bsName}}</div>
+
+                    <div class="storeinfo">
+                      <div class="store-info-line">
+                        <div>
+                          <i class="fa-solid fa-location-arrow"></i>
+                          {{store.address}}
+                        </div>
+                        <div class="store-info-insta">
+                          <i class="fa-brands fa-instagram"></i>
+                          @{{store.insta}}
+                        </div>
+                      </div>
+                      <div class="store-info-line">
+                        <div>
+                          <i class="fa-solid fa-phone"></i> {{store.phoneNum}}
+                        </div>
+                        <div class="store-info-time">
+                          <i class="fa-solid fa-clock"></i> 10:00 ~ 19:00
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              
+              <script>
+                const clickAction = (document.getElementById(
+                  "{{store.id}}"
+                ).onclick = function () {
+                  let searchInput = document.querySelector(".search-input");
+                  let notice = document.querySelector(".notice-text");
+                  let store = document.querySelector("#store")
+
+                  console.log(searchInput);
+                  searchInput.value = "{{store.address}}";
+                  notice.innerHTML = "{{store.notice}}";
+                  store.value = "{{store.id}}";
+                  console.log(store.value);
+                });
+              </script>
+              {% endfor %}
+              <!-- 가게정보 여기까지 -->
+              {% endif %}
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 주문1 끝 -->
+
+    <!-- 주문2 시작 -->
+    <section class="optionWrap one-select">
+      <div class="optionTitleWrap">
+        <span class="optionNumber">2</span>
+        <div class="optionTextWrap">
+          <span class="optionText">날짜 선택하기</span>
+          <p class="optionSubText">케이크를 주문할 날짜를 선택해주세요.</p>
+        </div>
+      </div>
+      <div class="all">
+        <!--달력-->
+        <div id="calendar">
+          <div class="month-wrap">
+            <button type="button" class="arrow-btn" id="left">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="month"> </span>
+            <button type="button" class="arrow-btn" id="right">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <!--div class="days">
+                    <div class="day">일</div>
+                    <div class="day">월</div>
+                    <div class="day">화</div>
+                    <div class="day">수</div>
+                    <div class="day">목</div>
+                    <div class="day">금</div>
+                    <div class="day">토</div>
+                    </div class="days"-->
+          <div class="dates"></div>
+        </div>
+
+        <!--픽업 시간 선택-->
+        <input type="hidden" name="date" id="date"/>
+        <div class="pickup">
+          <div class="choice_pickup">
+            <i class="fa-solid fa-check"></i>픽업 시간 선택
+          </div>
+          <div class="times_div">
+            <button type="button" class="time_btn">12:00</button>
+            <button type="button" class="time_btn">12:30</button>
+            <button type="button" class="time_btn">13:00</button>
+            <button type="button" class="time_btn">13:30</button>
+            <button type="button" class="time_btn">14:00</button>
+            <button type="button" class="time_btn">14:30</button>
+            <button type="button" class="time_btn">15:00</button>
+            <button type="button" class="time_btn">15:30</button>
+            <button type="button" class="time_btn">16:00</button>
+            <button type="button" class="time_btn">16:30</button>
+            <button type="button" class="time_btn">17:00</button>
+            <button type="button" class="time_btn">17:30</button>
+
+            <div class="last_btns_div">
+              <button type="button" class="time_btn">18:00</button>
+              <button type="button" class="time_btn">18:30</button>
+              <button type="button" class="time_btn">19:00</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 주문2 끝 -->
+    <!-- 주문 하단 부분 -->
+    <section class="optionWrap order-bottom">
+      <!-- 주문3 시작 -->
+      <div class="option">
+        <div class="optionTitleWrap">
+          <span class="optionNumber">3</span>
+          <div class="optionTextWrap">
+            <span class="optionText">케이크 선택하기</span>
+            <p class="optionSubText">디자인한 케이크 도안을 선택해주세요.</p>
+          </div>
+        </div>
+        <div class="optionContents">
+          <div class="fileName">{{cake.image.name}} </div>
+
+          <textarea
+            class="requireTextarea"
+            placeholder="주문 시 요청사항을 적어주세요."
+          ></textarea>
+          <img class="order_cake_design" src="{{cake.image.url}}">
+        </div>
+      </div>
+      <!-- 주문3 끝 -->
+      <!-- 주문 4 시작 -->
+      <div class="option">
+        <div class="optionTitleWrap">
+          <span class="optionNumber">4</span>
+          <div class="optionTextWrap">
+            <span class="optionText">상세옵션 선택하기</span>
+            <div class="optionSubText">
+              케이크 주문 관련 상세옵션을 선택해주세요.
+            </div>
+          </div>
+        </div>
+        <div class="optionContents">
+          <div class="detailOptionWrap">
+            <div class="detailOption">
+              <div class="size">
+                <span class="text"><span style="color: red">*</span>케이크 호수</span>
+                <div class="radioBtnForm" action="#">
+                  <input
+                    class="radioBtn"
+                    type="radio"
+                    value="미니 "
+                    name="size"
+                  />미니
+                  <input
+                    class="radioBtn"
+                    type="radio"
+                    value="1호"
+                    name="size"
+                  />1호
+                  <input
+                    class="radioBtn"
+                    type="radio"
+                    value="2호"
+                    name="size"
+                  />2호
+                  <input
+                    class="radioBtn"
+                    type="radio"
+                    value="3호"
+                    name="size"
+                  />3호
+                </div>
+              </div>
+
+              <div class="taste">
+                <span class="text"><span style="color: red">*</span>케이크 맛</span>
+                <select class="taste-select" name="flavor" required>
+                  
+                  <option value="초코맛">초코맛</option>
+                  <option value="딸기맛">딸기맛</option>
+                  <option value="민트맛">민트맛</option>
+                </select>
+              </div>
+              <div class="adtnlOptionWrap">
+                <span class="text"> 추가 옵션</span>
+                <div class="adtDetailWrap">
+                  <label class="checkLabel">
+                    <input type="checkbox" value="candle" name="candle" />초
+                    추가<input class="countInput" name="number" />개
+                  </label>
+                  <label class="checkLabel">
+                    <input type="checkbox" value="풍선 추가" name="ballon" />풍선
+                    추가
+                  </label>
+                  <label class="checkLabel">
+                    <input type="checkbox" value="보냉백 추가" name="ice" />보냉백
+                    추가
+                  </label>
+                </div>
+              </div>
+            </div>
+            <textarea
+              class="request"
+              placeholder="주문 시 요청사항"
+              name="require"
+            ></textarea>
+          </div>
+          
+        </div>
+        <button type="button" class="orderBtn">주문하기</button>
+      </div>
+      <!-- 주문 4 끝 -->
+ 
+    </section>
+  </div>
+
+  <!-- 모달창 -->
+  <div class="modal-wrap">
+    <div class="modal">
+      <span class="modal-title">[주문접수]</span>
+      <p class="modal-text">
+        고객님의 주문이 성공적으로 접수되었습니다!<br /><br />
+        주문접수는 주문완료가 아니므로<br />사장님의 접수 메세지를 기다려
+        주세요.
+      </p>
+      <button
+        class="confirm-btn" type="submit"
+   
+      >
+        확인
+      </button>
+    </div>
+  </div>
+</form>
+  {% endblock %}
+</body>
