@@ -382,13 +382,13 @@ size_radios.forEach((element) => {
 
       switch (canvas_object_info.select_size) {
         case "1":
-          canvas_object_info.mag = 0.8;
+          canvas_object_info.mag = 0.6;
           break;
         case "2":
-          canvas_object_info.mag = 1.0;
+          canvas_object_info.mag = 0.8;
           break;
         case "3":
-          canvas_object_info.mag = 1.2;
+          canvas_object_info.mag = 1.0;
           break;
         default:
           break;
@@ -768,7 +768,6 @@ document.getElementById("fill_img_angle").oninput = function () {
 //텍스트 입력 방식 버튼 이벤트
 let text_info = {
   text_type: "mouse",
-  width : 150,
   posX : 100,
   posY : 100,
   font_size: 18,
@@ -786,7 +785,7 @@ texttypes.forEach((element) => {
     cur_active_text_type = element;
     text_info.text_type = cur_active_text_type.dataset.type;
 
-    writeText(text_info);
+    writeText();
   });
 });
 
@@ -799,7 +798,7 @@ font_size_control.oninput = function(){
     activeCanvas.requestRenderAll();
   }
   text_info.font_size = font_size_control.value;
-  writeText(text_info);
+  writeText();
   
 };
 
@@ -812,7 +811,7 @@ font_color_control.oninput = function(){
   }
   console.log(activeCanvas.getActiveObject());
   text_info.font_color = font_color_control.value;
-  writeText(text_info);
+  writeText();
 };
 
 //글꼴 설정 및 입력 받기
@@ -843,7 +842,7 @@ font_selector.onchange = function () {
     activeCanvas.requestRenderAll();
   }
   text_info.font_familly = font_selector.value;
-  writeText(text_info);
+  writeText();
 };
 
 // 텍스트 값 입력 받기
@@ -860,10 +859,10 @@ text_content_item.addEventListener("input", () => {
     activeCanvas.requestRenderAll();
   }
 
-  writeText(text_info);
+  writeText();
 });
 
-function writeText(cur_text_info) {
+function writeText() {
   fabric.Object.prototype.objectCaching = false;
   activeCanvas.isDrawingMode = false;
 
@@ -875,26 +874,25 @@ function writeText(cur_text_info) {
 
     case "box":
       textCreatebtn.classList.toggle("unactive", false);
-      textBox(cur_text_info);
+      textCreatebtn.removeEventListener('clikc', textBox);
+      textCreatebtn.addEventListener("click",textBox);
       break;
 
     case "curve":
       textCreatebtn.classList.toggle("unactive", true);
-      textCurve(cur_text_info);
+      textCurve();
       break;
   }
 }
 // 네모 박스 레터링
 const textCreatebtn = document.querySelector(".create_text_btn");
-function textBox(cur_text_info) {
-  textCreatebtn.addEventListener("click", () => {
-    let textbox = new fabric.Textbox(cur_text_info.text_contet, {
-      width: cur_text_info.width,
-      top : cur_text_info.posY,
-      left : cur_text_info.posX,
-      fontSize: cur_text_info.font_size,
-      fontFamily: cur_text_info.font_familly,
-      fill: cur_text_info.font_color,
+function textBox() {
+    let textbox = new fabric.Textbox(text_info.text_contet, {
+      top : text_info.posY,
+      left : text_info.posX,
+      fontSize: text_info.font_size,
+      fontFamily: text_info.font_familly,
+      fill: text_info.font_color,
       
       canvas : activeCanvas,
     });
@@ -927,28 +925,27 @@ function textBox(cur_text_info) {
     
     activeCanvas.add(textbox);
     activeCanvas.requestRenderAll();
-  });
 }
 
-function textCurve(cur_text_info) {
+function textCurve() {
   fabric.Object.prototype.objectCaching = true;
   activeCanvas.isDrawingMode = true;
 
-  activeCanvas.on("before:path:created", function (opt) {
+  activeCanvas.off("before:path:created").on("before:path:created", function (opt) {
     let path = opt.path;
     let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
     path.segmentsInfo = pathInfo;
     let pathLength = pathInfo[pathInfo.length - 1].length;
     let fontSize =
-    ((cur_text_info.font_size / 18) * pathLength) / cur_text_info.text_contet.length;
+    ((text_info.font_size / 18) * pathLength) / text_info.text_contet.length;
 
-    text = new fabric.Text(cur_text_info.text_contet, {
+    text = new fabric.Text(text_info.text_contet, {
       fontSize: fontSize,
       path: path,
       top: path.top,
       left: path.left,
-      fill : cur_text_info.font_color,
-      fontFamily : cur_text_info.font_familly,
+      fill : text_info.font_color,
+      fontFamily : text_info.font_familly,
     });
 
     if(activeCanvas == canvas){
