@@ -80,7 +80,7 @@
   height: 958px;
   margin: auto;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   place-items: center;
   align-items: center;
   /* justify-content: flex-start;
