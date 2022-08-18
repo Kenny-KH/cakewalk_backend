@@ -34,77 +34,20 @@
 
 
     <section class="design-all">
+      {% for cake in cakes %}
       <!-- 도안 디자인 여기부터 -->
       <article class="design-total">
-        <div class="design-name">양희주 기념일 도안</div>
+        <div class="design-name">{{cake.name}} 도안</div>
         <div class="img-wrap">
         <img
           class="cake-design"
-          src="{% static 'img/cake-design1.png' %}"
+          src="{{cake.image.url}}"
           alt="케이크도안"
         /></div>
-        <button class="order-button">주문하기</button>
+        <button class="order-button" onclick="location.href='{% url 'order' user cake.id %}'">주문하기</button>
       </article>
       <!-- 도안 디자인 여기까지 -->
-      <!-- 도안 디자인 여기부터 -->
-      <article class="design-total">
-        <div class="design-name">박연빈 생일 축하 도안</div>
-        <div class="img-wrap">
-        <img
-          class="cake-design"
-          src="{% static 'img/cake-design2.png' %}"
-          alt="케이크도안"
-        /></div>
-        <button class="order-button">주문하기</button>
-      </article>
-      <!-- 도안 디자인 여기까지 -->
-      <!-- 도안 디자인 여기부터 -->
-      <article class="design-total">
-        <div class="design-name">공주 도안</div>
-        <div class="img-wrap">
-        <img
-          class="cake-design"
-          src= "{% static 'img/cake1.png' %}"
-          alt="케이크도안"
-        /></div>
-        <button class="order-button">주문하기</button>
-      </article>
-      <!-- 도안 디자인 여기까지 -->
-      <!-- 도안 디자인 여기부터 -->
-      <article class="design-total">
-        <div class="design-name">30대 축하 도안</div>
-        <div class="img-wrap">
-        <img
-          class="cake-design"
-          src="{% static 'img/cake-design4.png' %}"
-          alt="케이크도안"
-        /></div>
-        <button class="order-button">주문하기</button>
-      </article>
-      <!-- 도안 디자인 여기까지 -->
-      <!-- 도안 디자인 여기부터 -->
-      <article class="design-total">
-        <div class="design-name">아빠 도안</div>
-       <div class="img-wrap"> <img
-          class="cake-design"
-          src="{% static 'img/cake-design5.png' %}"
-          alt="케이크도안"
-        /></div>
-        <button class="order-button">주문하기</button>
-      </article>
-      <!-- 도안 디자인 여기까지 -->
-      <!-- 도안 디자인 여기부터 -->
-      <article class="design-total">
-        <div class="design-name">이선호 최고야 도안</div>
-        <div class="img-wrap">
-        <img
-          class="cake-design"
-          src="{% static 'img/cake-design6.png' %}"
-          alt="케이크도안"
-        /></div>
-        <button class="order-button">주문하기</button>
-      </article>
-      <!-- 도안 디자인 여기까지 -->
+      {% endfor %}
     </section>
     <!-- 넘버링 -->
     <div class="pages">

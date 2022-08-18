@@ -28,7 +28,7 @@
                 <div class = "phrases">케이크도안</div>
 
                
-                    <img  class="design_cake"  src="{{order.photo.url}}" />
+                    <img  class="design_cake"  src="{{order.cake.url}}" />
                
                 <div class="btns_div">
                 <button class="btns btns_r">주문 취소하기</button>
@@ -47,7 +47,9 @@
                         <span class="span1">이렇게 주문할게요!!</span>
                     </div class = "message1">
                     <img class = "profile1" name="profile1" src="{{requst.user.profile_image}}">
-
+                    <script>
+                        console.log("{{requst.user.profile_image}}")
+                    </script>
                 </div class = "upside_message">
 
                 <div class = "downside_message">
