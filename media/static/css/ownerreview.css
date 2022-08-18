@@ -1,0 +1,174 @@
+.title {
+  font-size: 32px;
+  font-weight: 550;
+  margin-top: 175px;
+}
+
+.day-button {
+  display: flex;
+  margin-top: 72px;
+}
+
+.a {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 80px;
+  font-size: 17px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.b {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 90px;
+  font-size: 17px;
+  margin-left: 9px;
+}
+
+.d {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 80px;
+  font-size: 17px;
+  margin-left: 500px;
+}
+
+a:link {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.review-menu {
+  display: flex;
+  width: 935px;
+  height: 47px;
+  margin-top: 22px;
+  font-size: 15px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  align-items: center;
+}
+
+.cake-title {
+  font-size: 15px;
+  margin-left: 70px;
+  width: 45px;
+}
+
+.order-menu {
+  width: 100px;
+  margin-left: 180px;
+}
+
+.grade {
+  width: 30px;
+  margin-left: 120px;
+}
+
+.detail-text {
+  width: 70px;
+  margin-left: 205px;
+}
+
+.cake-total {
+  display: flex;
+  font-size: 15px;
+  width: 930px;
+  height: 126px;
+  border-bottom: 1px solid #d9d9d9;
+  align-items: center;
+}
+
+.cake {
+  margin-left: 43px;
+  width: 179px;
+}
+
+.cake-order-text {
+  margin-left: 85px;
+}
+
+.cake-grade {
+  margin-left: 110px;
+}
+
+.img {
+  margin-left: 50px;
+  border: 1px solid;
+  width: 95px;
+  height: 100px;
+}
+
+.detail-text-write {
+  display: flex;
+  margin-left: 20px;
+}
+
+.write {
+  width: 170px;
+  margin-left: 15px;
+}
+
+.line-box {
+  width: 935px;
+  margin-left: 386px;
+  margin-top: 34px;
+}
+
+.page-number {
+  margin-top: 60px;
+}
+
+a:link {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.c {
+  background-color: white;
+  float: left;
+  border: none;
+  color: #767676;
+  margin: 10px;
+}
+
+#delete:link,
+#delete:visited,
+#delete:active {
+  color: black;
+  text-decoration: none;
+}

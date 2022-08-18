@@ -1,0 +1,119 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+    background-color: #f9f9f9;
+    width: auto;
+    justify-content: space-evenly;
+}
+
+.login_sign {
+    text-align: center;
+    font-size: 30px;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.outer_box {
+    margin-top: 5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_box {
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    width: 400px;
+    height: 550px;
+}
+
+.selection_box {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem
+}
+
+.user_login, .business_login {
+    text-decoration: none;
+    color: black;
+}
+
+.login_box {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border: 0px solid black;
+}
+
+.business_number, .business_password {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.business_number {
+    margin-bottom: 2rem;
+    height: 2.5rem;
+}
+
+.business_password {
+    margin-bottom: 1rem;
+    height: 2.5rem;
+}
+
+.sub_bar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#login_status {
+    border-radius: 50%;
+}
+
+.login_checkBox {
+    font-size: small;
+    color: rgba(0,0,0,0.6);
+}
+
+.find_account {
+    font-size: small;
+    text-decoration: none;
+    color: rgba(0,0,0,0.6);
+}
+
+button {
+    width: 300px
+}
+
+.login_btn, .business_signup_btn {
+    margin: auto;
+}
+
+.login_btn {
+    margin-top: 4rem;
+    height: 2.5rem;
+    background-color: #ffbac6;
+    border: 0px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.6);
+}
+
+.business_signup_btn {
+    margin-top: 0.6rem;
+    height: 2.5rem;
+    border: 1px solid #ffbac6;
+    background-color: white;
+    cursor: pointer;
+    color: rgba(0,0,0,0.6);
+}
