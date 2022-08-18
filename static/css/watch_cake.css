@@ -78,14 +78,12 @@
 .pics_cakes {
   width: 958px;
   height: 958px;
-
   margin: auto;
-
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-
+  flex-wrap: nowrap;
   place-items: center;
+<<<<<<< HEAD
+=======
 
   align-items: center;
   /* justify-content: flex-start;
@@ -93,7 +91,12 @@
   justify-content: start;
   align-items: start;
 
+>>>>>>> ef60520f8bfe1629fd71504c42b5a76ca42ef149
   text-align: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .cp {
@@ -206,7 +209,6 @@
   transform: translate(-900%, 150%);
   font-size: 70px;
   width: 30px;
-
 }
 
 /*.previous2 {
@@ -224,6 +226,42 @@
   transform: translate(900%, 150%);
   font-size: 70px;
   width: 30px;
+}
+
+.tag-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+  margin-top: 35px;
+  margin-bottom: 51px;
+}
+
+.tag {
+  margin-right: 20px;
+}
+
+.tag:nth-child(6) {
+  margin-right: 0;
+}
+
+.tag-btn {
+  width: 120px;
+  height: 30px;
+  border: none;
+  border: 1px solid #25282f;
+  border-radius: 30px;
+  padding: 0px 17px;
+  background-color: white;
+  font-weight: 700;
+  color: #25282f;
+  cursor: pointer;
+}
+
+.tag-color {
+  background-color: #25282f;
+  color: white;
 }
 
 /*.next2 {

@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+.optionWrap {
+    display: flex;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.option {
+    width: 480px;
+}
+
+.optionTitleWrap {
+    display: flex;
+}
+
+.optionNumber {
+    font-size: 60px;
+    color: #767676;
+    margin-right: 9px;
+}
+
+.optionTextWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.optionText {
+    font-size: 20px;
+}
+
+.optionSubText {
+    font-size: 15px;
+    color: #515151;
+}
+
+.optionContents {
+    width: 433px;
+    margin: 0 auto;
+}
+
+.fileLabel {
+    width: 108px;
+    height: 32px;
+    background-color: #FFE5E5;
+    cursor: pointer;
+    padding: 4px 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.fileInput {
+    visibility: hidden;
+    width: 0px;
+}
+
+.fileName {
+    display: inline-block;
+    width: 315px;
+    height: 32px;
+    padding: 0 10px;
+    color: #999999;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+}
+
+.requireTextarea {
+    width: 100%;
+    height: 98px;
+    resize: none;
+    margin-top: 10px;
+    background-color: #EFEDED;
+    border: none;
+    padding-top: 9px;
+    padding-left: 16px;
+}
+
+.requireTextarea:focus {
+    outline: none;
+}
+
+.attachedImgDiv {
+    width: 100%;
+    height: 267px;
+    margin-top: 11px;
+    background-color: #EFEDED;
+}
+
+.detailOption {
+    width: 417px;
+    height: 346px;
+    border: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    padding: 32px 45px 0 44px;
+}
+
+.detailOptionText {
+    display: block;
+}
+
+.radioBtnForm {
+    display: inline;
+    margin-left: 10px;
+}
+
+.radioBtn {
+    /* margin-left: 10px; */
+}
+
+.detailOptionSubText {
+    font-size: 13px;
+    text-align: right;
+}
+
+.taste {
+    display: flex;
+}
+
+select {
+    width: 212px;
+    margin-left: 32px;
+}
+
+.adtnlOptionWrap {
+    display: flex;
+    margin-top: 17px;
+}
+
+.checkBtnForm {
+    margin-left: 34px;
+}
+
+.checkLabel {
+    display: block;
+}
+
+.countInput {
+    width: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.countInput:focus {
+    outline: none;
+}
+
+.detailOptionText {
+
+}
+
+.detailOptionSubText {
+    font-size: 13px;
+    text-align: right;
+}
+
+.orderBtn {
+    width: 417px;
+    height: 56px;
+    background-color: #FFE5E5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 19px;
+    box-sizing: border-box;
+    margin-top: 12px;
+    border: none;
+    cursor: pointer;
+}
