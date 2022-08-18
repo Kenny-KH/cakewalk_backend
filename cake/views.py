@@ -6,7 +6,7 @@ from store.models import StoreCake
 from user.models import UserCake
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 
 # Create your views here.
 @login_required
@@ -25,53 +25,58 @@ def order(request , whatCake, cake_id):
     result = ""
     
     if request.method == 'POST':
-        order = Order()
-        order.user = request.user
-        order.store = stores if whatCake == "store" \
-                             else get_object_or_404(BsSignupDetail, pk = request.POST['store'])
-        order.cake = cake.image
-        
-        if whatCake == "user":
-            order.price = cake.price
-        else:
-            if request.POST['size'] == "미니":
-                order.price = cake.price_mini
-                
-            elif request.POST['size'] == "1호":
-                order.price = cake.price_1
+        try:
+            order = Order()
+            order.user = request.user
+            order.store = stores if whatCake == "store" \
+                                    else get_object_or_404(BsSignupDetail, pk = request.POST['store'])
+            order.cake = cake.image
+            
+            if whatCake == "user":
+                order.price = cake.price
+            else:
+                if request.POST['size'] == "미니":
+                    order.price = cake.price_mini
+                    
+                elif request.POST['size'] == "1호":
+                    order.price = cake.price_1
 
-            elif request.POST['size'] == "2호":
-                order.price = cake.price_2
-                
-            elif request.POST['size'] == "3호":
-                order.price = cake.price_3
-                                    
-        order.address = request.POST['address']
-        order.date = datetime.today().strftime("%m월%d일")
-        order.size = request.POST['size']
-        order.flavor = request.POST['flavor']
-        order.store
-        try:
-            candle = request.POST["number"]
-            result  = result + "초 " + 1 + "개" + "\n"
+                elif request.POST['size'] == "2호":
+                    order.price = cake.price_2
+                    
+                elif request.POST['size'] == "3호":
+                    order.price = cake.price_3
+                                        
+            order.address = request.POST['address']
+            order.date = request.POST['date']
+            order.size = request.POST['size']
+            order.flavor = request.POST['flavor']
+            order.store
+            try:
+                candle = request.POST["number"]
+                result  = result + "초 " + 1 + "개" + "\n"
+            except:
+                pass
+            try:
+                result += request.POST['ballon'] + "\n"
+            except:
+                pass
+            
+            try:
+                result += request.POST['ice'] + "\n"
+            except:
+                pass
+            
+            try:
+                order.require = request.POST["require"]
+            except:
+                order.require = ""
+            order.additional  = result
+            order.save()
         except:
-            pass
-        try:
-            result += request.POST['ballon'] + "\n"
-        except:
-            pass
-        
-        try:
-            result += request.POST['ice'] + "\n"
-        except:
-            pass
-        
-        try:
-            order.require = request.POST["require"]
-        except:
-            order.require = ""
-        order.additional  = result
-        order.save()
+            messages.add_message(request, messages.WARNING, '주문에 누락된 값이 존재합니다. 다시한번 확인해주세요!')
+            return render(request, 'order.html', {'stores' : stores, 'cake_id' : cake_id, 'cake' : cake ,'whatCake' : whatCake})
+       
         return redirect('/user/user_chatting/' + str(order.id))
     return render(request, 'order.html', {'stores' : stores, 'cake_id' : cake_id, 'cake' : cake ,'whatCake' : whatCake})
 """

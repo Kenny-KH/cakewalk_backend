@@ -1,4 +1,4 @@
-from django.conf import settings
+from cakewalk.settings.base import *
 from django.http import JsonResponse, HttpResponse
 from .models import UserCake
 import json
@@ -53,8 +53,8 @@ def usercake(request):
         data_format, ext = header.split('/')
 
         image_data = base64.b64decode(data)
-        image_root = settings.MEDIA_ROOT + '\\' + "cake" + str(new_user_cake.id) + "." + ext
-        
+        image_root = MEDIA_ROOT + '/' + "cake" + str(new_user_cake.id) + "." + ext
+        print(MEDIA_ROOT)
         with open(image_root, 'wb') as f:
             f.write(image_data)
         cake = get_object_or_404(UserCake, pk = new_user_cake.id)
