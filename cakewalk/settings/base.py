@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-4)w@*375&0*l#m4i&!b*$c__%jx#^kv_obb&xkevo*6slnr^6-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+LOGIN_URL = "/account/login"
 
 ALLOWED_HOSTS = ['port-0-cakewalk-backend-1i9hi4d24l6qowkrv.gksl1.cloudtype.app', '127.0.0.1' ,'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://port-0-cakewalk-backend-1i9hi4d24l6qowkrv.gksl1.cloudtype.app', 'http://127.0.0.1']
@@ -77,12 +78,7 @@ WSGI_APPLICATION = 'cakewalk.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
 
 
 # Password validation
@@ -138,8 +134,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #사용자가 업로드한 파일 �
 
 AUTH_USER_MODEL = 'account.User' 
 
-KAKAO_CONFIG ={
-    "KAKAO_REST_API_KEY":'b0ed2f28699406d89d7290e89c5ae081',
-    "KAKAO_REDIRECT_URI":'http://localhost:8000/account/login/kakao/callback/',
-    "KAKAO_CLIENT_SECRET_KEY":"vXFeq1ibnjclm4UsBG0cGdPpioFk23on",
-}
