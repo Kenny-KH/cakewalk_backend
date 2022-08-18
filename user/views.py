@@ -46,8 +46,10 @@ def usercake(request):
         new_user_cake.name = f"${request.user.name}님이 제작한 케이크"
         new_user_cake.save();
 
-        image_string = json.loads(request.body)
+        cake_data = json.loads(request.body)
 
+        image_string = cake_data['cake_img']
+        
         # base64 인코딩
         header, data = image_string.split(';base64,')
         data_format, ext = header.split('/')
@@ -60,6 +62,6 @@ def usercake(request):
         cake = get_object_or_404(UserCake, pk = new_user_cake.id)
         cake.image = "cake" + str(new_user_cake.id) + "." + ext
         cake.save()
-
+        
 
         return JsonResponse({"id" : new_user_cake.id})

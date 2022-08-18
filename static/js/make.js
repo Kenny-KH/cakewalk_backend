@@ -1,11 +1,4 @@
 /*--------------------------------- Canvas --------------------------------- */
-window.addEventListener('keydown',(e)=>{
-    if(e.keyCode == 16){
-        let canvassavefile =JSON.stringify(canvas);
-        let canvas2savefile = JSON.stringify(canvas2);
-    }
-});
-
 const canvas = new fabric.Canvas('c');
 const canvas2 = new fabric.Canvas('c2');
 
@@ -37,6 +30,7 @@ let side_canvas_object_info = {
   side_cake_color : "#f8bbd0", 
   object : [],
 }
+
 let activeCanvas = canvas;
 
 canvas.setDimensions({ width: `${canvas_width}`, height: `${canvas_height}` });
@@ -68,7 +62,7 @@ shape_btns.forEach((ele) => {
 function drawShape() {
   canvas.clear();
   canvas2.clear();
-  if (canvas_object_info.active_shape.dataset.shape == null) {
+  if (canvas_object_info.active_shape == null) {
     return;
   } 
   else {
@@ -193,7 +187,6 @@ function drawShape() {
 const download_btn = document.querySelector('.download');
 download_btn.addEventListener('click', ()=>{
     const data = canvas.toDataURL();
-    console.log(data);
     const link = document.createElement('a');
     link.href = data;
     link.download = "cakewalk_design";
@@ -236,6 +229,33 @@ function renderIcon(ctx, left, top, styleOverride, fabricObject) {
   ctx.drawImage(delete_img, -size / 2, -size / 2, size, size);
   ctx.restore();
 }
+
+// delete key 누르면 삭제 하기 기능
+window.addEventListener("keydown", (e) => {
+  if (e.keyCode == 46) {
+    let cur_active_object = activeCanvas.getActiveObject();
+    activeCanvas.remove(cur_active_object);
+
+    if(activeCanvas == canvas){
+      for(let i = 0 ; i < canvas_object_info.object.length; i++){
+        if(canvas_object_info.object[i] == cur_active_object){
+          canvas_object_info.object.splice(i, 0);
+          break;
+        }
+      }
+    }
+    else{
+      for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+        if(side_canvas_object_info.object[i] == cur_active_object){
+          side_canvas_object_info.object.splice(i, 0);
+          break;
+        }
+      }
+    }
+
+    activeCanvas.requestRenderAll();
+  }
+});
 
 /*--------------------------------- Board Switch --------------------------------- */
 const switch_btn = document.querySelector(".board_switch_btn");
@@ -435,24 +455,21 @@ realUpload.addEventListener("change", () => {
 function drawImage() {
   canvas.clear();
   canvas2.clear();
-  if (shape == null) {
-    return;
-  } else {
-    let side_posX = canvas2_width / 2 - (canvas2_width * canvas_object_info.mag) / 3;
-    let side_posY = canvas2_height / 2 - (canvas2_height * canvas_object_info.mag) / 6;
-    let sideRect = new fabric.Rect({
-      top: side_posY,
-      left: side_posX,
-      width: (canvas2_width * 2 * canvas_object_info.mag) / 3,
-      height: (canvas2_height * canvas_object_info.mag) / 3,
-      fill: side_canvas_object_info.side_cake_color,
-      stroke: "black",
-      strokeWidth: 3,
-    });
-    sideRect.set("selectable", false);
-    canvas2.add(sideRect);
-    side_canvas_object_info.sidesheet = sideRect;
-  }
+
+  let side_posX = canvas2_width / 2 - (canvas2_width * canvas_object_info.mag) / 3;
+  let side_posY = canvas2_height / 2 - (canvas2_height * canvas_object_info.mag) / 6;
+  let sideRect = new fabric.Rect({
+    top: side_posY,
+    left: side_posX,
+    width: (canvas2_width * 2 * canvas_object_info.mag) / 3,
+    height: (canvas2_height * canvas_object_info.mag) / 3,
+    fill: side_canvas_object_info.side_cake_color,
+    stroke: "black",
+    strokeWidth: 3,
+  });
+  sideRect.set("selectable", false);
+  canvas2.add(sideRect);
+  side_canvas_object_info.sidesheet = sideRect;
 
   fabric.Image.fromURL(`${pic_url}`, function (img) {
     img.on("scaling", (option) => {
@@ -940,7 +957,6 @@ function textCurve(cur_text_info) {
     else{
       side_canvas_object_info.object.push(text);
     }
-
     text.on('modified', ()=>{
       if(text.canvas == canvas){
         for(let i = 0 ; i < canvas_object_info.object.length; i++){
@@ -974,50 +990,87 @@ function textMouse() {
   activeCanvas.isDrawingMode = false;
 }
 
-// 삭제 하기 기능
-window.addEventListener("keydown", (e) => {
-  if (e.keyCode == 46) {
-    let cur_active_object = activeCanvas.getActiveObject();
-    activeCanvas.remove(cur_active_object);
+/*--------------------------------- STEP4 데코레이션 --------------------------------- */
+const decoRealUpload = document.querySelector(".deco_real_upload");
+const decoUpload = document.querySelector(".deco_upload");
+const deco_imgs_box = document.querySelector('.deco_imgs_box');
 
-    if(activeCanvas == canvas){
-      for(let i = 0 ; i < canvas_object_info.object.length; i++){
-        if(canvas_object_info.object[i] == cur_active_object){
-          canvas_object_info.object.splice(i, 0);
-          break;
-        }
-      }
-    }
-    else{
-      for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
-        if(side_canvas_object_info.object[i] == cur_active_object){
-          side_canvas_object_info.object.splice(i, 0);
-          break;
-        }
-      }
-    }
+//사진 가져오기 클릭 이벤트
+decoUpload.addEventListener("click", () => decoRealUpload.click());
+decoRealUpload.addEventListener("change", () => {
+  let deco_img_file = decoRealUpload.files[0];
+  
+  if (deco_img_file) {
+    let newimgitem =  new Image();
+    newimgitem.classList.add('deco_img_item');
+    newimgitem.src = URL.createObjectURL(deco_img_file);
 
-    activeCanvas.requestRenderAll();
+    newimgitem.addEventListener('click',()=>{
+      addimage(newimgitem.src);
+    })
+
+    addimage(newimgitem.src);
+    
+    deco_imgs_box.appendChild(newimgitem);
   }
 });
 
-/*--------------------------------- STEP4 데코레이션 --------------------------------- */
+function addimage(url){
+  fabric.Image.fromURL(`${url}`, function (img) {
+    img.on("scaling", (option) => {
+      img_scale = img.scaleX;
+      img_top = img.top;
+      img_left = img.left;
+    }).on('modified', ()=>{
+      if(activeCanvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object == img){
+            canvas_object_info.object.splice(i, 0, img);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object == img){
+            side_canvas_object_info.object.splice(i, 0, img);
+            break;
+          }
+        }
+      }
+    });
+
+    activeCanvas.centerObject(img);
+    activeCanvas.add(img);
+
+    if(activeCanvas == canvas){
+      canvas_object_info.object.push(img);
+    }
+    else{
+      side_canvas_object_info.object.push(img);
+    }
+
+  });
+}
 
 /*--------------------------------- STEP5 판꾸미기 --------------------------------- */
 const create_support_btn = document.querySelector(".create_support");
 
 create_support_btn.addEventListener("click", () => {
     let support = new fabric.Rect({
-        width: (canvas_width * canvas_object_info.mag) / 2 + 80,
-        height: (canvas_width * canvas_object_info.mag) / 2 + 80,
+        width: (canvas_width ) / 2 + 100,
+        height: (canvas_width) / 2 + 100,
         fill: "#ccc",
         stroke: "black",
         strokeWidth: 3,
     });
 
     support.set("selectable", false);
-    activeCanvas.centerObject(support);
-    activeCanvas.add(support);
+    canvas.centerObject(support);
+    canvas.add(support);
+
+    canvas_object_info.object.push(support);
+
     support.moveTo(-999);
-    activeCanvas.requestRenderAll();
+    canvas.requestRenderAll();
 });
