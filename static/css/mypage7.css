@@ -42,48 +42,26 @@ body {
   padding-top: 12px;
 }
 
-.day-button {
+.time-wrap {
+  list-style: none;
+  padding: 0;
   display: flex;
-  padding-top: 50px;
-}
-
-.a {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 80px;
-  font-size: 17px;
-  margin-left: 5px;
-  text-align: center;
-}
-
-.b {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 90px;
-  font-size: 17px;
-  margin-left: 9px;
-}
-
-a:link {
+  flex-direction: row;
   color: #767676;
-  text-decoration: none;
+  margin-bottom: 17px;
+  margin-top: 26px;
 }
 
-a:visited {
-  color: #767676;
-  text-decoration: none;
+.time {
+  padding: 0 11px;
+  border-right: 1.5px solid #767676;
+  cursor: pointer;
 }
 
-a:hover {
-  color: black;
+.time:nth-child(4) {
   font-weight: bold;
-  text-decoration: underline;
-}
-a:active {
   color: black;
-  text-decoration: none;
+  border-right: none;
 }
 
 .last-talk {
@@ -159,26 +137,6 @@ a:active {
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-a:link {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:hover {
-  color: black;
-  font-weight: bold;
-  text-decoration: underline;
-}
-a:active {
-  color: black;
-  text-decoration: none;
 }
 
 .line-bottom {
