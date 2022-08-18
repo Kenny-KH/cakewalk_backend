@@ -53,7 +53,7 @@ def usercake(request):
         data_format, ext = header.split('/')
 
         image_data = base64.b64decode(data)
-        image_root = settings.MEDIA_ROOT + '\\' + "cake" + str(new_user_cake.id) + "." + ext
+        image_root = settings.MEDIA_ROOT + '/' + "cake" + str(new_user_cake.id) + "." + ext
         
         with open(image_root, 'wb') as f:
             f.write(image_data)
