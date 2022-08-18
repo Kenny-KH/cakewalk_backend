@@ -14,11 +14,11 @@ def get_env_variable(var_name):
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-		'NAME': get_env_variable('DATABASE'),
-        'USER': get_env_variable('DB_USER'),
-        'PASSWORD': get_env_variable('DB_PASSWORD'),
-        'HOST': get_env_variable('DB_HOST'),
-        'PORT': get_env_variable('DB_PORT'),
+		'NAME': 'cakewalk',
+        'USER': 'root',
+        'PASSWORD': 'gold3819',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
