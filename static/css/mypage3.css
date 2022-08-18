@@ -30,7 +30,7 @@ body {
 .title {
   font-size: 32px;
   font-weight: 550;
-  margin-top: 175px;
+  margin-top: 96px;
 
   font-family: "Noto Sans";
   font-style: normal;
@@ -93,7 +93,8 @@ body {
   font-weight: 500;
   font-size: 20px;
   margin-top: 25px;
-  margin-left: 20px;
+  margin-left: 10px;
+  white-space: nowrap;
 }
 
 .order-button {

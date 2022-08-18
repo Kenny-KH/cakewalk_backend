@@ -46,7 +46,7 @@ $showCakeList.addEventListener("mouseover", (e) => {
     location.href = `/store/detail/${e.target.id}`;
   });
 
-//케이크에서 가게보러 가기
+  //케이크에서 가게보러 가기
   document.querySelector("#cGoToOrder").addEventListener("click", () => {
     location.href = `/cake/order/store/${e.target.name}`;
   });
@@ -54,7 +54,7 @@ $showCakeList.addEventListener("mouseover", (e) => {
 });
 $shopCakeList.addEventListener("mouseover", (e) => {
   handleMouseover(e, $shopCakeInfo);
-    console.log(e.target);
+  console.log(e.target);
   document.querySelector("#goToStore").addEventListener("click", () => {
     location.href = `/store/detail/${e.target.id}`;
   });
@@ -62,8 +62,6 @@ $shopCakeList.addEventListener("mouseover", (e) => {
   document.querySelector("#goToOrder").addEventListener("click", () => {
     location.href = `/cake/order/store/${e.target.id}`;
   });
-
-
 });
 // console.log($shopCakeInfo);
 
@@ -98,6 +96,8 @@ $tagWrap.addEventListener("click", (e) => {
         $ul.children[i].children[0].classList.remove("tag-color");
       }
     }
+    document.querySelector("#code").value = e.target.value;
+    console.log(document.querySelector("#code").value);
     e.target.parentNode.classList.add("tag-check");
     e.target.classList.add("tag-color");
   }

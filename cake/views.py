@@ -31,6 +31,10 @@ def order(request , whatCake, cake_id):
             order.store = stores if whatCake == "store" \
                                     else get_object_or_404(BsSignupDetail, pk = request.POST['store'])
             order.cake = cake.image
+            if whatCake == "store":
+                order.storeCake = cake
+            else:
+                order.userCake = cake
             
             if whatCake == "user":
                 order.price = cake.price

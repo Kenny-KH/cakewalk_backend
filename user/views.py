@@ -13,10 +13,13 @@ def myPage(request):
     return render(request, "mypage1.html")
 
 def myPage2(request):
-    return render(request, "mypage2.html")
+    userOrders = Order.objects.filter(user = request.user).order_by("-id")
+    
+    return render(request, "mypage2.html", {'orders' : userOrders})
 
 def myPage3(request):
-    return render(request, "mypage3.html")
+    cakes = UserCake.objects.filter(user = request.user).order_by("-id")
+    return render(request, "mypage3.html", {"cakes" : cakes})
 
 def myPage4(request):
     return render(request, "mypage4.html")
@@ -43,7 +46,7 @@ def usercake(request):
     if request.method == 'POST':
         new_user_cake = UserCake()
         new_user_cake.user = request.user
-        new_user_cake.name = f"${request.user.name}님이 제작한 케이크"
+        new_user_cake.name = f"{request.user.name}님이 제작한 케이크"
         new_user_cake.save();
 
         cake_data = json.loads(request.body)

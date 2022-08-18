@@ -11,7 +11,7 @@
 <nav class="mypage-side">
   <img
     class="profile-img"
-    src="{% static 'img/human.png' %}"
+    src="{{request.user.profile_image}}"
     alt="human_profile"
   />
   <span class="use-name">{{user.name}} 님</span>
@@ -27,7 +27,7 @@
       도안 관리
     </li>
     <li class="nav-li" onclick="location.href='{% url 'user_mypage4' %}'">
-      작성 후기
+      작성 리뷰
     </li>
     <li class="nav-li" onclick="location.href='{% url 'user_mypage5' %}'">
       1:1 문의
