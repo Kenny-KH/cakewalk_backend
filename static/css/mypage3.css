@@ -93,7 +93,8 @@ body {
   font-weight: 500;
   font-size: 20px;
   margin-top: 25px;
-  margin-left: 20px;
+  margin-left: 10px;
+  white-space: nowrap;
 }
 
 .order-button {
