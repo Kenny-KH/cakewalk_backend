@@ -60,6 +60,8 @@
 
 .storenotice {
   font-size: 18px;
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
 .storetext {
@@ -72,6 +74,7 @@
   font-size: 15px;
   line-height: 20px;
   color: #515151;
+  word-wrap: break-word;
 }
 
 .search-input {
@@ -99,14 +102,28 @@
 }
 
 .store {
-  display: flex;
-  flex-direction: row;
   width: 415px;
   height: 73px;
   border-radius: 5px;
   background-color: #ffe5e5;
   margin: 0 25px;
-  padding: 12px 13px;
+  padding: 0 13px;
+  overflow-y: scroll;
+}
+
+.store::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+.store::-webkit-scrollbar-thumb {
+  height: 112px; /* 스크롤바의 길이 */
+  background: #d9d9d9; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.store::-webkit-scrollbar-track {
+  background: transfer; /*스크롤바 뒷 배경 색상*/
 }
 
 .scroll {
