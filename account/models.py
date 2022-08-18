@@ -19,6 +19,9 @@ class BsSignupDetail(models.Model):
     time = models.CharField(max_length=100)
     logo = models.ImageField()
     
+    def __str__(self):
+        return self.bsName
+    
     
     
    

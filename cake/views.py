@@ -5,13 +5,15 @@ from cake.models import Order
 from store.models import StoreCake
 from user.models import UserCake
 from datetime import datetime
-
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def make(request):
     return render(request, 'make.html')
 
+@login_required
 def order(request , whatCake, cake_id):
     
     if whatCake == "store":
@@ -88,6 +90,7 @@ def order(request):
         return render(request, 'order.html')
 """
 
+@login_required
 def payment(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     return render(request, 'payment.html', {"order" : order})
