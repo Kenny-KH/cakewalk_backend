@@ -1,4 +1,12 @@
-from django.shortcuts import render
+from django.conf import settings
+from django.http import JsonResponse, HttpResponse
+from .models import UserCake
+import json
+from django.shortcuts import render, redirect, get_object_or_404
+import base64
+from django.core.files.base import ContentFile
+from cake.models import Order
+
 
 # Create your views here.
 def myPage(request):
@@ -23,7 +31,35 @@ def myPage7(request):
     return render(request, "mypage7.html")
 
 def userReview(request):
+    print("리뷰")
     return render(request, "userreview.html")
 
-def userChatting(request):
-    return render(request, "user_chatting.html")
+def userChatting(request, order_id):
+    print("역로감")
+    order = get_object_or_404(Order, pk=order_id)
+    return render(request, "user_chatting.html", {"order" : order})
+
+def usercake(request):
+    if request.method == 'POST':
+        new_user_cake = UserCake()
+        new_user_cake.user = request.user
+        new_user_cake.name = f"${request.user.name}님이 제작한 케이크"
+        new_user_cake.save();
+
+        image_string = json.loads(request.body)
+
+        # base64 인코딩
+        header, data = image_string.split(';base64,')
+        data_format, ext = header.split('/')
+
+        image_data = base64.b64decode(data)
+        image_root = settings.MEDIA_ROOT + '\\' + "cake" + str(new_user_cake.id) + "." + ext
+        
+        with open(image_root, 'wb') as f:
+            f.write(image_data)
+        cake = get_object_or_404(UserCake, pk = new_user_cake.id)
+        cake.image = "cake" + str(new_user_cake.id) + "." + ext
+        cake.save()
+
+
+        return JsonResponse({"id" : new_user_cake.id})

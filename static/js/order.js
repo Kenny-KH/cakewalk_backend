@@ -35,7 +35,7 @@ const $dates = document.querySelector(".dates");
 const $month = document.querySelector(".month");
 
 const today = new Date();
-console.log(today);
+
 function render(current) {
   let string = "";
   const currentYear = current.getFullYear();
@@ -52,8 +52,6 @@ function render(current) {
       string += `<div class="prev day"></div>`;
     }
   }
-  console.log(today.getMonth(), currentMonth);
-  console.log(today.getFullYear(), currentYear);
 
   if (
     today.getMonth() === currentMonth &&
@@ -62,8 +60,7 @@ function render(current) {
     for (let i = 1; i <= curDate; i++) {
       if (i === today.getDate()) {
         string += `<div class="cur day">
-                <p class="day-num" onclick="${select} ">${i}</p>
-                <div class="today"></div>
+                <p class="day-num today" onclick="${select} ">${i}</p>
             </div>`;
       } else {
         string += `<div class="cur day">
@@ -86,15 +83,22 @@ function render(current) {
 var current = new Date();
 let currentYear = current.getFullYear();
 let currentMonth = current.getMonth();
-console.log(current);
 render(current);
+
+$dates.addEventListener('click', (e) => {
+  if(e.target.className === 'cur day') {
+    console.log(e.target.children[0].innerText);
+  } else if(e.target.className === 'day-num') {
+    console.log(e.target.innerText);
+  }
+})
 
 const $prevBtn = document.querySelector("#left");
 const $nextBtn = document.querySelector("#right");
 
 $prevBtn.addEventListener("click", prev);
 $nextBtn.addEventListener("click", next);
-//전달 마지막 요일이 토요일이면 전달날짜가 0개 적힘
+
 function next() {
   currentMonth++;
   current = new Date(currentYear, currentMonth, 1);

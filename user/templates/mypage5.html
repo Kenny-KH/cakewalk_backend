@@ -8,13 +8,13 @@
       type="text/css"
       href="{% static 'css/mypage5.css' %}"
     />
-  </head>
+  </head> 
   {% endblock %} {% block content %}
   <div class="main_wrapper" style="display: flex"></div>
   {% include "mypage_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
 
-    <div style="position:relative; left:500px; bottom : 100px;">
+    <div>
     <!-- 메뉴바 여기부터 -->
     <main class="main">
     <section class="container-wrap">
@@ -51,14 +51,16 @@
           >전체시기</a
         >
       </div>
-
+ 
+     <article class="ask-wrap">
+    
       <div class="ask-menu">
         <div class="ask-store">가게</div>
         <div class="ask-type">문의 유형</div>
         <div class="ask-content">문의 내용</div>
         <div class="ask-day">작성 날짜</div>
       </div>
-    </section>
+   
     <!-- 메뉴바 여기까지 -->
     <!-- 문의박스 여기부터 -->
     <div class="ask-menu-bar">
@@ -85,17 +87,14 @@
       <div class="ask-menu-text">디자인 문의드려요</div>
       <div class="ask-menu-day">2022.03.21</div>
     </div>
-
+  </article>
     <!-- 문의박스 여기까지  -->
-    <div class="page-number">
-      <a
-        href="http://127.0.0.1:5500/cakewalk_front/mypage4.html"
-        target="blank"
-        class="c"
-        >1</a
-      >
+    <div class="pages">
+      <button class="page-btn">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
     </div>
-
+  
   </div>
 </section>
 </main>

@@ -26,6 +26,7 @@
 
 <script src="{% static 'js/order.js' %}" defer></script>
 {% endblock %} {% block content %}
+
 <body class="body">
   <!-- 단계 버튼 -->
   <div class="step">
@@ -46,7 +47,7 @@
           <p class="optionSubText">케이크를 주문할 가게를 선택해주세요.</p>
         </div>
       </div>
-      <form action="{% url 'order' order_id %}" method="post" enctype="multipart/form-data">
+      <form action="{% url 'order' whatCake cake_id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
       <div class="all">
         <div class="map-wrap">
@@ -62,7 +63,46 @@
           </div>
           <div class="storeclose">
             <p class="mystore">나와 가까운 가게</p>
+            <input type="hidden" value="" name="store" id="store">
             <section class="scroll">
+              {% if whatCake == "store" %}
+ <!-- 가게정보시작부분 -->
+              <article class="storebox" id="{{stores.id}}">
+                <div class="storewrap">
+                  <img
+                    class="cakelogo"
+                    src="https://img.lovepik.com/element/40131/7560.png_860.png"
+                    alt="가게로고"
+                  />
+                  <div class="storetextwrap">
+                    <div class="storename">{{stores.bsName}}</div>
+
+                    <div class="storeinfo">
+                      <div class="store-info-line">
+                        <div>
+                          <i class="fa-solid fa-location-arrow"></i>
+                          {{stores.address}}
+                        </div>
+                        <div class="store-info-insta">
+                          <i class="fa-brands fa-instagram"></i>
+                          @{{stores.insta}}
+                        </div>
+                      </div>
+                      <div class="store-info-line">
+                        <div>
+                          <i class="fa-solid fa-phone"></i> {{stores.phoneNum}}
+                        </div>
+                        <div class="store-info-time">
+                          <i class="fa-solid fa-clock"></i> 10:00 ~ 19:00
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              {% else %}
+<!-- 가게정보 여기까지 -->
               {% for store in stores %}
               <!-- 가게정보시작부분 -->
               <article class="storebox" id="{{store.id}}">
@@ -98,20 +138,25 @@
                   </div>
                 </div>
               </article>
-
+              
               <script>
                 const clickAction = (document.getElementById(
                   "{{store.id}}"
                 ).onclick = function () {
                   let searchInput = document.querySelector(".search-input");
                   let notice = document.querySelector(".notice-text");
+                  let store = document.querySelector("#store")
+
                   console.log(searchInput);
                   searchInput.value = "{{store.address}}";
                   notice.innerHTML = "{{store.notice}}";
+                  store.value = "{{store.id}}";
+                  console.log(store.value);
                 });
               </script>
               {% endfor %}
               <!-- 가게정보 여기까지 -->
+              {% endif %}
             </section>
           </div>
         </div>
@@ -132,11 +177,11 @@
         <!--달력-->
         <div id="calendar">
           <div class="month-wrap">
-            <button class="arrow-btn" id="left">
+            <button type="button" class="arrow-btn" id="left">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
             <span class="month"> </span>
-            <button class="arrow-btn" id="right">
+            <button type="button" class="arrow-btn" id="right">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
@@ -199,7 +244,7 @@
             class="requireTextarea"
             placeholder="주문 시 요청사항을 적어주세요."
           ></textarea>
-          <img src="{{cake.image.url}}">
+          <img class="order_cake_design" src="{{cake.image.url}}">
         </div>
       </div>
       <!-- 주문3 끝 -->
@@ -218,9 +263,7 @@
           <div class="detailOptionWrap">
             <div class="detailOption">
               <div class="size">
-                <span class="text"
-                  ><span style="color: red">*</span>케이크 호수</span
-                >
+                <span class="text"><span style="color: red">*</span>케이크 호수</span>
                 <div class="radioBtnForm" action="#">
                   <input
                     class="radioBtn"
@@ -246,35 +289,34 @@
                     value="3호"
                     name="size"
                   />3호
-                </>
+                </div>
               </div>
 
               <div class="taste">
-                <span class="text"
-                  ><span style="color: red">*</span>케이크 맛</span
-                >
+                <span class="text"><span style="color: red">*</span>케이크 맛</span>
                 <select class="taste-select" name="flavor">
                   <option>케이크 맛을 선택하세요</option>
-                  <option value="초코맛">초코밋</option>
+                  <option value="초코맛">초코맛</option>
                   <option value="딸기맛">딸기맛</option>
                   <option value="민트맛">민트맛</option>
                 </select>
               </div>
               <div class="adtnlOptionWrap">
                 <span class="text"> 추가 옵션</span>
-
-                <label class="checkLabel">
-                  <input type="checkbox" value="candle" name="candle" />초
-                  추가<input class="countInput" name="number" />개
-                </label>
-                <label class="checkLabel">
-                  <input type="checkbox" value="풍선 추가" name="ballon" />풍선
-                  추가
-                </label>
-                <label class="checkLabel">
-                  <input type="checkbox" value="보냉백 추가" name="ice" />보냉백
-                  추가
-                </label>
+                <div class="adtDetailWrap">
+                  <label class="checkLabel">
+                    <input type="checkbox" value="candle" name="candle" />초
+                    추가<input class="countInput" name="number" />개
+                  </label>
+                  <label class="checkLabel">
+                    <input type="checkbox" value="풍선 추가" name="ballon" />풍선
+                    추가
+                  </label>
+                  <label class="checkLabel">
+                    <input type="checkbox" value="보냉백 추가" name="ice" />보냉백
+                    추가
+                  </label>
+                </div>
               </div>
             </div>
             <textarea
@@ -283,8 +325,9 @@
               name="require"
             ></textarea>
           </div>
-          <button type="button" class="orderBtn">주문하기</button>
+          
         </div>
+        <button type="button" class="orderBtn">주문하기</button>
       </div>
       <!-- 주문 4 끝 -->
  
@@ -302,7 +345,7 @@
       </p>
       <button
         class="confirm-btn"
-        onclick="location.href='{% url 'user_chatting' %}'"
+       
       >
         <button class="chatting" type="submit">확인</button>
       </button>

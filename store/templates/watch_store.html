@@ -39,7 +39,7 @@
     onclick="location.href='{% url 'storeDetail' store.id %}'"
   >
     <div class="store_logo">
-      <img src="{{store.logo.url}}" alt="logo" />
+      <img class="store_logo_img" src="{{store.logo.url}}" alt="logo" />
     </div>
 
     <div class="main_content">
@@ -50,36 +50,38 @@
 
       <div class="contents_div">
         <div class="store_detail">
-          <div class="address1">
-            <img
-              class="address"
-              src="{% static 'img/Vector.png' %}"
-              alt="address"
-            />
-            {{store.address}}
+          <div class="store_detail_line">
+            <div class="address1">
+              <img
+                class="address"
+                src="{% static 'img/Vector.png' %}"
+                alt="address"
+              />
+              {{store.address}}
+            </div>
+            <div class="IG1">
+              <img class="IG" src="{% static 'img/Vector (1).png' %}" alt="IG" />
+              @{{store.insta}}
+            </div>
           </div>
 
-          <div class="phone1">
-            <img
-              class="phone"
-              src="{% static 'img/Vector (2).png' %}"
-              alt="phone"
-            />
-            {{store.phoneNum}}
-          </div>
-
-          <div class="IG1">
-            <img class="IG" src="{% static 'img/Vector (1).png' %}" alt="IG" />
-            @{{store.insta}}
-          </div>
-
-          <div class="time1">
-            <img
-              class="time"
-              src="{% static 'img/Vector (3).png' %}"
-              alt="time"
-            />
-            10:00~19:00
+          <div class="store_detail_line">
+            <div class="phone1">
+              <img
+                class="phone"
+                src="{% static 'img/Vector (2).png' %}"
+                alt="phone"
+              />
+              {{store.phoneNum}}
+            </div>
+            <div class="time1">
+              <img
+                class="time"
+                src="{% static 'img/Vector (3).png' %}"
+                alt="time"
+              />
+              10:00~19:00
+            </div>
           </div>
         </div>
 
