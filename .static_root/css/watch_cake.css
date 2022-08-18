@@ -78,22 +78,20 @@
 .pics_cakes {
   width: 958px;
   height: 958px;
-
   margin: auto;
-
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-
   place-items: center;
-
   align-items: center;
   /* justify-content: flex-start;
   align-content: stretch; */
   justify-content: start;
   align-items: start;
-
   text-align: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .cp {

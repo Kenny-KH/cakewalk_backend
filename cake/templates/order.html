@@ -59,18 +59,21 @@
       </div>
       <form action="{% url 'order' whatCake cake_id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {% if whatCake == "store" %}
       <div class="all">
         <div class="map-wrap">
-          <input class="search-input" type="text" name="address" />
+          <input class="search-input" type="text" name="address" placeholder="{{store.address}}" value="{{store.address}}"/>
           <div id="map"></div>
         </div>
+
         <div class="right"> 
-           <div class="storenotice">가게공지</div>
+           <div class="storenotice">{{store.notice}}</div>
           <div class="store">
             <div class="storetext">
               <p class="notice-text"></p>
             </div>
           </div>
+          {% endif %}
           <div class="storeclose">
             <p class="mystore">나와 가까운 가게</p>
             <input type="hidden" value="" name="store" id="store">
