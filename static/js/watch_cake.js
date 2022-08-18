@@ -3,6 +3,7 @@ const all_images = document.querySelectorAll(".img2");
 const modal = document.querySelector(".modal");
 const modal_body = document.querySelector(".modal_body");
 const modal_img = document.querySelector(".modal-img");
+const $tagWrap = document.querySelector(".tag-wrap");
 let current_image;
 let cur_img_num;
 
@@ -85,6 +86,23 @@ left_arrow.addEventListener("click", () => {
   // } else {
   //   cur_img_num++;
   // }
+});
+
+$tagWrap.addEventListener("click", (e) => {
+  // console.log('dsf');
+  const $ul = e.target.closest("ul");
+  if (e.target.tagName === "BUTTON") {
+    for (let i = 0; i < $ul.children.length; i++) {
+      if ($ul.children[i].classList.contains("tag-check")) {
+        $ul.children[i].classList.remove("tag-check");
+        $ul.children[i].children[0].classList.remove("tag-color");
+      }
+    }
+    document.querySelector("#code").value = e.target.value;
+    console.log(document.querySelector("#code").value);
+    e.target.parentNode.classList.add("tag-check");
+    e.target.classList.add("tag-color");
+  }
 });
 
 /*const body = document.querySelector("body");

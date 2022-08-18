@@ -105,6 +105,16 @@ def payment(request, order_id):
     return render(request, 'payment.html', {"order" : order})
 
 def watch_cake(request):
-    cakes = StoreCake.objects.all()
-    return render(request, 'watch_cake.html', {"cakes" : cakes})
+    try:
+        code = request.GET['code']
+        status = "Y"
+    except:
+        code = 1
+        status = "N"
+    stores = BsSignupDetail.objects.all()
+    if code == "0":
+        cakes = StoreCake.objects.all()
+    else:
+        cakes = StoreCake.objects.filter(code=code)
+    return render(request, 'watch_cake.html', {"cakes" : cakes, "code" : code})
 
