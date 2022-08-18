@@ -202,8 +202,10 @@
 
 .store-info-line {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   color: #8a8a8a;
+  width: 255px;
 }
 
 .store-info-line:nth-child(1) {
@@ -218,12 +220,10 @@
 
 .store-info-insta {
   width: 125px;
-  margin-left: 22px;
 }
 
 .store-info-time {
   width: 125px;
-  margin-left: 8px;
 }
 
 i {
