@@ -99,7 +99,7 @@
 .cp {
   width: 220px;
   height: 220px;
-  /*margin: 0 26px 26px 0px;*/
+  margin: 0 26px 26px 0px;
 }
 
 .cp:nth-child(4n) {
