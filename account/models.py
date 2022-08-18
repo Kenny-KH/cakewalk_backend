@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, UserManager, BaseUserManager
+
 # Create your models here.
 class BsSignupDetail(models.Model):
     author = models.ForeignKey("User", related_name="user", on_delete=models.CASCADE)
@@ -9,15 +10,26 @@ class BsSignupDetail(models.Model):
     bsName = models.CharField(max_length=100)
     repName = models.CharField(max_length=12)
     birth = models.IntegerField()
-    phoneNum = models.IntegerField()
+    phoneNum = models.CharField(max_length=50)
     insta = models.CharField(max_length=100)
     address = models.TextField()
     registeration = models.ImageField()
     report = models.ImageField()
     notice = models.TextField(blank=True, null=True)
+    time = models.CharField(max_length=100)
+    logo = models.ImageField()
+    
+    def __str__(self):
+        return self.bsName
+    
+    
+    
+   
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, name, tel, address = None, business_num = None , nickname = None, password=None):
+    def create_user(self, email, name, tel, photo=None,
+                    address = None, business_num = None , 
+                    nickname = None, password=None):
         if not email:
             raise ValueError("Users must have an email address")
 
@@ -27,7 +39,8 @@ class CustomUserManager(BaseUserManager):
             nickname = nickname,
             tel = tel,
             address = address,
-            business_num = business_num
+            business_num = business_num,
+            profile_image = photo
         )
 
         user.set_password(password)
@@ -52,6 +65,7 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractBaseUser):
     business_num = models.IntegerField(null=True, unique=True)
     name = models.CharField(max_length=10)
+    profile_image = models.ImageField(upload_to="profile/" , null = True, blank = True)
     nickname = models.CharField(max_length=10,null=True, unique=True)
     email = models.EmailField(max_length=255, unique=True)
     tel = models.CharField(max_length=40)

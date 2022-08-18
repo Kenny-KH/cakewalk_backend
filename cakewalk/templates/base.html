@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
     <link rel="stylesheet" href="{% static 'css/css_reset.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'img/favicon.ico' %}"
+    />
 
     <link
       link
@@ -47,15 +52,7 @@
         <div class="nav_item" onclick="location.href='{% url 'logout' %}'">
           LOGOUT
         </div>
-        <div class="nav_item">
-          <img src="{% static 'img/nav_star.png' %}" />
-        </div>
-        <div class="nav_item">
-          <img src="{% static 'img/nav_heart.png' %}" />
-        </div>
-        <div class="nav_item">
-          <img src="{% static 'img/nav_bell.png' %}" />
-        </div>
+
         {% else %}
         <div class="nav_item" onclick="location.href='{% url 'login' %}'">
           로그인
@@ -64,7 +61,6 @@
       </div>
     </nav>
 
-    {% block content %} {% endblock %}
-    {% block javascript %} {% endblock %}
+    {% block content %} {% endblock %} {% block javascript %} {% endblock %}
   </body>
 </html>

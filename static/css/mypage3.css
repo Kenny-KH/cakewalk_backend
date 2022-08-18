@@ -1,36 +1,69 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nav-li:nth-child(2) {
+  background-color: #e6ccd5;
+}
+
+body {
+  position: relative;
+  /* overflow: hidden; */
+  z-index: -10;
+}
+
+.main {
+  margin: 0 auto;
+  margin-left: 269px;
+  width: calc(100% - 269px);
+}
+
+.container-wrap {
+  /* margin-left: 269px; */
+  padding-bottom: 79px;
+  position: relative;
+}
+
+.container {
+  width: 937px;
+  margin: 0 auto;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
   margin-top: 175px;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+
+  color: #000000;
 }
 
 .text {
   padding-top: 12px;
 }
 
-.day-button {
-  /* position: absolute; */
+.time-wrap {
+  list-style: none;
+  padding: 0;
   display: flex;
-  padding-top: 50px;
+  flex-direction: row;
+  color: #767676;
+  margin-bottom: 17px;
+  margin-top: 27px;
 }
 
-.a {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 80px;
-  font-size: 17px;
-  margin-left: 5px;
-  text-align: center;
+.time {
+  padding: 0 11px;
+  border-right: 1.5px solid #767676;
+  cursor: pointer;
 }
 
-.b {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 90px;
-  font-size: 17px;
-  margin-left: 9px;
+.time:nth-child(4) {
+  font-weight: bold;
+  color: black;
+  border-right: none;
 }
 
 .design-all {
@@ -38,6 +71,7 @@
   flex-wrap: wrap;
   width: 970px;
   margin-top: 26px;
+  margin-bottom: 51px;
 }
 
 .design-total {
@@ -78,48 +112,29 @@
   text-align: center;
 }
 
-.cake-design {
-  box-sizing: border-box;
+.img-wrap {
   margin-top: 20px;
   margin-left: 18px;
-  /* position: absolute; */
   width: 260px;
   height: 260px;
-
-  background: white;
   border: 1px solid #000000;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.page-number {
-  margin-left: 820px;
-  margin-top: 60px;
+.cake-design {
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.c {
-  background-color: white;
-  float: left;
+.pages {
+  text-align: center;
+}
+
+.page-btn {
   border: none;
-  color: #767676;
-  margin: 10px;
-}
-
-a:link {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:hover {
-  color: black;
-  font-weight: bold;
-  text-decoration: underline;
-}
-a:active {
-  color: black;
-  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
 }

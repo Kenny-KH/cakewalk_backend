@@ -1,62 +1,74 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.nav-li:nth-child(3) {
+  background-color: #e6ccd5;
+}
+
+body {
+  position: relative;
+  /* overflow: hidden; */
+  z-index: -10;
+}
+
+.main {
+  margin: 0 auto;
+  margin-left: 269px;
+  width: calc(100% - 269px);
+}
+
+.container-wrap {
+  /* margin-left: 269px; */
+  padding-bottom: 79px;
+  position: relative;
+}
+
+.container {
+  width: 937px;
+  margin: 0 auto;
+}
+
 .title {
   font-size: 32px;
   font-weight: 550;
   margin-top: 175px;
+
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
 }
 
 .text {
   padding-top: 12px;
 }
 
-.day-button {
+.time-wrap {
+  list-style: none;
+  padding: 0;
   display: flex;
-  padding-top: 50px;
-}
-
-.a {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 80px;
-  font-size: 17px;
-  margin-left: 5px;
-  text-align: center;
-}
-
-.b {
-  background-color: white;
-  float: left;
-  border: none;
-  width: 90px;
-  font-size: 17px;
-  margin-left: 13px;
-}
-
-a:link {
+  flex-direction: row;
   color: #767676;
-  text-decoration: none;
+  margin-bottom: 17px;
+  margin-top: 26px;
 }
 
-a:visited {
-  color: #767676;
-  text-decoration: none;
+.time {
+  padding: 0 11px;
+  border-right: 1.5px solid #767676;
+  cursor: pointer;
 }
 
-a:hover {
-  color: black;
+.time:nth-child(4) {
   font-weight: bold;
-  text-decoration: underline;
-}
-a:active {
   color: black;
-  text-decoration: none;
+  border-right: none;
 }
 
 .review-menu {
   display: flex;
   width: 100%;
   height: 47px;
-  margin-top: 10px;
+  margin-top: 22px;
   font-size: 15px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -90,11 +102,23 @@ a:active {
   border-bottom: 1px solid black;
   width: 930px;
   height: 124px;
+  font-size: 15px;
 }
 
 .cake {
   width: 179px;
   margin-left: 35px;
+  font-size: 15px;
+}
+
+.taste {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+
+  color: rgba(0, 0, 0, 0.53);
 }
 
 .cake-order-text {
@@ -105,7 +129,6 @@ a:active {
   margin-left: 76px;
 }
 .file {
-  border: 1px solid;
   width: 95px;
   height: 100px;
   margin-left: 50px;
@@ -121,39 +144,17 @@ a:active {
   margin-left: 15px;
 }
 
-.page-number {
-  margin-left: 820px;
-  margin-top: 60px;
+.pages {
+  text-align: center;
 }
 
-a:link {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #767676;
-  text-decoration: none;
-}
-
-a:hover {
-  color: black;
-  font-weight: bold;
-  text-decoration: underline;
-}
-a:active {
-  color: black;
-  text-decoration: none;
-}
-
-.c {
-  background-color: white;
-  float: left;
+.page-btn {
   border: none;
-  color: #767676;
-  margin: 10px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .article-review {
   width: 935px;
+  margin-bottom: 51px;
 }

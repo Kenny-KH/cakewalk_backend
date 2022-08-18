@@ -13,7 +13,12 @@
   <div class="main_wrapper" style="display: flex"></div>
   {% include "mypage_base.html" %}
   <div>{% block profile %} {% endblock %}</div>
-  <div style="position:relative; left:500px; bottom : 100px;">
+
+  <body>
+    <main class="main">
+    <section class="container-wrap">
+      <div class="container">
+
     <div class="title">MY TALK</div>
     <div class="text">메세지 모아보기</div>
     <div class="day-button">
@@ -46,6 +51,8 @@
       >
     </div>
 
+<article class="last-talk-wrap">
+
     <div class="last-talk">지난 대화 모아보기</div>
 
     <!-- MY TALK 박스 여기부터  -->
@@ -60,7 +67,7 @@
         </div>
         <div class="name-text">
           <div>likelion bakery</div>
-          <div>likelion bakery가 메세지를 확인하였습니다.</div>
+          <div class="mytalk-text">likelion bakery가 메세지를 확인하였습니다.</div>
         </div>
 
         <div class="info-text">
@@ -82,7 +89,7 @@
         </div>
         <div class="name-text">
           <div>Awesome cake shop</div>
-          <div>
+          <div  class="mytalk-text">
             안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다. 문의 하신
             케...
           </div>
@@ -106,10 +113,9 @@
           />
         </div>
         <div class="name-text">
-          <div>Awesome cake shop</div>
-          <div>
-            안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다. 문의 하신
-            케...
+          <div>lovely cake home</div>
+          <div  class="mytalk-text">
+            픽업 시간을 다시 바꿀 수 있을까요?
           </div>
         </div>
 
@@ -131,10 +137,11 @@
           />
         </div>
         <div class="name-text">
-          <div>Awesome cake shop</div>
-          <div>
-            안녕하세요 특별한 날을 더 특별하게 만드는 멋사가게 입니다. 문의 하신
-            케...
+          <div>look at cake store
+
+          </div>
+          <div  class="mytalk-text">
+            안녕하세요. 보냉백 추가는 날씨보고 다시 알려드려도 될까요?
           </div>
         </div>
 
@@ -146,25 +153,15 @@
     </section>
     <!-- MY TALK 박스 여기까지  -->
     <div class="line-bottom" style="border-bottom: 1px solid #d9d9d9"></div>
-    <div class="page-number">
-      <a
-        href="http://127.0.0.1:5500/cakewalk_front/mypage4.html"
-        target="blank"
-        class="c"
-        >1</a
-      >
-      <a
-        href="http://127.0.0.1:5500/cakewalk_front/mypage4.html"
-        target="blank"
-        class="c"
-        >2</a
-      >
-      <a
-        href="http://127.0.0.1:5500/cakewalk_front/mypage4.html"
-        target="blank"
-        class="c"
-        >3</a
-      >
+  </article>
+    <div class="pages">
+      <button class="page-btn">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
     </div>
-    </div>
+  
+  </div>
+</section>
+</main>
+
     {% endblock %}

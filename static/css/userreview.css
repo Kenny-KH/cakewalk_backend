@@ -1,3 +1,15 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.container-wrap {
+  margin-left: 388px;
+  padding-bottom: 66px;
+}
+
+.container {
+  width: 937px;
+  margin: 0;
+}
+
 * {
   font-family: "Noto Sans";
 }
@@ -8,6 +20,7 @@
   font-weight: 400;
   font-size: 28px;
   line-height: 38px;
+  margin-top: 55px;
 }
 
 .goods-wrap {
@@ -49,8 +62,14 @@
   margin-left: 21px;
 }
 
+.cake-goods-name {
+  display: flex;
+  flex-direction: column;
+}
+
 .cake-info-taste {
   color: rgba(0, 0, 0, 0.53);
+  margin-top: 5px;
 }
 
 .grade-wrap {

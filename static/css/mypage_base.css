@@ -5,7 +5,7 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.side {
+.mypage-side {
     float: left;
     position: absolute;
     /* position: fixed; */
@@ -14,6 +14,7 @@
     padding: 65px 41.3px 0px 41.3px;
     width: 269px;
     height: 100%;
+    min-height: 100vh;
     background-color: rgba(248, 187, 208, 0.42);
 
 }
@@ -59,5 +60,6 @@
     display: flex;
     align-items: center;
     padding-left: 8px;
+    cursor: pointer;
 }
 

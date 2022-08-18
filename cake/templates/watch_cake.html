@@ -7,8 +7,10 @@
   href="{% static 'css/watch_cake.css' %}"
 />
 <script src="{% static 'js/watch_cake.js' %}" defer></script>
+<script src="https://kit.fontawesome.com/bab0b57cd2.js" crossorigin="anonymous"></script>
 
 {% endblock %} {% block content %}
+
 <body class="body">
   <div class="b_watch">
     <div
@@ -25,17 +27,13 @@
     </div>
   </div>
 
-  <br />
-  <br />
-  <br />
   <div class="hash">
-    <button class="hash1">#어버이날</button>
+    <button class="hash2">#어버이날</button>
     <button class="hash1">#축!전역</button>
     <button class="hash1">#커플기념일</button>
     <button class="hash1">#생일</button>
     <button class="hash1">#크리스마스</button>
   </div>
-  <br />
 
   <div class="sort_fil">
     <select class="sorting" name="정렬">
@@ -45,58 +43,62 @@
       <option value="추천순">추천순</option>
     </select>
 
-    <img class="filter" src="{% static 'img/filter.png' %}" alt="filter" />
+  
   </div>
 
-  <br />
   <div class="pink_background">
     <div class="pics_cakes">
-      {% for cake in cakes %}
+   {% for cake in cakes %}
       <div class="cp">
-        <img class="img2" src="{{cake.image.url}}" alt="cake" />
+        <img class="img2" src="{{cake.image.url}}"  alt="cake" id="{{cake.id}}"/>
+      </div>
+    {% endfor %}
       </div>
     </div>
-
+    
     <div class="modal">
       <div class="modal_body">
+        <div class = "close_modal" >X</div>
         <button class="previous">
-          <img
-            class="previous2"
-            src="{% static 'img/arrow_left.png' %}"
-            alt="arrow"
-          />
+          <i class="fa-solid fa-chevron-left"></i>
         </button>
 
         <button class="next">
-          <img
-            class="next2"
-            src="{% static 'img/arrow_right.png' %}"
-            alt="arrow"
-          />
+          <i class="fa-solid fa-chevron-right"></i>
         </button>
 
         <img
           class="modal-img"
-          src="{% static 'img/cakeview_cake3.png' %}"
+          src=""
           alt="cake"
         />
-        <br />
-        <br />
-        <button class="m_button">가게보러가기</button>
+        
         <button
           class="m_button"
-          onclick="location.href='{% url 'order' cake.id %}'"
+          id="goToStore"
+        >
+          가게보러가기
+        </button>
+        <button
+          class="m_button"
+          id="goToOrder"
         >
           주문하러가기
         </button>
-      </div>
-    </div>
-    {% endfor %}
-    <div class="buttons">
-      <button class="page_button">1</button>
-      <button class="page_button">2</button>
-      <button class="page_button">3</button>
-    </div>
+
+        
+      
   </div>
-  {% endblock %}
+  <div class="buttons">
+    <button class="page_button1">1</button>
+    <button class="page_button">2</button>
+    <button class="page_button">3</button>
+  </div>
+    
+    </div>
+
+    {% endblock %}
+ 
 </body>
+</html>
+
