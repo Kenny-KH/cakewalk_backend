@@ -1,0 +1,175 @@
+
+/* *{
+    border: 1px solid red;
+} */
+.wrapper {
+    margin: 0 auto;
+
+    width: 80vw;
+}
+.b_watch {
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+}
+.b_watch_item {
+    padding: 1rem;
+    border-bottom: 2px solid #ccc;
+    color: #ccc;
+}
+.b_watch_item_active {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.list {
+    margin: 2rem 0;
+    display: flex;
+}
+.list_item {
+    border-right: 2px solid rgb(80, 80, 80);
+
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+
+    color: #ccc;
+}
+.list_item_active {
+    color: black;
+}
+
+.filter {
+    position: relative;
+    width: 100%;
+    min-height: 1.5rem;
+}
+.sorting {
+    position: absolute;
+    top: 0; right: 0;
+}
+
+.pink_background {
+    width: 100vw;
+    height: 150vh;
+    background: #fff6f6;
+}
+
+.store_box {
+  
+  box-sizing: border-box;
+  border: 1px solid black;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  width: 954px;
+  height: 145px;
+  background-color: white;
+  border-radius: 22px;
+
+  padding: 1rem;
+display: flex; 
+align-items: center;
+}
+.store_logo {
+    width: 93px;
+    height: 90px;
+
+    margin: 0 1rem;
+    margin-right: 2rem;
+}
+.main_content{
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.title_in_div {
+    position: relative;
+
+    width: 100%;
+    min-height: 1.5rem;
+
+    margin-bottom: 0.5rem;
+    padding: 0 15px;
+}
+.store_name{
+    position: absolute;
+    top: 0; left: 0;
+
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.sig_cake{
+    position: absolute;
+    top: 0; right: 2rem;
+}
+
+.contents_div {
+    
+   margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.store_detail {
+    border-right: 2px solid black;
+    
+    
+    
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+ 
+  padding: 1rem 2rem 1rem 0.000001rem;
+  
+  
+  width: 228px;
+  height: 44px;
+}
+  
+
+
+.address {
+  width: 15px;
+  height: 15px;
+}
+
+.IG {
+  width: 15px;
+  height: 15px;
+}
+
+.phone {
+  width: 15px;
+  height: 15px;
+}
+
+.time {
+  width: 15px;
+  height: 15px;
+}
+
+.Lorem {
+    border-right: 2px solid black;
+    padding-right: 0.5rem ;
+    margin-top: 0.009rem;
+    padding : 0 1rem  ;
+  display: flex;
+  width: 278px;
+  height: 77px;
+}
+
+.circles {
+  width: 57px;
+  height: 57px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+  
+}
+
+.cake_circle{
+    padding: 0.09rem ;
+    margin-right: 0.5rem ;
+}

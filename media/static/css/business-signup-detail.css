@@ -1,0 +1,87 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+    background-color: #f9f9f9;
+    width: auto;
+    justify-content: space-evenly;
+}
+
+.outer-box {
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 400px;
+    height: 850px;
+}
+
+.title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 25px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.8);
+}
+
+.notice {
+    margin-bottom: 1rem;
+    font-size: small;
+    color: rgba(0,0,0,0.6);
+}
+
+.text-input-box {
+    width: 300px;
+    margin-bottom: 0.6rem;
+}
+
+.text {
+    font-size: small;
+}
+
+.input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.input-small {
+    width: 240px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.done {
+    width: 80px;
+    height: 30px;
+    margin-top: 3rem;
+    margin-left: 35%;
+    margin-right: auto;
+    border: 0px solid black;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.btn-find {
+    width: 50px;
+    height: 33px;
+    border: 0px solid black;
+    background-color: #dbdbdb;
+}
+
+.btn-image {
+    width: 50px;
+    height: 33px;
+    font-size: 11px;
+    border: 0px solid black;
+    background-color: #dbdbdb;
+    position: relative;
+    right: 0.8px;
+    bottom: 8px;
+    cursor: pointer;
+}

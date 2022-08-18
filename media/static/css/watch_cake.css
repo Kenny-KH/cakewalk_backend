@@ -1,0 +1,179 @@
+.b_watch {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.b_watch_item {
+  padding: 1rem;
+  border-bottom: 2px solid #ccc;
+  color: #ccc;
+}
+.b_watch_item_active {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+.hash {
+  display: flex;
+
+  justify-content: center;
+}
+
+.hash1 {
+  width: 120px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid #505050;
+}
+
+.sorting {
+  display: flex;
+  margin-left: 65%;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.pink_background {
+  width: 100%;
+  height: 100%;
+  background: #fff6f6;
+  position: relative;
+}
+
+.pics_cakes {
+  width: 958px;
+  height: 958px;
+
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  place-items: center;
+
+  align-items: center;
+  justify-content: center;
+  align-content: stretch;
+
+  text-align: center;
+}
+
+.cp {
+  width: 220px;
+  height: 220px;
+  margin: 0 5px 26px 5px;
+}
+
+img {
+  width: 450px;
+  height: 450px;
+}
+
+.img2 {
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 835px;
+  height: 605px;
+  display: none;
+}
+
+.modal_body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  margin: auto;
+  padding: 40px;
+  margin-left: 91.5%;
+  margin-top: 100px;
+  text-align: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+}
+
+.show {
+  display: block;
+  width: 835px;
+  height: 605px;
+}
+
+.modal-img {
+  margin-top: -10%;
+  margin-left: 23%;
+  display: block;
+}
+
+.m_button {
+  width: 200px;
+  height: 43px;
+  background: #ffe8e8;
+  border-radius: 50px;
+  border: 0;
+}
+
+.buttons {
+  margin: 20px;
+  margin-left: 50%;
+  display: block;
+
+  left: 695px;
+  top: 1316px;
+}
+
+.page_button {
+  border: 0;
+  outline: 0;
+}
+
+.page_button1 {
+  border: 0;
+  outline: 0;
+  color: black;
+}
+
+.previous {
+  border: 0;
+  background-color: white;
+  transform: translate(-900%, 250%);
+}
+
+.previous2 {
+  width: 30px;
+  height: 92px;
+  border: 0;
+  float: left;
+  background-color: white;
+  font-weight: 30px;
+}
+
+.next {
+  border: 0;
+  background-color: white;
+  transform: translate(900%, 250%);
+}
+
+.next2 {
+  width: 30px;
+  height: 92px;
+  border: 0;
+
+  float: right;
+  background-color: white;
+  font-weight: 30px;
+}
