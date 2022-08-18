@@ -33,7 +33,7 @@
 </div>
 
 <div class="pink_background">
-  {% for store in stores%}
+  {% for store in stores %}
   <div
     class="store_box"
     onclick="location.href='{% url 'storeDetail' store.id %}'"
@@ -60,7 +60,11 @@
               {{store.address}}
             </div>
             <div class="IG1">
-              <img class="IG" src="{% static 'img/Vector (1).png' %}" alt="IG" />
+              <img
+                class="IG"
+                src="{% static 'img/Vector (1).png' %}"
+                alt="IG"
+              />
               @{{store.insta}}
             </div>
           </div>
