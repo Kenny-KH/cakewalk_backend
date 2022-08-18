@@ -23,7 +23,7 @@ all_images.forEach((ele) => {
 
     // 주문하기 버튼 제작
     document.querySelector("#goToOrder").addEventListener("click", () => {
-      location.href = `/cake/order/${current_image}`;
+      location.href = `/cake/order/store/${current_image}`;
     });
 
     let img_src = ele.getAttribute("src");
