@@ -76,6 +76,10 @@
    {% for cake in cakes %}
       <div class="cp">
         <img class="img2" src="{{cake.image.url}}"  alt="cake" id="{{cake.id}}"/>
+        <div style="display: flex; flex-direction : column; margin-bottom : 20px;">
+        <span style="color: #767676;">{{cake.name}}</span>
+        <span style="color: #767676; ">  미니 : {{cake.price_mini}}원</span>
+      </div>
       </div>
     {% endfor %}
     </div>
@@ -97,14 +101,15 @@
         <button class="next">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
-
+        
         <img
           class="modal-img"
           src=""
           alt="cake"
           id=""
         />
-        
+       
+    
         <button
           class="m_button"
           id="goToStore"
@@ -120,7 +125,7 @@
 
         
       
-  </div>
+  </>
   <!--div class="buttons">
     <button class="page_button1">1</button>
     <button class="page_button">2</button>
@@ -128,6 +133,16 @@
   </div-->
     
     </div>
+
+    <script>
+      const images = document.querySelectorAll(".cp");
+      for(let image of images){
+        image.addEventListener("click", ( e ) => {
+          console.log(e.target);
+        })
+      }
+      
+    </script>
 
     {% endblock %}
  
