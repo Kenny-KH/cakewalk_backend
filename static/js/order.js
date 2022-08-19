@@ -112,6 +112,9 @@ $dates.addEventListener("click", (e) => {
   inputDate = `${currentMonth + 1}월 ${selectDay}일`;
   selectDay === "" ? inputDate = "" : null;
   console.log(inputDate);
+  
+  const pickup = document.querySelector(".choice_pickup")
+  pickup.innerHTML = `<i class="fa-solid fa-check"></i><span class="pickup-date"> ${inputDate}</span> 픽업 시간 선택`
 });
 
 const $prevBtn = document.querySelector("#left");

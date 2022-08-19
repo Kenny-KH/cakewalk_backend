@@ -75,6 +75,7 @@
   line-height: 20px;
   color: #515151;
   word-wrap: break-word;
+  margin-top: 5px;
 }
 
 .search-input {
@@ -381,7 +382,7 @@ i {
 }
 
 .choice_pickup {
-  width: 141px;
+  width: 230px;
   height: 26px;
   margin-bottom: 20px;
 }
@@ -673,4 +674,10 @@ i {
 }
 .chatting:hover {
   color: black;
+}
+
+
+.pickup-date{
+  color: blue;
+  font-weight: bold;
 }

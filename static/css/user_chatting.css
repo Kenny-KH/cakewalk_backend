@@ -122,7 +122,6 @@
 .main_part2 {
   width: 744px;
   height: 770px;
-  overflow: scroll;
 }
 
 .upside_message {
@@ -130,9 +129,10 @@
 }
 
 .profile1 {
-  width: 79px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   margin-top: 34px;
+  border-radius: 50%;
 }
 
 .message1 {
