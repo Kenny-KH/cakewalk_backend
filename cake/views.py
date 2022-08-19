@@ -29,7 +29,7 @@ def order(request , whatCake, cake_id):
     result = ""
     
     if request.method == 'POST':
-        user = get_object_or_404(User, 1)
+        user = get_object_or_404(User, pk=1)
         try:
             order = Order()
             
