@@ -234,7 +234,7 @@ i {
 .optionWrap {
   display: flex;
   width: 960px;
-  margin: 0 auto;
+  margin: 60px auto;
   padding-top: 32px;
 }
 
@@ -676,8 +676,7 @@ i {
   color: black;
 }
 
-
-.pickup-date{
+.pickup-date {
   color: blue;
   font-weight: bold;
 }
