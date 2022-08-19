@@ -7,13 +7,16 @@
   height: 4rem;
   display: flex;
   justify-content: center;
+  margin-top: 65px;
 }
 
 .b_watch_item {
   padding: 1rem;
   border-bottom: 2px solid #ccc;
   color: #ccc;
+  cursor: pointer;
 }
+
 .b_watch_item_active {
   color: black;
   border-bottom: 2px solid black;
@@ -72,31 +75,38 @@
   height: 100%;
   background: #fff6f6;
   position: relative;
+  min-height: 100vh;
 }
 
 .pics_cakes {
   width: 958px;
-  height: 958px;
-
   margin: auto;
-
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-
   place-items: center;
-
   align-items: center;
-  justify-content: flex-start;
-  align-content: stretch;
-
+  /* justify-content: flex-start;
+  align-content: stretch; */
+  justify-content: start;
+  align-items: start;
   text-align: center;
+  /* justify-content: flex-start;
+  align-content: flex-start; */
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .cp {
   width: 220px;
   height: 220px;
-  /*margin: 0 26px 26px 0px;*/
+  margin: 0 26px 26px 0px;
+  transition: all 0.1s linear;
+  cursor: pointer;
+  margin-bottom: 60px;
+}
+
+.cp:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .cp:nth-child(4n) {
@@ -108,11 +118,13 @@
   height: 100%;
 }
 
+/*모달창 파트*/
+
 .modal {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 40%;
   height: 100%;
   display: none;
 
@@ -148,6 +160,7 @@
   margin-left: auto;
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .hide {
@@ -161,7 +174,6 @@
 .modal-img {
   width: 450px;
   height: 450px;
-
   margin-top: -15%;
   margin-left: 22%;
   margin-bottom: 32px;
@@ -175,9 +187,10 @@
   background: #ffe8e8;
   border-radius: 50px;
   border: 0;
+  cursor: pointer;
 }
 
-.buttons {
+/*.buttons {
   display: flex;
   justify-content: center;
   padding-top: 53px;
@@ -195,7 +208,7 @@
   outline: 0;
   color: black;
   background: none;
-}
+}*/
 
 .previous {
   border: 0;
@@ -203,7 +216,7 @@
   transform: translate(-900%, 150%);
   font-size: 70px;
   width: 30px;
-
+  cursor: pointer;
 }
 
 /*.previous2 {
@@ -221,6 +234,43 @@
   transform: translate(900%, 150%);
   font-size: 70px;
   width: 30px;
+  cursor: pointer;
+}
+
+.tag-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+  margin-top: 35px;
+  margin-bottom: 51px;
+}
+
+.tag {
+  margin-right: 20px;
+}
+
+.tag:nth-child(6) {
+  margin-right: 0;
+}
+
+.tag-btn {
+  width: 120px;
+  height: 30px;
+  border: none;
+  border: 1px solid #25282f;
+  border-radius: 30px;
+  padding: 0px 17px;
+  background-color: white;
+  font-weight: 700;
+  color: #25282f;
+  cursor: pointer;
+}
+
+.tag-color {
+  background-color: #25282f;
+  color: white;
 }
 
 /*.next2 {
@@ -232,3 +282,7 @@
   background-color: white;
   font-weight: 30px;
 }*/
+
+.hide {
+  visibility: hidden;
+}

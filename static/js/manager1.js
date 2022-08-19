@@ -1,6 +1,6 @@
 const $dates = document.querySelector('.dates');
 const $month = document.querySelector('.month');
-
+alert('dsf');
 var calendar = {
   events: [
     {

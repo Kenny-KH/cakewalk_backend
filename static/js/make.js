@@ -1,13 +1,13 @@
 /*--------------------------------- Canvas --------------------------------- */
-window.addEventListener('keydown',(e)=>{
-    if(e.keyCode == 16){
-        let canvassavefile =JSON.stringify(canvas);
-        let canvas2savefile = JSON.stringify(canvas2);
-    }
-});
+const zindex_info ={
+  cakesheet : 0,
+  support : -100,
+  lttering : 100,
+};
 
 const canvas = new fabric.Canvas('c');
 const canvas2 = new fabric.Canvas('c2');
+const save_canvas = document.getElementById("save_canvas");
 
 const workBoard = document.querySelector(".work_board");
 let canvas_width = workBoard.clientWidth - 48;
@@ -19,11 +19,32 @@ let canvas2_height = workBoard2.clientHeight - 40;
 
 const shape_btns = document.querySelectorAll(".shape_item");
 
-let cur_shape = null;
-let selected_shape = null;
-let selected_size = 2;
-let selected_height = 3;
-let mag = 1.0;
+let canvas_object_info ={
+  cakesheet : null,
+
+  cake_color : "#f8bbd0",
+  fill_pic_url : null, // 시트 채우기 그림  url
+
+  active_shape : null, //케이크의 모양
+  mag : 1.0, //케이크의 크기
+  select_size : "2",
+  sheet_type : "shape", //그림인지 모양인지
+
+  object : [],
+}
+
+let side_canvas_object_info = {
+  sidesheet : null,
+  side_cake_color : "#f8bbd0", 
+  object : [],
+}
+
+let activeCanvas = canvas;
+
+initset();
+function initset(){
+  save_canvas.src = canvas2.toDataURL();
+}
 
 canvas.setDimensions({ width: `${canvas_width}`, height: `${canvas_height}` });
 canvas2.setDimensions({
@@ -35,90 +56,95 @@ window.addEventListener("resize", () => {
     resizeCanvasSize();
 });
 
+/*--------------------------------- STEP0 객체 파일 받아서 뿌리기 --------------------------------- */
+
+
+/*--------------------------------- STEP1 시트 모양 선택 --------------------------------- */
+//모양 버튼 누르면 발생되는 이벤트
 shape_btns.forEach((ele) => {
     ele.addEventListener("click", (e) => {
-        if (selected_shape) {
-        selected_shape.classList.toggle("shape_item_active", false);
+        if (canvas_object_info.active_shape) {
+          canvas_object_info.active_shape.classList.toggle("shape_item_active", false);
         }
-        selected_shape = ele;
-        selected_shape.classList.toggle("shape_item_active", true);
-        cur_shape = selected_shape.dataset.shape;
-        drawShape();
+        canvas_object_info.active_shape = ele;
+        canvas_object_info.active_shape.classList.toggle("shape_item_active", true);
+        
+        resizeCanvasSize();
     });
 });
 
 function drawShape() {
-  canvas.clear();
-  canvas2.clear();
-  if (cur_shape == null) {
+  if (canvas_object_info.active_shape == null) {
     return;
-  } else {
+  } 
+  else {
     let sideRect = new fabric.Rect({
-      width: (canvas2_width * 2 * mag) / 3,
-      height: (canvas2_height * mag) / 3,
-      fill: side_cake_color,
+      width: (canvas2_width * 2 * canvas_object_info.mag) / 3,
+      height: (canvas2_height * canvas_object_info.mag) / 3,
+      fill: side_canvas_object_info.side_cake_color,
       stroke: "black",
       strokeWidth: 3,
     });
     sideRect.set("selectable", false);
     canvas2.add(sideRect);
     canvas2.centerObject(sideRect);
-    sidesheet = sideRect;
+    side_canvas_object_info.sidesheet = sideRect;
   }
-  switch (cur_shape) {
+
+  switch (canvas_object_info.active_shape.dataset.shape) {
     case "circle":
       let circle = new fabric.Circle({
-        radius: (canvas_width * mag) / 4,
+        radius: (canvas_width * canvas_object_info.mag) / 4,
         stroke: "black",
         strokeWidth: 3,
-        fill: cake_color,
+        fill: canvas_object_info.cake_color,
       });
       circle.set("selectable", false);
       canvas.add(circle);
       canvas.centerObject(circle);
-      cakesheet = circle;
+      canvas_object_info.cakesheet = circle;
       break;
     case "rectangle":
       let rect = new fabric.Rect({
-        width: (canvas_width * mag) / 2,
-        height: (canvas_width * mag) / 2,
+        width: (canvas_width * canvas_object_info.mag) / 2,
+        height: (canvas_width * canvas_object_info.mag) / 2,
         stroke: "black",
         strokeWidth: 3,
-        fill: cake_color,
+        fill: canvas_object_info.cake_color,
       });
       rect.set("selectable", false);
       canvas.add(rect);
       canvas.centerObject(rect);
-      cakesheet = rect;
+      canvas_object_info.cakesheet = rect;
       break;
     case "triangle":
       let tri = new fabric.Triangle({
-        width: (canvas_width * mag) / 2,
-        height: ((canvas_width / 2) * Math.sqrt(3) * mag) / 2,
+        width: (canvas_width * canvas_object_info.mag) / 2,
+        height: ((canvas_width / 2) * Math.sqrt(3) * canvas_object_info.mag) / 2,
         stroke: "black",
         strokeWidth: 3,
-        fill: cake_color,
+        fill: canvas_object_info.cake_color,
       });
       tri.set("selectable", false);
       canvas.add(tri);
       canvas.centerObject(tri);
-      cakesheet = tri;
+      canvas_object_info.cakesheet = tri;
       break;
     case "star":
       let star = new fabric.Path(
         "M 170.000 210.000  L 217.023 234.721 L 208.042 182.361 L 246.085 145.279 L 193.511 137.639 L 170.000 90.000 L 146.489 137.639 L 93.915 145.279 L 131.958 182.361 L 122.977 234.721 L 170.000 210.000"
       );
       star.set({
-        scaleX: (canvas_width * mag * 3) / 800,
-        scaleY: (canvas_width * mag * 3) / 800,
-        fill: cake_color,
+        scaleX: (canvas_width * canvas_object_info.mag * 3) / 800,
+        scaleY: (canvas_width * canvas_object_info.mag * 3) / 800,
+        fill: canvas_object_info.cake_color,
         stroke: "black",
         strokeWidth: 6 / 7,
       });
       star.set("selectable", false);
       canvas.add(star);
       canvas.centerObject(star);
-      cakesheet = star;
+      canvas_object_info.cakesheet = star;
       break;
     case "heart":
       let heart = new fabric.Path(
@@ -132,26 +158,26 @@ function drawShape() {
             z "
       );
       heart.set({
-        scaleX: (canvas_width * mag) / 800,
-        scaleY: (canvas_width * mag) / 800,
-        fill: cake_color,
+        scaleX: (canvas_width * canvas_object_info.mag) / 800,
+        scaleY: (canvas_width * canvas_object_info.mag) / 800,
+        fill: canvas_object_info.cake_color,
         stroke: "black",
         strokeWidth: 3,
       });
       heart.set("selectable", false);
       canvas.add(heart);
       canvas.centerObject(heart);
-      cakesheet = heart;
+      canvas_object_info.cakesheet = heart;
       break;
     case "dubble":
       let first_circle = new fabric.Circle({
-        radius: (canvas_width * mag) / 4,
+        radius: (canvas_width * canvas_object_info.mag) / 4,
         stroke: "black",
         strokeWidth: 3,
-        fill: cake_color,
+        fill: canvas_object_info.cake_color,
       });
       let second_circle = new fabric.Circle({
-        radius: (canvas_width * mag) / 10,
+        radius: (canvas_width * canvas_object_info.mag) / 10,
         stroke: "black",
         strokeWidth: 3,
         fill: "white",
@@ -166,20 +192,29 @@ function drawShape() {
       group.set("selectable", false);
       canvas.add(group);
 
-      cakesheet = first_circle;
+      canvas_object_info.cakesheet = first_circle;
   }
 }
 /*--------------------------------- Tool bar --------------------------------- */
+//download
 const download_btn = document.querySelector('.download');
 download_btn.addEventListener('click', ()=>{
     const data = canvas.toDataURL();
-    console.log(data);
     const link = document.createElement('a');
     link.href = data;
     link.download = "cakewalk_design";
     link.click();
     link.remove();
 });
+
+//reset
+const prohibit_btn = document.querySelector('.prohibit');
+prohibit_btn.addEventListener('click', ()=>{
+  if(window.confirm("캔버스를 초기화 하겠습니까?")){
+    canvas.clear();
+    canvas2.clear();
+  }
+})
 
 /*--------------------------------- Object Delete --------------------------------- */
 const deleteIcon =
@@ -217,24 +252,56 @@ function renderIcon(ctx, left, top, styleOverride, fabricObject) {
   ctx.restore();
 }
 
+// delete key 누르면 삭제 하기 기능
+window.addEventListener("keydown", (e) => {
+  if (e.keyCode == 46) {
+    let cur_active_object = activeCanvas.getActiveObject();
+    activeCanvas.remove(cur_active_object);
+
+    if(activeCanvas == canvas){
+      for(let i = 0 ; i < canvas_object_info.object.length; i++){
+        if(canvas_object_info.object[i] == cur_active_object){
+          canvas_object_info.object.splice(i, 0);
+          break;
+        }
+      }
+    }
+    else{
+      for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+        if(side_canvas_object_info.object[i] == cur_active_object){
+          side_canvas_object_info.object.splice(i, 0);
+          break;
+        }
+      }
+    }
+
+    activeCanvas.requestRenderAll();
+  }
+});
+
 /*--------------------------------- Board Switch --------------------------------- */
 const switch_btn = document.querySelector(".board_switch_btn");
 const work_board = document.querySelector(".work_board");
 const second_work_board = document.querySelector(".second_work_board");
-let activeCanvas = canvas;
 
-switch_btn.addEventListener("click", (e) => {
+let pre_active_canvas_img = canvas.toDataURL();
+
+switch_btn.addEventListener("click", () => {
   work_board.classList.toggle("active_board");
   work_board.classList.toggle("unactive_board");
   second_work_board.classList.toggle("active_board");
   second_work_board.classList.toggle("unactive_board");
 
+  
   // 활성화 캔버스 스위치
   if (work_board.classList.contains("active_board")) {
     activeCanvas = canvas;
+    pre_active_canvas_img = canvas2.toDataURL();
   } else {
     activeCanvas = canvas2;
+    pre_active_canvas_img = canvas.toDataURL();
   }
+  save_canvas.src = pre_active_canvas_img;
 
   resizeCanvasSize();
 });
@@ -255,11 +322,24 @@ function resizeCanvasSize() {
     height: `${canvas2_height}`,
   });
 
-  if (switch_choice == "shape") {
+  canvas.clear();
+  canvas2.clear();
+
+  if (canvas_object_info.sheet_type == "shape") {
     drawShape();
   } else {
     drawImage();
   }
+  //캔버스에 text, decoration 그리기
+  canvas_object_info.object.forEach(element => {
+    canvas.add(element);
+  });
+  canvas.requestRenderAll();
+  
+  side_canvas_object_info.object.forEach(element =>{
+    canvas2.add(element);
+  });
+  canvas2.requestRenderAll();
 }
 
 /*--------------------------------- Memo --------------------------------- */
@@ -324,28 +404,27 @@ function modifyMemo(memo_item) {
 /*--------------------------------- Size select --------------------------------- */
 const memo_size = document.querySelector(".memo_size");
 const size_radios = document.querySelectorAll(".size_item");
-let select_size = null;
 
 size_radios.forEach((element) => {
   element.firstChild.addEventListener("change", (e) => {
     if (element.firstChild.checked) {
-      select_size = element.firstChild.dataset.size;
-      memo_size.firstChild.innerText = `사이즈 : ${select_size}호`;
+      canvas_object_info.select_size = element.firstChild.dataset.size;
+      memo_size.firstChild.innerText = `사이즈 : ${canvas_object_info.select_size}호`;
 
-      switch (select_size) {
+      switch (canvas_object_info.select_size) {
         case "1":
-          mag = 0.8;
+          canvas_object_info.mag = 0.6;
           break;
         case "2":
-          mag = 1.0;
+          canvas_object_info.mag = 0.8;
           break;
         case "3":
-          mag = 1.2;
+          canvas_object_info.mag = 1.0;
           break;
         default:
           break;
       }
-      if (switch_choice == "shape") {
+      if (canvas_object_info.sheet_type == "shape") {
         drawShape();
       } else {
         drawImage();
@@ -362,8 +441,6 @@ const select_box = document.querySelector(".select_box");
 const shape = document.querySelector(".shape");
 const picture = document.querySelector(".picture");
 
-let switch_choice = "shape";
-
 moveSwitch();
 
 function moveSwitch() {
@@ -378,13 +455,13 @@ function moveSwitch() {
       if (element.classList.contains("shape_switch_item_active")) {
         select_box.style.left = "auto";
         select_box.style.right = 0;
-        switch_choice = "pic";
+        canvas_object_info.sheet_type = "pic";
       }
       //기본 모양 active
       else {
         select_box.style.right = "auto";
         select_box.style.left = 0;
-        switch_choice = "shape";
+        canvas_object_info.sheet_type = "shape";
       }
     });
   });
@@ -409,24 +486,21 @@ realUpload.addEventListener("change", () => {
 function drawImage() {
   canvas.clear();
   canvas2.clear();
-  if (shape == null) {
-    return;
-  } else {
-    let side_posX = canvas2_width / 2 - (canvas2_width * mag) / 3;
-    let side_posY = canvas2_height / 2 - (canvas2_height * mag) / 6;
-    let sideRect = new fabric.Rect({
-      top: side_posY,
-      left: side_posX,
-      width: (canvas2_width * 2 * mag) / 3,
-      height: (canvas2_height * mag) / 3,
-      fill: side_cake_color,
-      stroke: "black",
-      strokeWidth: 3,
-    });
-    sideRect.set("selectable", false);
-    canvas2.add(sideRect);
-    sidesheet = sideRect;
-  }
+
+  let side_posX = canvas2_width / 2 - (canvas2_width * canvas_object_info.mag) / 3;
+  let side_posY = canvas2_height / 2 - (canvas2_height * canvas_object_info.mag) / 6;
+  let sideRect = new fabric.Rect({
+    top: side_posY,
+    left: side_posX,
+    width: (canvas2_width * 2 * canvas_object_info.mag) / 3,
+    height: (canvas2_height * canvas_object_info.mag) / 3,
+    fill: side_canvas_object_info.side_cake_color,
+    stroke: "black",
+    strokeWidth: 3,
+  });
+  sideRect.set("selectable", false);
+  canvas2.add(sideRect);
+  side_canvas_object_info.sidesheet = sideRect;
 
   fabric.Image.fromURL(`${pic_url}`, function (img) {
     img.on("scaling", (option) => {
@@ -436,7 +510,7 @@ function drawImage() {
     });
     canvas.add(img);
     canvas.centerObject(img);
-    cakesheet = img;
+    canvas_object_info.cakesheet = img;
   });
 }
 
@@ -520,37 +594,32 @@ fill_select.addEventListener("change", () => {
 });
 
 /*--------------------------------- 단색 색채우기 --------------------------------- */
-let cakesheet;
-let sidesheet;
-let cake_color = "#f8bbd0";
-let side_cake_color = "#f8bbd0";
-
 const upColorSelector = document.querySelector(".up_color_selector");
 const sideColorSelector = document.querySelector(".side_color_selector");
 
 upColorSelector.addEventListener("change", () => {
-  cake_color = upColorSelector.value;
-  if (cakesheet) {
-    cakesheet.set("fill", cake_color);
+  canvas_object_info.cake_color = upColorSelector.value;
+  if (canvas_object_info.cakesheet) {
+    canvas_object_info.cakesheet.set("fill", canvas_object_info.cake_color);
     canvas.requestRenderAll();
   }
 });
 
 sideColorSelector.addEventListener("change", () => {
-  side_cake_color = sideColorSelector.value;
-  if (sidesheet) {
-    sidesheet.set("fill", side_cake_color);
+  side_canvas_object_info.side_cake_color = sideColorSelector.value;
+  if (side_canvas_object_info.sidesheet) {
+    side_canvas_object_info.sidesheet.set("fill", side_canvas_object_info.side_cake_color);
     canvas2.requestRenderAll();
   }
 });
 
 function setFillSingleColor() {
-  if (cakesheet && sidesheet) {
-    cake_color = upColorSelector.value;
-    side_cake_color = sideColorSelector.value;
+  if (canvas_object_info.cakesheet && side_canvas_object_info.sidesheet) {
+    canvas_object_info.cake_color = upColorSelector.value;
+    side_canvas_object_info.side_cake_color = sideColorSelector.value;
 
-    cakesheet.set("fill", cake_color);
-    sidesheet.set("fill", side_cake_color);
+    canvas_object_info.cakesheet.set("fill", canvas_object_info.cake_color);
+    side_canvas_object_info.sidesheet.set("fill", side_canvas_object_info.side_cake_color);
 
     canvas.requestRenderAll();
     canvas2.requestRenderAll();
@@ -572,27 +641,27 @@ const endposY = document.querySelector(".gradient_end_posY");
 const endColor = document.querySelector(".gradient_end_color");
 
 startposX.addEventListener("change", () => {
-  cake_color.coords.x1 = startposX.value / 100;
+  canvas_object_info.cake_color.coords.x1 = startposX.value / 100;
   setFillGradient();
 });
 startposY.addEventListener("change", () => {
-  cake_color.coords.y1 = startposY.value / 100;
+  canvas_object_info.cake_color.coords.y1 = startposY.value / 100;
   setFillGradient();
 });
 endposX.addEventListener("change", () => {
-  cake_color.coords.x2 = endposX.value / 100;
+  canvas_object_info.cake_color.coords.x2 = endposX.value / 100;
   setFillGradient();
 });
 endposY.addEventListener("change", () => {
-  cake_color.coords.y2 = endposY.value / 100;
+  canvas_object_info.cake_color.coords.y2 = endposY.value / 100;
   setFillGradient();
 });
 startColor.addEventListener("change", () => {
-  cake_color.colorStops[0].color = startColor.value;
+  canvas_object_info.cake_color.colorStops[0].color = startColor.value;
   setFillGradient();
 });
 endColor.addEventListener("change", () => {
-  cake_color.colorStops[1].color = endColor.value;
+  canvas_object_info.cake_color.colorStops[1].color = endColor.value;
   setFillGradient();
 });
 
@@ -610,9 +679,9 @@ gradient_radios.forEach((element) => {
 });
 
 function setFillGradient() {
-  if (cakesheet && sidesheet) {
+  if (canvas_object_info.cakesheet && side_canvas_object_info.sidesheet) {
     if (gradient_work_board == "up") {
-      cake_color = new fabric.Gradient({
+      canvas_object_info.cake_color = new fabric.Gradient({
         type: "linear",
         gradientUnits: "percentage",
         coords: {
@@ -626,10 +695,10 @@ function setFillGradient() {
           { offset: 1, color: endColor.value },
         ],
       });
-      cakesheet.set("fill", cake_color);
+      canvas_object_info.cakesheet.set("fill", canvas_object_info.cake_color);
       canvas.requestRenderAll();
     } else {
-      side_cake_color = new fabric.Gradient({
+      side_canvas_object_info.side_cake_color = new fabric.Gradient({
         type: "linear",
         gradientUnits: "percentage",
         coords: {
@@ -643,7 +712,7 @@ function setFillGradient() {
           { offset: 1, color: endColor.value },
         ],
       });
-      sidesheet.set("fill", side_cake_color);
+      side_canvas_object_info.sidesheet.set("fill", side_canvas_object_info.side_cake_color);
       canvas2.requestRenderAll();
     }
   }
@@ -651,13 +720,11 @@ function setFillGradient() {
 /*--------------------------------- 이미지 채우기 --------------------------------- */
 const fillRealUpload = document.querySelector(".fill_real_upload");
 const fillUpload = document.querySelector(".fill_upload");
-let fill_pic_url;
-let patternSourceCanvas;
 
 let fill_img_info = {
   size: 300,
-  posX: (canvas_width * mag) / 4 - 150,
-  posY: (canvas_width * mag) / 4 - 150,
+  posX: (canvas_width * canvas_object_info.mag) / 4 - 150,
+  posY: (canvas_width * canvas_object_info.mag) / 4 - 150,
   angle: 0,
 };
 
@@ -666,17 +733,17 @@ fillUpload.addEventListener("click", () => fillRealUpload.click());
 fillRealUpload.addEventListener("change", () => {
   let selected_pic = fillRealUpload.files[0];
   if (selected_pic) {
-    fill_pic_url = URL.createObjectURL(selected_pic);
+    canvas_object_info.fill_pic_url = URL.createObjectURL(selected_pic);
     setFillImage();
   }
 });
 
 //이미지 채우기 함수
 function setFillImage() {
-  if (cakesheet && sidesheet && fill_pic_url) {
-    fabric.Image.fromURL(fill_pic_url, function (img) {
+  if (canvas_object_info.cakesheet && side_canvas_object_info.sidesheet && canvas_object_info.fill_pic_url) {
+    fabric.Image.fromURL(canvas_object_info.fill_pic_url, function (img) {
       img.scaleToWidth(fill_img_info["size"]);
-      patternSourceCanvas = new fabric.StaticCanvas();
+      let patternSourceCanvas = new fabric.StaticCanvas();
 
       patternSourceCanvas.setDimensions({
         width: img.getScaledWidth(),
@@ -688,15 +755,15 @@ function setFillImage() {
       img.set("angle", fill_img_info["angle"]);
       patternSourceCanvas.renderAll();
 
-      cake_color = new fabric.Pattern({
+      canvas_object_info.cake_color = new fabric.Pattern({
         source: patternSourceCanvas.getElement(),
         repeat: "no-repeat",
       });
 
-      cake_color.offsetX = fill_img_info["posX"];
-      cake_color.offsetY = fill_img_info["posY"];
+      canvas_object_info.cake_color.offsetX = fill_img_info["posX"];
+      canvas_object_info.cake_color.offsetY = fill_img_info["posY"];
 
-      cakesheet.set("fill", cake_color);
+      canvas_object_info.cakesheet.set("fill", canvas_object_info.cake_color);
 
       canvas.requestRenderAll();
     });
@@ -712,13 +779,13 @@ fillImgScale.oninput = function () {
 
 document.getElementById("fill_img_offsetX").oninput = function () {
   //canvas_width * mag /4 -150 = 50
-  let posX = (canvas_width * mag) / 4 - 150 + (this.value - 50) * 6;
+  let posX = (canvas_width * canvas_object_info.mag) / 4 - 150 + (this.value - 50) * 6;
   fill_img_info["posX"] = posX;
   setFillImage();
 };
 
 document.getElementById("fill_img_offsetY").oninput = function () {
-  let posY = (canvas_height * mag) / 4 - 150 + (this.value - 50) * 6;
+  let posY = (canvas_height * canvas_object_info.mag) / 4 - 150 + (this.value - 50) * 6;
   fill_img_info["posY"] = posY;
   setFillImage();
 };
@@ -728,25 +795,28 @@ document.getElementById("fill_img_angle").oninput = function () {
   setFillImage();
 };
 
-/*--------------------------------- STEP3 레터링 --------------------------------- */
+/*--------------------------------- STEP3 레터링 & STEP5 레터링 --------------------------------- */
 //텍스트 입력 방식 버튼 이벤트
 let text_info = {
-  cur_text_type: "mouse",
-  cur_font_size: 18,
-  cur_font_color: "black",
-  cur_font_familly: "times New Roman",
-  cur_text: "생일 축하 합니다!",
+  text_type: "mouse",
+  posX : 100,
+  posY : 100,
+  font_size: 18,
+  font_color: "black",
+  font_familly: "times New Roman",
+  text_contet: "생일 축하 합니다!",
 };
+
 const texttypes = document.querySelectorAll(".text_type_item");
+
 let cur_active_text_type = document.querySelector(".text_type_item_active");
+
 texttypes.forEach((element) => {
-  //초기 active text type 값 설정
-  //버튼 클릭 때 마다 cur_active_text_type바꿔주기
   element.addEventListener("click", () => {
     cur_active_text_type.classList.toggle("text_type_item_active", false);
     element.classList.toggle("text_type_item_active", true);
     cur_active_text_type = element;
-    text_info.cur_text_type = cur_active_text_type.dataset.type;
+    text_info.text_type = cur_active_text_type.dataset.type;
 
     writeText();
   });
@@ -754,163 +824,486 @@ texttypes.forEach((element) => {
 
 // 폰트 사이즈 입력 받기
 const font_size_control = document.querySelector(".font_size_control");
-font_size_control.addEventListener("change", () => {
-  text_info.cur_font_size = font_size_control.value;
-});
+font_size_control.oninput = function(){
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fontSize = font_size_control.value
+    activeCanvas.requestRenderAll();
+  }
+  text_info.font_size = font_size_control.value;
+  writeText();
+};
 
 //글자 색 입력 받기
 const font_color_control = document.querySelector(".font_color_control");
-font_color_control.addEventListener("change", (e) => {
-    text_info.cur_font_color = font_color_control.value;
-    console.log(font_color_control.value);
-});
+font_color_control.oninput = function(){
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fill = font_color_control.value;
+    activeCanvas.requestRenderAll();
+  }
+  text_info.font_color = font_color_control.value;
+  writeText();
+};
 
 //글꼴 설정 및 입력 받기
 const fonts = [
-    "Jua",
-    "Nanum Gothic Regular",
-    "Nanum Gothic Bold",
-    "NanumPen",
-    "Sunflower",
+  "쥬아",
+  "나눔고딕(보통)",
+  "나눔고딕(굵게)",
+  "나눔 펜",
+  "썬플라워",
 ];
+
 const font_selector = document.getElementById("font_familly_selector");
 //font <option>태그로 HTML에 추가
 fonts.forEach(function (font) {
-    let option = document.createElement("option");
-    option.innerHTML = font;
-    option.value = font;
-    font_selector.appendChild(option);
+  new FontFaceObserver(font);
+  let option = document.createElement("option");
+  option.innerHTML = font;
+  option.value = font;
+  option.style.fontFamily = font;
+
+  font_selector.style.fontFamily = "쥬아";
+  font_selector.appendChild(option);
+
 });
-fonts.unshift("times New Roman");
+
 font_selector.onchange = function () {
-    if (this.value !== "Times New Roman") {
-        text_info.cur_font_familly = new FontFaceObserver(this.value);
-        /*
-            myfont.load().then(function(){
-                activeCanvas.getActiveObject().set("fontFamily", this.value);
-                activeCanvas.requestRenderAll();
-            });*/
-    }
-    /*
-    else{
-        activeCanvas.getActiveObject().set("fontFamily", this.value);
-        activeCanvas.requestRenderAll();
-    }
-    */
+  font_selector.style.fontFamily = this.value;
+
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fontFamily = this.value
+    activeCanvas.requestRenderAll();
+  }
+  text_info.font_familly = font_selector.value;
+  writeText();
 };
 
 // 텍스트 값 입력 받기
 const text_content_item = document.querySelector(".text_content_item");
 text_content_item.addEventListener("input", () => {
-    if (text_content_item.value) {
-        text_info.cur_text = text_content_item.value;
-    } else {
-        text_info.cur_text = "";
-    }
-    });
+  if (text_content_item.value) {
+    text_info.text_contet = text_content_item.value;
+  } else {
+    text_info.text_contet = "";
+  }
 
-    function writeText() {
-    fabric.Object.prototype.objectCaching = false;
-    activeCanvas.isDrawingMode = false;
-    let active_text_object = activeCanvas.getActiveObject();
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().text = font_selector.value;
+    activeCanvas.requestRenderAll();
+  }
 
-    // 수정
-    if (active_text_object) {
-    }
-    // 새로만들기
-    else {
-    }
-    switch (text_info.cur_text_type) {
-        case "mouse":
-        textCreatebtn.classList.toggle("unactive", true);
-        textMouse();
-        break;
+  writeText();
+});
 
-        case "box":
-        textCreatebtn.classList.toggle("unactive", false);
-        textBox();
-        break;
+function writeText() {
+  fabric.Object.prototype.objectCaching = false;
+  activeCanvas.isDrawingMode = false;
 
-        case "curve":
-        textCreatebtn.classList.toggle("unactive", true);
-        textCurve();
-        break;
-    }
+  switch (text_info.text_type) {
+    case "mouse":
+      textCreatebtn.classList.toggle("unactive", true);
+      textMouse();
+      break;
+
+    case "box":
+      textCreatebtn.classList.toggle("unactive", false);
+      textCreatebtn.removeEventListener('clikc', textBox);
+      textCreatebtn.addEventListener("click",textBox);
+      break;
+
+    case "curve":
+      textCreatebtn.classList.toggle("unactive", true);
+      textCurve();
+      break;
+  }
 }
+
 // 네모 박스 레터링
 const textCreatebtn = document.querySelector(".create_text_btn");
 function textBox() {
-    textCreatebtn.addEventListener("click", () => {
-        let textbox = new fabric.Textbox(text_info.cur_text, {
-        width: 150,
-        fontSize: text_info.cur_font_size,
-        fontFamily: text_info.cur_font_familly,
-        fill: text_info.cur_font_color,
-        });
-
-        activeCanvas.add(textbox);
-        activeCanvas.requestRenderAll();
+    let textbox = new fabric.Textbox(text_info.text_contet, {
+      top : text_info.posY,
+      left : text_info.posX,
+      fontSize: text_info.font_size,
+      fontFamily: text_info.font_familly,
+      fill: text_info.font_color,
+      
+      canvas : activeCanvas,
     });
+
+    textbox.on('modified', ()=>{
+      if(textbox.canvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object == textbox){
+            canvas_object_info.object.splice(i, 0, textbox);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object == textbox){
+            side_canvas_object_info.object.splice(i, 0, textbox);
+            break;
+          }
+        }
+      }
+    });
+
+    if (activeCanvas == canvas){
+      canvas_object_info.object.push(textbox);
+    }
+    else{
+      side_canvas_object_info.object.push(textBox);
+    }
+    
+    activeCanvas.add(textbox);
+    activeCanvas.requestRenderAll();
 }
 
 function textCurve() {
-    fabric.Object.prototype.objectCaching = true;
-    activeCanvas.isDrawingMode = true;
+  fabric.Object.prototype.objectCaching = true;
+  activeCanvas.isDrawingMode = true;
 
-    activeCanvas.on("before:path:created", function (opt) {
-        let path = opt.path;
-        let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
-        path.segmentsInfo = pathInfo;
-        let pathLength = pathInfo[pathInfo.length - 1].length;
-        let fontSize =
-        ((text_info.cur_font_size / 18) * pathLength) / text_info.cur_text.length;
+  activeCanvas.off("before:path:created").on("before:path:created", function (opt) {
+    let path = opt.path;
+    let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
+    path.segmentsInfo = pathInfo;
+    let pathLength = pathInfo[pathInfo.length - 1].length;
+    let fontSize =
+    ((text_info.font_size / 18) * pathLength) / text_info.text_contet.length;
 
-        text = new fabric.Text(text_info.cur_text, {
-        fontSize: fontSize,
-        path: path,
-        top: path.top,
-        left: path.left,
-        });
-        activeCanvas.add(text);
-        activeCanvas.setActiveObject(text);
+    text = new fabric.Text(text_info.text_contet, {
+      fontSize: fontSize,
+      path: path,
+      top: path.top,
+      left: path.left,
+      fill : text_info.font_color,
+      fontFamily : text_info.font_familly,
     });
 
-    activeCanvas.on("path:created", function (opt) {
-        activeCanvas.remove(opt.path);
+    if(activeCanvas == canvas){
+      canvas_object_info.object.push(text);
+    }
+    else{
+      side_canvas_object_info.object.push(text);
+    }
+    text.on('modified', ()=>{
+      if(text.canvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object[i] == text){
+            canvas_object_info.object.splice(i, 0, text);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object[i] == text){
+            side_canvas_object_info.object.splice(i, 0, text);
+            break;
+          }
+        }
+      }
     });
+
+    activeCanvas.add(text);
+    activeCanvas.setActiveObject(text);
+  });
+
+  activeCanvas.on("path:created", function (opt) {
+      activeCanvas.remove(opt.path);
+  });
 }
 
 function textMouse() {
-    fabric.Object.prototype.objectCaching = false;
-    activeCanvas.isDrawingMode = false;
+  fabric.Object.prototype.objectCaching = false;
+  activeCanvas.isDrawingMode = false;
 }
 
-// 삭제 하기 기능
-window.addEventListener("keydown", (e) => {
-    if (e.keyCode == 46) {
-        let cur_active_object = activeCanvas.getActiveObject();
-        activeCanvas.remove(cur_active_object);
-        activeCanvas.requestRenderAll();
-    }
+/*--------------------------------- STEP4 데코레이션 --------------------------------- */
+const decoRealUpload = document.querySelector(".deco_real_upload");
+const decoUpload = document.querySelector(".deco_upload");
+const deco_imgs_box = document.querySelector('.deco_imgs_box');
+
+//사진 가져오기 클릭 이벤트
+decoUpload.addEventListener("click", () => decoRealUpload.click());
+decoRealUpload.addEventListener("change", () => {
+  let deco_img_file = decoRealUpload.files[0];
+  
+  if (deco_img_file) {
+    let newimgitem =  new Image();
+    newimgitem.classList.add('deco_img_item');
+    newimgitem.src = URL.createObjectURL(deco_img_file);
+
+    newimgitem.addEventListener('click',()=>{
+      addimage(newimgitem.src);
+    })
+
+    addimage(newimgitem.src);
+    
+    deco_imgs_box.appendChild(newimgitem);
+  }
 });
 
-/*--------------------------------- STEP4 데코레이션 --------------------------------- */
+function addimage(url){
+  fabric.Image.fromURL(`${url}`, function (img) {
+    img.on("scaling", (option) => {
+      img_scale = img.scaleX;
+      img_top = img.top;
+      img_left = img.left;
+    }).on('modified', ()=>{
+      if(activeCanvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object == img){
+            canvas_object_info.object.splice(i, 0, img);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object == img){
+            side_canvas_object_info.object.splice(i, 0, img);
+            break;
+          }
+        }
+      }
+    });
+
+    activeCanvas.centerObject(img);
+    activeCanvas.add(img);
+
+    if(activeCanvas == canvas){
+      canvas_object_info.object.push(img);
+    }
+    else{
+      side_canvas_object_info.object.push(img);
+    }
+
+  });
+}
 
 /*--------------------------------- STEP5 판꾸미기 --------------------------------- */
 const create_support_btn = document.querySelector(".create_support");
 
 create_support_btn.addEventListener("click", () => {
     let support = new fabric.Rect({
-        width: (canvas_width * mag) / 2 + 80,
-        height: (canvas_width * mag) / 2 + 80,
+        width: (canvas_width ) / 2 + 100,
+        height: (canvas_width) / 2 + 100,
         fill: "#ccc",
         stroke: "black",
         strokeWidth: 3,
     });
 
     support.set("selectable", false);
-    activeCanvas.centerObject(support);
-    activeCanvas.add(support);
+    canvas.centerObject(support);
+    canvas.add(support);
+
+    canvas_object_info.object.push(support);
+
     support.moveTo(-999);
-    activeCanvas.requestRenderAll();
+    canvas.requestRenderAll();
 });
+
+let step5_text_info = {
+  text_type: "mouse",
+  posX : 100,
+  posY : 100,
+  font_size: 18,
+  font_color: "black",
+  font_familly: "times New Roman",
+  text_contet: "생일 축하 합니다!",
+}
+
+const step5_texttypes = document.querySelectorAll(".board_text_type_item");
+let step5_cur_active_text_type = document.querySelector(".board_text_type_item_active");
+
+step5_texttypes.forEach((element) => {
+  element.addEventListener("click", () => {
+    step5_cur_active_text_type.classList.toggle("board_text_type_item_active", false);
+    element.classList.toggle("board_text_type_item_active", true);
+    step5_cur_active_text_type = element;
+    step5_text_info.text_type = step5_cur_active_text_type.dataset.type;
+
+    step5WriteText();
+  });
+});
+
+const step5_font_size_control = document.querySelector(".board_font_size_control");
+step5_font_size_control.oninput = function(){
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fontSize = step5_font_size_control.value
+    activeCanvas.requestRenderAll();
+  }
+  step5_text_info.font_size = step5_font_size_control.value;
+  step5WriteText();
+};
+
+const step5_font_color_control = document.querySelector(".board_font_color_control");
+step5_font_color_control.oninput = function(){
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fill = step5_font_color_control.value;
+    activeCanvas.requestRenderAll();
+  }
+  step5_text_info.font_color = step5_font_color_control.value;
+  step5WriteText();
+};
+
+const step5_font_selector = document.getElementById("board_font_familly_selector");
+
+fonts.forEach(function (font) {
+  new FontFaceObserver(font);
+  let option = document.createElement("option");
+  option.innerHTML = font;
+  option.value = font;
+  option.style.fontFamily = font;
+
+  step5_font_selector.style.fontFamily ="쥬아";
+  step5_font_selector.appendChild(option);
+});
+
+step5_font_selector.onchange = function () {
+  step5_font_selector.style.fontFamily = this.value;
+
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().fontFamily = this.value
+    activeCanvas.requestRenderAll();
+  }
+  step5_text_info.font_familly = step5_font_selector.value;
+  step5WriteText();
+};
+
+const step5_text_content_item = document.querySelector(".board_text_content_item");
+step5_text_content_item.addEventListener("input", () => {
+  if (step5_text_content_item.value) {
+    step5_text_info.text_contet = step5_text_content_item.value;
+  } else {
+    step5_text_info.text_contet = "";
+  }
+
+  if(activeCanvas.getActiveObject()){
+    activeCanvas.getActiveObject().text = step5_font_selector.value;
+    activeCanvas.requestRenderAll();
+  }
+
+  step5WriteText();
+});
+
+function step5WriteText() {
+  fabric.Object.prototype.objectCaching = false;
+  activeCanvas.isDrawingMode = false;
+
+  switch (step5_text_info.text_type) {
+    case "mouse":
+      step5_textCreatebtn.classList.toggle("unactive", true);
+      textMouse();
+      break;
+
+    case "box":
+      step5_textCreatebtn.classList.toggle("unactive", false);
+      step5_textCreatebtn.removeEventListener('clikc', step5TextBox);
+      step5_textCreatebtn.addEventListener("click",step5TextBox);
+      break;
+
+    case "curve":
+      step5_textCreatebtn.classList.toggle("unactive", true);
+      step5TextCurve();
+      break;
+  }
+}
+
+const step5_textCreatebtn = document.querySelector(".step5_create_text_btn"); 
+function step5TextBox() {
+    let textbox = new fabric.Textbox(step5_text_info.text_contet, {
+      top : step5_text_info.posY,
+      left : step5_text_info.posX,
+      fontSize: step5_text_info.font_size,
+      fontFamily: step5_text_info.font_familly,
+      fill: step5_text_info.font_color,
+      
+      canvas : activeCanvas,
+    });
+
+    textbox.on('modified', ()=>{
+      if(textbox.canvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object == textbox){
+            canvas_object_info.object.splice(i, 0, textbox);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object == textbox){
+            side_canvas_object_info.object.splice(i, 0, textbox);
+            break;
+          }
+        }
+      }
+    });
+
+    if (activeCanvas == canvas){
+      canvas_object_info.object.push(textbox);
+    }
+    else{
+      side_canvas_object_info.object.push(textBox);
+    }
+    
+    activeCanvas.add(textbox);
+    activeCanvas.requestRenderAll();
+}
+
+function step5TextCurve() {
+  fabric.Object.prototype.objectCaching = true;
+  activeCanvas.isDrawingMode = true;
+
+  activeCanvas.off("before:path:created").on("before:path:created", function (opt) {
+    let path = opt.path;
+    let pathInfo = fabric.util.getPathSegmentsInfo(path.path);
+    path.segmentsInfo = pathInfo;
+    let pathLength = pathInfo[pathInfo.length - 1].length;
+    let fontSize =
+    ((step5_text_info.font_size / 18) * pathLength) / step5_text_info.text_contet.length;
+
+    text = new fabric.Text(step5_text_info.text_contet, {
+      fontSize: fontSize,
+      path: path,
+      top: path.top,
+      left: path.left,
+      fill : step5_text_info.font_color,
+      fontFamily : step5_text_info.font_familly,
+    });
+
+    if(activeCanvas == canvas){
+      canvas_object_info.object.push(text);
+    }
+    else{
+      side_canvas_object_info.object.push(text);
+    }
+    text.on('modified', ()=>{
+      if(text.canvas == canvas){
+        for(let i = 0 ; i < canvas_object_info.object.length; i++){
+          if(canvas_object_info.object[i] == text){
+            canvas_object_info.object.splice(i, 0, text);
+            break;
+          }
+        }
+      }
+      else{
+        for(let i = 0 ; i < side_canvas_object_info.object.length; i++){
+          if(side_canvas_object_info.object[i] == text){
+            side_canvas_object_info.object.splice(i, 0, text);
+            break;
+          }
+        }
+      }
+    });
+    activeCanvas.add(text);
+    activeCanvas.setActiveObject(text);
+  });
+  activeCanvas.on("path:created", function (opt) {
+      activeCanvas.remove(opt.path);
+  });
+}

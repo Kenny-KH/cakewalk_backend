@@ -59,8 +59,9 @@ def manage7(request):
 def detail(request, store_id):
     store = get_object_or_404(BsSignupDetail, pk=store_id)
     cakes = StoreCake.objects.filter(store=store.pk)
-    
-    return render(request,'store_info.html', {'store' : store, 'cakes' : cakes})
+
+    return render(request,'store_info.html', {'store' : store, 'first' : cakes[0].image.url, "second" : cakes[1].image.url,
+                                              "third" : cakes[2].image.url, "four" : cakes[3].image.url})
 
 def inquire(request):
     return render(request,'inquire.html')
@@ -77,7 +78,7 @@ def storeInfoMore(request):
 
 def watchStore(request):
     stores = BsSignupDetail.objects.all()
-   
+    
 
     return render(request, 'watch_store.html', {"stores" : stores})
 

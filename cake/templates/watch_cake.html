@@ -27,13 +27,38 @@
     </div>
   </div>
 
-  <div class="hash">
-    <button class="hash2">#어버이날</button>
-    <button class="hash1">#축!전역</button>
-    <button class="hash1">#커플기념일</button>
-    <button class="hash1">#생일</button>
-    <button class="hash1">#크리스마스</button>
-  </div>
+  <form action="{% url 'watch_cake' %}">
+    <input type="hidden" name="code" id="code">
+
+  <ul class="tag-wrap">
+
+    <li class="tag ">
+      <button class="tag-btn" value="0">#모두보기</button>
+    
+    </li>
+
+    <li class="tag ">
+      <button class="tag-btn" value="1">#축! 생일</button>
+    
+    </li>
+    <li class="tag"><button class="tag-btn" value="2">#커플케이크</button></li>
+    <li class="tag"><button class="tag-btn" value="3">#가족케이크</button></li>
+    <li class="tag"><button class="tag-btn" value="4">#캐릭터케이크</button></li>
+    <li class="tag"><button class="tag-btn" value="5">#기본케이크</button></li>
+  </ul>
+</form>
+<script>
+  let codebuttons = document.querySelectorAll(".tag-btn")
+  for(let button of codebuttons){
+
+    if (button.value === "{{code}}"){
+      
+      button.parentNode.classList.add("tag-check");
+      button.classList.add("tag-color");
+      console.log("선택");
+    }
+  }
+</script>
 
   <div class="sort_fil">
     <select class="sorting" name="정렬">
@@ -51,10 +76,20 @@
    {% for cake in cakes %}
       <div class="cp">
         <img class="img2" src="{{cake.image.url}}"  alt="cake" id="{{cake.id}}"/>
+        <div style="display: flex; flex-direction : column; margin-bottom : 20px;">
+        <span style="color: #767676;">{{cake.name}}</span>
+        <span style="color: #767676; ">  미니 : {{cake.price_mini}}원</span>
+      </div>
       </div>
     {% endfor %}
-      </div>
     </div>
+    <div class="buttons">
+      <button class="page_button1">1</button>
+      <button class="page_button">2</button>
+      <button class="page_button">3</button>
+    </div>
+  </div>
+    
     
     <div class="modal">
       <div class="modal_body">
@@ -66,13 +101,15 @@
         <button class="next">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
-
+        
         <img
           class="modal-img"
           src=""
           alt="cake"
+          id=""
         />
-        
+       
+    
         <button
           class="m_button"
           id="goToStore"
@@ -88,14 +125,24 @@
 
         
       
-  </div>
-  <div class="buttons">
+  </>
+  <!--div class="buttons">
     <button class="page_button1">1</button>
     <button class="page_button">2</button>
     <button class="page_button">3</button>
-  </div>
+  </div-->
     
     </div>
+
+    <script>
+      const images = document.querySelectorAll(".cp");
+      for(let image of images){
+        image.addEventListener("click", ( e ) => {
+          console.log(e.target);
+        })
+      }
+      
+    </script>
 
     {% endblock %}
  

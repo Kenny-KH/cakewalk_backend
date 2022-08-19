@@ -1,3 +1,5 @@
+alert('dsf');
+
 /*--------------------모달창 띄우기 ---------------------------- */
 const all_images = document.querySelectorAll(".img2");
 const modal = document.querySelector(".modal");
@@ -49,3 +51,7 @@ left_arrow.addEventListener("click", () => {
     cur_img_num++;
   }
 });
+
+const firstId = all_images[0].id;
+const lastId = all_images[all_images.length-1].id;
+console.log(firstId, lastId);

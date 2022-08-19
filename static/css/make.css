@@ -48,7 +48,7 @@ main{
 .toolbar{
     width: 100%;
     height: 50px;
-    padding: 10px;
+
     box-sizing: border-box;
 
     display: flex;
@@ -59,8 +59,15 @@ main{
 .toolbar_item{
     display: flex;
     align-items: center;
-
+    justify-content: center;
+    width:100%;
+    height:100%;    
+    
     cursor: pointer;
+}
+.toolbar_item:hover{
+    background-color: rgb(160, 160, 160);
+
 }
 
 /*----------------------- main_toolbar --------------------*/
@@ -124,7 +131,7 @@ main{
 .step_box{
     position: relative;
 
-    height: calc(100vh - 240px);
+    height: calc(100vh - 220px);
 
     background-color: white;
 
@@ -319,6 +326,9 @@ main{
     grid-area: main_board;
 }
 .unactive_board{
+    display: none;
+}
+#svae_canvas{
     grid-area: side_board;
 }
 .work_board{
@@ -394,6 +404,7 @@ main{
 .board_switch_btn_text:hover{
     opacity: 50%;
 }
+
 .second_work_board{
     padding: 1rem;
     box-sizing: border-box;
@@ -404,6 +415,31 @@ main{
 
     overflow: hidden;
 }
+.side_work_board{
+    position: relative;
+    
+    padding: 1rem;
+    box-sizing: border-box;
+    
+    background-color: white;
+
+    overflow: hidden;
+}
+.block{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(80, 80, 80, 0.6);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #c2{
     position: absolute;
     top: 0; left: 0;
@@ -485,7 +521,7 @@ main{
 
     width: 1rem;
     height: 1rem;
-    padding: 0.2rem;
+    padding: 0.8rem;
     margin-left: 1rem;
     
     display: flex;
@@ -512,6 +548,14 @@ main{
     padding: 0.2rem;
     width:3rem;
 }
+.font_size_control, .board_font_size_control{
+    width: 60%;
+    margin-left: 1rem;
+}
+
+.text_color, .board_text_color{
+    margin-top: 1rem;
+}
 
 .text_familly, .board_text_familly{
     margin-top: 1rem;
@@ -521,6 +565,7 @@ main{
 }
 #font_familly_selector, #board_font_familly_selector{
     margin-left: 1rem;
+    padding: 0.3rem 0;
 }
 
 .text_content, .board_text_content{
@@ -540,7 +585,7 @@ main{
     resize: none;
 }
 
-.create_text_btn{
+.create_text_btn, .step5_create_text_btn{
     border: 1px solid black;
     border-radius: 1.6rem;
 
@@ -558,6 +603,51 @@ main{
 }
 .create_text_btn:hover{
     opacity: 1;
+}
+/*-------------------------- STEP4 create_support ------------------------*/
+.deco_image{
+
+
+}
+
+.deco_imgs_box{
+    margin-top: 1rem;
+    padding: 0.5rem;
+
+    width: 100%;
+    height: 12rem;
+    overflow-y: scroll;
+
+    border-radius: 0.5rem;
+
+    background: #ccc;
+
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, 30%);
+
+    justify-self: center;
+    align-self: center;
+}
+.deco_upload, .deco_img_item{
+    width: 100%;
+    height: 5rem;
+
+    background-color: #d81b60;
+    
+    font-size: 2.5rem;
+    color: white;
+    display: flex;
+
+    border-radius: 0.5rem;
+
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+.deco_upload:hover{
+    background-color: #d14a7c;
 }
 
 /*-------------------------- STEP5 create_support ------------------------*/

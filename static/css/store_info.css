@@ -140,6 +140,7 @@ h2 {
 }
 
 .notice-box {
+  word-wrap: break-word;
   width: 22.375rem;
   height: 8.75rem;
   overflow-y: scroll;
@@ -177,21 +178,21 @@ h2 {
 }
 
 .review-wrapper::-webkit-scrollbar {
-  width: 6px;  /* 스크롤바의 너비 */
+  width: 6px; /* 스크롤바의 너비 */
 }
 
 .review-wrapper::-webkit-scrollbar-thumb {
   height: 12px; /* 스크롤바의 길이 */
-  background: #D9D9D9; /* 스크롤바의 색상 */
+  background: #d9d9d9; /* 스크롤바의 색상 */
   border-radius: 10px;
 }
 
 .review-wrapper::-webkit-scrollbar-track {
-  background: transparent;  /*스크롤바 뒷 배경 색상*/
+  background: transparent; /*스크롤바 뒷 배경 색상*/
 }
 
 .review-box-header {
-  width: 23.625rem;
+  width: 22.625rem;
   display: flex;
   justify-content: space-between;
 }
@@ -309,17 +310,17 @@ h2 {
 }
 
 .modal-content::-webkit-scrollbar {
-  width: 6px;  /* 스크롤바의 너비 */
+  width: 6px; /* 스크롤바의 너비 */
 }
 
 .modal-content::-webkit-scrollbar-thumb {
   height: 12px; /* 스크롤바의 길이 */
-  background: #D9D9D9;; /* 스크롤바의 색상 */
+  background: #d9d9d9; /* 스크롤바의 색상 */
   border-radius: 10px;
 }
 
 .modal-content::-webkit-scrollbar-track {
-  background: transparent /*스크롤바 뒷 배경 색상*/
+  background: transparent; /*스크롤바 뒷 배경 색상*/
 }
 
 .modal-header {

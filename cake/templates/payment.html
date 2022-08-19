@@ -7,14 +7,17 @@
 <body class="body">
   <div class="wrapper">
     <div class="pay">결제하기</div>
+
+    <div class="only_order"> 
+
     <div class="order">주문</div>
     <div class="infor">
       <div class="item">상품정보</div>
       <div class="cake">
-        <img class="img" src="{{order.cake.url}}" alt="cake" />
+        <img class="cake-img" src="{{order.cake.url}}" alt="cake" />
       </div>
       <div class="name">
-        {{order.cakeObject.name}}<br />
+        {{order.cakeObject.name}}
         <span class="milk">{{order.flavor}}</span>
       </div>
       <div class="amount">수량 : 1</div>
@@ -51,7 +54,7 @@
 
     <div class="dis_coupon">
       <div class="smalldiv">포인트 할인</div>
-      <div>-0원</div>
+      <div class="zere_price">-0원</div>
 
       <button class="choice_cou">포인트 사용</button>
     </div>
@@ -90,12 +93,14 @@
         결제하기
       </button>
     </div>
+  </div class="only_order"> 
 
     <div class="caution">
       <div class="caution1">
         현재 정보가 저장되지 않을 수 있습니다.
         <button class="back"><< 돌아가기</button>
       </div>
+    
     </div>
   </div>
   {% endblock %}
