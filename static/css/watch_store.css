@@ -201,6 +201,14 @@
   display: flex;
   width: 278px;
   height: 100%;
+  overflow-y: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.lorem::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 .circles {
