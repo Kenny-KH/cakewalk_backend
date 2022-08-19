@@ -1,6 +1,9 @@
 /*--------------------------------- Canvas --------------------------------- */
 const zindex_info ={
-
+  'cakesheet': -800,
+  'support' : -999,
+  'text' : 100,
+  'deco' : 100,
 };
 
 const canvas = new fabric.Canvas('c');
@@ -28,6 +31,7 @@ let canvas_object_info ={
   sheet_type : "shape", //그림인지 모양인지
 
   object : [],
+  support : null,
 }
 let side_canvas_object_info = {
   sidesheet : null,
@@ -79,6 +83,8 @@ function drawShape() {
     });
     sideRect.set("selectable", false);
     canvas2.add(sideRect);
+
+    canvas2.moveTo(sideRect, zindex_info['cakesheet']);
     canvas2.centerObject(sideRect);
     side_canvas_object_info.sidesheet = sideRect;
   }
@@ -93,6 +99,8 @@ function drawShape() {
       });
       circle.set("selectable", false);
       canvas.add(circle);
+
+      circle.moveTo(zindex_info['cakesheet']);
       canvas.centerObject(circle);
       canvas_object_info.cakesheet = circle;
       break;
@@ -106,6 +114,8 @@ function drawShape() {
       });
       rect.set("selectable", false);
       canvas.add(rect);
+      
+      canvas.moveTo(rect,zindex_info['cakesheet']);
       canvas.centerObject(rect);
       canvas_object_info.cakesheet = rect;
       break;
@@ -119,6 +129,8 @@ function drawShape() {
       });
       tri.set("selectable", false);
       canvas.add(tri);
+
+      canvas.moveTo(tri, zindex_info['cakesheet']);
       canvas.centerObject(tri);
       canvas_object_info.cakesheet = tri;
       break;
@@ -135,6 +147,8 @@ function drawShape() {
       });
       star.set("selectable", false);
       canvas.add(star);
+
+      canvas.moveTo(star, zindex_info['cakesheet']);
       canvas.centerObject(star);
       canvas_object_info.cakesheet = star;
       break;
@@ -158,6 +172,8 @@ function drawShape() {
       });
       heart.set("selectable", false);
       canvas.add(heart);
+
+      heart.moveTo(zindex_info['cakesheet']);
       canvas.centerObject(heart);
       canvas_object_info.cakesheet = heart;
       break;
@@ -183,6 +199,7 @@ function drawShape() {
       let group = new fabric.Group([first_circle, second_circle]);
       group.set("selectable", false);
       canvas.add(group);
+      canvas.moveTo(group, zindex_info['cakesheet']);
 
       canvas_object_info.cakesheet = first_circle;
   }
@@ -316,11 +333,18 @@ function resizeCanvasSize() {
   //캔버스에 text, decoration 그리기
   canvas_object_info.object.forEach(element => {
     canvas.add(element);
+    canvas.moveTo(element, zindex_info['deco']);
   });
+  if(canvas_object_info.support){
+    canvas.add(canvas_object_info.support);
+    canvas.moveTo(canvas_object_info.support, zindex_info['support']);
+  }
+  
   canvas.requestRenderAll();
   
   side_canvas_object_info.object.forEach(element =>{
     canvas2.add(element);
+    canvas2.moveTo(element, zindex_info['deco']);
   });
   canvas2.requestRenderAll();
 }
@@ -483,6 +507,8 @@ function drawImage() {
   });
   sideRect.set("selectable", false);
   canvas2.add(sideRect);
+  canvas2.moveTo(sideRect, zindex_info['cakesheet']);
+
   side_canvas_object_info.sidesheet = sideRect;
 
   fabric.Image.fromURL(`${pic_url}`, function (img) {
@@ -492,6 +518,8 @@ function drawImage() {
       img_left = img.left;
     });
     canvas.add(img);
+    canvas.moveTo(img, zindex_info['cakesheet']);
+
     canvas.centerObject(img);
     canvas_object_info.cakesheet = img;
   });
@@ -941,6 +969,7 @@ function textBox() {
     }
     
     activeCanvas.add(textbox);
+    activeCanvas.moveTo(textbox, zindex_info['text']);
     activeCanvas.requestRenderAll();
 }
 
@@ -991,6 +1020,7 @@ function textCurve() {
     });
 
     activeCanvas.add(text);
+    activeCanvas.moveTo(text, zindex_info['text']);
     activeCanvas.setActiveObject(text);
   });
 
@@ -1056,6 +1086,7 @@ function addimage(url){
 
     activeCanvas.centerObject(img);
     activeCanvas.add(img);
+    activeCanvas.moveTo(img, zindex_info['deco']);
 
     if(activeCanvas == canvas){
       canvas_object_info.object.push(img);
@@ -1082,10 +1113,10 @@ create_support_btn.addEventListener("click", () => {
     support.set("selectable", false);
     canvas.centerObject(support);
     canvas.add(support);
+    canvas.moveTo(support, zindex_info['support']);
 
-    canvas_object_info.object.push(support);
+    canvas_object_info.support=support;
 
-    support.moveTo(-999);
     canvas.requestRenderAll();
 });
 
@@ -1236,6 +1267,7 @@ function step5TextBox() {
     }
     
     activeCanvas.add(textbox);
+    activeCanvas.moveTo(textbox, zindex_info['support']+1);
     activeCanvas.requestRenderAll();
 }
 
@@ -1285,6 +1317,7 @@ function step5TextCurve() {
       }
     });
     activeCanvas.add(text);
+    activeCanvas.moveTo(text, zindex_info['support']+1);
     activeCanvas.setActiveObject(text);
   });
   activeCanvas.on("path:created", function (opt) {
