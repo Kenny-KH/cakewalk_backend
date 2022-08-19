@@ -112,8 +112,6 @@ function drawShape() {
   if(side_canvas_object_info.first_draw){
     side_canvas_object_info.first_draw = false;
     save_canvas.src = canvas2.toDataURL();
-    console.log(canvas2.toDataURL());
-    console.log("왜??");
   }
 
   /*여기에 문제가 있다*/
