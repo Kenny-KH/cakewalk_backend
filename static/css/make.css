@@ -434,8 +434,11 @@ main{
     height: 100%;
 
     background-color: rgba(80, 80, 80, 0.6);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 #c2{
     position: absolute;
