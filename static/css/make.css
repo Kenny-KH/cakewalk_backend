@@ -326,6 +326,9 @@ main{
     grid-area: main_board;
 }
 .unactive_board{
+    display: none;
+}
+#svae_canvas{
     grid-area: side_board;
 }
 .work_board{
@@ -401,6 +404,7 @@ main{
 .board_switch_btn_text:hover{
     opacity: 50%;
 }
+
 .second_work_board{
     padding: 1rem;
     box-sizing: border-box;
@@ -411,6 +415,28 @@ main{
 
     overflow: hidden;
 }
+.side_work_board{
+    position: relative;
+    
+    padding: 1rem;
+    box-sizing: border-box;
+    
+    background-color: white;
+
+    overflow: hidden;
+}
+.block{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(80, 80, 80, 0.6);
+}
+
+
 #c2{
     position: absolute;
     top: 0; left: 0;
