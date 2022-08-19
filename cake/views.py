@@ -118,7 +118,7 @@ def watch_cake(request):
         status = "N"
     stores = BsSignupDetail.objects.all()
     if code == "0":
-        cakes = StoreCake.objects.all()
+        cakes = StoreCake.objects.all().order_by('-id')
     else:
         cakes = StoreCake.objects.filter(code=code)
     return render(request, 'watch_cake.html', {"cakes" : cakes, "code" : code})
