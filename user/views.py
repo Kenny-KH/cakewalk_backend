@@ -1,3 +1,4 @@
+from account.models import BsSignupDetail, User
 from cakewalk.settings.base import *
 from django.http import JsonResponse, HttpResponse
 from .models import UserCake
@@ -7,7 +8,7 @@ import base64
 from django.core.files.base import ContentFile
 from cake.models import Order
 
-
+num = 0
 # Create your views here.
 def myPage(request):
     return render(request, "mypage1.html")
@@ -43,10 +44,12 @@ def userChatting(request, order_id):
     return render(request, "user_chatting.html", {"order" : order})
 
 def usercake(request):
+    global num;
     if request.method == 'POST':
         new_user_cake = UserCake()
-        new_user_cake.user = request.user
-        new_user_cake.name = f"{request.user.name}님이 제작한 케이크"
+        new_user_cake.user = get_object_or_404(User, pk=1)
+        new_user_cake.name = f"익명{num}님이 제작한 케이크"
+        num += 1
         new_user_cake.save();
 
         cake_data = json.loads(request.body)
