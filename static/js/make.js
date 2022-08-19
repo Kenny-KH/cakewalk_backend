@@ -21,6 +21,7 @@ const shape_btns = document.querySelectorAll(".shape_item");
 
 let canvas_object_info ={
   cakesheet : null,
+  group : null,
 
   cake_color : "#f8bbd0",
   fill_pic_url : null, // 시트 채우기 그림  url
@@ -31,12 +32,14 @@ let canvas_object_info ={
   sheet_type : "shape", //그림인지 모양인지
 
   object : [],
+  support : null,
 }
 
 let side_canvas_object_info = {
   sidesheet : null,
   side_cake_color : "#f8bbd0", 
   object : [],
+  first_draw : true,
 }
 
 let activeCanvas = canvas;
@@ -62,47 +65,74 @@ window.addEventListener("resize", () => {
 /*--------------------------------- STEP1 시트 모양 선택 --------------------------------- */
 //모양 버튼 누르면 발생되는 이벤트
 shape_btns.forEach((ele) => {
-    ele.addEventListener("click", (e) => {
+    ele.addEventListener("click", () => {
         if (canvas_object_info.active_shape) {
           canvas_object_info.active_shape.classList.toggle("shape_item_active", false);
         }
         canvas_object_info.active_shape = ele;
         canvas_object_info.active_shape.classList.toggle("shape_item_active", true);
         
-        resizeCanvasSize();
+        drawShape();
     });
 });
 
 function drawShape() {
   if (canvas_object_info.active_shape == null) {
     return;
-  } 
-  else {
-    let sideRect = new fabric.Rect({
-      width: (canvas2_width * 2 * canvas_object_info.mag) / 3,
-      height: (canvas2_height * canvas_object_info.mag) / 3,
-      fill: side_canvas_object_info.side_cake_color,
-      stroke: "black",
-      strokeWidth: 3,
-    });
-    sideRect.set("selectable", false);
-    canvas2.add(sideRect);
-    canvas2.centerObject(sideRect);
-    side_canvas_object_info.sidesheet = sideRect;
   }
 
+  if(side_canvas_object_info.sidesheet){
+    canvas2.remove(side_canvas_object_info.sidesheet);
+  }
+
+  if(canvas_object_info.group){
+    canvas.remove(canvas_object_info.group);
+    canvas_object_info.group = null;
+  }
+  
+  if(canvas_object_info.cakesheet){
+    canvas.remove(canvas_object_info.cakesheet);
+  }
+
+  let sideRect = new fabric.Rect({
+    width: (canvas2_width * 2 * canvas_object_info.mag) / 3,
+    height: (canvas2_height * canvas_object_info.mag) / 3,
+    fill: side_canvas_object_info.side_cake_color,
+    stroke: "black",
+    strokeWidth: 3,
+  });
+  sideRect.set("selectable", false);
+  canvas2.add(sideRect);
+  canvas2.moveTo(sideRect, zindex_info['cakesheet']);
+
+  canvas2.centerObject(sideRect);
+  side_canvas_object_info.sidesheet = sideRect;
+  canvas2.requestRenderAll();
+
+  if(side_canvas_object_info.first_draw){
+    side_canvas_object_info.first_draw = false;
+    save_canvas.src = canvas2.toDataURL();
+    console.log(canvas2.toDataURL());
+    console.log("왜??");
+  }
+
+  /*여기에 문제가 있다*/
   switch (canvas_object_info.active_shape.dataset.shape) {
     case "circle":
+      let circle_radius = (canvas_width * canvas_object_info.mag) / 4 > 0 ? (canvas_width * canvas_object_info.mag) / 4 : 30; 
       let circle = new fabric.Circle({
-        radius: (canvas_width * canvas_object_info.mag) / 4,
+        radius: circle_radius,
         stroke: "black",
         strokeWidth: 3,
         fill: canvas_object_info.cake_color,
       });
       circle.set("selectable", false);
       canvas.add(circle);
+      canvas.moveTo(circle, zindex_info['cakesheet']);
+
       canvas.centerObject(circle);
       canvas_object_info.cakesheet = circle;
+      canvas.requestRenderAll();
       break;
     case "rectangle":
       let rect = new fabric.Rect({
@@ -114,8 +144,11 @@ function drawShape() {
       });
       rect.set("selectable", false);
       canvas.add(rect);
+      canvas.moveTo(rect, zindex_info['cakesheet']);
+
       canvas.centerObject(rect);
       canvas_object_info.cakesheet = rect;
+      canvas.requestRenderAll();
       break;
     case "triangle":
       let tri = new fabric.Triangle({
@@ -127,8 +160,11 @@ function drawShape() {
       });
       tri.set("selectable", false);
       canvas.add(tri);
+      canvas.moveTo(tri, zindex_info['cakesheet']);
+
       canvas.centerObject(tri);
       canvas_object_info.cakesheet = tri;
+      canvas.requestRenderAll();
       break;
     case "star":
       let star = new fabric.Path(
@@ -143,8 +179,11 @@ function drawShape() {
       });
       star.set("selectable", false);
       canvas.add(star);
+      canvas.moveTo(star, zindex_info['cakesheet']);
+
       canvas.centerObject(star);
       canvas_object_info.cakesheet = star;
+      canvas.requestRenderAll();
       break;
     case "heart":
       let heart = new fabric.Path(
@@ -166,18 +205,24 @@ function drawShape() {
       });
       heart.set("selectable", false);
       canvas.add(heart);
+      canvas.moveTo(heart, zindex_info['cakesheet']);
+
       canvas.centerObject(heart);
       canvas_object_info.cakesheet = heart;
+      
+      canvas.requestRenderAll();
       break;
     case "dubble":
+      let first_circle_radius = ((canvas_width * canvas_object_info.mag) / 4 > 0) ? (canvas_width * canvas_object_info.mag) / 4 : 30;
       let first_circle = new fabric.Circle({
-        radius: (canvas_width * canvas_object_info.mag) / 4,
+        radius: first_circle_radius,
         stroke: "black",
         strokeWidth: 3,
         fill: canvas_object_info.cake_color,
       });
+      let second_circle_radius = (canvas_width * canvas_object_info.mag) / 10 > 0 ? (canvas_width * canvas_object_info.mag) / 10 : 5;
       let second_circle = new fabric.Circle({
-        radius: (canvas_width * canvas_object_info.mag) / 10,
+        radius: second_circle_radius,
         stroke: "black",
         strokeWidth: 3,
         fill: "white",
@@ -191,9 +236,13 @@ function drawShape() {
       let group = new fabric.Group([first_circle, second_circle]);
       group.set("selectable", false);
       canvas.add(group);
+      canvas.moveTo(group, zindex_info['cakesheet']);
 
       canvas_object_info.cakesheet = first_circle;
+      canvas_object_info.group = group;
+      canvas.requestRenderAll();
   }
+  
 }
 /*--------------------------------- Tool bar --------------------------------- */
 //download
@@ -292,7 +341,6 @@ switch_btn.addEventListener("click", () => {
   second_work_board.classList.toggle("active_board");
   second_work_board.classList.toggle("unactive_board");
 
-  
   // 활성화 캔버스 스위치
   if (work_board.classList.contains("active_board")) {
     activeCanvas = canvas;
@@ -330,16 +378,31 @@ function resizeCanvasSize() {
   } else {
     drawImage();
   }
+  
   //캔버스에 text, decoration 그리기
-  canvas_object_info.object.forEach(element => {
-    canvas.add(element);
-  });
+  if(canvas_object_info.object.length>0){
+    canvas_object_info.object.forEach(element => {
+      canvas.add(element);
+      canvas.moveTo(element, zindex_info["lttering"]);
+    });
+  }
+
+  if(canvas_object_info.support){
+    canvas.add(canvas_object_info.support);
+    canvas.moveTo(canvas_object_info.support, zindex_info['support']);
+  }
+
   canvas.requestRenderAll();
   
-  side_canvas_object_info.object.forEach(element =>{
-    canvas2.add(element);
-  });
+  if(side_canvas_object_info.object.length > 0){
+
+    side_canvas_object_info.object.forEach(element =>{
+      canvas2.add(element);
+      canvas2.moveTo(element, zindex_info['lttering']);
+    });
+  }
   canvas2.requestRenderAll();
+  
 }
 
 /*--------------------------------- Memo --------------------------------- */
@@ -500,6 +563,8 @@ function drawImage() {
   });
   sideRect.set("selectable", false);
   canvas2.add(sideRect);
+  canvas2.moveTo(sideRect, zindex_info['cakesheet']);
+
   side_canvas_object_info.sidesheet = sideRect;
 
   fabric.Image.fromURL(`${pic_url}`, function (img) {
@@ -509,6 +574,8 @@ function drawImage() {
       img_left = img.left;
     });
     canvas.add(img);
+    canvas.moveTo(img, zindex_info['cakesheet']);
+
     canvas.centerObject(img);
     canvas_object_info.cakesheet = img;
   });
@@ -532,6 +599,9 @@ let cur_order = order_list[0];
 
 order_num_items.forEach((element) => {
   element.addEventListener("click", () => {
+    fabric.Object.prototype.objectCaching = false;
+    activeCanvas.isDrawingMode = false;
+
     active_order_item.classList.toggle("order_num_item_active", false);
     element.classList.toggle("order_num_item_active", true);
     active_order_item = element;
@@ -958,6 +1028,8 @@ function textBox() {
     }
     
     activeCanvas.add(textbox);
+    activeCanvas.moveTo(textbox, zindex_info['lttering']);
+
     activeCanvas.requestRenderAll();
 }
 
@@ -1008,6 +1080,8 @@ function textCurve() {
     });
 
     activeCanvas.add(text);
+    activeCanvas.moveTo(text, zindex_info['lttering']);
+
     activeCanvas.setActiveObject(text);
   });
 
@@ -1073,6 +1147,7 @@ function addimage(url){
 
     activeCanvas.centerObject(img);
     activeCanvas.add(img);
+    activeCanvas.moveTo(img, zindex_info['lttering']);
 
     if(activeCanvas == canvas){
       canvas_object_info.object.push(img);
@@ -1098,7 +1173,11 @@ create_support_btn.addEventListener("click", () => {
 
     support.set("selectable", false);
     canvas.centerObject(support);
+
     canvas.add(support);
+    canvas.moveTo(support ,zindex_info['support']);
+
+    canvas_object_info.support = support;
 
     canvas_object_info.object.push(support);
 
@@ -1252,6 +1331,7 @@ function step5TextBox() {
     }
     
     activeCanvas.add(textbox);
+    activeCanvas.moveTo(textbox, zindex_info['lttering']);
     activeCanvas.requestRenderAll();
 }
 
@@ -1301,6 +1381,8 @@ function step5TextCurve() {
       }
     });
     activeCanvas.add(text);
+    activeCanvas.moveTo(text, zindex_info['lttering']);
+
     activeCanvas.setActiveObject(text);
   });
   activeCanvas.on("path:created", function (opt) {
