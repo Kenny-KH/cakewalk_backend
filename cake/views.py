@@ -1,6 +1,6 @@
 from copyreg import add_extension
 from django.shortcuts import render, redirect, get_object_or_404
-from account.models import BsSignupDetail
+from account.models import BsSignupDetail, User
 from cake.models import Order
 from store.models import StoreCake
 from user.models import UserCake
@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
-@login_required
 def make(request):
     return render(request, 'make.html')
 
@@ -19,7 +18,6 @@ def make2(request,id):
     
     return render(request, 'make2.html', {"cake" : cake.image.url})
 
-@login_required
 def order(request , whatCake, cake_id):
     
     if whatCake == "store":
@@ -31,9 +29,11 @@ def order(request , whatCake, cake_id):
     result = ""
     
     if request.method == 'POST':
+        user = get_object_or_404(User, 1)
         try:
             order = Order()
-            order.user = request.user
+            
+            order.user = get_object_or_404(User, pk=1)
             order.store = stores if whatCake == "store" \
                                     else get_object_or_404(BsSignupDetail, pk = request.POST['store'])
             order.cake = cake.image
@@ -105,7 +105,6 @@ def order(request):
         return render(request, 'order.html')
 """
 
-@login_required
 def payment(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     return render(request, 'payment.html', {"order" : order})
