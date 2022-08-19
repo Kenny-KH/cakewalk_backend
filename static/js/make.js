@@ -1,8 +1,8 @@
 /*--------------------------------- Canvas --------------------------------- */
 const zindex_info ={
-  cakesheet : 0,
-  support : -100,
-  lttering : 100,
+  cakesheet : 100,
+  support : 0,
+  lettering : 300,
 };
 
 const canvas = new fabric.Canvas('c');
@@ -371,23 +371,23 @@ function resizeCanvasSize() {
   canvas.clear();
   canvas2.clear();
 
+  if(canvas_object_info.support){
+    canvas.add(canvas_object_info.support);
+    canvas.moveTo(canvas_object_info.support, zindex_info['support']);
+  }
+
   if (canvas_object_info.sheet_type == "shape") {
     drawShape();
   } else {
     drawImage();
   }
-  
+
   //캔버스에 text, decoration 그리기
   if(canvas_object_info.object.length>0){
     canvas_object_info.object.forEach(element => {
       canvas.add(element);
-      canvas.moveTo(element, zindex_info["lttering"]);
+      canvas.moveTo(element, zindex_info["lettering"]);
     });
-  }
-
-  if(canvas_object_info.support){
-    canvas.add(canvas_object_info.support);
-    canvas.moveTo(canvas_object_info.support, zindex_info['support']);
   }
 
   canvas.requestRenderAll();
@@ -396,7 +396,7 @@ function resizeCanvasSize() {
 
     side_canvas_object_info.object.forEach(element =>{
       canvas2.add(element);
-      canvas2.moveTo(element, zindex_info['lttering']);
+      canvas2.moveTo(element, zindex_info['lettering']);
     });
   }
   canvas2.requestRenderAll();
@@ -518,10 +518,11 @@ function moveSwitch() {
         select_box.style.right = 0;
         canvas_object_info.sheet_type = "pic";
       }
+
       //기본 모양 active
       else {
         select_box.style.right = "auto";
-        select_box.style.left = 0;
+        select_box.style.left = 0 ;
         canvas_object_info.sheet_type = "shape";
       }
     });
@@ -790,9 +791,9 @@ const fillRealUpload = document.querySelector(".fill_real_upload");
 const fillUpload = document.querySelector(".fill_upload");
 
 let fill_img_info = {
-  size: 300,
-  posX: (canvas_width * canvas_object_info.mag) / 4 - 150,
-  posY: (canvas_width * canvas_object_info.mag) / 4 - 150,
+  size: 500,
+  posX: (canvas_width * canvas_object_info.mag) / 4 -300,
+  posY: (canvas_width * canvas_object_info.mag) / 4 -230,
   angle: 0,
 };
 
@@ -1026,7 +1027,7 @@ function textBox() {
     }
     
     activeCanvas.add(textbox);
-    activeCanvas.moveTo(textbox, zindex_info['lttering']);
+    activeCanvas.moveTo(textbox, zindex_info['lettering']);
 
     activeCanvas.requestRenderAll();
 }
@@ -1078,7 +1079,7 @@ function textCurve() {
     });
 
     activeCanvas.add(text);
-    activeCanvas.moveTo(text, zindex_info['lttering']);
+    activeCanvas.moveTo(text, zindex_info['lettering']);
 
     activeCanvas.setActiveObject(text);
   });
@@ -1145,7 +1146,7 @@ function addimage(url){
 
     activeCanvas.centerObject(img);
     activeCanvas.add(img);
-    activeCanvas.moveTo(img, zindex_info['lttering']);
+    activeCanvas.moveTo(img, zindex_info['lettering']);
 
     if(activeCanvas == canvas){
       canvas_object_info.object.push(img);
@@ -1153,7 +1154,6 @@ function addimage(url){
     else{
       side_canvas_object_info.object.push(img);
     }
-
   });
 }
 
@@ -1179,7 +1179,6 @@ create_support_btn.addEventListener("click", () => {
 
     canvas_object_info.object.push(support);
 
-    support.moveTo(-999);
     canvas.requestRenderAll();
 });
 
@@ -1329,7 +1328,7 @@ function step5TextBox() {
     }
     
     activeCanvas.add(textbox);
-    activeCanvas.moveTo(textbox, zindex_info['lttering']);
+    activeCanvas.moveTo(textbox, zindex_info['lettering']);
     activeCanvas.requestRenderAll();
 }
 
@@ -1379,7 +1378,7 @@ function step5TextCurve() {
       }
     });
     activeCanvas.add(text);
-    activeCanvas.moveTo(text, zindex_info['lttering']);
+    activeCanvas.moveTo(text, zindex_info['lettering']);
 
     activeCanvas.setActiveObject(text);
   });
