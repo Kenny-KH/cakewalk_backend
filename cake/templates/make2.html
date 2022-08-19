@@ -342,8 +342,9 @@
 </script>
 <script>
     window.onload = ()=>{
-        pic_url = "{{ cake }}";
-        drawImage();
+        document.getElementById('click1').click();
+        canvas_object_info.fill_pic_url = "{{cake}}";
+        setFillImage();
     }
 </script>
 {% endblock %}
