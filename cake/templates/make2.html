@@ -70,7 +70,7 @@
                             <div class="select_box"></div>
                         </div>
                         <div class="shape">
-                            <div class="shape_item" data-shape="circle">
+                            <div id="click1" class="shape_item" data-shape="circle">
                                 <img class="shape_item_inner" src="{% static 'img/make/shape_circle.png' %}"> 
                             </div>
                             <div class="shape_item" data-shape="rectangle">
@@ -339,5 +339,13 @@
             });
         })
     });
+</script>
+<script>
+    window.onload = ()=>{
+        document.getElementById('click1').click();
+
+        canvas_object_info.fill_pic_url = {{ cake }};
+        setFillImage()
+    }
 </script>
 {% endblock %}
