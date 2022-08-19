@@ -836,8 +836,6 @@ const fonts = [
   "썬플라워",
 ];
 
-const step5_font_selector = document.getElementById("board_font_familly_selector");
-
 const font_selector = document.getElementById("font_familly_selector");
 //font <option>태그로 HTML에 추가
 fonts.forEach(function (font) {
@@ -850,8 +848,6 @@ fonts.forEach(function (font) {
   font_selector.style.fontFamily = "쥬아";
   font_selector.appendChild(option);
 
-  step5_font_selector.style.fontFamily ="쥬아";
-  step5_font_selector.appendChild(option);
 });
 
 font_selector.onchange = function () {
@@ -1138,6 +1134,19 @@ step5_font_color_control.oninput = function(){
   step5WriteText();
 };
 
+const step5_font_selector = document.getElementById("board_font_familly_selector");
+
+fonts.forEach(function (font) {
+  new FontFaceObserver(font);
+  let option = document.createElement("option");
+  option.innerHTML = font;
+  option.value = font;
+  option.style.fontFamily = font;
+
+  step5_font_selector.style.fontFamily ="쥬아";
+  step5_font_selector.appendChild(option);
+});
+
 step5_font_selector.onchange = function () {
   step5_font_selector.style.fontFamily = this.value;
 
@@ -1275,11 +1284,9 @@ function step5TextCurve() {
         }
       }
     });
-
     activeCanvas.add(text);
     activeCanvas.setActiveObject(text);
   });
-
   activeCanvas.on("path:created", function (opt) {
       activeCanvas.remove(opt.path);
   });
