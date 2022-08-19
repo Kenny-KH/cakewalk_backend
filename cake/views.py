@@ -13,6 +13,12 @@ from django.contrib import messages
 def make(request):
     return render(request, 'make.html')
 
+def make2(request,id):
+    cake = get_object_or_404(StoreCake, pk=id)
+    
+    
+    return render(request, 'make2.html', {"cake" : cake.image.url})
+
 @login_required
 def order(request , whatCake, cake_id):
     
