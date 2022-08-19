@@ -54,23 +54,41 @@
         <span class="optionNumber">1</span>
         <div class="optionTextWrap">
           <span class="optionText">가게 선택하기</span>
-          <p class="optionSubText">케이크를 주문할 가게를 선택해주세요.</p>
+          <p class="optionSubText">케이크를 픽업할 가게를 선택해주세요.</p>
         </div>
       </div>
       <form action="{% url 'order' whatCake cake_id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {% if whatCake == "store" %}
       <div class="all">
         <div class="map-wrap">
-          <input class="search-input" type="text" name="address" />
+          <input class="search-input" type="text" name="address" placeholder="{{store.address}}" value="{{store.address}}"/>
           <div id="map"></div>
         </div>
-        <div class="right">
+
+        <div class="right"> 
+           <div class="storenotice">{{store.notice}}</div>
           <div class="store">
-            <div class="storenotice">가게공지</div>
             <div class="storetext">
               <p class="notice-text"></p>
             </div>
           </div>
+
+          {% else %}
+          <div class="all">
+            <div class="map-wrap">
+              <input class="search-input" type="text" name="address" />
+              <div id="map"></div>
+            </div>
+    
+            <div class="right"> 
+               <div class="storenotice">공지사항</div>
+              <div class="store">
+                <div class="storetext">
+                  <p class="notice-text"></p>
+                </div>
+              </div>
+          {% endif %}
           <div class="storeclose">
             <p class="mystore">나와 가까운 가게</p>
             <input type="hidden" value="" name="store" id="store">
@@ -110,7 +128,21 @@
                   </div>
                 </div>
               </article>
+              <script>
+                const oneClickAction = (document.getElementById(
+                  "{{store.id}}"
+                ).onclick = function () {
+                  let searchInput = document.querySelector(".search-input");
+                  let notice = document.querySelector(".notice-text");
+                  let store = document.querySelector("#store")
 
+                  console.log(searchInput);
+                  searchInput.value = "{{store.address}}";
+                  notice.innerHTML = "{{store.notice}}";
+                  store.value = "{{store.id}}";
+                  console.log(store.value);
+                });
+              </script>
               {% else %}
 <!-- 가게정보 여기까지 -->
               {% for store in stores %}
@@ -195,15 +227,15 @@
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
-          <!--div class="days">
-                    <div class="day">일</div>
-                    <div class="day">월</div>
-                    <div class="day">화</div>
-                    <div class="day">수</div>
-                    <div class="day">목</div>
-                    <div class="day">금</div>
-                    <div class="day">토</div>
-                    </div class="days"-->
+          <div class="days">
+          <div class="day">일</div>
+          <div class="day">월</div>
+          <div class="day">화</div>
+          <div class="day">수</div>
+          <div class="day">목</div>
+          <div class="day">금</div>
+          <div class="day">토</div>
+          </div>
           <div class="dates"></div>
         </div>
 

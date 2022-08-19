@@ -1,0 +1,150 @@
+.title {
+  font-size: 32px;
+  font-weight: 550;
+  margin-top: 175px;
+}
+
+.text {
+  padding-top: 12px;
+}
+
+.day-button {
+  display: flex;
+  padding-top: 50px;
+}
+
+.a {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 80px;
+  font-size: 17px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.b {
+  background-color: white;
+  float: left;
+  border: none;
+  width: 90px;
+  font-size: 17px;
+  margin-left: 9px;
+}
+
+a:link {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.last-talk {
+  font-size: 15px;
+  margin-top: 15px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 935px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.img-cake {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.name-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  margin-left: 35px;
+  margin-top: 10px;
+  padding-top: 10px;
+  width: 530px;
+  height: 60px;
+  border-right: 1px solid #d9d9d9;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  color: #808080;
+  font-size: 13px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.total-first {
+  display: flex;
+  width: 881px;
+  height: 87px;
+  margin-top: 50px;
+  background: #fef4f7;
+  border-radius: 15px;
+  margin-left: 37px;
+}
+
+.total-second {
+  display: flex;
+  width: 881px;
+  height: 87px;
+  margin-top: 20px;
+  background: #fef4f7;
+  border-radius: 15px;
+  margin-left: 37px;
+}
+
+.page-number {
+  margin-top: 60px;
+}
+
+a:link {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #767676;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.c {
+  background-color: white;
+  float: left;
+  border: none;
+  color: #767676;
+  margin: 10px;
+}
+
+.line-bottom {
+  margin-top: 46px;
+  width: 935px;
+}

@@ -14,8 +14,8 @@
     src="{{request.user.profile_image}}"
     alt="human_profile"
   />
-  <span class="use-name">{{user.name}} 님</span>
-  <hr class="use-name-under" />
+  <span class="user-name">{{user.name}} 님</span>
+  <hr class="user-name-under" />
   <span class="my-walk" onclick="location.href='{% url 'user_mypage' %}'"
     >MY WALK</span
   >
@@ -27,7 +27,7 @@
       도안 관리
     </li>
     <li class="nav-li" onclick="location.href='{% url 'user_mypage4' %}'">
-      작성 후기
+      작성 리뷰
     </li>
     <li class="nav-li" onclick="location.href='{% url 'user_mypage5' %}'">
       1:1 문의

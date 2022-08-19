@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+}
+
+.total {
+  position: relative;
+  width: calc(100% - 269px);
+  height: calc(100vh - 60px);
+  margin-left: 269px;
+  padding-bottom: 79px;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 46px;
+  margin-top: 108px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+/* 달력 시작 */
+#calendar {
+  width: 274px;
+  margin-right: 44px;
+  padding-top: 13px;
+}
+
+.month-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.month {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 15px;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cur {
+  border-top: 1px solid #d9d9d9;
+}
+
+.day, .week-day {
+  width: calc(100% / 7);
+}
+
+.day:nth-child(7n), .day:nth-child(7n+1) {
+    color: #8a898e;
+}
+
+.dates .day {
+  height: 51px;
+}
+
+.day-num {
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.today {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #c4c4c6;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/* .count {
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  background-color: #ffc7a7;
+  margin: 0 auto;
+} */
+
+.select-rest-wrap {
+    padding-top: 25px;
+}
+
+.rest-wrap {
+    display: flex;
+}
+
+#select-rest-day {
+    width: 80px;
+    height: 26px;
+}
+
+.order-detail-wrap {
+  width: 503px;
+  padding-top: 16px;
+  border: 1px solid black;
+}
+
+.date {
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+}
+/* 달력 끝 */
+
+.options-wrap {
+  padding-left: 47px;
+  padding-bottom: 67px;
+}
+
+.option-title {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.options {
+  width: 860px;
+  /* height: 618px; */
+  margin-top: 18px;
+  margin-bottom: 42px;
+  border-top: 1px solid #767676;
+  border-bottom: 1px solid #767676;
+}
+
+.option-wrap {
+  display: flex;
+  border-bottom: 1px solid rgb(118, 118, 118, 0.3);
+}
+
+.option-wrap:nth-child(2) {
+  height: 112px;
+  /* border-bottom: 1px solid rgb(118, 118, 118, 0.3); */
+}
+
+.option-name {
+  width: 214px;
+  padding-top: 28px;
+  padding-left: 19px;
+}
+
+.notice {
+  resize: none;
+  width: 631px;
+  height: 94px;
+  padding: 3px 13px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  border: none;
+}
+
+.option-detail-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.cake-detail-wrap:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-cake-wrap {
+  display: flex;
+  align-items: center;
+  height: 278px;
+  border-bottom: 1px solid rgb(118, 118, 118, 0.3);
+}
+
+.update-cake-preview {
+  width: 260px;
+  height: 260px;
+}
+
+.update-cake {
+  width: 260px;
+  height: 260px;
+  background-color: tomato;
+  margin-right: 11px;
+}
+
+.update-cake-info {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  margin-left: 11px;
+}
+
+.cake-name-input {
+  width: 100%;
+  height: 33px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  border: none;
+}
+
+.cake-name-input,
+.cake-notice {
+  padding: 7px;
+}
+
+.cake-name-input:focus,
+.cake-notice:focus,
+notice {
+  outline: none;
+}
+
+.update-cake-price {
+  display: flex;
+  width: 100%;
+  height: 81px;
+  margin: 9px 0;
+  border: 1px solid black;
+}
+
+.update-cake-price span {
+  /* float: left; */
+  margin: 5px 8px;
+}
+
+.input-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 296px;
+  /* float: right; */
+}
+
+.size-text {
+  width: 32px;
+}
+
+.size {
+  margin-left: 0;
+  margin-right: 6px;
+}
+
+.size:nth-child(even) {
+  margin-left: 7px;
+}
+
+.price-input {
+  width: 93px;
+  height: 30px;
+  background: #f4f4f4;
+  border: none;
+}
+
+.cake-notice {
+  width: 100%;
+  height: 128px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+}
+
+.cake-list {
+  width: 645px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-top: 9px;
+  margin-bottom: 0;
+}
+
+.cake-photo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #767676;
+  margin-right: 9px;
+  margin-bottom: 9px;
+}
+
+.cake-photo:nth-child(6n) {
+  margin-right: 0px;
+}
+
+.cake-photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.fileForm {
+  display: flex;
+}
+
+.plus-btn {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+#plus-icon {
+  color: #7b7b7b;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#add {
+  visibility: hidden;
+  width: 0px;
+}
+
+.update-btn {
+  display: block;
+  margin: 0 auto;
+  width: 103px;
+  height: 30px;
+  background-color: #ffffff;
+  padding: 4px 20px;
+  border: 1px solid #000000;
+}
