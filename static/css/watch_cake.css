@@ -102,10 +102,11 @@
   margin: 0 26px 26px 0px;
   transition: all 0.1s linear;
   cursor: pointer;
+  margin-bottom: 60px;
 }
 
 .cp:hover {
-  transform: scale( 1.1, 1.1)
+  transform: scale(1.1, 1.1);
 }
 
 .cp:nth-child(4n) {
@@ -117,14 +118,13 @@
   height: 100%;
 }
 
-
 /*모달창 파트*/
 
 .modal {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 40%;
   height: 100%;
   display: none;
 
@@ -286,4 +286,3 @@
 .hide {
   visibility: hidden;
 }
-
