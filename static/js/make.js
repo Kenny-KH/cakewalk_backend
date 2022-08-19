@@ -1,10 +1,13 @@
 /*--------------------------------- Canvas --------------------------------- */
 const zindex_info ={
-
+  cakesheet : 0,
+  support : -100,
+  lttering : 100,
 };
 
 const canvas = new fabric.Canvas('c');
 const canvas2 = new fabric.Canvas('c2');
+const save_canvas = document.getElementById("save_canvas");
 
 const workBoard = document.querySelector(".work_board");
 let canvas_width = workBoard.clientWidth - 48;
@@ -29,6 +32,7 @@ let canvas_object_info ={
 
   object : [],
 }
+
 let side_canvas_object_info = {
   sidesheet : null,
   side_cake_color : "#f8bbd0", 
@@ -36,6 +40,11 @@ let side_canvas_object_info = {
 }
 
 let activeCanvas = canvas;
+
+initset();
+function initset(){
+  save_canvas.src = canvas2.toDataURL();
+}
 
 canvas.setDimensions({ width: `${canvas_width}`, height: `${canvas_height}` });
 canvas2.setDimensions({
@@ -46,6 +55,7 @@ canvas2.setDimensions({
 window.addEventListener("resize", () => {
     resizeCanvasSize();
 });
+
 /*--------------------------------- STEP0 객체 파일 받아서 뿌리기 --------------------------------- */
 
 
@@ -64,8 +74,6 @@ shape_btns.forEach((ele) => {
 });
 
 function drawShape() {
-  canvas.clear();
-  canvas2.clear();
   if (canvas_object_info.active_shape == null) {
     return;
   } 
@@ -276,18 +284,24 @@ const switch_btn = document.querySelector(".board_switch_btn");
 const work_board = document.querySelector(".work_board");
 const second_work_board = document.querySelector(".second_work_board");
 
+let pre_active_canvas_img = canvas.toDataURL();
+
 switch_btn.addEventListener("click", () => {
   work_board.classList.toggle("active_board");
   work_board.classList.toggle("unactive_board");
   second_work_board.classList.toggle("active_board");
   second_work_board.classList.toggle("unactive_board");
 
+  
   // 활성화 캔버스 스위치
   if (work_board.classList.contains("active_board")) {
     activeCanvas = canvas;
+    pre_active_canvas_img = canvas2.toDataURL();
   } else {
     activeCanvas = canvas2;
+    pre_active_canvas_img = canvas.toDataURL();
   }
+  save_canvas.src = pre_active_canvas_img;
 
   resizeCanvasSize();
 });
@@ -307,6 +321,9 @@ function resizeCanvasSize() {
     width: `${canvas2_width}`,
     height: `${canvas2_height}`,
   });
+
+  canvas.clear();
+  canvas2.clear();
 
   if (canvas_object_info.sheet_type == "shape") {
     drawShape();
@@ -1104,7 +1121,6 @@ let step5_cur_active_text_type = document.querySelector(".board_text_type_item_a
 
 step5_texttypes.forEach((element) => {
   element.addEventListener("click", () => {
-    console.log(step5_cur_active_text_type);
     step5_cur_active_text_type.classList.toggle("board_text_type_item_active", false);
     element.classList.toggle("board_text_type_item_active", true);
     step5_cur_active_text_type = element;
