@@ -158,6 +158,7 @@
   margin-left: auto;
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .hide {
@@ -171,7 +172,6 @@
 .modal-img {
   width: 450px;
   height: 450px;
-
   margin-top: -15%;
   margin-left: 22%;
   margin-bottom: 32px;
@@ -185,6 +185,7 @@
   background: #ffe8e8;
   border-radius: 50px;
   border: 0;
+  cursor: pointer;
 }
 
 .buttons {
@@ -213,6 +214,7 @@
   transform: translate(-900%, 150%);
   font-size: 70px;
   width: 30px;
+  cursor: pointer;
 }
 
 /*.previous2 {
@@ -230,6 +232,7 @@
   transform: translate(900%, 150%);
   font-size: 70px;
   width: 30px;
+  cursor: pointer;
 }
 
 .tag-wrap {
