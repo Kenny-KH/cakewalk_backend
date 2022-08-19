@@ -27,7 +27,7 @@ let canvas_object_info ={
   fill_pic_url : null, // 시트 채우기 그림  url
 
   active_shape : null, //케이크의 모양
-  mag : 1.0, //케이크의 크기
+  mag : 0.8, //케이크의 크기
   select_size : "2",
   sheet_type : "shape", //그림인지 모양인지
 
