@@ -207,7 +207,7 @@
   scrollbar-width: none; /* Firefox */
 }
 
-.lorem::-webkit-scrollbar {
+.Lorem::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
 }
 
