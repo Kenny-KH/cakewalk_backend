@@ -1,6 +1,6 @@
 from copyreg import add_extension
 from django.shortcuts import render, redirect, get_object_or_404
-from account.models import BsSignupDetail
+from account.models import BsSignupDetail, User
 from cake.models import Order
 from store.models import StoreCake
 from user.models import UserCake
@@ -9,11 +9,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
-@login_required
 def make(request):
     return render(request, 'make.html')
 
-@login_required
+def make2(request,id):
+    cake = get_object_or_404(StoreCake, pk=id)
+    
+    
+    return render(request, 'make2.html', {"cake" : cake.image.url})
+
 def order(request , whatCake, cake_id):
     
     if whatCake == "store":
@@ -25,9 +29,11 @@ def order(request , whatCake, cake_id):
     result = ""
     
     if request.method == 'POST':
+        user = get_object_or_404(User, pk=1)
         try:
             order = Order()
-            order.user = request.user
+            
+            order.user = get_object_or_404(User, pk=1)
             order.store = stores if whatCake == "store" \
                                     else get_object_or_404(BsSignupDetail, pk = request.POST['store'])
             order.cake = cake.image
@@ -99,7 +105,6 @@ def order(request):
         return render(request, 'order.html')
 """
 
-@login_required
 def payment(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     return render(request, 'payment.html', {"order" : order})
@@ -113,7 +118,7 @@ def watch_cake(request):
         status = "N"
     stores = BsSignupDetail.objects.all()
     if code == "0":
-        cakes = StoreCake.objects.all()
+        cakes = StoreCake.objects.all().order_by('-id')
     else:
         cakes = StoreCake.objects.filter(code=code)
     return render(request, 'watch_cake.html', {"cakes" : cakes, "code" : code})

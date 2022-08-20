@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <title>케이크 디자인</title>
+    <script>
+        console.log("{{cake}}")
+    </script>
+
+    <!-- font 모음 CSS -->
+    <link rel="stylesheet" href="{% static 'css/make_font.css' %}">
+
+    <!-- 기본 stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/make.css' %}">
+
+    <!-- ajax CND -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- font Awesome CND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
+
+    <!-- fabric js CND -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    
+    <!-- font face observer CND-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.js"></script>
+
+    <script src="{% static 'js/make.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+    <main>
+        <div class="side_window">
+            <div class="toolbar">
+                <div class="toolbar_item back"><img src="{% static 'img/make/tool_back.png' %}" ></div>
+                <div class="toolbar_item forward"><img src="{% static 'img/make/tool_forward.png' %}" ></div>
+                <div class="toolbar_item prohibit"><i class="fa-solid fa-ban"></i></div>
+                <div class="toolbar_item numbering"><img src="{% static 'img/make/tool_number.png' %}"></div>
+                <div class="toolbar_item share"><img src="{% static 'img/make/tool_share.png' %}"></div>
+                <div class="toolbar_item temp_save"><img src="{% static 'img/make/tool_temp_save.png' %}"></div>
+                <div class="toolbar_item download"><img src="{% static 'img/make/tool_download.png' %}"></div>
+            </div>
+            <div class="main_toolbar">
+                <div class="order">
+                    <div class="order_num">
+                        <div class="order_num_item order_num_item_active" data-order='1'>1</div>
+                        <div class="order_num_item " data-order='2'>2</div>
+                        <div class="order_num_item " data-order='3'>3</div>
+                        <div class="order_num_item " data-order='4'>4</div>
+                        <div class="order_num_item " data-order='5'>5</div>
+                    </div>
+                    <div class="order_title">
+                        시트 모양 정하기
+                    </div>
+                </div>
+                <div class="step_box step1 active_step_box" data-step="1">
+                    <div class="caution">
+                        <div class="caution_img"><img src="{% static 'img/make/caution.png' %}"></div>
+                        <div class="caution_text"> 사이즈는 가게마다 다를 수 있습니다</div>
+                    </div>
+                    <div class="select_size">
+                        <div class="select_size_title">사이즈</div>
+                        <div class="size_items">
+                            <div class="size_item"><input type="radio" name="size" data-size="1"> 1호</div>
+                            <div class="size_item"><input type="radio" name="size" data-size="2" checked> 2호</div>
+                            <div class="size_item"><input type="radio" name="size" data-size="3"> 3호</div>    
+                        </div>
+                    </div>
+                    <div class="select_shape">
+                        <div class="shape_switch">
+                            <div class="shape_switch_item shape_switch_item_active">기본 모양</div>
+                            <div class="shape_switch_item">사진 첨부</div>
+                            <div class="select_box"></div>
+                        </div>
+                        <div class="shape">
+                            <div id="click1" class="shape_item" data-shape="circle">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_circle.png' %}"> 
+                            </div>
+                            <div class="shape_item" data-shape="rectangle">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_Rectangle.png' %}">
+                            </div>    
+                            <div class="shape_item" data-shape="triangle">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_triangle.png' %}">
+                            </div>    
+                            <div class="shape_item" data-shape="star">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_star.png' %}">
+                            </div>    
+                            <div class="shape_item" data-shape="heart">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_heart.png' %}">
+                            </div>    
+                            <div class="shape_item" data-shape="dubble">
+                                <img class="shape_item_inner" src="{% static 'img/make/shape_dubble.png' %}">
+                            </div>        
+                        </div>
+                        <div class="picture unactive">
+                            <div class="caution" style="margin-top: 1rem;">
+                                <div class="caution_img"><img src="{% static 'img/make/caution.png' %}"></div>
+                                <div class="caution_text"> 가져온 사진의 사이즈는 워크보드에서 마우스로 직접 크기와 위치를 조절 할 수 있습니다</div>
+                            </div>
+                            <input class="real_upload" type="file" accept="image/*" required multiple style="display: none;">
+                            <div class="upload" ><p>사진 파일 가져오기</p></div>
+                        </div>
+                    </div>
+                    <button class="order_btn">
+                        주문하기
+                    </button>
+                </div>
+                <div class="step_box step2 unactive" data-step="2">
+                    <div class="fill">
+                        <div class="fill_title_text">채우기 선택</div>
+                        <select class="fill_select">
+                            <option class="fill_select_item" data-type="single_color" selected>단색 채우기</option>
+                            <option class="fill_select_item" data-type="gradient">그라데이션 채우기</option>
+                            <option class="fill_select_item" data-type="image">그림 채우기</option>
+                        </select>
+                    </div>
+                    
+                    <div class="fill_item fill_single_color" data-type="single_color">
+                        
+                        <div class="fill_single_color_item">
+                            <div class="fill_title_text">색 선택(윗면)</div>
+                            <input class="up_color_selector" type="color" name="my_color" value="#f8bbd0">
+                        </div>
+                        <div class="fill_single_color_item">
+                            <div class="fill_title_text">색 선택(옆면)</div>
+                            <input class="side_color_selector" type="color" name="my_color" value="#f8bbd0">
+                        </div>
+                    </div>
+
+                    <div class="fill_item fill_gradient unactive" data-type="gradient">
+                        <div class="gradient_select_canvas">
+                            <div class="gradient_select_canvas_item"><input name="gradient_select_canvas" type="radio" data-canvas="up" checked>윗면</div>
+                            <div class="gradient_select_canvas_item"><input name="gradient_select_canvas" type="radio" data-canvas="side">옆면</div>
+                        </div>
+                        <div class="set_start_point">
+                            시작점
+                            <div class="gradient_set_item">
+                                X좌표 <input class="gradient_start_posX" type="range" value="0">
+                            </div>
+                            <div class="gradient_set_item">
+                                Y좌표 <input class="gradient_start_posY" type="range" value="0">
+                            </div>
+                            <div class="gradient_set_item">
+                                색상 <input class="gradient_start_color" type="color" value="#FFFFFF">
+                            </div>                       
+                        </div>
+                        <div class="set_end_point">
+                            끝점
+                            <div class="gradient_set_item">
+                                X좌표 <input class="gradient_end_posX" type="range" value="100">
+                            </div>
+                            <div class="gradient_set_item">
+                                Y좌표 <input class="gradient_end_posY" type="range" value="100">
+                            </div>
+                            <div class="gradient_set_item">
+                                색상 <input class="gradient_end_color" type="color" value="#f8bbd0">
+                            </div> 
+                        </div>
+
+                    </div>
+                    <div class="fill_item fill_img unactive"  data-type="image">
+                        <div class="fill_img_selector">
+                            <input class="fill_real_upload" type="file" accept="image/*" required multiple style="display: none;">
+                            <div class="fill_upload" ><p>사진 파일 가져오기</p></div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            사진 사이즈 <input id="fill_img_scale" type="range" style="margin-left: 1rem;">
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            사진 가로 위치 <input id="fill_img_offsetX" type="range"  style="margin-left: 1rem;">
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            사진 세로 위치 <input id="fill_img_offsetY" type="range"  style="margin-left: 1rem;">
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            사진 각도 <input id="fill_img_angle" type="range" value=0 style="margin-left: 1rem;">
+                        </div>
+                    </div>
+                    <button class="order_btn">
+                        주문하기
+                    </but>
+                </div>
+                <div class="step_box step3 unactive" data-step="3">
+                    <div class="step3_item text_type">
+                        <div class="text_type_item text_type_item_active text_mouse" data-type="mouse">
+                            <i class="fa-solid fa-arrow-pointer"></i>
+                        </div>
+                        <div class="text_type_item box_text" data-type="box">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <div class="text_type_item curve_text" data-type="curve">
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </div>
+                    <div class="step3_item text_size">
+                        글자 크기
+                        <input type="number" class="font_size_control" value=18 >
+                    </div>
+                    <div class="step3_item text_color">
+                        글자 색
+                        <input type="color" class="font_color_control" value='black'>
+                    </div>
+                    <div class="step3_item text_familly">
+                        글꼴
+                        <select id="font_familly_selector" style="width: 80%;"></select>
+                    </div>
+                    <div class="step3_item text_content">
+                        텍스트 입력
+                        <textarea class="text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
+                    </div>
+
+                    <div class="step3_item create_text_btn unactive">
+                        텍스트 생성하기
+                    </div>
+                    <button class="order_btn">
+                        주문하기
+                    </bu>
+                </div>
+                <div class="step_box step4 unactive" data-step="4">    
+                    <div class="deco_image">
+                        이미지 가져오기
+                        <div class="caution" style="margin-top: 1rem;">
+                            <div class="caution_img"><img src="{% static 'img/make/caution.png' %}"></div>
+                            <div class="caution_text"> 가져온 사진의 사이즈는 워크보드에서 마우스로 직접 크기와 위치를 조절 할 수 있습니다</div>
+                        </div>
+
+                        <div class="deco_imgs_box">
+                            <input class="deco_real_upload" type="file" accept="image/*" required multiple style="display: none;">
+                            <div class="deco_upload" ><p>+</p></div>
+                        </div>
+                    </div>
+                    
+                    <button class="order_btn">
+                        주문하기
+                    </button>
+                </div>
+                <div class="step_box step5 unactive" data-step="5">
+                    <div class="create_support">판 생성하기</div>
+                    <div class="step5_item board_text_type">
+                        <div class="board_text_type_item board_text_type_item_active board_text_mouse" data-type="mouse">
+                            <i class="fa-solid fa-arrow-pointer"></i>
+                        </div>
+                        <div class="board_text_type_item board_box_text" data-type="box">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <div class="board_text_type_item board_curve_text" data-type="curve">
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </div>
+                    <div class="step5_item board_text_size">
+                        글자 크기
+                        <input type="number" class="board_font_size_control" value=18 >
+                    </div>
+                    <div class="step5_item board_text_color">
+                        글자 색
+                        <input type="color" class="board_font_color_control" value='black'>
+                    </div>
+                    <div class="step5_item board_text_familly">
+                        글꼴
+                        <select id="board_font_familly_selector" style="width: 80%;"></select>
+                    </div>
+                    <div class="step5_item board_text_content">
+                        텍스트 입력
+                        <textarea class="board_text_content_item" style="width: 100%;">생일 축하 합니다!</textarea>
+                    </div>
+                    
+                    <div class="step5_item step5_create_text_btn unactive">
+                        텍스트 생성하기
+                    </div>
+
+                    <button class="order_btn">
+                        주문하기
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="work_board_wrapper">
+            <div class="work_board active_board">
+                <h3>&lt;윗면&gt;</h3>
+                <canvas id="c" ></canvas>
+            </div>
+            <div class="memo_board">
+                <h3 style="margin-bottom: 1rem;">&lt;memo&gt;</h3>
+                <list class="memo_list">
+                    <div class="memo_item memo_size"><li>사이즈 : 2호</li></div>
+                </list>
+                <textarea class="memo_input" placeholder="메모 작성하기" ></textarea>
+                
+            </div>
+            <div class="board_switch_btn">
+                <i class="fa-solid fa-arrows-rotate board_switch_btn_text"></i>
+            </div>
+            <!-- 이부분 고쳐야해요 -->
+
+            <div class="side_work_board">
+                <div class="block">
+                    <img id="save_canvas" src="#" width="100%" height="70%">
+                </div>
+            </div>
+
+            
+            <div class="second_work_board unactive_board">
+                <h3>&lt;옆면&gt;</h3>
+                <canvas id="c2"></canvas>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block javascript %}
+<script>
+    const order_btns = document.querySelectorAll('.order_btn');
+    order_btns.forEach(element => {
+        element.addEventListener('click', ()=>{
+            let memo_data = [];
+            document.querySelectorAll('.memo_item li').forEach(element => {
+                memo_data.push(element.innerText); 
+            });
+
+            let cake_design_data ={
+                canvas_data : canvas_object_info,
+                side_canvas_data : side_canvas_object_info,
+                memo_data : memo_data,
+                cake_img : canvas.toDataURL(),
+            }
+
+            const data = JSON.stringify(cake_design_data);
+
+            $.ajax({
+                type:'POST',
+                url: "{% url 'user_cake' %}",
+                data: data,
+                headers:{
+                    'X-CSRFTOKEN' : '{{ csrf_token }}'
+                },
+                success:function(json){
+                    location.href = `/cake/order/user/${json.id}`;
+                    console.log("data pass success", json);
+                },
+                error : function(xhr, errmsg, err){
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        })
+    });
+</script>
+<script>
+    window.onload = ()=>{
+        document.getElementById('click1').click();
+        canvas_object_info.fill_pic_url = "{{cake}}";
+        setFillImage();
+    }
+</script>
+{% endblock %}
